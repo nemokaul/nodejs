@@ -2178,6 +2178,23 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
       .replace(/'/g, "&#039;");
   }
 
+  function formatMarkdown(str) {
+    if (!str) return "";
+    let s = escapeHtml(str);
+    const codeBlocks = [];
+    s = s.replace(/`([^`]+)`/g, (_match, code) => {
+      const idx = codeBlocks.length;
+      codeBlocks.push(`<code class="ch-md-code">${code}</code>`);
+      return `__CODE_BLOCK_${idx}__`;
+    });
+    s = s.replace(/\*\*(.+?)\*\*/g, '<strong class="ch-md-bold">$1</strong>');
+    s = s.replace(/__(.+?)__/g, '<strong class="ch-md-bold">$1</strong>');
+    s = s.replace(/(^|[^\*])\*([^\*]+)\*([^\*]|$)/g, '$1<em class="ch-md-italic">$2</em>$3');
+    s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="ch-md-link">$1 ↗</a>');
+    s = s.replace(/__CODE_BLOCK_(\d+)__/g, (_match, idx) => codeBlocks[Number(idx)]);
+    return s;
+  }
+
   function openChapterSummaryModal(chId) {
     const modal = document.getElementById("chapter-summary-modal");
     if (!modal || !window.COURSE_DATA) return;
@@ -2222,7 +2239,7 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
           </svg>
           <span>Executive Architectural Summary</span>
         </div>
-        <p class="ch-box-exec-content">${sum.executive_summary}</p>
+        <p class="ch-box-exec-content">${formatMarkdown(sum.executive_summary)}</p>
       </div>
 
       <!-- 2. Mental Model -->
@@ -2231,7 +2248,7 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
           <span>🧠</span>
           <span>Under-The-Hood Mental Model</span>
         </div>
-        <div class="ch-box-mental-content">${sum.mental_model}</div>
+        <div class="ch-box-mental-content">${escapeHtml(sum.mental_model)}</div>
       </div>
 
       <!-- 3. Key Concepts Badges (Clickable Chips) -->
@@ -2262,7 +2279,7 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
           <span>Crucial Architectural Takeaways</span>
         </div>
         <ul class="ch-takeaways-list">
-          ${(sum.key_takeaways || []).map(t => `<li class="ch-takeaways-item">${t}</li>`).join("")}
+          ${(sum.key_takeaways || []).map(t => `<li class="ch-takeaways-item">${formatMarkdown(t)}</li>`).join("")}
         </ul>
       </div>
 
@@ -2273,7 +2290,7 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
           <span>Common Production Pitfalls &amp; Interview Gotchas</span>
         </div>
         <ul class="ch-pitfalls-list">
-          ${(sum.interview_pitfalls || []).map(p => `<li class="ch-pitfalls-item">${p}</li>`).join("")}
+          ${(sum.interview_pitfalls || []).map(p => `<li class="ch-pitfalls-item">${formatMarkdown(p)}</li>`).join("")}
         </ul>
       </div>
 
@@ -2319,7 +2336,7 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
                         <span>📖</span>
                         <span>Core Definition &amp; Architectural Role</span>
                       </div>
-                      <p style="font-size: 0.75rem; line-height: 1.6; margin: 0;">${escapeHtml(def)}</p>
+                      <p style="font-size: 0.75rem; line-height: 1.6; margin: 0;">${formatMarkdown(def)}</p>
                     </div>
                   ` : ''}
 
@@ -2352,7 +2369,7 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
                         <span>⚠️</span>
                         <span>Common Production Pitfall &amp; Gotcha</span>
                       </div>
-                      <p style="font-size: 0.75rem; line-height: 1.55; margin: 0; color: #656d76;">${escapeHtml(pitfalls)}</p>
+                      <p style="font-size: 0.75rem; line-height: 1.55; margin: 0; color: #656d76;">${formatMarkdown(pitfalls)}</p>
                     </div>
                   ` : ''}
 

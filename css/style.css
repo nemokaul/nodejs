@@ -1509,6 +1509,7 @@ button * {
   font-size: 0.75rem !important;
   color: #656d76 !important;
   margin-top: 0.125rem !important;
+  flex-wrap: wrap !important;
 }
 
 .dark .ch-summary-header-meta {
@@ -1519,10 +1520,14 @@ button * {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
   font-weight: 600 !important;
   color: #0969da !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
 .dark .ch-summary-section-badge {
   color: #58a6ff !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
 .ch-summary-close-btn {
@@ -1664,7 +1669,8 @@ button * {
   padding: 0.625rem 0.875rem !important;
   border-radius: 0.5rem !important;
   border: 1px solid rgba(130, 80, 223, 0.15) !important;
-  white-space: pre-line !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
 }
 
 .dark .ch-box-mental-content {
@@ -2089,5 +2095,46 @@ button * {
   color: #58a6ff !important;
   border-color: rgba(56, 139, 253, 0.4) !important;
 }
+
+/* Rendered Markdown inside Summary Notes Modal */
+.ch-md-bold {
+  font-weight: 700 !important;
+  color: #0969da !important;
+}
+
+.dark .ch-md-bold {
+  color: #58a6ff !important;
+}
+
+.ch-md-code {
+  padding: 0.125rem 0.375rem !important;
+  border-radius: 0.25rem !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 0.85em !important;
+  background-color: rgba(120, 120, 120, 0.12) !important;
+  border: 1px solid rgba(120, 120, 120, 0.22) !important;
+  color: #1f2328 !important;
+}
+
+.dark .ch-md-code {
+  background-color: rgba(110, 118, 129, 0.2) !important;
+  border-color: rgba(110, 118, 129, 0.32) !important;
+  color: #f0f6fc !important;
+}
+
+.ch-md-link {
+  color: #0969da !important;
+  text-decoration: underline !important;
+  font-weight: 600 !important;
+}
+
+.dark .ch-md-link {
+  color: #58a6ff !important;
+}
+
+.ch-md-italic {
+  font-style: italic !important;
+}
+
 
 
