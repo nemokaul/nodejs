@@ -1,0 +1,802 @@
+{
+  "deckId": "section-21",
+  "title": "Section 21: XSS, CSRF, ReDoS & Denial of Service Defense Review Deck",
+  "chapterId": "all",
+  "sectionId": "section-21",
+  "description": "Complete section deck covering all core architectural and runtime concepts across Section 21.",
+  "totalCards": 24,
+  "cards": [
+    {
+      "id": "mcq-21-001-01",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: libuv Event Loop Architecture",
+      "category": "Node Internals",
+      "difficulty": "Advanced",
+      "question": "Which of the following describes the correct order of phases in a single tick of the libuv event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Poll -> Timers -> Close -> Check -> Pending I/O",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Timers -> Pending Callbacks -> Idle/Prepare -> Poll -> Check -> Close Callbacks",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Worker Pool -> Network IO -> Microtasks -> Timers -> Cleanup",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Check -> Poll -> Timers -> Pending Callbacks -> Close Callbacks",
+          "correct": false
+        }
+      ],
+      "explanation": "Each loop iteration walks through: 1. Timers (setTimeout/setInterval), 2. Pending Callbacks (deferred OS I/O), 3. Idle/Prepare (internal), 4. Poll (retrieve new I/O events, blocking if queue empty), 5. Check (setImmediate), 6. Close Callbacks (socket.on('close')).",
+      "codeSnippet": "// Phase demonstration:\nsetTimeout(() => console.log('Timer phase'), 0);\nsetImmediate(() => console.log('Check phase'));\n// Within I/O cycle, check phase (setImmediate) is always called before timer",
+      "pitfall": "Assuming setImmediate and setTimeout(fn, 0) execute in a deterministic order when called from main module top-level scope (subject to process scheduling jitter).",
+      "citation": "libuv Official Architecture Documentation: Loop Iteration Phases"
+    },
+    {
+      "id": "mcq-21-001-02",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: Node.js Buffer Allocation & Pool Mechanics",
+      "category": "Memory & Buffers",
+      "difficulty": "Intermediate",
+      "question": "Why is `Buffer.allocUnsafe(size)` faster than `Buffer.alloc(size)`, and what critical security vulnerability does it introduce if uninitialized?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It uses hardware encryption; it causes memory corruption if freed twice.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It skips zero-filling memory, potentially exposing sensitive lingering process memory (keys, passwords, tokens) if transmitted directly.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It executes on the GPU; it blocks the main thread during V8 compilation.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It bypasses V8 heap limits, risking instant kernel segmentation faults.",
+          "correct": false
+        }
+      ],
+      "explanation": "Buffer.allocUnsafe allocates memory from Node's internal 8KB pool without zero-initializing bytes. If written directly to a network stream without fully overwriting, historical residual memory is leaked to clients.",
+      "codeSnippet": "// Safe allocation (zero-filled):\nconst safeBuf = Buffer.alloc(1024);\n// Fast allocation (must be completely overwritten before sending!):\nconst fastBuf = Buffer.allocUnsafe(1024);\nfastBuf.fill(0); // Zero out or write complete payload",
+      "pitfall": "Sending Buffer.allocUnsafe directly over an HTTP response or socket leaks memory artifacts from other users or requests.",
+      "citation": "Node.js API Reference: Buffer.allocUnsafe Security Considerations"
+    },
+    {
+      "id": "mcq-21-001-03",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: Backpressure in Stream Pipelines",
+      "category": "Streams & I/O",
+      "difficulty": "Advanced",
+      "question": "What signal does `writable.write(chunk)` return to indicate that the internal stream buffer exceeds `highWaterMark`, and how must producers respond?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Throws an Error('BufferFull'); producer must catch and retry.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Returns `false`; the producer must pause writing until the writable stream emits the `'drain'` event.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Returns `null`; the producer should spawn an additional worker thread.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Returns an unhandled Promise rejection to the libuv threadpool.",
+          "correct": false
+        }
+      ],
+      "explanation": "When writable.write(chunk) returns false, the buffer has reached its highWaterMark limit. Producers must pause writing. Once the underlying system drains the buffer, a 'drain' event fires, signaling it is safe to resume.",
+      "codeSnippet": "function writeData(writer, data) {\n  let i = data.length;\n  function write() {\n    let ok = true;\n    do {\n      i--;\n      if (i === 0) writer.write(data[i]);\n      else ok = writer.write(data[i]);\n    } while (i > 0 && ok);\n    if (i > 0) writer.once('drain', write);\n  }\n  write();\n}",
+      "pitfall": "Ignoring `write() === false` causes memory consumption to balloon as unbound chunks accumulate in RAM, triggering process crash with OOM.",
+      "citation": "Node.js Stream API Reference: Backpressure in Streams"
+    },
+    {
+      "id": "mcq-21-001-04",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: Worker Threads vs Cluster Module",
+      "category": "Concurrency & Scale",
+      "difficulty": "Intermediate",
+      "question": "What is the primary difference between Node's `cluster` module and `worker_threads` module?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`cluster` runs on Windows only; `worker_threads` runs on Linux.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`cluster` forks multiple OS processes with isolated V8 instances sharing server sockets, while `worker_threads` runs multiple V8 isolates in separate threads sharing the same process memory (via SharedArrayBuffer).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "`worker_threads` does not support asynchronous I/O; `cluster` only supports TCP sockets.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "`cluster` is deprecated in favor of child_process.spawn.",
+          "correct": false
+        }
+      ],
+      "explanation": "Cluster creates separate OS child processes with independent memory heaps and event loops, coordinated via master IPC to distribute TCP connections. worker_threads creates distinct V8 isolates within the same OS process for CPU-intensive tasks with shared memory capabilities.",
+      "codeSnippet": "import { Worker, isMainThread, parentPort } from 'node:worker_threads';\nif (isMainThread) {\n  const worker = new Worker(import.meta.filename);\n  worker.on('message', msg => console.log('Result:', msg));\n} else {\n  parentPort.postMessage('CPU task complete');\n}",
+      "pitfall": "Using worker_threads for standard non-blocking I/O tasks adds overhead without speedup; worker threads are designed for CPU-intensive computation.",
+      "citation": "Node.js API Reference: worker_threads vs cluster"
+    },
+    {
+      "id": "mcq-21-001-05",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: AsyncLocalStorage & Context Propagation",
+      "category": "Tracing & Diagnostics",
+      "difficulty": "Advanced",
+      "question": "What problem does Node's `AsyncLocalStorage` solve in production web applications (Fastify, Express)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It stores user browser cookies in permanent disk storage.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It preserves request-scoped state (e.g. trace ID, user ID, transaction context) across asynchronous operations without parameter drilling.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It synchronizes variables between multiple Redis cache nodes.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It enables hot-reloading of backend source modules without restarting the process.",
+          "correct": false
+        }
+      ],
+      "explanation": "AsyncLocalStorage (built on async_hooks) tracks execution contexts across asynchronous boundaries (promises, callbacks, timers), allowing libraries and loggers to access request context anywhere without passing a request object down every function.",
+      "codeSnippet": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst als = new AsyncLocalStorage();\nfunction log(msg) {\n  const store = als.getStore();\n  console.log(`[${store?.traceId || 'no-trace'}] ${msg}`);\n}\nals.run({ traceId: 'req-abc-123' }, () => {\n  setTimeout(() => log('Database query completed'), 100);\n});",
+      "pitfall": "Leaking memory by storing large request/response objects in AsyncLocalStorage if long-lived background jobs retain references to stores.",
+      "citation": "Node.js API Reference: AsyncLocalStorage"
+    },
+    {
+      "id": "mcq-21-001-06",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: SQL Injection Prevention with Parameterized Queries",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "Why does string concatenation in SQL queries lead to SQL injection vulnerabilities, and how does parameterization prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "String concatenation crashes the query compiler; parameterization minifies the query.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Concatenation merges user input into the SQL command AST; parameterized queries send SQL structure and data values through separate database protocol phases.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Parameterization encodes all input data into Base64 before sending to the driver.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Concatenation forces database connections to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Parameterized queries (prepared statements) ensure the database driver sends the query template to be parsed and compiled first. User parameters are transmitted separately and treated strictly as literal data, never executable syntax.",
+      "codeSnippet": "// VULNERABLE:\n// const query = `SELECT * FROM users WHERE email = '${email}'`;\n// SECURE (Parameterized):\nconst query = 'SELECT id, email FROM users WHERE email = $1';\nconst result = await db.query(query, [email]);",
+      "pitfall": "Relying on manual regex string escaping or 'sanitization' functions instead of native parameterized driver queries.",
+      "citation": "OWASP Cheat Sheet Series: SQL Injection Prevention in Node.js"
+    },
+    {
+      "id": "mcq-21-001-07",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: ReDoS: Regular Expression Denial of Service",
+      "category": "Security & Performance",
+      "difficulty": "Advanced",
+      "question": "What regular expression characteristic triggers catastrophic backtracking leading to ReDoS in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Using unicode escape sequences in RegExp literals.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Nested quantifiers (e.g. `(a+)+`) or overlapping disjunctions that evaluate exponential combinations against non-matching input strings on the single-threaded event loop.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Compiling RegExp using `new RegExp()` rather than literal `/pattern/` syntax.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Exceeding 256 characters in a single regular expression pattern.",
+          "correct": false
+        }
+      ],
+      "explanation": "Catastrophic backtracking occurs when a non-deterministic finite automaton (NFA) engine tests exponential branch permutations on a long near-match string. Because Node.js runs on a single thread, ReDoS completely blocks the event loop for all users.",
+      "codeSnippet": "// Catastrophic pattern: O(2^N) complexity\nconst vulnerableRegex = /([a-zA-Z]+)*[0-9]/;\n// Matching 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa!' hangs the entire Node.js event loop\n// Remediation: Use linear-time engines (e.g. re2) or avoid overlapping quantifiers",
+      "pitfall": "Evaluating user-supplied regexes without validation or executing complex regexes without timeout boundaries on the main thread.",
+      "citation": "OWASP Regular Expression Denial of Service (ReDoS) Cheat Sheet"
+    },
+    {
+      "id": "mcq-21-001-08",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: Fastify vs Express Architecture & Performance",
+      "category": "Web Frameworks",
+      "difficulty": "Intermediate",
+      "question": "What core architectural designs allow Fastify to achieve significantly higher throughput than Express in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fastify is written in C++ and bypasses V8 entirely.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Fastify utilizes fast-json-stringify for JIT schema-based serialization, find-my-way radix tree routing, and a structured encapsulation plugin model.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Fastify uses cluster fork for each incoming HTTP connection automatically.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Fastify only supports HTTP/3 and WebSocket protocols.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fastify optimizes performance via: 1. `fast-json-stringify` which compiles JSON schemas into optimized string concatenation code, 2. `find-my-way` radix tree routing with O(k) lookup, 3. avvio plugin graph architecture.",
+      "codeSnippet": "import Fastify from 'fastify';\nconst fastify = Fastify({ logger: true });\nfastify.get('/users/:id', {\n  schema: {\n    response: {\n      200: {\n        type: 'object',\n        properties: { id: { type: 'string' }, name: { type: 'string' } }\n      }\n    }\n  }\n}, async (req, reply) => {\n  return { id: req.params.id, name: 'Alice' };\n});",
+      "pitfall": "Omitting output validation schemas in Fastify disables fast-json-stringify compilation, falling back to JSON.stringify and degrading throughput.",
+      "citation": "Fastify Documentation: Design Principles & Benchmarks"
+    },
+    {
+      "id": "mcq-21-002-01",
+      "concept": "Cross-Site Request Forgery (CSRF) & SameSite Defenses: libuv Event Loop Architecture",
+      "category": "Node Internals",
+      "difficulty": "Advanced",
+      "question": "Which of the following describes the correct order of phases in a single tick of the libuv event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Poll -> Timers -> Close -> Check -> Pending I/O",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Timers -> Pending Callbacks -> Idle/Prepare -> Poll -> Check -> Close Callbacks",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Worker Pool -> Network IO -> Microtasks -> Timers -> Cleanup",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Check -> Poll -> Timers -> Pending Callbacks -> Close Callbacks",
+          "correct": false
+        }
+      ],
+      "explanation": "Each loop iteration walks through: 1. Timers (setTimeout/setInterval), 2. Pending Callbacks (deferred OS I/O), 3. Idle/Prepare (internal), 4. Poll (retrieve new I/O events, blocking if queue empty), 5. Check (setImmediate), 6. Close Callbacks (socket.on('close')).",
+      "codeSnippet": "// Phase demonstration:\nsetTimeout(() => console.log('Timer phase'), 0);\nsetImmediate(() => console.log('Check phase'));\n// Within I/O cycle, check phase (setImmediate) is always called before timer",
+      "pitfall": "Assuming setImmediate and setTimeout(fn, 0) execute in a deterministic order when called from main module top-level scope (subject to process scheduling jitter).",
+      "citation": "libuv Official Architecture Documentation: Loop Iteration Phases"
+    },
+    {
+      "id": "mcq-21-002-02",
+      "concept": "Cross-Site Request Forgery (CSRF) & SameSite Defenses: Node.js Buffer Allocation & Pool Mechanics",
+      "category": "Memory & Buffers",
+      "difficulty": "Intermediate",
+      "question": "Why is `Buffer.allocUnsafe(size)` faster than `Buffer.alloc(size)`, and what critical security vulnerability does it introduce if uninitialized?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It uses hardware encryption; it causes memory corruption if freed twice.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It skips zero-filling memory, potentially exposing sensitive lingering process memory (keys, passwords, tokens) if transmitted directly.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It executes on the GPU; it blocks the main thread during V8 compilation.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It bypasses V8 heap limits, risking instant kernel segmentation faults.",
+          "correct": false
+        }
+      ],
+      "explanation": "Buffer.allocUnsafe allocates memory from Node's internal 8KB pool without zero-initializing bytes. If written directly to a network stream without fully overwriting, historical residual memory is leaked to clients.",
+      "codeSnippet": "// Safe allocation (zero-filled):\nconst safeBuf = Buffer.alloc(1024);\n// Fast allocation (must be completely overwritten before sending!):\nconst fastBuf = Buffer.allocUnsafe(1024);\nfastBuf.fill(0); // Zero out or write complete payload",
+      "pitfall": "Sending Buffer.allocUnsafe directly over an HTTP response or socket leaks memory artifacts from other users or requests.",
+      "citation": "Node.js API Reference: Buffer.allocUnsafe Security Considerations"
+    },
+    {
+      "id": "mcq-21-002-03",
+      "concept": "Cross-Site Request Forgery (CSRF) & SameSite Defenses: Backpressure in Stream Pipelines",
+      "category": "Streams & I/O",
+      "difficulty": "Advanced",
+      "question": "What signal does `writable.write(chunk)` return to indicate that the internal stream buffer exceeds `highWaterMark`, and how must producers respond?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Throws an Error('BufferFull'); producer must catch and retry.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Returns `false`; the producer must pause writing until the writable stream emits the `'drain'` event.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Returns `null`; the producer should spawn an additional worker thread.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Returns an unhandled Promise rejection to the libuv threadpool.",
+          "correct": false
+        }
+      ],
+      "explanation": "When writable.write(chunk) returns false, the buffer has reached its highWaterMark limit. Producers must pause writing. Once the underlying system drains the buffer, a 'drain' event fires, signaling it is safe to resume.",
+      "codeSnippet": "function writeData(writer, data) {\n  let i = data.length;\n  function write() {\n    let ok = true;\n    do {\n      i--;\n      if (i === 0) writer.write(data[i]);\n      else ok = writer.write(data[i]);\n    } while (i > 0 && ok);\n    if (i > 0) writer.once('drain', write);\n  }\n  write();\n}",
+      "pitfall": "Ignoring `write() === false` causes memory consumption to balloon as unbound chunks accumulate in RAM, triggering process crash with OOM.",
+      "citation": "Node.js Stream API Reference: Backpressure in Streams"
+    },
+    {
+      "id": "mcq-21-002-04",
+      "concept": "Cross-Site Request Forgery (CSRF) & SameSite Defenses: Worker Threads vs Cluster Module",
+      "category": "Concurrency & Scale",
+      "difficulty": "Intermediate",
+      "question": "What is the primary difference between Node's `cluster` module and `worker_threads` module?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`cluster` runs on Windows only; `worker_threads` runs on Linux.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`cluster` forks multiple OS processes with isolated V8 instances sharing server sockets, while `worker_threads` runs multiple V8 isolates in separate threads sharing the same process memory (via SharedArrayBuffer).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "`worker_threads` does not support asynchronous I/O; `cluster` only supports TCP sockets.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "`cluster` is deprecated in favor of child_process.spawn.",
+          "correct": false
+        }
+      ],
+      "explanation": "Cluster creates separate OS child processes with independent memory heaps and event loops, coordinated via master IPC to distribute TCP connections. worker_threads creates distinct V8 isolates within the same OS process for CPU-intensive tasks with shared memory capabilities.",
+      "codeSnippet": "import { Worker, isMainThread, parentPort } from 'node:worker_threads';\nif (isMainThread) {\n  const worker = new Worker(import.meta.filename);\n  worker.on('message', msg => console.log('Result:', msg));\n} else {\n  parentPort.postMessage('CPU task complete');\n}",
+      "pitfall": "Using worker_threads for standard non-blocking I/O tasks adds overhead without speedup; worker threads are designed for CPU-intensive computation.",
+      "citation": "Node.js API Reference: worker_threads vs cluster"
+    },
+    {
+      "id": "mcq-21-002-05",
+      "concept": "Cross-Site Request Forgery (CSRF) & SameSite Defenses: AsyncLocalStorage & Context Propagation",
+      "category": "Tracing & Diagnostics",
+      "difficulty": "Advanced",
+      "question": "What problem does Node's `AsyncLocalStorage` solve in production web applications (Fastify, Express)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It stores user browser cookies in permanent disk storage.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It preserves request-scoped state (e.g. trace ID, user ID, transaction context) across asynchronous operations without parameter drilling.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It synchronizes variables between multiple Redis cache nodes.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It enables hot-reloading of backend source modules without restarting the process.",
+          "correct": false
+        }
+      ],
+      "explanation": "AsyncLocalStorage (built on async_hooks) tracks execution contexts across asynchronous boundaries (promises, callbacks, timers), allowing libraries and loggers to access request context anywhere without passing a request object down every function.",
+      "codeSnippet": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst als = new AsyncLocalStorage();\nfunction log(msg) {\n  const store = als.getStore();\n  console.log(`[${store?.traceId || 'no-trace'}] ${msg}`);\n}\nals.run({ traceId: 'req-abc-123' }, () => {\n  setTimeout(() => log('Database query completed'), 100);\n});",
+      "pitfall": "Leaking memory by storing large request/response objects in AsyncLocalStorage if long-lived background jobs retain references to stores.",
+      "citation": "Node.js API Reference: AsyncLocalStorage"
+    },
+    {
+      "id": "mcq-21-002-06",
+      "concept": "Cross-Site Request Forgery (CSRF) & SameSite Defenses: SQL Injection Prevention with Parameterized Queries",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "Why does string concatenation in SQL queries lead to SQL injection vulnerabilities, and how does parameterization prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "String concatenation crashes the query compiler; parameterization minifies the query.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Concatenation merges user input into the SQL command AST; parameterized queries send SQL structure and data values through separate database protocol phases.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Parameterization encodes all input data into Base64 before sending to the driver.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Concatenation forces database connections to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Parameterized queries (prepared statements) ensure the database driver sends the query template to be parsed and compiled first. User parameters are transmitted separately and treated strictly as literal data, never executable syntax.",
+      "codeSnippet": "// VULNERABLE:\n// const query = `SELECT * FROM users WHERE email = '${email}'`;\n// SECURE (Parameterized):\nconst query = 'SELECT id, email FROM users WHERE email = $1';\nconst result = await db.query(query, [email]);",
+      "pitfall": "Relying on manual regex string escaping or 'sanitization' functions instead of native parameterized driver queries.",
+      "citation": "OWASP Cheat Sheet Series: SQL Injection Prevention in Node.js"
+    },
+    {
+      "id": "mcq-21-002-07",
+      "concept": "Cross-Site Request Forgery (CSRF) & SameSite Defenses: ReDoS: Regular Expression Denial of Service",
+      "category": "Security & Performance",
+      "difficulty": "Advanced",
+      "question": "What regular expression characteristic triggers catastrophic backtracking leading to ReDoS in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Using unicode escape sequences in RegExp literals.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Nested quantifiers (e.g. `(a+)+`) or overlapping disjunctions that evaluate exponential combinations against non-matching input strings on the single-threaded event loop.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Compiling RegExp using `new RegExp()` rather than literal `/pattern/` syntax.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Exceeding 256 characters in a single regular expression pattern.",
+          "correct": false
+        }
+      ],
+      "explanation": "Catastrophic backtracking occurs when a non-deterministic finite automaton (NFA) engine tests exponential branch permutations on a long near-match string. Because Node.js runs on a single thread, ReDoS completely blocks the event loop for all users.",
+      "codeSnippet": "// Catastrophic pattern: O(2^N) complexity\nconst vulnerableRegex = /([a-zA-Z]+)*[0-9]/;\n// Matching 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa!' hangs the entire Node.js event loop\n// Remediation: Use linear-time engines (e.g. re2) or avoid overlapping quantifiers",
+      "pitfall": "Evaluating user-supplied regexes without validation or executing complex regexes without timeout boundaries on the main thread.",
+      "citation": "OWASP Regular Expression Denial of Service (ReDoS) Cheat Sheet"
+    },
+    {
+      "id": "mcq-21-002-08",
+      "concept": "Cross-Site Request Forgery (CSRF) & SameSite Defenses: Fastify vs Express Architecture & Performance",
+      "category": "Web Frameworks",
+      "difficulty": "Intermediate",
+      "question": "What core architectural designs allow Fastify to achieve significantly higher throughput than Express in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fastify is written in C++ and bypasses V8 entirely.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Fastify utilizes fast-json-stringify for JIT schema-based serialization, find-my-way radix tree routing, and a structured encapsulation plugin model.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Fastify uses cluster fork for each incoming HTTP connection automatically.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Fastify only supports HTTP/3 and WebSocket protocols.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fastify optimizes performance via: 1. `fast-json-stringify` which compiles JSON schemas into optimized string concatenation code, 2. `find-my-way` radix tree routing with O(k) lookup, 3. avvio plugin graph architecture.",
+      "codeSnippet": "import Fastify from 'fastify';\nconst fastify = Fastify({ logger: true });\nfastify.get('/users/:id', {\n  schema: {\n    response: {\n      200: {\n        type: 'object',\n        properties: { id: { type: 'string' }, name: { type: 'string' } }\n      }\n    }\n  }\n}, async (req, reply) => {\n  return { id: req.params.id, name: 'Alice' };\n});",
+      "pitfall": "Omitting output validation schemas in Fastify disables fast-json-stringify compilation, falling back to JSON.stringify and degrading throughput.",
+      "citation": "Fastify Documentation: Design Principles & Benchmarks"
+    },
+    {
+      "id": "mcq-21-003-01",
+      "concept": "Regular Expression Denial of Service (ReDoS) Defense: libuv Event Loop Architecture",
+      "category": "Node Internals",
+      "difficulty": "Advanced",
+      "question": "Which of the following describes the correct order of phases in a single tick of the libuv event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Poll -> Timers -> Close -> Check -> Pending I/O",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Timers -> Pending Callbacks -> Idle/Prepare -> Poll -> Check -> Close Callbacks",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Worker Pool -> Network IO -> Microtasks -> Timers -> Cleanup",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Check -> Poll -> Timers -> Pending Callbacks -> Close Callbacks",
+          "correct": false
+        }
+      ],
+      "explanation": "Each loop iteration walks through: 1. Timers (setTimeout/setInterval), 2. Pending Callbacks (deferred OS I/O), 3. Idle/Prepare (internal), 4. Poll (retrieve new I/O events, blocking if queue empty), 5. Check (setImmediate), 6. Close Callbacks (socket.on('close')).",
+      "codeSnippet": "// Phase demonstration:\nsetTimeout(() => console.log('Timer phase'), 0);\nsetImmediate(() => console.log('Check phase'));\n// Within I/O cycle, check phase (setImmediate) is always called before timer",
+      "pitfall": "Assuming setImmediate and setTimeout(fn, 0) execute in a deterministic order when called from main module top-level scope (subject to process scheduling jitter).",
+      "citation": "libuv Official Architecture Documentation: Loop Iteration Phases"
+    },
+    {
+      "id": "mcq-21-003-02",
+      "concept": "Regular Expression Denial of Service (ReDoS) Defense: Node.js Buffer Allocation & Pool Mechanics",
+      "category": "Memory & Buffers",
+      "difficulty": "Intermediate",
+      "question": "Why is `Buffer.allocUnsafe(size)` faster than `Buffer.alloc(size)`, and what critical security vulnerability does it introduce if uninitialized?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It uses hardware encryption; it causes memory corruption if freed twice.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It skips zero-filling memory, potentially exposing sensitive lingering process memory (keys, passwords, tokens) if transmitted directly.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It executes on the GPU; it blocks the main thread during V8 compilation.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It bypasses V8 heap limits, risking instant kernel segmentation faults.",
+          "correct": false
+        }
+      ],
+      "explanation": "Buffer.allocUnsafe allocates memory from Node's internal 8KB pool without zero-initializing bytes. If written directly to a network stream without fully overwriting, historical residual memory is leaked to clients.",
+      "codeSnippet": "// Safe allocation (zero-filled):\nconst safeBuf = Buffer.alloc(1024);\n// Fast allocation (must be completely overwritten before sending!):\nconst fastBuf = Buffer.allocUnsafe(1024);\nfastBuf.fill(0); // Zero out or write complete payload",
+      "pitfall": "Sending Buffer.allocUnsafe directly over an HTTP response or socket leaks memory artifacts from other users or requests.",
+      "citation": "Node.js API Reference: Buffer.allocUnsafe Security Considerations"
+    },
+    {
+      "id": "mcq-21-003-03",
+      "concept": "Regular Expression Denial of Service (ReDoS) Defense: Backpressure in Stream Pipelines",
+      "category": "Streams & I/O",
+      "difficulty": "Advanced",
+      "question": "What signal does `writable.write(chunk)` return to indicate that the internal stream buffer exceeds `highWaterMark`, and how must producers respond?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Throws an Error('BufferFull'); producer must catch and retry.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Returns `false`; the producer must pause writing until the writable stream emits the `'drain'` event.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Returns `null`; the producer should spawn an additional worker thread.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Returns an unhandled Promise rejection to the libuv threadpool.",
+          "correct": false
+        }
+      ],
+      "explanation": "When writable.write(chunk) returns false, the buffer has reached its highWaterMark limit. Producers must pause writing. Once the underlying system drains the buffer, a 'drain' event fires, signaling it is safe to resume.",
+      "codeSnippet": "function writeData(writer, data) {\n  let i = data.length;\n  function write() {\n    let ok = true;\n    do {\n      i--;\n      if (i === 0) writer.write(data[i]);\n      else ok = writer.write(data[i]);\n    } while (i > 0 && ok);\n    if (i > 0) writer.once('drain', write);\n  }\n  write();\n}",
+      "pitfall": "Ignoring `write() === false` causes memory consumption to balloon as unbound chunks accumulate in RAM, triggering process crash with OOM.",
+      "citation": "Node.js Stream API Reference: Backpressure in Streams"
+    },
+    {
+      "id": "mcq-21-003-04",
+      "concept": "Regular Expression Denial of Service (ReDoS) Defense: Worker Threads vs Cluster Module",
+      "category": "Concurrency & Scale",
+      "difficulty": "Intermediate",
+      "question": "What is the primary difference between Node's `cluster` module and `worker_threads` module?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`cluster` runs on Windows only; `worker_threads` runs on Linux.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`cluster` forks multiple OS processes with isolated V8 instances sharing server sockets, while `worker_threads` runs multiple V8 isolates in separate threads sharing the same process memory (via SharedArrayBuffer).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "`worker_threads` does not support asynchronous I/O; `cluster` only supports TCP sockets.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "`cluster` is deprecated in favor of child_process.spawn.",
+          "correct": false
+        }
+      ],
+      "explanation": "Cluster creates separate OS child processes with independent memory heaps and event loops, coordinated via master IPC to distribute TCP connections. worker_threads creates distinct V8 isolates within the same OS process for CPU-intensive tasks with shared memory capabilities.",
+      "codeSnippet": "import { Worker, isMainThread, parentPort } from 'node:worker_threads';\nif (isMainThread) {\n  const worker = new Worker(import.meta.filename);\n  worker.on('message', msg => console.log('Result:', msg));\n} else {\n  parentPort.postMessage('CPU task complete');\n}",
+      "pitfall": "Using worker_threads for standard non-blocking I/O tasks adds overhead without speedup; worker threads are designed for CPU-intensive computation.",
+      "citation": "Node.js API Reference: worker_threads vs cluster"
+    },
+    {
+      "id": "mcq-21-003-05",
+      "concept": "Regular Expression Denial of Service (ReDoS) Defense: AsyncLocalStorage & Context Propagation",
+      "category": "Tracing & Diagnostics",
+      "difficulty": "Advanced",
+      "question": "What problem does Node's `AsyncLocalStorage` solve in production web applications (Fastify, Express)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It stores user browser cookies in permanent disk storage.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It preserves request-scoped state (e.g. trace ID, user ID, transaction context) across asynchronous operations without parameter drilling.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It synchronizes variables between multiple Redis cache nodes.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It enables hot-reloading of backend source modules without restarting the process.",
+          "correct": false
+        }
+      ],
+      "explanation": "AsyncLocalStorage (built on async_hooks) tracks execution contexts across asynchronous boundaries (promises, callbacks, timers), allowing libraries and loggers to access request context anywhere without passing a request object down every function.",
+      "codeSnippet": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst als = new AsyncLocalStorage();\nfunction log(msg) {\n  const store = als.getStore();\n  console.log(`[${store?.traceId || 'no-trace'}] ${msg}`);\n}\nals.run({ traceId: 'req-abc-123' }, () => {\n  setTimeout(() => log('Database query completed'), 100);\n});",
+      "pitfall": "Leaking memory by storing large request/response objects in AsyncLocalStorage if long-lived background jobs retain references to stores.",
+      "citation": "Node.js API Reference: AsyncLocalStorage"
+    },
+    {
+      "id": "mcq-21-003-06",
+      "concept": "Regular Expression Denial of Service (ReDoS) Defense: SQL Injection Prevention with Parameterized Queries",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "Why does string concatenation in SQL queries lead to SQL injection vulnerabilities, and how does parameterization prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "String concatenation crashes the query compiler; parameterization minifies the query.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Concatenation merges user input into the SQL command AST; parameterized queries send SQL structure and data values through separate database protocol phases.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Parameterization encodes all input data into Base64 before sending to the driver.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Concatenation forces database connections to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Parameterized queries (prepared statements) ensure the database driver sends the query template to be parsed and compiled first. User parameters are transmitted separately and treated strictly as literal data, never executable syntax.",
+      "codeSnippet": "// VULNERABLE:\n// const query = `SELECT * FROM users WHERE email = '${email}'`;\n// SECURE (Parameterized):\nconst query = 'SELECT id, email FROM users WHERE email = $1';\nconst result = await db.query(query, [email]);",
+      "pitfall": "Relying on manual regex string escaping or 'sanitization' functions instead of native parameterized driver queries.",
+      "citation": "OWASP Cheat Sheet Series: SQL Injection Prevention in Node.js"
+    },
+    {
+      "id": "mcq-21-003-07",
+      "concept": "Regular Expression Denial of Service (ReDoS) Defense: ReDoS: Regular Expression Denial of Service",
+      "category": "Security & Performance",
+      "difficulty": "Advanced",
+      "question": "What regular expression characteristic triggers catastrophic backtracking leading to ReDoS in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Using unicode escape sequences in RegExp literals.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Nested quantifiers (e.g. `(a+)+`) or overlapping disjunctions that evaluate exponential combinations against non-matching input strings on the single-threaded event loop.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Compiling RegExp using `new RegExp()` rather than literal `/pattern/` syntax.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Exceeding 256 characters in a single regular expression pattern.",
+          "correct": false
+        }
+      ],
+      "explanation": "Catastrophic backtracking occurs when a non-deterministic finite automaton (NFA) engine tests exponential branch permutations on a long near-match string. Because Node.js runs on a single thread, ReDoS completely blocks the event loop for all users.",
+      "codeSnippet": "// Catastrophic pattern: O(2^N) complexity\nconst vulnerableRegex = /([a-zA-Z]+)*[0-9]/;\n// Matching 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa!' hangs the entire Node.js event loop\n// Remediation: Use linear-time engines (e.g. re2) or avoid overlapping quantifiers",
+      "pitfall": "Evaluating user-supplied regexes without validation or executing complex regexes without timeout boundaries on the main thread.",
+      "citation": "OWASP Regular Expression Denial of Service (ReDoS) Cheat Sheet"
+    },
+    {
+      "id": "mcq-21-003-08",
+      "concept": "Regular Expression Denial of Service (ReDoS) Defense: Fastify vs Express Architecture & Performance",
+      "category": "Web Frameworks",
+      "difficulty": "Intermediate",
+      "question": "What core architectural designs allow Fastify to achieve significantly higher throughput than Express in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fastify is written in C++ and bypasses V8 entirely.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Fastify utilizes fast-json-stringify for JIT schema-based serialization, find-my-way radix tree routing, and a structured encapsulation plugin model.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Fastify uses cluster fork for each incoming HTTP connection automatically.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Fastify only supports HTTP/3 and WebSocket protocols.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fastify optimizes performance via: 1. `fast-json-stringify` which compiles JSON schemas into optimized string concatenation code, 2. `find-my-way` radix tree routing with O(k) lookup, 3. avvio plugin graph architecture.",
+      "codeSnippet": "import Fastify from 'fastify';\nconst fastify = Fastify({ logger: true });\nfastify.get('/users/:id', {\n  schema: {\n    response: {\n      200: {\n        type: 'object',\n        properties: { id: { type: 'string' }, name: { type: 'string' } }\n      }\n    }\n  }\n}, async (req, reply) => {\n  return { id: req.params.id, name: 'Alice' };\n});",
+      "pitfall": "Omitting output validation schemas in Fastify disables fast-json-stringify compilation, falling back to JSON.stringify and degrading throughput.",
+      "citation": "Fastify Documentation: Design Principles & Benchmarks"
+    }
+  ]
+}
