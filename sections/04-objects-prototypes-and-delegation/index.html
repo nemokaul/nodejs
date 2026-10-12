@@ -8908,7 +8908,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Understanding prototypes in JavaScript is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript cod
+                        Understanding prototypes in JavaScript is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the
                       </p>
                     
 
@@ -8981,7 +8981,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Understanding prototypes in JavaScript is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Understanding prototypes in JavaScript is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -8995,8 +8995,8 @@
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Understanding prototypes in JavaScript:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9010,17 +9010,25 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Clean Prototype Delegation &amp; Dictionary Map
+export function createSecureRegistry() {
+  // Pure dictionary object without Object.prototype properties
+  const registry = Object.create(null);
+
+  return {
+    register(key, handler) {
+      if (typeof key !== &quot;string&quot; || !handler) throw new TypeError(&quot;Invalid key or handler&quot;);
+      registry[key] = handler;
+    },
+    dispatch(key, ...args) {
+      const fn = registry[key];
+      if (typeof fn === &quot;function&quot;) return fn(...args);
+      throw new Error(`Unregistered handler: ${key}`);
+    },
+    has(key) {
+      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -9033,7 +9041,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding prototypes in JavaScript execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding prototypes in JavaScript execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9181,7 +9189,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Exercise files and environment setup is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code 
+                        Exercise files and environment setup is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the p
                       </p>
                     
 
@@ -9254,7 +9262,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Exercise files and environment setup is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Exercise files and environment setup is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -9268,8 +9276,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Exercise files and environment setup:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9283,17 +9291,25 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Clean Prototype Delegation &amp; Dictionary Map
+export function createSecureRegistry() {
+  // Pure dictionary object without Object.prototype properties
+  const registry = Object.create(null);
+
+  return {
+    register(key, handler) {
+      if (typeof key !== &quot;string&quot; || !handler) throw new TypeError(&quot;Invalid key or handler&quot;);
+      registry[key] = handler;
+    },
+    dispatch(key, ...args) {
+      const fn = registry[key];
+      if (typeof fn === &quot;function&quot;) return fn(...args);
+      throw new Error(`Unregistered handler: ${key}`);
+    },
+    has(key) {
+      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -9306,7 +9322,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Exercise files and environment setup execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Exercise files and environment setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9454,7 +9470,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Create object literals is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prot
+                        Create object literals is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain
                       </p>
                     
 
@@ -9527,7 +9543,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Create object literals is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Create object literals is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -9541,8 +9557,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Create object literals:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9556,17 +9572,25 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Clean Prototype Delegation &amp; Dictionary Map
+export function createSecureRegistry() {
+  // Pure dictionary object without Object.prototype properties
+  const registry = Object.create(null);
+
+  return {
+    register(key, handler) {
+      if (typeof key !== &quot;string&quot; || !handler) throw new TypeError(&quot;Invalid key or handler&quot;);
+      registry[key] = handler;
+    },
+    dispatch(key, ...args) {
+      const fn = registry[key];
+      if (typeof fn === &quot;function&quot;) return fn(...args);
+      throw new Error(`Unregistered handler: ${key}`);
+    },
+    has(key) {
+      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -9579,7 +9603,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Create object literals execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Create object literals execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9727,7 +9751,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Create objects with a constructor function is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript
+                        Create objects with a constructor function is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using
                       </p>
                     
 
@@ -9800,7 +9824,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Create objects with a constructor function is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Create objects with a constructor function is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -9814,8 +9838,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Create objects with a constructor function:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9829,17 +9853,25 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Clean Prototype Delegation &amp; Dictionary Map
+export function createSecureRegistry() {
+  // Pure dictionary object without Object.prototype properties
+  const registry = Object.create(null);
+
+  return {
+    register(key, handler) {
+      if (typeof key !== &quot;string&quot; || !handler) throw new TypeError(&quot;Invalid key or handler&quot;);
+      registry[key] = handler;
+    },
+    dispatch(key, ...args) {
+      const fn = registry[key];
+      if (typeof fn === &quot;function&quot;) return fn(...args);
+      throw new Error(`Unregistered handler: ${key}`);
+    },
+    has(key) {
+      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -9852,7 +9884,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Create objects with a constructor function execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Create objects with a constructor function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10066,7 +10098,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Using CoderPad challenges is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the p
+                        Using CoderPad challenges is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype ch
                       </p>
                     
 
@@ -10139,7 +10171,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Using CoderPad challenges is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Using CoderPad challenges is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -10153,8 +10185,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Using CoderPad challenges:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10168,17 +10200,25 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Clean Prototype Delegation &amp; Dictionary Map
+export function createSecureRegistry() {
+  // Pure dictionary object without Object.prototype properties
+  const registry = Object.create(null);
+
+  return {
+    register(key, handler) {
+      if (typeof key !== &quot;string&quot; || !handler) throw new TypeError(&quot;Invalid key or handler&quot;);
+      registry[key] = handler;
+    },
+    dispatch(key, ...args) {
+      const fn = registry[key];
+      if (typeof fn === &quot;function&quot;) return fn(...args);
+      throw new Error(`Unregistered handler: ${key}`);
+    },
+    has(key) {
+      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -10191,7 +10231,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using CoderPad challenges execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using CoderPad challenges execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10339,7 +10379,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Understand the prototype property is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code usi
+                        Understand the prototype property is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prot
                       </p>
                     
 
@@ -10412,7 +10452,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Understand the prototype property is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Understand the prototype property is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -10426,8 +10466,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Understand the prototype property:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10441,17 +10481,25 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Clean Prototype Delegation &amp; Dictionary Map
+export function createSecureRegistry() {
+  // Pure dictionary object without Object.prototype properties
+  const registry = Object.create(null);
+
+  return {
+    register(key, handler) {
+      if (typeof key !== &quot;string&quot; || !handler) throw new TypeError(&quot;Invalid key or handler&quot;);
+      registry[key] = handler;
+    },
+    dispatch(key, ...args) {
+      const fn = registry[key];
+      if (typeof fn === &quot;function&quot;) return fn(...args);
+      throw new Error(`Unregistered handler: ${key}`);
+    },
+    has(key) {
+      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -10464,7 +10512,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Understand the prototype property execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Understand the prototype property execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10612,7 +10660,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Modify an object&#39;s prototype is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using th
+                        Modify an object&#39;s prototype is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype
                       </p>
                     
 
@@ -10685,7 +10733,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Modify an object&#39;s prototype is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Modify an object&#39;s prototype is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -10699,8 +10747,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Modify an object&#39;s prototype:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10714,17 +10762,25 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Clean Prototype Delegation &amp; Dictionary Map
+export function createSecureRegistry() {
+  // Pure dictionary object without Object.prototype properties
+  const registry = Object.create(null);
+
+  return {
+    register(key, handler) {
+      if (typeof key !== &quot;string&quot; || !handler) throw new TypeError(&quot;Invalid key or handler&quot;);
+      registry[key] = handler;
+    },
+    dispatch(key, ...args) {
+      const fn = registry[key];
+      if (typeof fn === &quot;function&quot;) return fn(...args);
+      throw new Error(`Unregistered handler: ${key}`);
+    },
+    has(key) {
+      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -10737,7 +10793,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Modify an object&#39;s prototype execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Modify an object&#39;s prototype execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10885,7 +10941,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Create a prototype chain is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the pr
+                        Create a prototype chain is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype cha
                       </p>
                     
 
@@ -10958,7 +11014,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Create a prototype chain is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Create a prototype chain is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -10972,8 +11028,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Create a prototype chain:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10987,17 +11043,25 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Clean Prototype Delegation &amp; Dictionary Map
+export function createSecureRegistry() {
+  // Pure dictionary object without Object.prototype properties
+  const registry = Object.create(null);
+
+  return {
+    register(key, handler) {
+      if (typeof key !== &quot;string&quot; || !handler) throw new TypeError(&quot;Invalid key or handler&quot;);
+      registry[key] = handler;
+    },
+    dispatch(key, ...args) {
+      const fn = registry[key];
+      if (typeof fn === &quot;function&quot;) return fn(...args);
+      throw new Error(`Unregistered handler: ${key}`);
+    },
+    has(key) {
+      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -11010,7 +11074,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Create a prototype chain execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Create a prototype chain execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11224,7 +11288,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Apply prototypal inheritance is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using th
+                        Apply prototypal inheritance is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype
                       </p>
                     
 
@@ -11297,7 +11361,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Apply prototypal inheritance is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Apply prototypal inheritance is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -11311,8 +11375,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Apply prototypal inheritance:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11326,17 +11390,25 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Clean Prototype Delegation &amp; Dictionary Map
+export function createSecureRegistry() {
+  // Pure dictionary object without Object.prototype properties
+  const registry = Object.create(null);
+
+  return {
+    register(key, handler) {
+      if (typeof key !== &quot;string&quot; || !handler) throw new TypeError(&quot;Invalid key or handler&quot;);
+      registry[key] = handler;
+    },
+    dispatch(key, ...args) {
+      const fn = registry[key];
+      if (typeof fn === &quot;function&quot;) return fn(...args);
+      throw new Error(`Unregistered handler: ${key}`);
+    },
+    has(key) {
+      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -11349,7 +11421,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Apply prototypal inheritance execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Apply prototypal inheritance execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11497,7 +11569,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Understand ES6 classes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prot
+                        Understand ES6 classes is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain
                       </p>
                     
 
@@ -11570,7 +11642,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Understand ES6 classes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Understand ES6 classes is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -11584,8 +11656,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Understand ES6 classes:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11599,17 +11671,25 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Clean Prototype Delegation &amp; Dictionary Map
+export function createSecureRegistry() {
+  // Pure dictionary object without Object.prototype properties
+  const registry = Object.create(null);
+
+  return {
+    register(key, handler) {
+      if (typeof key !== &quot;string&quot; || !handler) throw new TypeError(&quot;Invalid key or handler&quot;);
+      registry[key] = handler;
+    },
+    dispatch(key, ...args) {
+      const fn = registry[key];
+      if (typeof fn === &quot;function&quot;) return fn(...args);
+      throw new Error(`Unregistered handler: ${key}`);
+    },
+    has(key) {
+      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -11622,7 +11702,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Understand ES6 classes execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Understand ES6 classes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11770,7 +11850,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Build prototypes using ES6 classes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code us
+                        Build prototypes using ES6 classes is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the pro
                       </p>
                     
 
@@ -11843,7 +11923,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Build prototypes using ES6 classes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Build prototypes using ES6 classes is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -11857,8 +11937,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Build prototypes using ES6 classes:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11872,17 +11952,25 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Clean Prototype Delegation &amp; Dictionary Map
+export function createSecureRegistry() {
+  // Pure dictionary object without Object.prototype properties
+  const registry = Object.create(null);
+
+  return {
+    register(key, handler) {
+      if (typeof key !== &quot;string&quot; || !handler) throw new TypeError(&quot;Invalid key or handler&quot;);
+      registry[key] = handler;
+    },
+    dispatch(key, ...args) {
+      const fn = registry[key];
+      if (typeof fn === &quot;function&quot;) return fn(...args);
+      throw new Error(`Unregistered handler: ${key}`);
+    },
+    has(key) {
+      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -11895,7 +11983,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Build prototypes using ES6 classes execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Build prototypes using ES6 classes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12043,7 +12131,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Next steps is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Next steps is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                       </p>
                     
 
@@ -12116,7 +12204,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Next steps is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Next steps is a core architectural concept in **Objects, Prototypes &amp; Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -12130,8 +12218,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Next steps:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12145,17 +12233,25 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Clean Prototype Delegation &amp; Dictionary Map
+export function createSecureRegistry() {
+  // Pure dictionary object without Object.prototype properties
+  const registry = Object.create(null);
+
+  return {
+    register(key, handler) {
+      if (typeof key !== &quot;string&quot; || !handler) throw new TypeError(&quot;Invalid key or handler&quot;);
+      registry[key] = handler;
+    },
+    dispatch(key, ...args) {
+      const fn = registry[key];
+      if (typeof fn === &quot;function&quot;) return fn(...args);
+      throw new Error(`Unregistered handler: ${key}`);
+    },
+    has(key) {
+      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -12168,7 +12264,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         

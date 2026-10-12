@@ -1,0 +1,802 @@
+{
+  "deckId": "sec-9",
+  "title": "Module 9: Asynchronous Control Flow & Concurrency Limits (All Chapters)",
+  "chapterId": "all",
+  "sectionId": "section-09",
+  "description": "Comprehensive module-level assessment covering all chapters of Module 9: Asynchronous Control Flow & Concurrency Limits.",
+  "totalCards": 24,
+  "cards": [
+    {
+      "id": "mcq-09-001-01",
+      "concept": "Sequential Asynchronous Flow Control: Asynchronous Concurrency Limiting",
+      "category": "Control Flow",
+      "difficulty": "Advanced",
+      "question": "Why does unbounded `Promise.all(urls.map(fetch))` cause outages under high load, and how does concurrency pooling prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Promise.all forces all requests to run sequentially on the main thread.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Firing thousands of concurrent network requests exhausts operating system file descriptors and socket pools, leading to ECONNRESET and memory spikes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "V8 garbage collection automatically cancels promises if more than 100 are active.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "HTTP/1.1 servers crash if more than 2 requests arrive concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded Promise.all spawns concurrent requests without limits, exhausting sockets and system memory. A concurrency limiter restricts active concurrent tasks to a bounded pool (e.g. p-limit).",
+      "codeSnippet": "import pLimit from 'p-limit';\nconst limit = pLimit(10); // Maximum 10 concurrent requests\nconst tasks = items.map(item => limit(() => processItem(item)));\nconst results = await Promise.all(tasks);",
+      "pitfall": "Failing to bound concurrency when fan-out querying a relational database, exhausting the database connection pool.",
+      "citation": "Node.js Production Best Practices: Concurrency Management"
+    },
+    {
+      "id": "mcq-09-001-02",
+      "concept": "Sequential Asynchronous Flow Control: AbortController & Timeout Cancellation",
+      "category": "Resilience",
+      "difficulty": "Intermediate",
+      "question": "How should an engineer implement strict timeout boundaries on asynchronous fetch or stream operations in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use process.kill(process.pid) after a setTimeout.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Pass `AbortSignal.timeout(ms)` to the `signal` option of fetch or stream pipelines, which automatically aborts and cleans up resources upon expiry.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Wrap the function in a while loop checking Date.now().",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Call process.abort() in a setTimeout callback.",
+          "correct": false
+        }
+      ],
+      "explanation": "AbortSignal.timeout(ms) creates an AbortSignal that fires after a specified duration, closing underlying TCP sockets and rejecting with an AbortError without leaking resources.",
+      "codeSnippet": "try {\n  const res = await fetch('https://api.internal/data', {\n    signal: AbortSignal.timeout(3000) // 3-second timeout\n  });\n} catch (err) {\n  if (err.name === 'TimeoutError') console.error('Request timed out');\n}",
+      "pitfall": "Relying on Promise.race with a setTimeout without aborting the slower promise leaves the underlying network socket open in the background.",
+      "citation": "Node.js API Reference: AbortController & AbortSignal"
+    },
+    {
+      "id": "mcq-09-001-03",
+      "concept": "Sequential Asynchronous Flow Control: Asynchronous Concurrency Limiting",
+      "category": "Control Flow",
+      "difficulty": "Advanced",
+      "question": "Why does unbounded `Promise.all(urls.map(fetch))` cause outages under high load, and how does concurrency pooling prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Promise.all forces all requests to run sequentially on the main thread.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Firing thousands of concurrent network requests exhausts operating system file descriptors and socket pools, leading to ECONNRESET and memory spikes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "V8 garbage collection automatically cancels promises if more than 100 are active.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "HTTP/1.1 servers crash if more than 2 requests arrive concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded Promise.all spawns concurrent requests without limits, exhausting sockets and system memory. A concurrency limiter restricts active concurrent tasks to a bounded pool (e.g. p-limit).",
+      "codeSnippet": "import pLimit from 'p-limit';\nconst limit = pLimit(10); // Maximum 10 concurrent requests\nconst tasks = items.map(item => limit(() => processItem(item)));\nconst results = await Promise.all(tasks);",
+      "pitfall": "Failing to bound concurrency when fan-out querying a relational database, exhausting the database connection pool.",
+      "citation": "Node.js Production Best Practices: Concurrency Management"
+    },
+    {
+      "id": "mcq-09-001-04",
+      "concept": "Sequential Asynchronous Flow Control: AbortController & Timeout Cancellation",
+      "category": "Resilience",
+      "difficulty": "Intermediate",
+      "question": "How should an engineer implement strict timeout boundaries on asynchronous fetch or stream operations in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use process.kill(process.pid) after a setTimeout.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Pass `AbortSignal.timeout(ms)` to the `signal` option of fetch or stream pipelines, which automatically aborts and cleans up resources upon expiry.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Wrap the function in a while loop checking Date.now().",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Call process.abort() in a setTimeout callback.",
+          "correct": false
+        }
+      ],
+      "explanation": "AbortSignal.timeout(ms) creates an AbortSignal that fires after a specified duration, closing underlying TCP sockets and rejecting with an AbortError without leaking resources.",
+      "codeSnippet": "try {\n  const res = await fetch('https://api.internal/data', {\n    signal: AbortSignal.timeout(3000) // 3-second timeout\n  });\n} catch (err) {\n  if (err.name === 'TimeoutError') console.error('Request timed out');\n}",
+      "pitfall": "Relying on Promise.race with a setTimeout without aborting the slower promise leaves the underlying network socket open in the background.",
+      "citation": "Node.js API Reference: AbortController & AbortSignal"
+    },
+    {
+      "id": "mcq-09-001-05",
+      "concept": "Sequential Asynchronous Flow Control: Asynchronous Concurrency Limiting",
+      "category": "Control Flow",
+      "difficulty": "Advanced",
+      "question": "Why does unbounded `Promise.all(urls.map(fetch))` cause outages under high load, and how does concurrency pooling prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Promise.all forces all requests to run sequentially on the main thread.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Firing thousands of concurrent network requests exhausts operating system file descriptors and socket pools, leading to ECONNRESET and memory spikes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "V8 garbage collection automatically cancels promises if more than 100 are active.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "HTTP/1.1 servers crash if more than 2 requests arrive concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded Promise.all spawns concurrent requests without limits, exhausting sockets and system memory. A concurrency limiter restricts active concurrent tasks to a bounded pool (e.g. p-limit).",
+      "codeSnippet": "import pLimit from 'p-limit';\nconst limit = pLimit(10); // Maximum 10 concurrent requests\nconst tasks = items.map(item => limit(() => processItem(item)));\nconst results = await Promise.all(tasks);",
+      "pitfall": "Failing to bound concurrency when fan-out querying a relational database, exhausting the database connection pool.",
+      "citation": "Node.js Production Best Practices: Concurrency Management"
+    },
+    {
+      "id": "mcq-09-001-06",
+      "concept": "Sequential Asynchronous Flow Control: AbortController & Timeout Cancellation",
+      "category": "Resilience",
+      "difficulty": "Intermediate",
+      "question": "How should an engineer implement strict timeout boundaries on asynchronous fetch or stream operations in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use process.kill(process.pid) after a setTimeout.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Pass `AbortSignal.timeout(ms)` to the `signal` option of fetch or stream pipelines, which automatically aborts and cleans up resources upon expiry.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Wrap the function in a while loop checking Date.now().",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Call process.abort() in a setTimeout callback.",
+          "correct": false
+        }
+      ],
+      "explanation": "AbortSignal.timeout(ms) creates an AbortSignal that fires after a specified duration, closing underlying TCP sockets and rejecting with an AbortError without leaking resources.",
+      "codeSnippet": "try {\n  const res = await fetch('https://api.internal/data', {\n    signal: AbortSignal.timeout(3000) // 3-second timeout\n  });\n} catch (err) {\n  if (err.name === 'TimeoutError') console.error('Request timed out');\n}",
+      "pitfall": "Relying on Promise.race with a setTimeout without aborting the slower promise leaves the underlying network socket open in the background.",
+      "citation": "Node.js API Reference: AbortController & AbortSignal"
+    },
+    {
+      "id": "mcq-09-001-07",
+      "concept": "Sequential Asynchronous Flow Control: Asynchronous Concurrency Limiting",
+      "category": "Control Flow",
+      "difficulty": "Advanced",
+      "question": "Why does unbounded `Promise.all(urls.map(fetch))` cause outages under high load, and how does concurrency pooling prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Promise.all forces all requests to run sequentially on the main thread.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Firing thousands of concurrent network requests exhausts operating system file descriptors and socket pools, leading to ECONNRESET and memory spikes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "V8 garbage collection automatically cancels promises if more than 100 are active.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "HTTP/1.1 servers crash if more than 2 requests arrive concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded Promise.all spawns concurrent requests without limits, exhausting sockets and system memory. A concurrency limiter restricts active concurrent tasks to a bounded pool (e.g. p-limit).",
+      "codeSnippet": "import pLimit from 'p-limit';\nconst limit = pLimit(10); // Maximum 10 concurrent requests\nconst tasks = items.map(item => limit(() => processItem(item)));\nconst results = await Promise.all(tasks);",
+      "pitfall": "Failing to bound concurrency when fan-out querying a relational database, exhausting the database connection pool.",
+      "citation": "Node.js Production Best Practices: Concurrency Management"
+    },
+    {
+      "id": "mcq-09-001-08",
+      "concept": "Sequential Asynchronous Flow Control: AbortController & Timeout Cancellation",
+      "category": "Resilience",
+      "difficulty": "Intermediate",
+      "question": "How should an engineer implement strict timeout boundaries on asynchronous fetch or stream operations in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use process.kill(process.pid) after a setTimeout.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Pass `AbortSignal.timeout(ms)` to the `signal` option of fetch or stream pipelines, which automatically aborts and cleans up resources upon expiry.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Wrap the function in a while loop checking Date.now().",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Call process.abort() in a setTimeout callback.",
+          "correct": false
+        }
+      ],
+      "explanation": "AbortSignal.timeout(ms) creates an AbortSignal that fires after a specified duration, closing underlying TCP sockets and rejecting with an AbortError without leaking resources.",
+      "codeSnippet": "try {\n  const res = await fetch('https://api.internal/data', {\n    signal: AbortSignal.timeout(3000) // 3-second timeout\n  });\n} catch (err) {\n  if (err.name === 'TimeoutError') console.error('Request timed out');\n}",
+      "pitfall": "Relying on Promise.race with a setTimeout without aborting the slower promise leaves the underlying network socket open in the background.",
+      "citation": "Node.js API Reference: AbortController & AbortSignal"
+    },
+    {
+      "id": "mcq-09-002-01",
+      "concept": "Parallel Execution & Resource Limiting: Asynchronous Concurrency Limiting",
+      "category": "Control Flow",
+      "difficulty": "Advanced",
+      "question": "Why does unbounded `Promise.all(urls.map(fetch))` cause outages under high load, and how does concurrency pooling prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Promise.all forces all requests to run sequentially on the main thread.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Firing thousands of concurrent network requests exhausts operating system file descriptors and socket pools, leading to ECONNRESET and memory spikes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "V8 garbage collection automatically cancels promises if more than 100 are active.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "HTTP/1.1 servers crash if more than 2 requests arrive concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded Promise.all spawns concurrent requests without limits, exhausting sockets and system memory. A concurrency limiter restricts active concurrent tasks to a bounded pool (e.g. p-limit).",
+      "codeSnippet": "import pLimit from 'p-limit';\nconst limit = pLimit(10); // Maximum 10 concurrent requests\nconst tasks = items.map(item => limit(() => processItem(item)));\nconst results = await Promise.all(tasks);",
+      "pitfall": "Failing to bound concurrency when fan-out querying a relational database, exhausting the database connection pool.",
+      "citation": "Node.js Production Best Practices: Concurrency Management"
+    },
+    {
+      "id": "mcq-09-002-02",
+      "concept": "Parallel Execution & Resource Limiting: AbortController & Timeout Cancellation",
+      "category": "Resilience",
+      "difficulty": "Intermediate",
+      "question": "How should an engineer implement strict timeout boundaries on asynchronous fetch or stream operations in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use process.kill(process.pid) after a setTimeout.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Pass `AbortSignal.timeout(ms)` to the `signal` option of fetch or stream pipelines, which automatically aborts and cleans up resources upon expiry.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Wrap the function in a while loop checking Date.now().",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Call process.abort() in a setTimeout callback.",
+          "correct": false
+        }
+      ],
+      "explanation": "AbortSignal.timeout(ms) creates an AbortSignal that fires after a specified duration, closing underlying TCP sockets and rejecting with an AbortError without leaking resources.",
+      "codeSnippet": "try {\n  const res = await fetch('https://api.internal/data', {\n    signal: AbortSignal.timeout(3000) // 3-second timeout\n  });\n} catch (err) {\n  if (err.name === 'TimeoutError') console.error('Request timed out');\n}",
+      "pitfall": "Relying on Promise.race with a setTimeout without aborting the slower promise leaves the underlying network socket open in the background.",
+      "citation": "Node.js API Reference: AbortController & AbortSignal"
+    },
+    {
+      "id": "mcq-09-002-03",
+      "concept": "Parallel Execution & Resource Limiting: Asynchronous Concurrency Limiting",
+      "category": "Control Flow",
+      "difficulty": "Advanced",
+      "question": "Why does unbounded `Promise.all(urls.map(fetch))` cause outages under high load, and how does concurrency pooling prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Promise.all forces all requests to run sequentially on the main thread.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Firing thousands of concurrent network requests exhausts operating system file descriptors and socket pools, leading to ECONNRESET and memory spikes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "V8 garbage collection automatically cancels promises if more than 100 are active.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "HTTP/1.1 servers crash if more than 2 requests arrive concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded Promise.all spawns concurrent requests without limits, exhausting sockets and system memory. A concurrency limiter restricts active concurrent tasks to a bounded pool (e.g. p-limit).",
+      "codeSnippet": "import pLimit from 'p-limit';\nconst limit = pLimit(10); // Maximum 10 concurrent requests\nconst tasks = items.map(item => limit(() => processItem(item)));\nconst results = await Promise.all(tasks);",
+      "pitfall": "Failing to bound concurrency when fan-out querying a relational database, exhausting the database connection pool.",
+      "citation": "Node.js Production Best Practices: Concurrency Management"
+    },
+    {
+      "id": "mcq-09-002-04",
+      "concept": "Parallel Execution & Resource Limiting: AbortController & Timeout Cancellation",
+      "category": "Resilience",
+      "difficulty": "Intermediate",
+      "question": "How should an engineer implement strict timeout boundaries on asynchronous fetch or stream operations in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use process.kill(process.pid) after a setTimeout.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Pass `AbortSignal.timeout(ms)` to the `signal` option of fetch or stream pipelines, which automatically aborts and cleans up resources upon expiry.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Wrap the function in a while loop checking Date.now().",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Call process.abort() in a setTimeout callback.",
+          "correct": false
+        }
+      ],
+      "explanation": "AbortSignal.timeout(ms) creates an AbortSignal that fires after a specified duration, closing underlying TCP sockets and rejecting with an AbortError without leaking resources.",
+      "codeSnippet": "try {\n  const res = await fetch('https://api.internal/data', {\n    signal: AbortSignal.timeout(3000) // 3-second timeout\n  });\n} catch (err) {\n  if (err.name === 'TimeoutError') console.error('Request timed out');\n}",
+      "pitfall": "Relying on Promise.race with a setTimeout without aborting the slower promise leaves the underlying network socket open in the background.",
+      "citation": "Node.js API Reference: AbortController & AbortSignal"
+    },
+    {
+      "id": "mcq-09-002-05",
+      "concept": "Parallel Execution & Resource Limiting: Asynchronous Concurrency Limiting",
+      "category": "Control Flow",
+      "difficulty": "Advanced",
+      "question": "Why does unbounded `Promise.all(urls.map(fetch))` cause outages under high load, and how does concurrency pooling prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Promise.all forces all requests to run sequentially on the main thread.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Firing thousands of concurrent network requests exhausts operating system file descriptors and socket pools, leading to ECONNRESET and memory spikes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "V8 garbage collection automatically cancels promises if more than 100 are active.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "HTTP/1.1 servers crash if more than 2 requests arrive concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded Promise.all spawns concurrent requests without limits, exhausting sockets and system memory. A concurrency limiter restricts active concurrent tasks to a bounded pool (e.g. p-limit).",
+      "codeSnippet": "import pLimit from 'p-limit';\nconst limit = pLimit(10); // Maximum 10 concurrent requests\nconst tasks = items.map(item => limit(() => processItem(item)));\nconst results = await Promise.all(tasks);",
+      "pitfall": "Failing to bound concurrency when fan-out querying a relational database, exhausting the database connection pool.",
+      "citation": "Node.js Production Best Practices: Concurrency Management"
+    },
+    {
+      "id": "mcq-09-002-06",
+      "concept": "Parallel Execution & Resource Limiting: AbortController & Timeout Cancellation",
+      "category": "Resilience",
+      "difficulty": "Intermediate",
+      "question": "How should an engineer implement strict timeout boundaries on asynchronous fetch or stream operations in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use process.kill(process.pid) after a setTimeout.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Pass `AbortSignal.timeout(ms)` to the `signal` option of fetch or stream pipelines, which automatically aborts and cleans up resources upon expiry.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Wrap the function in a while loop checking Date.now().",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Call process.abort() in a setTimeout callback.",
+          "correct": false
+        }
+      ],
+      "explanation": "AbortSignal.timeout(ms) creates an AbortSignal that fires after a specified duration, closing underlying TCP sockets and rejecting with an AbortError without leaking resources.",
+      "codeSnippet": "try {\n  const res = await fetch('https://api.internal/data', {\n    signal: AbortSignal.timeout(3000) // 3-second timeout\n  });\n} catch (err) {\n  if (err.name === 'TimeoutError') console.error('Request timed out');\n}",
+      "pitfall": "Relying on Promise.race with a setTimeout without aborting the slower promise leaves the underlying network socket open in the background.",
+      "citation": "Node.js API Reference: AbortController & AbortSignal"
+    },
+    {
+      "id": "mcq-09-002-07",
+      "concept": "Parallel Execution & Resource Limiting: Asynchronous Concurrency Limiting",
+      "category": "Control Flow",
+      "difficulty": "Advanced",
+      "question": "Why does unbounded `Promise.all(urls.map(fetch))` cause outages under high load, and how does concurrency pooling prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Promise.all forces all requests to run sequentially on the main thread.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Firing thousands of concurrent network requests exhausts operating system file descriptors and socket pools, leading to ECONNRESET and memory spikes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "V8 garbage collection automatically cancels promises if more than 100 are active.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "HTTP/1.1 servers crash if more than 2 requests arrive concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded Promise.all spawns concurrent requests without limits, exhausting sockets and system memory. A concurrency limiter restricts active concurrent tasks to a bounded pool (e.g. p-limit).",
+      "codeSnippet": "import pLimit from 'p-limit';\nconst limit = pLimit(10); // Maximum 10 concurrent requests\nconst tasks = items.map(item => limit(() => processItem(item)));\nconst results = await Promise.all(tasks);",
+      "pitfall": "Failing to bound concurrency when fan-out querying a relational database, exhausting the database connection pool.",
+      "citation": "Node.js Production Best Practices: Concurrency Management"
+    },
+    {
+      "id": "mcq-09-002-08",
+      "concept": "Parallel Execution & Resource Limiting: AbortController & Timeout Cancellation",
+      "category": "Resilience",
+      "difficulty": "Intermediate",
+      "question": "How should an engineer implement strict timeout boundaries on asynchronous fetch or stream operations in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use process.kill(process.pid) after a setTimeout.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Pass `AbortSignal.timeout(ms)` to the `signal` option of fetch or stream pipelines, which automatically aborts and cleans up resources upon expiry.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Wrap the function in a while loop checking Date.now().",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Call process.abort() in a setTimeout callback.",
+          "correct": false
+        }
+      ],
+      "explanation": "AbortSignal.timeout(ms) creates an AbortSignal that fires after a specified duration, closing underlying TCP sockets and rejecting with an AbortError without leaking resources.",
+      "codeSnippet": "try {\n  const res = await fetch('https://api.internal/data', {\n    signal: AbortSignal.timeout(3000) // 3-second timeout\n  });\n} catch (err) {\n  if (err.name === 'TimeoutError') console.error('Request timed out');\n}",
+      "pitfall": "Relying on Promise.race with a setTimeout without aborting the slower promise leaves the underlying network socket open in the background.",
+      "citation": "Node.js API Reference: AbortController & AbortSignal"
+    },
+    {
+      "id": "mcq-09-003-01",
+      "concept": "Concurrent Tasks & Failure Resilience: Asynchronous Concurrency Limiting",
+      "category": "Control Flow",
+      "difficulty": "Advanced",
+      "question": "Why does unbounded `Promise.all(urls.map(fetch))` cause outages under high load, and how does concurrency pooling prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Promise.all forces all requests to run sequentially on the main thread.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Firing thousands of concurrent network requests exhausts operating system file descriptors and socket pools, leading to ECONNRESET and memory spikes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "V8 garbage collection automatically cancels promises if more than 100 are active.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "HTTP/1.1 servers crash if more than 2 requests arrive concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded Promise.all spawns concurrent requests without limits, exhausting sockets and system memory. A concurrency limiter restricts active concurrent tasks to a bounded pool (e.g. p-limit).",
+      "codeSnippet": "import pLimit from 'p-limit';\nconst limit = pLimit(10); // Maximum 10 concurrent requests\nconst tasks = items.map(item => limit(() => processItem(item)));\nconst results = await Promise.all(tasks);",
+      "pitfall": "Failing to bound concurrency when fan-out querying a relational database, exhausting the database connection pool.",
+      "citation": "Node.js Production Best Practices: Concurrency Management"
+    },
+    {
+      "id": "mcq-09-003-02",
+      "concept": "Concurrent Tasks & Failure Resilience: AbortController & Timeout Cancellation",
+      "category": "Resilience",
+      "difficulty": "Intermediate",
+      "question": "How should an engineer implement strict timeout boundaries on asynchronous fetch or stream operations in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use process.kill(process.pid) after a setTimeout.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Pass `AbortSignal.timeout(ms)` to the `signal` option of fetch or stream pipelines, which automatically aborts and cleans up resources upon expiry.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Wrap the function in a while loop checking Date.now().",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Call process.abort() in a setTimeout callback.",
+          "correct": false
+        }
+      ],
+      "explanation": "AbortSignal.timeout(ms) creates an AbortSignal that fires after a specified duration, closing underlying TCP sockets and rejecting with an AbortError without leaking resources.",
+      "codeSnippet": "try {\n  const res = await fetch('https://api.internal/data', {\n    signal: AbortSignal.timeout(3000) // 3-second timeout\n  });\n} catch (err) {\n  if (err.name === 'TimeoutError') console.error('Request timed out');\n}",
+      "pitfall": "Relying on Promise.race with a setTimeout without aborting the slower promise leaves the underlying network socket open in the background.",
+      "citation": "Node.js API Reference: AbortController & AbortSignal"
+    },
+    {
+      "id": "mcq-09-003-03",
+      "concept": "Concurrent Tasks & Failure Resilience: Asynchronous Concurrency Limiting",
+      "category": "Control Flow",
+      "difficulty": "Advanced",
+      "question": "Why does unbounded `Promise.all(urls.map(fetch))` cause outages under high load, and how does concurrency pooling prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Promise.all forces all requests to run sequentially on the main thread.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Firing thousands of concurrent network requests exhausts operating system file descriptors and socket pools, leading to ECONNRESET and memory spikes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "V8 garbage collection automatically cancels promises if more than 100 are active.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "HTTP/1.1 servers crash if more than 2 requests arrive concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded Promise.all spawns concurrent requests without limits, exhausting sockets and system memory. A concurrency limiter restricts active concurrent tasks to a bounded pool (e.g. p-limit).",
+      "codeSnippet": "import pLimit from 'p-limit';\nconst limit = pLimit(10); // Maximum 10 concurrent requests\nconst tasks = items.map(item => limit(() => processItem(item)));\nconst results = await Promise.all(tasks);",
+      "pitfall": "Failing to bound concurrency when fan-out querying a relational database, exhausting the database connection pool.",
+      "citation": "Node.js Production Best Practices: Concurrency Management"
+    },
+    {
+      "id": "mcq-09-003-04",
+      "concept": "Concurrent Tasks & Failure Resilience: AbortController & Timeout Cancellation",
+      "category": "Resilience",
+      "difficulty": "Intermediate",
+      "question": "How should an engineer implement strict timeout boundaries on asynchronous fetch or stream operations in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use process.kill(process.pid) after a setTimeout.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Pass `AbortSignal.timeout(ms)` to the `signal` option of fetch or stream pipelines, which automatically aborts and cleans up resources upon expiry.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Wrap the function in a while loop checking Date.now().",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Call process.abort() in a setTimeout callback.",
+          "correct": false
+        }
+      ],
+      "explanation": "AbortSignal.timeout(ms) creates an AbortSignal that fires after a specified duration, closing underlying TCP sockets and rejecting with an AbortError without leaking resources.",
+      "codeSnippet": "try {\n  const res = await fetch('https://api.internal/data', {\n    signal: AbortSignal.timeout(3000) // 3-second timeout\n  });\n} catch (err) {\n  if (err.name === 'TimeoutError') console.error('Request timed out');\n}",
+      "pitfall": "Relying on Promise.race with a setTimeout without aborting the slower promise leaves the underlying network socket open in the background.",
+      "citation": "Node.js API Reference: AbortController & AbortSignal"
+    },
+    {
+      "id": "mcq-09-003-05",
+      "concept": "Concurrent Tasks & Failure Resilience: Asynchronous Concurrency Limiting",
+      "category": "Control Flow",
+      "difficulty": "Advanced",
+      "question": "Why does unbounded `Promise.all(urls.map(fetch))` cause outages under high load, and how does concurrency pooling prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Promise.all forces all requests to run sequentially on the main thread.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Firing thousands of concurrent network requests exhausts operating system file descriptors and socket pools, leading to ECONNRESET and memory spikes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "V8 garbage collection automatically cancels promises if more than 100 are active.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "HTTP/1.1 servers crash if more than 2 requests arrive concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded Promise.all spawns concurrent requests without limits, exhausting sockets and system memory. A concurrency limiter restricts active concurrent tasks to a bounded pool (e.g. p-limit).",
+      "codeSnippet": "import pLimit from 'p-limit';\nconst limit = pLimit(10); // Maximum 10 concurrent requests\nconst tasks = items.map(item => limit(() => processItem(item)));\nconst results = await Promise.all(tasks);",
+      "pitfall": "Failing to bound concurrency when fan-out querying a relational database, exhausting the database connection pool.",
+      "citation": "Node.js Production Best Practices: Concurrency Management"
+    },
+    {
+      "id": "mcq-09-003-06",
+      "concept": "Concurrent Tasks & Failure Resilience: AbortController & Timeout Cancellation",
+      "category": "Resilience",
+      "difficulty": "Intermediate",
+      "question": "How should an engineer implement strict timeout boundaries on asynchronous fetch or stream operations in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use process.kill(process.pid) after a setTimeout.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Pass `AbortSignal.timeout(ms)` to the `signal` option of fetch or stream pipelines, which automatically aborts and cleans up resources upon expiry.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Wrap the function in a while loop checking Date.now().",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Call process.abort() in a setTimeout callback.",
+          "correct": false
+        }
+      ],
+      "explanation": "AbortSignal.timeout(ms) creates an AbortSignal that fires after a specified duration, closing underlying TCP sockets and rejecting with an AbortError without leaking resources.",
+      "codeSnippet": "try {\n  const res = await fetch('https://api.internal/data', {\n    signal: AbortSignal.timeout(3000) // 3-second timeout\n  });\n} catch (err) {\n  if (err.name === 'TimeoutError') console.error('Request timed out');\n}",
+      "pitfall": "Relying on Promise.race with a setTimeout without aborting the slower promise leaves the underlying network socket open in the background.",
+      "citation": "Node.js API Reference: AbortController & AbortSignal"
+    },
+    {
+      "id": "mcq-09-003-07",
+      "concept": "Concurrent Tasks & Failure Resilience: Asynchronous Concurrency Limiting",
+      "category": "Control Flow",
+      "difficulty": "Advanced",
+      "question": "Why does unbounded `Promise.all(urls.map(fetch))` cause outages under high load, and how does concurrency pooling prevent it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Promise.all forces all requests to run sequentially on the main thread.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Firing thousands of concurrent network requests exhausts operating system file descriptors and socket pools, leading to ECONNRESET and memory spikes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "V8 garbage collection automatically cancels promises if more than 100 are active.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "HTTP/1.1 servers crash if more than 2 requests arrive concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded Promise.all spawns concurrent requests without limits, exhausting sockets and system memory. A concurrency limiter restricts active concurrent tasks to a bounded pool (e.g. p-limit).",
+      "codeSnippet": "import pLimit from 'p-limit';\nconst limit = pLimit(10); // Maximum 10 concurrent requests\nconst tasks = items.map(item => limit(() => processItem(item)));\nconst results = await Promise.all(tasks);",
+      "pitfall": "Failing to bound concurrency when fan-out querying a relational database, exhausting the database connection pool.",
+      "citation": "Node.js Production Best Practices: Concurrency Management"
+    },
+    {
+      "id": "mcq-09-003-08",
+      "concept": "Concurrent Tasks & Failure Resilience: AbortController & Timeout Cancellation",
+      "category": "Resilience",
+      "difficulty": "Intermediate",
+      "question": "How should an engineer implement strict timeout boundaries on asynchronous fetch or stream operations in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use process.kill(process.pid) after a setTimeout.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Pass `AbortSignal.timeout(ms)` to the `signal` option of fetch or stream pipelines, which automatically aborts and cleans up resources upon expiry.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Wrap the function in a while loop checking Date.now().",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Call process.abort() in a setTimeout callback.",
+          "correct": false
+        }
+      ],
+      "explanation": "AbortSignal.timeout(ms) creates an AbortSignal that fires after a specified duration, closing underlying TCP sockets and rejecting with an AbortError without leaking resources.",
+      "codeSnippet": "try {\n  const res = await fetch('https://api.internal/data', {\n    signal: AbortSignal.timeout(3000) // 3-second timeout\n  });\n} catch (err) {\n  if (err.name === 'TimeoutError') console.error('Request timed out');\n}",
+      "pitfall": "Relying on Promise.race with a setTimeout without aborting the slower promise leaves the underlying network socket open in the background.",
+      "citation": "Node.js API Reference: AbortController & AbortSignal"
+    }
+  ]
+}

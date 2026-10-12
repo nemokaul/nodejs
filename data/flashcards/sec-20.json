@@ -1,0 +1,802 @@
+{
+  "deckId": "sec-20",
+  "title": "Module 20: Authentication, JWT Tokens & Session Security (All Chapters)",
+  "chapterId": "all",
+  "sectionId": "section-20",
+  "description": "Comprehensive module-level assessment covering all chapters of Module 20: Authentication, JWT Tokens & Session Security.",
+  "totalCards": 24,
+  "cards": [
+    {
+      "id": "mcq-20-001-01",
+      "concept": "Password Hashing with Argon2 & Salt Rounds: Password Hashing: Argon2id vs Bcrypt",
+      "category": "Authentication",
+      "difficulty": "Intermediate",
+      "question": "Why are memory-hard algorithms like Argon2id or bcrypt required for password hashing rather than fast algorithms like SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SHA-256 cannot hash strings longer than 32 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "SHA-256 is designed to be extremely fast, allowing GPU/ASIC hardware to compute billions of guesses per second; Argon2id requires substantial memory and compute, thwarting brute-force cracking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Argon2id produces reversible encryption keys.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "bcrypt does not require salt generation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fast hash functions allow attackers to test billions of password candidates per second. Memory-hard algorithms (Argon2id) force high memory and CPU time per hash, rendering offline cracking infeasible.",
+      "codeSnippet": "import argon2 from 'argon2';\nconst hash = await argon2.hash(password, { type: argon2.argon2id });\nconst isValid = await argon2.verify(hash, password);",
+      "pitfall": "Setting work factors (cost/salt rounds) too low makes hashes vulnerable; setting them too high blocks the event loop with synchronous crypto.",
+      "citation": "OWASP Password Storage Cheat Sheet / RFC 9106 Argon2"
+    },
+    {
+      "id": "mcq-20-001-02",
+      "concept": "Password Hashing with Argon2 & Salt Rounds: JWT Algorithm Confusion Attacks",
+      "category": "Authentication",
+      "difficulty": "Advanced",
+      "question": "How does the 'algorithm confusion' vulnerability compromise JSON Web Token (JWT) verification, and how is it prevented in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attackers alter the token expiration timestamp.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Attackers forge a token signed with the public RSA key using HMAC-SHA256, exploiting verifiers that accept any algorithm in the token header; defend by explicitly locking `algorithms: ['RS256']` in `jwt.verify()`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attackers decode Base64 tokens to read the payload.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Attackers replay revoked tokens to different endpoints.",
+          "correct": false
+        }
+      ],
+      "explanation": "If jwt.verify() does not specify an algorithms whitelist, an attacker can change 'RS256' to 'HS256' and sign the token using the server's public key (which is publicly accessible).",
+      "codeSnippet": "jwt.verify(token, publicKey, {\n  algorithms: ['RS256'] // Explicitly forbid algorithm switching\n});",
+      "pitfall": "Storing sensitive authentication JWTs in browser localStorage exposes them to instant exfiltration via Cross-Site Scripting (XSS).",
+      "citation": "RFC 7519 / Auth0: Critical Vulnerabilities in JSON Web Token Libraries"
+    },
+    {
+      "id": "mcq-20-001-03",
+      "concept": "Password Hashing with Argon2 & Salt Rounds: Password Hashing: Argon2id vs Bcrypt",
+      "category": "Authentication",
+      "difficulty": "Intermediate",
+      "question": "Why are memory-hard algorithms like Argon2id or bcrypt required for password hashing rather than fast algorithms like SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SHA-256 cannot hash strings longer than 32 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "SHA-256 is designed to be extremely fast, allowing GPU/ASIC hardware to compute billions of guesses per second; Argon2id requires substantial memory and compute, thwarting brute-force cracking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Argon2id produces reversible encryption keys.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "bcrypt does not require salt generation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fast hash functions allow attackers to test billions of password candidates per second. Memory-hard algorithms (Argon2id) force high memory and CPU time per hash, rendering offline cracking infeasible.",
+      "codeSnippet": "import argon2 from 'argon2';\nconst hash = await argon2.hash(password, { type: argon2.argon2id });\nconst isValid = await argon2.verify(hash, password);",
+      "pitfall": "Setting work factors (cost/salt rounds) too low makes hashes vulnerable; setting them too high blocks the event loop with synchronous crypto.",
+      "citation": "OWASP Password Storage Cheat Sheet / RFC 9106 Argon2"
+    },
+    {
+      "id": "mcq-20-001-04",
+      "concept": "Password Hashing with Argon2 & Salt Rounds: JWT Algorithm Confusion Attacks",
+      "category": "Authentication",
+      "difficulty": "Advanced",
+      "question": "How does the 'algorithm confusion' vulnerability compromise JSON Web Token (JWT) verification, and how is it prevented in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attackers alter the token expiration timestamp.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Attackers forge a token signed with the public RSA key using HMAC-SHA256, exploiting verifiers that accept any algorithm in the token header; defend by explicitly locking `algorithms: ['RS256']` in `jwt.verify()`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attackers decode Base64 tokens to read the payload.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Attackers replay revoked tokens to different endpoints.",
+          "correct": false
+        }
+      ],
+      "explanation": "If jwt.verify() does not specify an algorithms whitelist, an attacker can change 'RS256' to 'HS256' and sign the token using the server's public key (which is publicly accessible).",
+      "codeSnippet": "jwt.verify(token, publicKey, {\n  algorithms: ['RS256'] // Explicitly forbid algorithm switching\n});",
+      "pitfall": "Storing sensitive authentication JWTs in browser localStorage exposes them to instant exfiltration via Cross-Site Scripting (XSS).",
+      "citation": "RFC 7519 / Auth0: Critical Vulnerabilities in JSON Web Token Libraries"
+    },
+    {
+      "id": "mcq-20-001-05",
+      "concept": "Password Hashing with Argon2 & Salt Rounds: Password Hashing: Argon2id vs Bcrypt",
+      "category": "Authentication",
+      "difficulty": "Intermediate",
+      "question": "Why are memory-hard algorithms like Argon2id or bcrypt required for password hashing rather than fast algorithms like SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SHA-256 cannot hash strings longer than 32 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "SHA-256 is designed to be extremely fast, allowing GPU/ASIC hardware to compute billions of guesses per second; Argon2id requires substantial memory and compute, thwarting brute-force cracking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Argon2id produces reversible encryption keys.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "bcrypt does not require salt generation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fast hash functions allow attackers to test billions of password candidates per second. Memory-hard algorithms (Argon2id) force high memory and CPU time per hash, rendering offline cracking infeasible.",
+      "codeSnippet": "import argon2 from 'argon2';\nconst hash = await argon2.hash(password, { type: argon2.argon2id });\nconst isValid = await argon2.verify(hash, password);",
+      "pitfall": "Setting work factors (cost/salt rounds) too low makes hashes vulnerable; setting them too high blocks the event loop with synchronous crypto.",
+      "citation": "OWASP Password Storage Cheat Sheet / RFC 9106 Argon2"
+    },
+    {
+      "id": "mcq-20-001-06",
+      "concept": "Password Hashing with Argon2 & Salt Rounds: JWT Algorithm Confusion Attacks",
+      "category": "Authentication",
+      "difficulty": "Advanced",
+      "question": "How does the 'algorithm confusion' vulnerability compromise JSON Web Token (JWT) verification, and how is it prevented in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attackers alter the token expiration timestamp.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Attackers forge a token signed with the public RSA key using HMAC-SHA256, exploiting verifiers that accept any algorithm in the token header; defend by explicitly locking `algorithms: ['RS256']` in `jwt.verify()`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attackers decode Base64 tokens to read the payload.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Attackers replay revoked tokens to different endpoints.",
+          "correct": false
+        }
+      ],
+      "explanation": "If jwt.verify() does not specify an algorithms whitelist, an attacker can change 'RS256' to 'HS256' and sign the token using the server's public key (which is publicly accessible).",
+      "codeSnippet": "jwt.verify(token, publicKey, {\n  algorithms: ['RS256'] // Explicitly forbid algorithm switching\n});",
+      "pitfall": "Storing sensitive authentication JWTs in browser localStorage exposes them to instant exfiltration via Cross-Site Scripting (XSS).",
+      "citation": "RFC 7519 / Auth0: Critical Vulnerabilities in JSON Web Token Libraries"
+    },
+    {
+      "id": "mcq-20-001-07",
+      "concept": "Password Hashing with Argon2 & Salt Rounds: Password Hashing: Argon2id vs Bcrypt",
+      "category": "Authentication",
+      "difficulty": "Intermediate",
+      "question": "Why are memory-hard algorithms like Argon2id or bcrypt required for password hashing rather than fast algorithms like SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SHA-256 cannot hash strings longer than 32 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "SHA-256 is designed to be extremely fast, allowing GPU/ASIC hardware to compute billions of guesses per second; Argon2id requires substantial memory and compute, thwarting brute-force cracking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Argon2id produces reversible encryption keys.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "bcrypt does not require salt generation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fast hash functions allow attackers to test billions of password candidates per second. Memory-hard algorithms (Argon2id) force high memory and CPU time per hash, rendering offline cracking infeasible.",
+      "codeSnippet": "import argon2 from 'argon2';\nconst hash = await argon2.hash(password, { type: argon2.argon2id });\nconst isValid = await argon2.verify(hash, password);",
+      "pitfall": "Setting work factors (cost/salt rounds) too low makes hashes vulnerable; setting them too high blocks the event loop with synchronous crypto.",
+      "citation": "OWASP Password Storage Cheat Sheet / RFC 9106 Argon2"
+    },
+    {
+      "id": "mcq-20-001-08",
+      "concept": "Password Hashing with Argon2 & Salt Rounds: JWT Algorithm Confusion Attacks",
+      "category": "Authentication",
+      "difficulty": "Advanced",
+      "question": "How does the 'algorithm confusion' vulnerability compromise JSON Web Token (JWT) verification, and how is it prevented in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attackers alter the token expiration timestamp.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Attackers forge a token signed with the public RSA key using HMAC-SHA256, exploiting verifiers that accept any algorithm in the token header; defend by explicitly locking `algorithms: ['RS256']` in `jwt.verify()`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attackers decode Base64 tokens to read the payload.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Attackers replay revoked tokens to different endpoints.",
+          "correct": false
+        }
+      ],
+      "explanation": "If jwt.verify() does not specify an algorithms whitelist, an attacker can change 'RS256' to 'HS256' and sign the token using the server's public key (which is publicly accessible).",
+      "codeSnippet": "jwt.verify(token, publicKey, {\n  algorithms: ['RS256'] // Explicitly forbid algorithm switching\n});",
+      "pitfall": "Storing sensitive authentication JWTs in browser localStorage exposes them to instant exfiltration via Cross-Site Scripting (XSS).",
+      "citation": "RFC 7519 / Auth0: Critical Vulnerabilities in JSON Web Token Libraries"
+    },
+    {
+      "id": "mcq-20-002-01",
+      "concept": "JSON Web Tokens (JWT): Signing & Refresh Rotation: Password Hashing: Argon2id vs Bcrypt",
+      "category": "Authentication",
+      "difficulty": "Intermediate",
+      "question": "Why are memory-hard algorithms like Argon2id or bcrypt required for password hashing rather than fast algorithms like SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SHA-256 cannot hash strings longer than 32 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "SHA-256 is designed to be extremely fast, allowing GPU/ASIC hardware to compute billions of guesses per second; Argon2id requires substantial memory and compute, thwarting brute-force cracking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Argon2id produces reversible encryption keys.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "bcrypt does not require salt generation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fast hash functions allow attackers to test billions of password candidates per second. Memory-hard algorithms (Argon2id) force high memory and CPU time per hash, rendering offline cracking infeasible.",
+      "codeSnippet": "import argon2 from 'argon2';\nconst hash = await argon2.hash(password, { type: argon2.argon2id });\nconst isValid = await argon2.verify(hash, password);",
+      "pitfall": "Setting work factors (cost/salt rounds) too low makes hashes vulnerable; setting them too high blocks the event loop with synchronous crypto.",
+      "citation": "OWASP Password Storage Cheat Sheet / RFC 9106 Argon2"
+    },
+    {
+      "id": "mcq-20-002-02",
+      "concept": "JSON Web Tokens (JWT): Signing & Refresh Rotation: JWT Algorithm Confusion Attacks",
+      "category": "Authentication",
+      "difficulty": "Advanced",
+      "question": "How does the 'algorithm confusion' vulnerability compromise JSON Web Token (JWT) verification, and how is it prevented in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attackers alter the token expiration timestamp.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Attackers forge a token signed with the public RSA key using HMAC-SHA256, exploiting verifiers that accept any algorithm in the token header; defend by explicitly locking `algorithms: ['RS256']` in `jwt.verify()`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attackers decode Base64 tokens to read the payload.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Attackers replay revoked tokens to different endpoints.",
+          "correct": false
+        }
+      ],
+      "explanation": "If jwt.verify() does not specify an algorithms whitelist, an attacker can change 'RS256' to 'HS256' and sign the token using the server's public key (which is publicly accessible).",
+      "codeSnippet": "jwt.verify(token, publicKey, {\n  algorithms: ['RS256'] // Explicitly forbid algorithm switching\n});",
+      "pitfall": "Storing sensitive authentication JWTs in browser localStorage exposes them to instant exfiltration via Cross-Site Scripting (XSS).",
+      "citation": "RFC 7519 / Auth0: Critical Vulnerabilities in JSON Web Token Libraries"
+    },
+    {
+      "id": "mcq-20-002-03",
+      "concept": "JSON Web Tokens (JWT): Signing & Refresh Rotation: Password Hashing: Argon2id vs Bcrypt",
+      "category": "Authentication",
+      "difficulty": "Intermediate",
+      "question": "Why are memory-hard algorithms like Argon2id or bcrypt required for password hashing rather than fast algorithms like SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SHA-256 cannot hash strings longer than 32 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "SHA-256 is designed to be extremely fast, allowing GPU/ASIC hardware to compute billions of guesses per second; Argon2id requires substantial memory and compute, thwarting brute-force cracking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Argon2id produces reversible encryption keys.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "bcrypt does not require salt generation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fast hash functions allow attackers to test billions of password candidates per second. Memory-hard algorithms (Argon2id) force high memory and CPU time per hash, rendering offline cracking infeasible.",
+      "codeSnippet": "import argon2 from 'argon2';\nconst hash = await argon2.hash(password, { type: argon2.argon2id });\nconst isValid = await argon2.verify(hash, password);",
+      "pitfall": "Setting work factors (cost/salt rounds) too low makes hashes vulnerable; setting them too high blocks the event loop with synchronous crypto.",
+      "citation": "OWASP Password Storage Cheat Sheet / RFC 9106 Argon2"
+    },
+    {
+      "id": "mcq-20-002-04",
+      "concept": "JSON Web Tokens (JWT): Signing & Refresh Rotation: JWT Algorithm Confusion Attacks",
+      "category": "Authentication",
+      "difficulty": "Advanced",
+      "question": "How does the 'algorithm confusion' vulnerability compromise JSON Web Token (JWT) verification, and how is it prevented in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attackers alter the token expiration timestamp.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Attackers forge a token signed with the public RSA key using HMAC-SHA256, exploiting verifiers that accept any algorithm in the token header; defend by explicitly locking `algorithms: ['RS256']` in `jwt.verify()`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attackers decode Base64 tokens to read the payload.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Attackers replay revoked tokens to different endpoints.",
+          "correct": false
+        }
+      ],
+      "explanation": "If jwt.verify() does not specify an algorithms whitelist, an attacker can change 'RS256' to 'HS256' and sign the token using the server's public key (which is publicly accessible).",
+      "codeSnippet": "jwt.verify(token, publicKey, {\n  algorithms: ['RS256'] // Explicitly forbid algorithm switching\n});",
+      "pitfall": "Storing sensitive authentication JWTs in browser localStorage exposes them to instant exfiltration via Cross-Site Scripting (XSS).",
+      "citation": "RFC 7519 / Auth0: Critical Vulnerabilities in JSON Web Token Libraries"
+    },
+    {
+      "id": "mcq-20-002-05",
+      "concept": "JSON Web Tokens (JWT): Signing & Refresh Rotation: Password Hashing: Argon2id vs Bcrypt",
+      "category": "Authentication",
+      "difficulty": "Intermediate",
+      "question": "Why are memory-hard algorithms like Argon2id or bcrypt required for password hashing rather than fast algorithms like SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SHA-256 cannot hash strings longer than 32 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "SHA-256 is designed to be extremely fast, allowing GPU/ASIC hardware to compute billions of guesses per second; Argon2id requires substantial memory and compute, thwarting brute-force cracking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Argon2id produces reversible encryption keys.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "bcrypt does not require salt generation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fast hash functions allow attackers to test billions of password candidates per second. Memory-hard algorithms (Argon2id) force high memory and CPU time per hash, rendering offline cracking infeasible.",
+      "codeSnippet": "import argon2 from 'argon2';\nconst hash = await argon2.hash(password, { type: argon2.argon2id });\nconst isValid = await argon2.verify(hash, password);",
+      "pitfall": "Setting work factors (cost/salt rounds) too low makes hashes vulnerable; setting them too high blocks the event loop with synchronous crypto.",
+      "citation": "OWASP Password Storage Cheat Sheet / RFC 9106 Argon2"
+    },
+    {
+      "id": "mcq-20-002-06",
+      "concept": "JSON Web Tokens (JWT): Signing & Refresh Rotation: JWT Algorithm Confusion Attacks",
+      "category": "Authentication",
+      "difficulty": "Advanced",
+      "question": "How does the 'algorithm confusion' vulnerability compromise JSON Web Token (JWT) verification, and how is it prevented in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attackers alter the token expiration timestamp.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Attackers forge a token signed with the public RSA key using HMAC-SHA256, exploiting verifiers that accept any algorithm in the token header; defend by explicitly locking `algorithms: ['RS256']` in `jwt.verify()`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attackers decode Base64 tokens to read the payload.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Attackers replay revoked tokens to different endpoints.",
+          "correct": false
+        }
+      ],
+      "explanation": "If jwt.verify() does not specify an algorithms whitelist, an attacker can change 'RS256' to 'HS256' and sign the token using the server's public key (which is publicly accessible).",
+      "codeSnippet": "jwt.verify(token, publicKey, {\n  algorithms: ['RS256'] // Explicitly forbid algorithm switching\n});",
+      "pitfall": "Storing sensitive authentication JWTs in browser localStorage exposes them to instant exfiltration via Cross-Site Scripting (XSS).",
+      "citation": "RFC 7519 / Auth0: Critical Vulnerabilities in JSON Web Token Libraries"
+    },
+    {
+      "id": "mcq-20-002-07",
+      "concept": "JSON Web Tokens (JWT): Signing & Refresh Rotation: Password Hashing: Argon2id vs Bcrypt",
+      "category": "Authentication",
+      "difficulty": "Intermediate",
+      "question": "Why are memory-hard algorithms like Argon2id or bcrypt required for password hashing rather than fast algorithms like SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SHA-256 cannot hash strings longer than 32 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "SHA-256 is designed to be extremely fast, allowing GPU/ASIC hardware to compute billions of guesses per second; Argon2id requires substantial memory and compute, thwarting brute-force cracking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Argon2id produces reversible encryption keys.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "bcrypt does not require salt generation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fast hash functions allow attackers to test billions of password candidates per second. Memory-hard algorithms (Argon2id) force high memory and CPU time per hash, rendering offline cracking infeasible.",
+      "codeSnippet": "import argon2 from 'argon2';\nconst hash = await argon2.hash(password, { type: argon2.argon2id });\nconst isValid = await argon2.verify(hash, password);",
+      "pitfall": "Setting work factors (cost/salt rounds) too low makes hashes vulnerable; setting them too high blocks the event loop with synchronous crypto.",
+      "citation": "OWASP Password Storage Cheat Sheet / RFC 9106 Argon2"
+    },
+    {
+      "id": "mcq-20-002-08",
+      "concept": "JSON Web Tokens (JWT): Signing & Refresh Rotation: JWT Algorithm Confusion Attacks",
+      "category": "Authentication",
+      "difficulty": "Advanced",
+      "question": "How does the 'algorithm confusion' vulnerability compromise JSON Web Token (JWT) verification, and how is it prevented in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attackers alter the token expiration timestamp.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Attackers forge a token signed with the public RSA key using HMAC-SHA256, exploiting verifiers that accept any algorithm in the token header; defend by explicitly locking `algorithms: ['RS256']` in `jwt.verify()`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attackers decode Base64 tokens to read the payload.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Attackers replay revoked tokens to different endpoints.",
+          "correct": false
+        }
+      ],
+      "explanation": "If jwt.verify() does not specify an algorithms whitelist, an attacker can change 'RS256' to 'HS256' and sign the token using the server's public key (which is publicly accessible).",
+      "codeSnippet": "jwt.verify(token, publicKey, {\n  algorithms: ['RS256'] // Explicitly forbid algorithm switching\n});",
+      "pitfall": "Storing sensitive authentication JWTs in browser localStorage exposes them to instant exfiltration via Cross-Site Scripting (XSS).",
+      "citation": "RFC 7519 / Auth0: Critical Vulnerabilities in JSON Web Token Libraries"
+    },
+    {
+      "id": "mcq-20-003-01",
+      "concept": "Session Hijacking, Revocation & RBAC Authorization: Password Hashing: Argon2id vs Bcrypt",
+      "category": "Authentication",
+      "difficulty": "Intermediate",
+      "question": "Why are memory-hard algorithms like Argon2id or bcrypt required for password hashing rather than fast algorithms like SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SHA-256 cannot hash strings longer than 32 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "SHA-256 is designed to be extremely fast, allowing GPU/ASIC hardware to compute billions of guesses per second; Argon2id requires substantial memory and compute, thwarting brute-force cracking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Argon2id produces reversible encryption keys.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "bcrypt does not require salt generation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fast hash functions allow attackers to test billions of password candidates per second. Memory-hard algorithms (Argon2id) force high memory and CPU time per hash, rendering offline cracking infeasible.",
+      "codeSnippet": "import argon2 from 'argon2';\nconst hash = await argon2.hash(password, { type: argon2.argon2id });\nconst isValid = await argon2.verify(hash, password);",
+      "pitfall": "Setting work factors (cost/salt rounds) too low makes hashes vulnerable; setting them too high blocks the event loop with synchronous crypto.",
+      "citation": "OWASP Password Storage Cheat Sheet / RFC 9106 Argon2"
+    },
+    {
+      "id": "mcq-20-003-02",
+      "concept": "Session Hijacking, Revocation & RBAC Authorization: JWT Algorithm Confusion Attacks",
+      "category": "Authentication",
+      "difficulty": "Advanced",
+      "question": "How does the 'algorithm confusion' vulnerability compromise JSON Web Token (JWT) verification, and how is it prevented in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attackers alter the token expiration timestamp.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Attackers forge a token signed with the public RSA key using HMAC-SHA256, exploiting verifiers that accept any algorithm in the token header; defend by explicitly locking `algorithms: ['RS256']` in `jwt.verify()`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attackers decode Base64 tokens to read the payload.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Attackers replay revoked tokens to different endpoints.",
+          "correct": false
+        }
+      ],
+      "explanation": "If jwt.verify() does not specify an algorithms whitelist, an attacker can change 'RS256' to 'HS256' and sign the token using the server's public key (which is publicly accessible).",
+      "codeSnippet": "jwt.verify(token, publicKey, {\n  algorithms: ['RS256'] // Explicitly forbid algorithm switching\n});",
+      "pitfall": "Storing sensitive authentication JWTs in browser localStorage exposes them to instant exfiltration via Cross-Site Scripting (XSS).",
+      "citation": "RFC 7519 / Auth0: Critical Vulnerabilities in JSON Web Token Libraries"
+    },
+    {
+      "id": "mcq-20-003-03",
+      "concept": "Session Hijacking, Revocation & RBAC Authorization: Password Hashing: Argon2id vs Bcrypt",
+      "category": "Authentication",
+      "difficulty": "Intermediate",
+      "question": "Why are memory-hard algorithms like Argon2id or bcrypt required for password hashing rather than fast algorithms like SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SHA-256 cannot hash strings longer than 32 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "SHA-256 is designed to be extremely fast, allowing GPU/ASIC hardware to compute billions of guesses per second; Argon2id requires substantial memory and compute, thwarting brute-force cracking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Argon2id produces reversible encryption keys.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "bcrypt does not require salt generation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fast hash functions allow attackers to test billions of password candidates per second. Memory-hard algorithms (Argon2id) force high memory and CPU time per hash, rendering offline cracking infeasible.",
+      "codeSnippet": "import argon2 from 'argon2';\nconst hash = await argon2.hash(password, { type: argon2.argon2id });\nconst isValid = await argon2.verify(hash, password);",
+      "pitfall": "Setting work factors (cost/salt rounds) too low makes hashes vulnerable; setting them too high blocks the event loop with synchronous crypto.",
+      "citation": "OWASP Password Storage Cheat Sheet / RFC 9106 Argon2"
+    },
+    {
+      "id": "mcq-20-003-04",
+      "concept": "Session Hijacking, Revocation & RBAC Authorization: JWT Algorithm Confusion Attacks",
+      "category": "Authentication",
+      "difficulty": "Advanced",
+      "question": "How does the 'algorithm confusion' vulnerability compromise JSON Web Token (JWT) verification, and how is it prevented in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attackers alter the token expiration timestamp.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Attackers forge a token signed with the public RSA key using HMAC-SHA256, exploiting verifiers that accept any algorithm in the token header; defend by explicitly locking `algorithms: ['RS256']` in `jwt.verify()`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attackers decode Base64 tokens to read the payload.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Attackers replay revoked tokens to different endpoints.",
+          "correct": false
+        }
+      ],
+      "explanation": "If jwt.verify() does not specify an algorithms whitelist, an attacker can change 'RS256' to 'HS256' and sign the token using the server's public key (which is publicly accessible).",
+      "codeSnippet": "jwt.verify(token, publicKey, {\n  algorithms: ['RS256'] // Explicitly forbid algorithm switching\n});",
+      "pitfall": "Storing sensitive authentication JWTs in browser localStorage exposes them to instant exfiltration via Cross-Site Scripting (XSS).",
+      "citation": "RFC 7519 / Auth0: Critical Vulnerabilities in JSON Web Token Libraries"
+    },
+    {
+      "id": "mcq-20-003-05",
+      "concept": "Session Hijacking, Revocation & RBAC Authorization: Password Hashing: Argon2id vs Bcrypt",
+      "category": "Authentication",
+      "difficulty": "Intermediate",
+      "question": "Why are memory-hard algorithms like Argon2id or bcrypt required for password hashing rather than fast algorithms like SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SHA-256 cannot hash strings longer than 32 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "SHA-256 is designed to be extremely fast, allowing GPU/ASIC hardware to compute billions of guesses per second; Argon2id requires substantial memory and compute, thwarting brute-force cracking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Argon2id produces reversible encryption keys.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "bcrypt does not require salt generation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fast hash functions allow attackers to test billions of password candidates per second. Memory-hard algorithms (Argon2id) force high memory and CPU time per hash, rendering offline cracking infeasible.",
+      "codeSnippet": "import argon2 from 'argon2';\nconst hash = await argon2.hash(password, { type: argon2.argon2id });\nconst isValid = await argon2.verify(hash, password);",
+      "pitfall": "Setting work factors (cost/salt rounds) too low makes hashes vulnerable; setting them too high blocks the event loop with synchronous crypto.",
+      "citation": "OWASP Password Storage Cheat Sheet / RFC 9106 Argon2"
+    },
+    {
+      "id": "mcq-20-003-06",
+      "concept": "Session Hijacking, Revocation & RBAC Authorization: JWT Algorithm Confusion Attacks",
+      "category": "Authentication",
+      "difficulty": "Advanced",
+      "question": "How does the 'algorithm confusion' vulnerability compromise JSON Web Token (JWT) verification, and how is it prevented in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attackers alter the token expiration timestamp.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Attackers forge a token signed with the public RSA key using HMAC-SHA256, exploiting verifiers that accept any algorithm in the token header; defend by explicitly locking `algorithms: ['RS256']` in `jwt.verify()`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attackers decode Base64 tokens to read the payload.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Attackers replay revoked tokens to different endpoints.",
+          "correct": false
+        }
+      ],
+      "explanation": "If jwt.verify() does not specify an algorithms whitelist, an attacker can change 'RS256' to 'HS256' and sign the token using the server's public key (which is publicly accessible).",
+      "codeSnippet": "jwt.verify(token, publicKey, {\n  algorithms: ['RS256'] // Explicitly forbid algorithm switching\n});",
+      "pitfall": "Storing sensitive authentication JWTs in browser localStorage exposes them to instant exfiltration via Cross-Site Scripting (XSS).",
+      "citation": "RFC 7519 / Auth0: Critical Vulnerabilities in JSON Web Token Libraries"
+    },
+    {
+      "id": "mcq-20-003-07",
+      "concept": "Session Hijacking, Revocation & RBAC Authorization: Password Hashing: Argon2id vs Bcrypt",
+      "category": "Authentication",
+      "difficulty": "Intermediate",
+      "question": "Why are memory-hard algorithms like Argon2id or bcrypt required for password hashing rather than fast algorithms like SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SHA-256 cannot hash strings longer than 32 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "SHA-256 is designed to be extremely fast, allowing GPU/ASIC hardware to compute billions of guesses per second; Argon2id requires substantial memory and compute, thwarting brute-force cracking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Argon2id produces reversible encryption keys.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "bcrypt does not require salt generation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fast hash functions allow attackers to test billions of password candidates per second. Memory-hard algorithms (Argon2id) force high memory and CPU time per hash, rendering offline cracking infeasible.",
+      "codeSnippet": "import argon2 from 'argon2';\nconst hash = await argon2.hash(password, { type: argon2.argon2id });\nconst isValid = await argon2.verify(hash, password);",
+      "pitfall": "Setting work factors (cost/salt rounds) too low makes hashes vulnerable; setting them too high blocks the event loop with synchronous crypto.",
+      "citation": "OWASP Password Storage Cheat Sheet / RFC 9106 Argon2"
+    },
+    {
+      "id": "mcq-20-003-08",
+      "concept": "Session Hijacking, Revocation & RBAC Authorization: JWT Algorithm Confusion Attacks",
+      "category": "Authentication",
+      "difficulty": "Advanced",
+      "question": "How does the 'algorithm confusion' vulnerability compromise JSON Web Token (JWT) verification, and how is it prevented in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attackers alter the token expiration timestamp.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Attackers forge a token signed with the public RSA key using HMAC-SHA256, exploiting verifiers that accept any algorithm in the token header; defend by explicitly locking `algorithms: ['RS256']` in `jwt.verify()`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attackers decode Base64 tokens to read the payload.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Attackers replay revoked tokens to different endpoints.",
+          "correct": false
+        }
+      ],
+      "explanation": "If jwt.verify() does not specify an algorithms whitelist, an attacker can change 'RS256' to 'HS256' and sign the token using the server's public key (which is publicly accessible).",
+      "codeSnippet": "jwt.verify(token, publicKey, {\n  algorithms: ['RS256'] // Explicitly forbid algorithm switching\n});",
+      "pitfall": "Storing sensitive authentication JWTs in browser localStorage exposes them to instant exfiltration via Cross-Site Scripting (XSS).",
+      "citation": "RFC 7519 / Auth0: Critical Vulnerabilities in JSON Web Token Libraries"
+    }
+  ]
+}

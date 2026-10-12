@@ -8912,7 +8912,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Cleaning your codebase is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Cleaning your codebase is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -8985,7 +8985,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Cleaning your codebase is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Cleaning your codebase is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -8999,8 +8999,8 @@
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Cleaning your codebase:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9014,18 +9014,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -9037,7 +9047,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Cleaning your codebase execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Cleaning your codebase execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9185,7 +9195,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        What you should know is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        What you should know is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -9258,7 +9268,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            What you should know is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            What you should know is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -9272,8 +9282,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for What you should know:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9287,18 +9297,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -9310,7 +9330,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9458,7 +9478,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Preparing for Node.js development is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Preparing for Node.js development is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -9531,7 +9551,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Preparing for Node.js development is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Preparing for Node.js development is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -9545,8 +9565,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Preparing for Node.js development:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9560,18 +9580,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -9583,7 +9613,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Preparing for Node.js development execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Preparing for Node.js development execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9731,7 +9761,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Exercise files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Exercise files is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -9804,7 +9834,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Exercise files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Exercise files is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -9818,8 +9848,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Exercise files:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9833,18 +9863,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -9856,7 +9896,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Exercise files execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10004,7 +10044,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Demo setup and tour is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Demo setup and tour is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10077,7 +10117,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Demo setup and tour is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Demo setup and tour is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10091,8 +10131,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Demo setup and tour:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10106,18 +10146,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -10129,7 +10179,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Demo setup and tour execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Demo setup and tour execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10347,7 +10397,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        What is code quality? is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        What is code quality? is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10420,7 +10470,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            What is code quality? is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            What is code quality? is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10434,8 +10484,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for What is code quality?:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10449,18 +10499,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -10472,7 +10532,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What is code quality? execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What is code quality? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10620,7 +10680,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Coding conventions and standards is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Coding conventions and standards is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10693,7 +10753,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Coding conventions and standards is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Coding conventions and standards is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10707,8 +10767,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Coding conventions and standards:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10722,18 +10782,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -10745,7 +10815,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Coding conventions and standards execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Coding conventions and standards execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10893,7 +10963,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Creating and enforcing coding standards is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Creating and enforcing coding standards is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10966,7 +11036,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Creating and enforcing coding standards is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Creating and enforcing coding standards is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10980,8 +11050,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Creating and enforcing coding standards:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10995,18 +11065,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -11018,7 +11098,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating and enforcing coding standards execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating and enforcing coding standards execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11166,7 +11246,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Unit, integration, and functional testing is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Unit, integration, and functional testing is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -11239,7 +11319,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Unit, integration, and functional testing is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Unit, integration, and functional testing is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -11253,8 +11333,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Unit, integration, and functional testing:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11268,18 +11348,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -11291,7 +11381,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Unit, integration, and functional testing execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Unit, integration, and functional testing execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11439,7 +11529,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Testing frameworks is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Testing frameworks is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -11512,7 +11602,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Testing frameworks is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Testing frameworks is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -11526,8 +11616,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Testing frameworks:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11541,18 +11631,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -11564,7 +11664,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing frameworks execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing frameworks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11782,7 +11882,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        TDD and BDD test specifications is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        TDD and BDD test specifications is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -11855,7 +11955,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            TDD and BDD test specifications is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            TDD and BDD test specifications is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -11869,8 +11969,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for TDD and BDD test specifications:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11884,18 +11984,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -11907,7 +12017,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during TDD and BDD test specifications execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during TDD and BDD test specifications execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12055,7 +12165,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Assertions for correctness is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Assertions for correctness is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12128,7 +12238,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Assertions for correctness is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Assertions for correctness is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12142,8 +12252,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Assertions for correctness:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12157,18 +12267,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -12180,7 +12300,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Assertions for correctness execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Assertions for correctness execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12328,7 +12448,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Challenge: Organize your tests is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Challenge: Organize your tests is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12401,7 +12521,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Challenge: Organize your tests is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Challenge: Organize your tests is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12415,8 +12535,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Challenge: Organize your tests:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12430,18 +12550,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -12453,7 +12583,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Organize your tests execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Organize your tests execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12601,7 +12731,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Solution: Organize your tests is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Solution: Organize your tests is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12674,7 +12804,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Solution: Organize your tests is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Solution: Organize your tests is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12688,8 +12818,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Solution: Organize your tests:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12703,18 +12833,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -12726,7 +12866,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Organize your tests execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Organize your tests execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12874,7 +13014,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Standardizing with EditorConfig is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Standardizing with EditorConfig is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12947,7 +13087,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Standardizing with EditorConfig is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Standardizing with EditorConfig is a core architectural concept in **Testing Pyramid, Native Test Runner &amp; Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12961,8 +13101,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Standardizing with EditorConfig:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12976,18 +13116,28 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Unit Testing with Node.js Native Test Runner and Strict Assertions
+import test, { describe, it } from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+function calculateTax(amount, rate) {
+  if (amount &lt; 0 || rate &lt; 0) throw new RangeError(&quot;Values cannot be negative&quot;);
+  return Math.round(amount * rate * 100) / 100;
+}
+
+describe(&quot;Tax Calculation Engine&quot;, () =&gt; {
+  it(&quot;calculates exact rounded tax for positive rates&quot;, () =&gt; {
+    const result = calculateTax(100.5, 0.08);
+    assert.equal(result, 8.04);
+  });
+
+  it(&quot;throws RangeError on negative inputs&quot;, () =&gt; {
+    assert.throws(() =&gt; calculateTax(-10, 0.05), {
+      name: &quot;RangeError&quot;,
+      message: &quot;Values cannot be negative&quot;
+    });
+  });
+});</code></pre>
                         </div>
                         
 
@@ -12999,7 +13149,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Standardizing with EditorConfig execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Standardizing with EditorConfig execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         

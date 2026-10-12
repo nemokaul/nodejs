@@ -8912,7 +8912,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Writing callback test suites with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Writing callback test suites with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -8985,7 +8985,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Writing callback test suites with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Writing callback test suites with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -8999,8 +8999,8 @@
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Writing callback test suites with Jest:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9014,18 +9014,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -9037,7 +9053,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing callback test suites with Jest execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing callback test suites with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9185,7 +9201,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Testing promises with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Testing promises with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -9258,7 +9274,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Testing promises with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Testing promises with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -9272,8 +9288,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Testing promises with Jest:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9287,18 +9303,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -9310,7 +9342,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing promises with Jest execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing promises with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9458,7 +9490,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Challenge: Test async/await with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Challenge: Test async/await with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -9531,7 +9563,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Challenge: Test async/await with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Challenge: Test async/await with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -9545,8 +9577,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Challenge: Test async/await with Jest:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9560,18 +9592,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -9583,7 +9631,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Test async/await with Jest execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Test async/await with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9731,7 +9779,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Solution: Test async/await with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Solution: Test async/await with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -9804,7 +9852,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Solution: Test async/await with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Solution: Test async/await with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -9818,8 +9866,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Solution: Test async/await with Jest:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9833,18 +9881,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -9856,7 +9920,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Test async/await with Jest execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Test async/await with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10004,7 +10068,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Replacing code with test doubles is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Replacing code with test doubles is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10077,7 +10141,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Replacing code with test doubles is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Replacing code with test doubles is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10091,8 +10155,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Replacing code with test doubles:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10106,18 +10170,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -10129,7 +10209,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Replacing code with test doubles execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Replacing code with test doubles execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10347,7 +10427,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Mocking functions for test code is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Mocking functions for test code is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10420,7 +10500,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Mocking functions for test code is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Mocking functions for test code is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10434,8 +10514,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Mocking functions for test code:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10449,18 +10529,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -10472,7 +10568,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Mocking functions for test code execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Mocking functions for test code execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10620,7 +10716,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Writing your first Jest mock is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Writing your first Jest mock is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10693,7 +10789,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Writing your first Jest mock is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Writing your first Jest mock is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10707,8 +10803,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Writing your first Jest mock:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10722,18 +10818,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -10745,7 +10857,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing your first Jest mock execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing your first Jest mock execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10893,7 +11005,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Mock an entire module with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Mock an entire module with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10966,7 +11078,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Mock an entire module with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Mock an entire module with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10980,8 +11092,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Mock an entire module with Jest:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10995,18 +11107,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -11018,7 +11146,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Mock an entire module with Jest execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Mock an entire module with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11166,7 +11294,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Mocking module dependencies is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Mocking module dependencies is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -11239,7 +11367,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Mocking module dependencies is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Mocking module dependencies is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -11253,8 +11381,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Mocking module dependencies:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11268,18 +11396,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -11291,7 +11435,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Mocking module dependencies execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Mocking module dependencies execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11439,7 +11583,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Spying to observe interactions is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Spying to observe interactions is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -11512,7 +11656,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Spying to observe interactions is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Spying to observe interactions is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -11526,8 +11670,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Spying to observe interactions:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11541,18 +11685,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -11564,7 +11724,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Spying to observe interactions execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Spying to observe interactions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11782,7 +11942,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Challenge: Mock a successful reservation creation is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Challenge: Mock a successful reservation creation is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js 
                       </p>
                     
 
@@ -11855,7 +12015,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Challenge: Mock a successful reservation creation is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Challenge: Mock a successful reservation creation is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -11869,8 +12029,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Challenge: Mock a successful reservation creation:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11884,18 +12044,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -11907,7 +12083,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Mock a successful reservation creation execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Mock a successful reservation creation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12055,7 +12231,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Solution: Mock a successful reservation creation is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Solution: Mock a successful reservation creation is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js a
                       </p>
                     
 
@@ -12128,7 +12304,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Solution: Mock a successful reservation creation is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Solution: Mock a successful reservation creation is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12142,8 +12318,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Solution: Mock a successful reservation creation:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12157,18 +12333,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -12180,7 +12372,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Mock a successful reservation creation execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Mock a successful reservation creation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12328,7 +12520,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Why code coverage matters is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Why code coverage matters is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12401,7 +12593,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Why code coverage matters is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Why code coverage matters is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12415,8 +12607,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Why code coverage matters:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12430,18 +12622,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -12453,7 +12661,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Why code coverage matters execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Why code coverage matters execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12601,7 +12809,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Measuring code coverage with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Measuring code coverage with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12674,7 +12882,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Measuring code coverage with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Measuring code coverage with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12688,8 +12896,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Measuring code coverage with Jest:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12703,18 +12911,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -12726,7 +12950,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Measuring code coverage with Jest execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Measuring code coverage with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12874,7 +13098,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Functional testing with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Functional testing with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12947,7 +13171,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Functional testing with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Functional testing with Jest is a core architectural concept in **Test-Driven Development (TDD) &amp; End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12961,8 +13185,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Functional testing with Jest:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12976,18 +13200,34 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// End-to-End HTTP Service Verification with Supertest Pattern
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+import http from &quot;node:http&quot;;
+
+const server = http.createServer((req, res) =&gt; {
+  if (req.url === &quot;/api/health&quot; &amp;&amp; req.method === &quot;GET&quot;) {
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;application/json&quot; });
+    res.end(JSON.stringify({ status: &quot;healthy&quot;, uptime: process.uptime() }));
+  } else {
+    res.writeHead(404);
+    res.end();
   }
-  
-  return evaluateFrame(10);
-}</code></pre>
+});
+
+test(&quot;GET /api/health returns 200 with healthy status&quot;, async (t) =&gt; {
+  await new Promise(resolve =&gt; server.listen(0, resolve));
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/health`);
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.status, &quot;healthy&quot;);
+  } finally {
+    await new Promise(resolve =&gt; server.close(resolve));
+  }
+});</code></pre>
                         </div>
                         
 
@@ -12999,7 +13239,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Functional testing with Jest execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Functional testing with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         

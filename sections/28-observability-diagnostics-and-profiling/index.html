@@ -8908,7 +8908,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Setting up horizontal partitioning is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including clon
+                        Setting up horizontal partitioning is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloni
                       </p>
                     
 
@@ -8993,7 +8993,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Setting up horizontal partitioning is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
+                            Setting up horizontal partitioning is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
                           </p>
                         </div>
                         
@@ -9007,8 +9007,8 @@
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Setting up horizontal partitioning:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9022,17 +9022,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structured JSON Logger with OpenTelemetry Correlation Context
+import { AsyncLocalStorage } from &quot;node:async_hooks&quot;;
+
+export const traceStorage = new AsyncLocalStorage();
+
+export function logInfo(message, meta = {}) {
+  const context = traceStorage.getStore() || {};
+  const entry = {
+    timestamp: new Date().toISOString(),
+    level: &quot;INFO&quot;,
+    message,
+    traceId: context.traceId || &quot;untraced&quot;,
+    spanId: context.spanId || &quot;untraced&quot;,
+    ...meta
+  };
+  process.stdout.write(JSON.stringify(entry) + &quot;\n&quot;);
 }</code></pre>
                         </div>
                         
@@ -9045,7 +9050,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up horizontal partitioning execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up horizontal partitioning execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9193,7 +9198,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Scaling the y-axis is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database sc
+                        Scaling the y-axis is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database sca
                       </p>
                     
 
@@ -9278,7 +9283,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Scaling the y-axis is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
+                            Scaling the y-axis is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
                           </p>
                         </div>
                         
@@ -9292,8 +9297,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Scaling the y-axis:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9307,17 +9312,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structured JSON Logger with OpenTelemetry Correlation Context
+import { AsyncLocalStorage } from &quot;node:async_hooks&quot;;
+
+export const traceStorage = new AsyncLocalStorage();
+
+export function logInfo(message, meta = {}) {
+  const context = traceStorage.getStore() || {};
+  const entry = {
+    timestamp: new Date().toISOString(),
+    level: &quot;INFO&quot;,
+    message,
+    traceId: context.traceId || &quot;untraced&quot;,
+    spanId: context.spanId || &quot;untraced&quot;,
+    ...meta
+  };
+  process.stdout.write(JSON.stringify(entry) + &quot;\n&quot;);
 }</code></pre>
                         </div>
                         
@@ -9330,7 +9340,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the y-axis execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the y-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9478,7 +9488,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Decomposing services is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database 
+                        Decomposing services is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database s
                       </p>
                     
 
@@ -9563,7 +9573,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Decomposing services is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
+                            Decomposing services is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
                           </p>
                         </div>
                         
@@ -9577,8 +9587,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Decomposing services:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9592,17 +9602,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structured JSON Logger with OpenTelemetry Correlation Context
+import { AsyncLocalStorage } from &quot;node:async_hooks&quot;;
+
+export const traceStorage = new AsyncLocalStorage();
+
+export function logInfo(message, meta = {}) {
+  const context = traceStorage.getStore() || {};
+  const entry = {
+    timestamp: new Date().toISOString(),
+    level: &quot;INFO&quot;,
+    message,
+    traceId: context.traceId || &quot;untraced&quot;,
+    spanId: context.spanId || &quot;untraced&quot;,
+    ...meta
+  };
+  process.stdout.write(JSON.stringify(entry) + &quot;\n&quot;);
 }</code></pre>
                         </div>
                         
@@ -9615,7 +9630,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Decomposing services execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Decomposing services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9763,7 +9778,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Service orchestration is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database
+                        Service orchestration is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database 
                       </p>
                     
 
@@ -9848,7 +9863,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Service orchestration is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
+                            Service orchestration is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
                           </p>
                         </div>
                         
@@ -9862,8 +9877,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Service orchestration:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9877,17 +9892,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structured JSON Logger with OpenTelemetry Correlation Context
+import { AsyncLocalStorage } from &quot;node:async_hooks&quot;;
+
+export const traceStorage = new AsyncLocalStorage();
+
+export function logInfo(message, meta = {}) {
+  const context = traceStorage.getStore() || {};
+  const entry = {
+    timestamp: new Date().toISOString(),
+    level: &quot;INFO&quot;,
+    message,
+    traceId: context.traceId || &quot;untraced&quot;,
+    spanId: context.spanId || &quot;untraced&quot;,
+    ...meta
+  };
+  process.stdout.write(JSON.stringify(entry) + &quot;\n&quot;);
 }</code></pre>
                         </div>
                         
@@ -9900,7 +9920,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Service orchestration execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Service orchestration execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10114,7 +10134,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Create an orchestration is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, databa
+                        Create an orchestration is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, databas
                       </p>
                     
 
@@ -10199,7 +10219,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Create an orchestration is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
+                            Create an orchestration is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
                           </p>
                         </div>
                         
@@ -10213,8 +10233,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Create an orchestration:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10228,17 +10248,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structured JSON Logger with OpenTelemetry Correlation Context
+import { AsyncLocalStorage } from &quot;node:async_hooks&quot;;
+
+export const traceStorage = new AsyncLocalStorage();
+
+export function logInfo(message, meta = {}) {
+  const context = traceStorage.getStore() || {};
+  const entry = {
+    timestamp: new Date().toISOString(),
+    level: &quot;INFO&quot;,
+    message,
+    traceId: context.traceId || &quot;untraced&quot;,
+    spanId: context.spanId || &quot;untraced&quot;,
+    ...meta
+  };
+  process.stdout.write(JSON.stringify(entry) + &quot;\n&quot;);
 }</code></pre>
                         </div>
                         
@@ -10251,7 +10276,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Create an orchestration execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Create an orchestration execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10399,7 +10424,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Test the orchestration layer is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, d
+                        Test the orchestration layer is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, da
                       </p>
                     
 
@@ -10484,7 +10509,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Test the orchestration layer is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
+                            Test the orchestration layer is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
                           </p>
                         </div>
                         
@@ -10498,8 +10523,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Test the orchestration layer:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10513,17 +10538,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structured JSON Logger with OpenTelemetry Correlation Context
+import { AsyncLocalStorage } from &quot;node:async_hooks&quot;;
+
+export const traceStorage = new AsyncLocalStorage();
+
+export function logInfo(message, meta = {}) {
+  const context = traceStorage.getStore() || {};
+  const entry = {
+    timestamp: new Date().toISOString(),
+    level: &quot;INFO&quot;,
+    message,
+    traceId: context.traceId || &quot;untraced&quot;,
+    spanId: context.spanId || &quot;untraced&quot;,
+    ...meta
+  };
+  process.stdout.write(JSON.stringify(entry) + &quot;\n&quot;);
 }</code></pre>
                         </div>
                         
@@ -10536,7 +10566,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Test the orchestration layer execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Test the orchestration layer execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10684,7 +10714,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Next steps is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, a
+                        Next steps is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, an
                       </p>
                     
 
@@ -10769,7 +10799,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Next steps is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
+                            Next steps is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
                           </p>
                         </div>
                         
@@ -10783,8 +10813,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Next steps:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10798,17 +10828,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structured JSON Logger with OpenTelemetry Correlation Context
+import { AsyncLocalStorage } from &quot;node:async_hooks&quot;;
+
+export const traceStorage = new AsyncLocalStorage();
+
+export function logInfo(message, meta = {}) {
+  const context = traceStorage.getStore() || {};
+  const entry = {
+    timestamp: new Date().toISOString(),
+    level: &quot;INFO&quot;,
+    message,
+    traceId: context.traceId || &quot;untraced&quot;,
+    spanId: context.spanId || &quot;untraced&quot;,
+    ...meta
+  };
+  process.stdout.write(JSON.stringify(entry) + &quot;\n&quot;);
 }</code></pre>
                         </div>
                         
@@ -10821,7 +10856,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10969,7 +11004,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Scaling applications with Node.js is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloni
+                        Scaling applications with Node.js is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including clonin
                       </p>
                     
 
@@ -11054,7 +11089,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Scaling applications with Node.js is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
+                            Scaling applications with Node.js is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
                           </p>
                         </div>
                         
@@ -11068,8 +11103,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Scaling applications with Node.js:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11083,17 +11118,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structured JSON Logger with OpenTelemetry Correlation Context
+import { AsyncLocalStorage } from &quot;node:async_hooks&quot;;
+
+export const traceStorage = new AsyncLocalStorage();
+
+export function logInfo(message, meta = {}) {
+  const context = traceStorage.getStore() || {};
+  const entry = {
+    timestamp: new Date().toISOString(),
+    level: &quot;INFO&quot;,
+    message,
+    traceId: context.traceId || &quot;untraced&quot;,
+    spanId: context.spanId || &quot;untraced&quot;,
+    ...meta
+  };
+  process.stdout.write(JSON.stringify(entry) + &quot;\n&quot;);
 }</code></pre>
                         </div>
                         
@@ -11106,7 +11146,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling applications with Node.js execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling applications with Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11320,7 +11360,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        What you should know is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database 
+                        What you should know is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database s
                       </p>
                     
 
@@ -11405,7 +11445,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            What you should know is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
+                            What you should know is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
                           </p>
                         </div>
                         
@@ -11419,8 +11459,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for What you should know:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11434,17 +11474,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structured JSON Logger with OpenTelemetry Correlation Context
+import { AsyncLocalStorage } from &quot;node:async_hooks&quot;;
+
+export const traceStorage = new AsyncLocalStorage();
+
+export function logInfo(message, meta = {}) {
+  const context = traceStorage.getStore() || {};
+  const entry = {
+    timestamp: new Date().toISOString(),
+    level: &quot;INFO&quot;,
+    message,
+    traceId: context.traceId || &quot;untraced&quot;,
+    spanId: context.spanId || &quot;untraced&quot;,
+    ...meta
+  };
+  process.stdout.write(JSON.stringify(entry) + &quot;\n&quot;);
 }</code></pre>
                         </div>
                         
@@ -11457,7 +11502,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11605,7 +11650,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Using the exercise files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, datab
+                        Using the exercise files is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, databa
                       </p>
                     
 
@@ -11690,7 +11735,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Using the exercise files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
+                            Using the exercise files is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
                           </p>
                         </div>
                         
@@ -11704,8 +11749,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Using the exercise files:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11719,17 +11764,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structured JSON Logger with OpenTelemetry Correlation Context
+import { AsyncLocalStorage } from &quot;node:async_hooks&quot;;
+
+export const traceStorage = new AsyncLocalStorage();
+
+export function logInfo(message, meta = {}) {
+  const context = traceStorage.getStore() || {};
+  const entry = {
+    timestamp: new Date().toISOString(),
+    level: &quot;INFO&quot;,
+    message,
+    traceId: context.traceId || &quot;untraced&quot;,
+    spanId: context.spanId || &quot;untraced&quot;,
+    ...meta
+  };
+  process.stdout.write(JSON.stringify(entry) + &quot;\n&quot;);
 }</code></pre>
                         </div>
                         
@@ -11742,7 +11792,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11890,7 +11940,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        The scale cube is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scalin
+                        The scale cube is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling
                       </p>
                     
 
@@ -11975,7 +12025,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            The scale cube is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
+                            The scale cube is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
                           </p>
                         </div>
                         
@@ -11989,8 +12039,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for The scale cube:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12004,17 +12054,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structured JSON Logger with OpenTelemetry Correlation Context
+import { AsyncLocalStorage } from &quot;node:async_hooks&quot;;
+
+export const traceStorage = new AsyncLocalStorage();
+
+export function logInfo(message, meta = {}) {
+  const context = traceStorage.getStore() || {};
+  const entry = {
+    timestamp: new Date().toISOString(),
+    level: &quot;INFO&quot;,
+    message,
+    traceId: context.traceId || &quot;untraced&quot;,
+    spanId: context.spanId || &quot;untraced&quot;,
+    ...meta
+  };
+  process.stdout.write(JSON.stringify(entry) + &quot;\n&quot;);
 }</code></pre>
                         </div>
                         
@@ -12027,7 +12082,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The scale cube execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The scale cube execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12175,7 +12230,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Scaling the x-axis is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database sc
+                        Scaling the x-axis is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database sca
                       </p>
                     
 
@@ -12260,7 +12315,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Scaling the x-axis is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
+                            Scaling the x-axis is a core architectural concept in **Observability, OpenTelemetry, Diagnostics &amp; Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.
                           </p>
                         </div>
                         
@@ -12274,8 +12329,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Scaling the x-axis:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12289,17 +12344,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structured JSON Logger with OpenTelemetry Correlation Context
+import { AsyncLocalStorage } from &quot;node:async_hooks&quot;;
+
+export const traceStorage = new AsyncLocalStorage();
+
+export function logInfo(message, meta = {}) {
+  const context = traceStorage.getStore() || {};
+  const entry = {
+    timestamp: new Date().toISOString(),
+    level: &quot;INFO&quot;,
+    message,
+    traceId: context.traceId || &quot;untraced&quot;,
+    spanId: context.spanId || &quot;untraced&quot;,
+    ...meta
+  };
+  process.stdout.write(JSON.stringify(entry) + &quot;\n&quot;);
 }</code></pre>
                         </div>
                         
@@ -12312,7 +12372,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the x-axis execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the x-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         

@@ -8908,7 +8908,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Setting up the database connection is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, a
+                        Setting up the database connection is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enh
                       </p>
                     
 
@@ -8981,7 +8981,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Setting up the database connection is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Setting up the database connection is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -8995,8 +8995,8 @@
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Setting up the database connection:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9010,17 +9010,20 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Read-Your-Own-Writes Database Router
+export class DatabaseRouter {
+  constructor(primaryPool, replicaPool) {
+    this.primary = primaryPool;
+    this.replica = replicaPool;
   }
-  
-  return evaluateFrame(10);
+
+  getPool(context) {
+    // If the request mutated data within the last 2 seconds, read from primary
+    if (context.hasRecentMutation) {
+      return this.primary;
+    }
+    return this.replica;
+  }
 }</code></pre>
                         </div>
                         
@@ -9033,7 +9036,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up the database connection execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up the database connection execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9181,7 +9184,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Designing the database structure is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and
+                        Designing the database structure is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhan
                       </p>
                     
 
@@ -9254,7 +9257,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Designing the database structure is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Designing the database structure is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -9268,8 +9271,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Designing the database structure:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9283,17 +9286,20 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Read-Your-Own-Writes Database Router
+export class DatabaseRouter {
+  constructor(primaryPool, replicaPool) {
+    this.primary = primaryPool;
+    this.replica = replicaPool;
   }
-  
-  return evaluateFrame(10);
+
+  getPool(context) {
+    // If the request mutated data within the last 2 seconds, read from primary
+    if (context.hasRecentMutation) {
+      return this.primary;
+    }
+    return this.replica;
+  }
 }</code></pre>
                         </div>
                         
@@ -9306,7 +9312,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Designing the database structure execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Designing the database structure execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9454,7 +9460,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Creating a user model for Sequelize is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, 
+                        Creating a user model for Sequelize is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and en
                       </p>
                     
 
@@ -9527,7 +9533,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Creating a user model for Sequelize is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Creating a user model for Sequelize is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -9541,8 +9547,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Creating a user model for Sequelize:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9556,17 +9562,20 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Read-Your-Own-Writes Database Router
+export class DatabaseRouter {
+  constructor(primaryPool, replicaPool) {
+    this.primary = primaryPool;
+    this.replica = replicaPool;
   }
-  
-  return evaluateFrame(10);
+
+  getPool(context) {
+    // If the request mutated data within the last 2 seconds, read from primary
+    if (context.hasRecentMutation) {
+      return this.primary;
+    }
+    return this.replica;
+  }
 }</code></pre>
                         </div>
                         
@@ -9579,7 +9588,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a user model for Sequelize execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a user model for Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9727,7 +9736,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Creating the order models for Sequelize is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applicatio
+                        Creating the order models for Sequelize is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, an
                       </p>
                     
 
@@ -9800,7 +9809,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Creating the order models for Sequelize is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Creating the order models for Sequelize is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -9814,8 +9823,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Creating the order models for Sequelize:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9829,17 +9838,20 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Read-Your-Own-Writes Database Router
+export class DatabaseRouter {
+  constructor(primaryPool, replicaPool) {
+    this.primary = primaryPool;
+    this.replica = replicaPool;
   }
-  
-  return evaluateFrame(10);
+
+  getPool(context) {
+    // If the request mutated data within the last 2 seconds, read from primary
+    if (context.hasRecentMutation) {
+      return this.primary;
+    }
+    return this.replica;
+  }
 }</code></pre>
                         </div>
                         
@@ -9852,7 +9864,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating the order models for Sequelize execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating the order models for Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10066,7 +10078,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Loading and syncing the models is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and e
+                        Loading and syncing the models is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance
                       </p>
                     
 
@@ -10139,7 +10151,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Loading and syncing the models is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Loading and syncing the models is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -10153,8 +10165,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Loading and syncing the models:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10168,17 +10180,20 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Read-Your-Own-Writes Database Router
+export class DatabaseRouter {
+  constructor(primaryPool, replicaPool) {
+    this.primary = primaryPool;
+    this.replica = replicaPool;
   }
-  
-  return evaluateFrame(10);
+
+  getPool(context) {
+    // If the request mutated data within the last 2 seconds, read from primary
+    if (context.hasRecentMutation) {
+      return this.primary;
+    }
+    return this.replica;
+  }
 }</code></pre>
                         </div>
                         
@@ -10191,7 +10206,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Loading and syncing the models execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Loading and syncing the models execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10339,7 +10354,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Creating, updating and deleting users with Sequelize is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into yo
+                        Creating, updating and deleting users with Sequelize is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your app
                       </p>
                     
 
@@ -10412,7 +10427,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Creating, updating and deleting users with Sequelize is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Creating, updating and deleting users with Sequelize is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -10426,8 +10441,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Creating, updating and deleting users with Sequelize:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10441,17 +10456,20 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Read-Your-Own-Writes Database Router
+export class DatabaseRouter {
+  constructor(primaryPool, replicaPool) {
+    this.primary = primaryPool;
+    this.replica = replicaPool;
   }
-  
-  return evaluateFrame(10);
+
+  getPool(context) {
+    // If the request mutated data within the last 2 seconds, read from primary
+    if (context.hasRecentMutation) {
+      return this.primary;
+    }
+    return this.replica;
+  }
 }</code></pre>
                         </div>
                         
@@ -10464,7 +10482,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating, updating and deleting users with Sequelize execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating, updating and deleting users with Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10612,7 +10630,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Securing credentials with password hashing is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applica
+                        Securing credentials with password hashing is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications,
                       </p>
                     
 
@@ -10685,7 +10703,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Securing credentials with password hashing is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Securing credentials with password hashing is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -10699,8 +10717,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Securing credentials with password hashing:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10714,17 +10732,20 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Read-Your-Own-Writes Database Router
+export class DatabaseRouter {
+  constructor(primaryPool, replicaPool) {
+    this.primary = primaryPool;
+    this.replica = replicaPool;
   }
-  
-  return evaluateFrame(10);
+
+  getPool(context) {
+    // If the request mutated data within the last 2 seconds, read from primary
+    if (context.hasRecentMutation) {
+      return this.primary;
+    }
+    return this.replica;
+  }
 }</code></pre>
                         </div>
                         
@@ -10737,7 +10758,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing credentials with password hashing execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing credentials with password hashing execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10885,7 +10906,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Implementing the user login is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enha
+                        Implementing the user login is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance yo
                       </p>
                     
 
@@ -10958,7 +10979,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Implementing the user login is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Implementing the user login is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -10972,8 +10993,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Implementing the user login:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10987,17 +11008,20 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Read-Your-Own-Writes Database Router
+export class DatabaseRouter {
+  constructor(primaryPool, replicaPool) {
+    this.primary = primaryPool;
+    this.replica = replicaPool;
   }
-  
-  return evaluateFrame(10);
+
+  getPool(context) {
+    // If the request mutated data within the last 2 seconds, read from primary
+    if (context.hasRecentMutation) {
+      return this.primary;
+    }
+    return this.replica;
+  }
 }</code></pre>
                         </div>
                         
@@ -11010,7 +11034,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the user login execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the user login execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11224,7 +11248,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Fast and flexible basket and session management with Redis is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases i
+                        Fast and flexible basket and session management with Redis is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into yo
                       </p>
                     
 
@@ -11297,7 +11321,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Fast and flexible basket and session management with Redis is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Fast and flexible basket and session management with Redis is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -11311,8 +11335,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Fast and flexible basket and session management with Redis:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11326,17 +11350,20 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Read-Your-Own-Writes Database Router
+export class DatabaseRouter {
+  constructor(primaryPool, replicaPool) {
+    this.primary = primaryPool;
+    this.replica = replicaPool;
   }
-  
-  return evaluateFrame(10);
+
+  getPool(context) {
+    // If the request mutated data within the last 2 seconds, read from primary
+    if (context.hasRecentMutation) {
+      return this.primary;
+    }
+    return this.replica;
+  }
 }</code></pre>
                         </div>
                         
@@ -11349,7 +11376,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Fast and flexible basket and session management with Redis execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Fast and flexible basket and session management with Redis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11497,7 +11524,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Setting up Redis with Docker is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enh
+                        Setting up Redis with Docker is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance y
                       </p>
                     
 
@@ -11570,7 +11597,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Setting up Redis with Docker is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Setting up Redis with Docker is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -11584,8 +11611,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Setting up Redis with Docker:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11599,17 +11626,20 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Read-Your-Own-Writes Database Router
+export class DatabaseRouter {
+  constructor(primaryPool, replicaPool) {
+    this.primary = primaryPool;
+    this.replica = replicaPool;
   }
-  
-  return evaluateFrame(10);
+
+  getPool(context) {
+    // If the request mutated data within the last 2 seconds, read from primary
+    if (context.hasRecentMutation) {
+      return this.primary;
+    }
+    return this.replica;
+  }
 }</code></pre>
                         </div>
                         
@@ -11622,7 +11652,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up Redis with Docker execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up Redis with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11770,7 +11800,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Exploring Redis with Redis Insight is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, a
+                        Exploring Redis with Redis Insight is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enh
                       </p>
                     
 
@@ -11843,7 +11873,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Exploring Redis with Redis Insight is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Exploring Redis with Redis Insight is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -11857,8 +11887,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Exploring Redis with Redis Insight:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11872,17 +11902,20 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Read-Your-Own-Writes Database Router
+export class DatabaseRouter {
+  constructor(primaryPool, replicaPool) {
+    this.primary = primaryPool;
+    this.replica = replicaPool;
   }
-  
-  return evaluateFrame(10);
+
+  getPool(context) {
+    // If the request mutated data within the last 2 seconds, read from primary
+    if (context.hasRecentMutation) {
+      return this.primary;
+    }
+    return this.replica;
+  }
 }</code></pre>
                         </div>
                         
@@ -11895,7 +11928,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring Redis with Redis Insight execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring Redis with Redis Insight execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12043,7 +12076,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Connecting our application to Redis is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, 
+                        Connecting our application to Redis is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and en
                       </p>
                     
 
@@ -12116,7 +12149,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Connecting our application to Redis is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Connecting our application to Redis is a core architectural concept in **Distributed Replication, Partitioning &amp; Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -12130,8 +12163,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Connecting our application to Redis:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12145,17 +12178,20 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Read-Your-Own-Writes Database Router
+export class DatabaseRouter {
+  constructor(primaryPool, replicaPool) {
+    this.primary = primaryPool;
+    this.replica = replicaPool;
   }
-  
-  return evaluateFrame(10);
+
+  getPool(context) {
+    // If the request mutated data within the last 2 seconds, read from primary
+    if (context.hasRecentMutation) {
+      return this.primary;
+    }
+    return this.replica;
+  }
 }</code></pre>
                         </div>
                         
@@ -12168,7 +12204,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Connecting our application to Redis execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Connecting our application to Redis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         

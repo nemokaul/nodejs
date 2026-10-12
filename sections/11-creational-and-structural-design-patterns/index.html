@@ -8916,7 +8916,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Welcome is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        Welcome is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -8989,7 +8989,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Welcome is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            Welcome is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -9003,8 +9003,8 @@
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Welcome:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9018,17 +9018,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -9041,7 +9051,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9189,7 +9199,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        What you should know is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        What you should know is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -9262,7 +9272,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            What you should know is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            What you should know is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -9276,8 +9286,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for What you should know:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9291,17 +9301,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -9314,7 +9334,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9462,7 +9482,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Using the exercise files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        Using the exercise files is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -9535,7 +9555,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Using the exercise files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            Using the exercise files is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -9549,8 +9569,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Using the exercise files:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9564,17 +9584,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -9587,7 +9617,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9735,7 +9765,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        What are design patterns? is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        What are design patterns? is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -9808,7 +9838,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            What are design patterns? is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            What are design patterns? is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -9822,8 +9852,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for What are design patterns?:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9837,17 +9867,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -9860,7 +9900,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What are design patterns? execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What are design patterns? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10008,7 +10048,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gang of Four: Design patterns is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        Gang of Four: Design patterns is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -10081,7 +10121,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gang of Four: Design patterns is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            Gang of Four: Design patterns is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -10095,8 +10135,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Gang of Four: Design patterns:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10110,17 +10150,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -10133,7 +10183,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Gang of Four: Design patterns execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Gang of Four: Design patterns execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10281,7 +10331,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Anti-patterns is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        Anti-patterns is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -10354,7 +10404,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Anti-patterns is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            Anti-patterns is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -10368,8 +10418,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Anti-patterns:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10383,17 +10433,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -10406,7 +10466,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Anti-patterns execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Anti-patterns execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10628,7 +10688,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        The singleton problem is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        The singleton problem is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -10701,7 +10761,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            The singleton problem is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            The singleton problem is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -10715,8 +10775,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for The singleton problem:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10730,17 +10790,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -10753,7 +10823,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The singleton problem execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The singleton problem execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10901,7 +10971,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        The Singletons pattern is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        The Singletons pattern is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -10974,7 +11044,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            The Singletons pattern is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            The Singletons pattern is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -10988,8 +11058,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for The Singletons pattern:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11003,17 +11073,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -11026,7 +11106,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The Singletons pattern execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The Singletons pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11174,7 +11254,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Singletons in Node is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        Singletons in Node is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -11247,7 +11327,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Singletons in Node is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            Singletons in Node is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -11261,8 +11341,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Singletons in Node:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11276,17 +11356,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -11299,7 +11389,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Singletons in Node execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Singletons in Node execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11447,7 +11537,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        The Prototype pattern is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        The Prototype pattern is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -11520,7 +11610,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            The Prototype pattern is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            The Prototype pattern is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -11534,8 +11624,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for The Prototype pattern:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11549,17 +11639,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -11572,7 +11672,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The Prototype pattern execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The Prototype pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11720,7 +11820,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        The prototype clone method is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        The prototype clone method is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -11793,7 +11893,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            The prototype clone method is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            The prototype clone method is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -11807,8 +11907,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for The prototype clone method:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11822,17 +11922,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -11845,7 +11955,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The prototype clone method execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The prototype clone method execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11993,7 +12103,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        The Factory pattern is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        The Factory pattern is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -12066,7 +12176,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            The Factory pattern is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            The Factory pattern is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -12080,8 +12190,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for The Factory pattern:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12095,17 +12205,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -12118,7 +12238,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The Factory pattern execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The Factory pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12340,7 +12460,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        The Builder pattern is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        The Builder pattern is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -12413,7 +12533,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            The Builder pattern is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            The Builder pattern is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -12427,8 +12547,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for The Builder pattern:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12442,17 +12562,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -12465,7 +12595,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The Builder pattern execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The Builder pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12613,7 +12743,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Implementing a builder is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        Implementing a builder is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -12686,7 +12816,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Implementing a builder is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            Implementing a builder is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -12700,8 +12830,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Implementing a builder:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12715,17 +12845,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -12738,7 +12878,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing a builder execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing a builder execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12886,7 +13026,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        The Adapter pattern is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        The Adapter pattern is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -12959,7 +13099,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            The Adapter pattern is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            The Adapter pattern is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -12973,8 +13113,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for The Adapter pattern:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12988,17 +13128,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -13011,7 +13161,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The Adapter pattern execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The Adapter pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -13159,7 +13309,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Implementing an adapter is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        Implementing an adapter is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -13232,7 +13382,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Implementing an adapter is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            Implementing an adapter is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -13246,8 +13396,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Implementing an adapter:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -13261,17 +13411,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -13284,7 +13444,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing an adapter execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing an adapter execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -13432,7 +13592,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        The Proxy pattern is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        The Proxy pattern is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -13505,7 +13665,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            The Proxy pattern is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            The Proxy pattern is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -13519,8 +13679,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for The Proxy pattern:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -13534,17 +13694,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -13557,7 +13727,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The Proxy pattern execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The Proxy pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -13705,7 +13875,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Implementing a proxy is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                        Implementing a proxy is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                       </p>
                     
 
@@ -13778,7 +13948,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Implementing a proxy is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to use common design patterns in Node.js to write better JavaScript code.
+                            Implementing a proxy is a core architectural concept in **Creational &amp; Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.
                           </p>
                         </div>
                         
@@ -13792,8 +13962,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Implementing a proxy:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -13807,17 +13977,27 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Structural Proxy Pattern with Transparent Performance Metrics
+export function createProfilingProxy(targetService, serviceName) {
+  return new Proxy(targetService, {
+    get(target, prop, receiver) {
+      const origMethod = Reflect.get(target, prop, receiver);
+      if (typeof origMethod !== &quot;function&quot;) return origMethod;
+
+      return async function (...args) {
+        const start = performance.now();
+        try {
+          const result = await Reflect.apply(origMethod, target, args);
+          const duration = (performance.now() - start).toFixed(2);
+          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);
+          return result;
+        } catch (err) {
+          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);
+          throw err;
+        }
+      };
+    }
+  });
 }</code></pre>
                         </div>
                         
@@ -13830,7 +14010,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing a proxy execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing a proxy execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         

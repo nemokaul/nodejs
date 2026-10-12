@@ -8912,7 +8912,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Adding EditorConfig to a project and IDE is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Adding EditorConfig to a project and IDE is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -8985,7 +8985,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Adding EditorConfig to a project and IDE is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Adding EditorConfig to a project and IDE is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -8999,8 +8999,8 @@
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Adding EditorConfig to a project and IDE:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9014,18 +9014,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -9037,7 +9041,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Adding EditorConfig to a project and IDE execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Adding EditorConfig to a project and IDE execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9185,7 +9189,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Comparing JavaScript linters is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Comparing JavaScript linters is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -9258,7 +9262,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Comparing JavaScript linters is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Comparing JavaScript linters is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -9272,8 +9276,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Comparing JavaScript linters:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9287,18 +9291,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -9310,7 +9318,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Comparing JavaScript linters execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Comparing JavaScript linters execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9458,7 +9466,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Installing ESLint is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Installing ESLint is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -9531,7 +9539,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Installing ESLint is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Installing ESLint is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -9545,8 +9553,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Installing ESLint:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9560,18 +9568,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -9583,7 +9595,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Installing ESLint execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Installing ESLint execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9731,7 +9743,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Configuring ESLint is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Configuring ESLint is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -9804,7 +9816,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Configuring ESLint is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Configuring ESLint is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -9818,8 +9830,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Configuring ESLint:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9833,18 +9845,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -9856,7 +9872,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Configuring ESLint execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Configuring ESLint execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10004,7 +10020,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Extending an ESLint shareable config is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Extending an ESLint shareable config is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10077,7 +10093,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Extending an ESLint shareable config is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Extending an ESLint shareable config is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10091,8 +10107,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Extending an ESLint shareable config:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10106,18 +10122,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -10129,7 +10149,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Extending an ESLint shareable config execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Extending an ESLint shareable config execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10347,7 +10367,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Linting your codebase is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Linting your codebase is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10420,7 +10440,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Linting your codebase is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Linting your codebase is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10434,8 +10454,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Linting your codebase:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10449,18 +10469,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -10472,7 +10496,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Linting your codebase execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Linting your codebase execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10620,7 +10644,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Fixing code in VSC with ESLint is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Fixing code in VSC with ESLint is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10693,7 +10717,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Fixing code in VSC with ESLint is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Fixing code in VSC with ESLint is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10707,8 +10731,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Fixing code in VSC with ESLint:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10722,18 +10746,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -10745,7 +10773,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Fixing code in VSC with ESLint execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Fixing code in VSC with ESLint execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10893,7 +10921,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Challenge: Create a shareable ESLint config is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Challenge: Create a shareable ESLint config is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10966,7 +10994,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Challenge: Create a shareable ESLint config is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Challenge: Create a shareable ESLint config is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10980,8 +11008,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Challenge: Create a shareable ESLint config:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10995,18 +11023,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -11018,7 +11050,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Create a shareable ESLint config execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Create a shareable ESLint config execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11166,7 +11198,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Solution: Create a shareable ESLint config is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Solution: Create a shareable ESLint config is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -11239,7 +11271,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Solution: Create a shareable ESLint config is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Solution: Create a shareable ESLint config is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -11253,8 +11285,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Solution: Create a shareable ESLint config:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11268,18 +11300,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -11291,7 +11327,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a shareable ESLint config execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a shareable ESLint config execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11439,7 +11475,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Survey of Node.js testing frameworks is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Survey of Node.js testing frameworks is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -11512,7 +11548,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Survey of Node.js testing frameworks is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Survey of Node.js testing frameworks is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -11526,8 +11562,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Survey of Node.js testing frameworks:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11541,18 +11577,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -11564,7 +11604,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Survey of Node.js testing frameworks execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Survey of Node.js testing frameworks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11782,7 +11822,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Install Jest in a Node.js project is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Install Jest in a Node.js project is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -11855,7 +11895,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Install Jest in a Node.js project is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Install Jest in a Node.js project is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -11869,8 +11909,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Install Jest in a Node.js project:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11884,18 +11924,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -11907,7 +11951,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Install Jest in a Node.js project execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Install Jest in a Node.js project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12055,7 +12099,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        What and where to unit test? is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        What and where to unit test? is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12128,7 +12172,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            What and where to unit test? is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            What and where to unit test? is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12142,8 +12186,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for What and where to unit test?:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12157,18 +12201,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -12180,7 +12228,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What and where to unit test? execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What and where to unit test? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12328,7 +12376,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Writing your first Jest unit test is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Writing your first Jest unit test is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12401,7 +12449,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Writing your first Jest unit test is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Writing your first Jest unit test is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12415,8 +12463,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Writing your first Jest unit test:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12430,18 +12478,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -12453,7 +12505,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing your first Jest unit test execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing your first Jest unit test execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12601,7 +12653,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Running a test suite with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Running a test suite with Jest is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12674,7 +12726,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Running a test suite with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Running a test suite with Jest is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12688,8 +12740,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Running a test suite with Jest:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12703,18 +12755,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -12726,7 +12782,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Running a test suite with Jest execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Running a test suite with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12874,7 +12930,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Testing asynchronous callbacks with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Testing asynchronous callbacks with Jest is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12947,7 +13003,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Testing asynchronous callbacks with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Testing asynchronous callbacks with Jest is a core architectural concept in **Backend Unit Testing, Mocking &amp; Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12961,8 +13017,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Testing asynchronous callbacks with Jest:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12976,18 +13032,22 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
-}</code></pre>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Mocking Network Boundaries and Timers with Node.js Native Test Runner
+import test from &quot;node:test&quot;;
+import assert from &quot;node:assert/strict&quot;;
+
+test(&quot;UserService with Mocked Payment Gateway&quot;, async (t) =&gt; {
+  const mockCharge = t.mock.fn(async (userId, amount) =&gt; {
+    return { success: true, txnId: &quot;txn_test_123&quot; };
+  });
+
+  const paymentService = { charge: mockCharge };
+  const result = await paymentService.charge(&quot;user_1&quot;, 5000);
+
+  assert.equal(result.success, true);
+  assert.equal(mockCharge.mock.callCount(), 1);
+  assert.deepEqual(mockCharge.mock.calls[0].arguments, [&quot;user_1&quot;, 5000]);
+});</code></pre>
                         </div>
                         
 
@@ -12999,7 +13059,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing asynchronous callbacks with Jest execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing asynchronous callbacks with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         

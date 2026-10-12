@@ -1,0 +1,802 @@
+{
+  "deckId": "sec-3",
+  "title": "Module 3: Closures, Lexical Environment & Module Patterns (All Chapters)",
+  "chapterId": "all",
+  "sectionId": "section-03",
+  "description": "Comprehensive module-level assessment covering all chapters of Module 3: Closures, Lexical Environment & Module Patterns.",
+  "totalCards": 24,
+  "cards": [
+    {
+      "id": "mcq-03-001-01",
+      "concept": "Lexical Scoping & Nested Functions: Closure Memory Retention & Heap Allocation",
+      "category": "Closures & Memory",
+      "difficulty": "Advanced",
+      "question": "How does V8 preserve outer lexical scope bindings captured by an inner closure that outlives its parent function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It duplicates the entire process memory space to worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "V8 allocates a Context object on the managed Heap to store captured variables, referenced via the inner function's internal [[Scopes]] link.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It serializes the scope into JSON buffers in the code cache.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It locks the operating system thread from terminating.",
+          "correct": false
+        }
+      ],
+      "explanation": "When variables in an outer function are captured by an escaping inner function, V8 allocates a Heap Context for those variables. The inner function retains a reference via its internal [[Scopes]] property.",
+      "codeSnippet": "function makeCounter() {\n  let count = 0; // Moved to Heap Context\n  return () => ++count;\n}",
+      "pitfall": "Capturing large objects or buffers in an outer scope that is referenced by a long-lived closure (e.g. interval callback) prevents GC reclamation, creating a memory leak.",
+      "citation": "V8 Internals Documentation / Node.js Memory Management Guide"
+    },
+    {
+      "id": "mcq-03-001-02",
+      "concept": "Lexical Scoping & Nested Functions: Private Class Fields vs Closure Encapsulation",
+      "category": "Encapsulation",
+      "difficulty": "Intermediate",
+      "question": "How do ECMAScript Private Class Fields (`#field`) guarantee hard encapsulation compared to closure-based private variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private fields are stored in global Symbol registries accessible via getOwnPropertySymbols.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private fields use internal private brand checks enforced at bytecode level; they cannot be accessed or overridden outside class declaration.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Private fields are encrypted using AES-256 in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Private fields create a new V8 heap isolate per class instance.",
+          "correct": false
+        }
+      ],
+      "explanation": "Private class fields (#field) provide hard private state. Outside code cannot inspect or access them even with Object.getOwnPropertyNames or Proxy reflection.",
+      "codeSnippet": "class Account {\n  #balance = 0;\n  deposit(amt) { this.#balance += amt; }\n  getBalance() { return this.#balance; }\n}\nconst a = new Account();\n// a.#balance; // SyntaxError: Private field '#balance' must be declared in an enclosing class",
+      "pitfall": "Attempting to dynamically access private fields using bracket notation (this[`#${name}`]) is a syntax error.",
+      "citation": "MDN Web Docs: Private properties / TC39 Class Fields Proposal"
+    },
+    {
+      "id": "mcq-03-001-03",
+      "concept": "Lexical Scoping & Nested Functions: Closure Memory Retention & Heap Allocation",
+      "category": "Closures & Memory",
+      "difficulty": "Advanced",
+      "question": "How does V8 preserve outer lexical scope bindings captured by an inner closure that outlives its parent function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It duplicates the entire process memory space to worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "V8 allocates a Context object on the managed Heap to store captured variables, referenced via the inner function's internal [[Scopes]] link.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It serializes the scope into JSON buffers in the code cache.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It locks the operating system thread from terminating.",
+          "correct": false
+        }
+      ],
+      "explanation": "When variables in an outer function are captured by an escaping inner function, V8 allocates a Heap Context for those variables. The inner function retains a reference via its internal [[Scopes]] property.",
+      "codeSnippet": "function makeCounter() {\n  let count = 0; // Moved to Heap Context\n  return () => ++count;\n}",
+      "pitfall": "Capturing large objects or buffers in an outer scope that is referenced by a long-lived closure (e.g. interval callback) prevents GC reclamation, creating a memory leak.",
+      "citation": "V8 Internals Documentation / Node.js Memory Management Guide"
+    },
+    {
+      "id": "mcq-03-001-04",
+      "concept": "Lexical Scoping & Nested Functions: Private Class Fields vs Closure Encapsulation",
+      "category": "Encapsulation",
+      "difficulty": "Intermediate",
+      "question": "How do ECMAScript Private Class Fields (`#field`) guarantee hard encapsulation compared to closure-based private variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private fields are stored in global Symbol registries accessible via getOwnPropertySymbols.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private fields use internal private brand checks enforced at bytecode level; they cannot be accessed or overridden outside class declaration.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Private fields are encrypted using AES-256 in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Private fields create a new V8 heap isolate per class instance.",
+          "correct": false
+        }
+      ],
+      "explanation": "Private class fields (#field) provide hard private state. Outside code cannot inspect or access them even with Object.getOwnPropertyNames or Proxy reflection.",
+      "codeSnippet": "class Account {\n  #balance = 0;\n  deposit(amt) { this.#balance += amt; }\n  getBalance() { return this.#balance; }\n}\nconst a = new Account();\n// a.#balance; // SyntaxError: Private field '#balance' must be declared in an enclosing class",
+      "pitfall": "Attempting to dynamically access private fields using bracket notation (this[`#${name}`]) is a syntax error.",
+      "citation": "MDN Web Docs: Private properties / TC39 Class Fields Proposal"
+    },
+    {
+      "id": "mcq-03-001-05",
+      "concept": "Lexical Scoping & Nested Functions: Closure Memory Retention & Heap Allocation",
+      "category": "Closures & Memory",
+      "difficulty": "Advanced",
+      "question": "How does V8 preserve outer lexical scope bindings captured by an inner closure that outlives its parent function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It duplicates the entire process memory space to worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "V8 allocates a Context object on the managed Heap to store captured variables, referenced via the inner function's internal [[Scopes]] link.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It serializes the scope into JSON buffers in the code cache.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It locks the operating system thread from terminating.",
+          "correct": false
+        }
+      ],
+      "explanation": "When variables in an outer function are captured by an escaping inner function, V8 allocates a Heap Context for those variables. The inner function retains a reference via its internal [[Scopes]] property.",
+      "codeSnippet": "function makeCounter() {\n  let count = 0; // Moved to Heap Context\n  return () => ++count;\n}",
+      "pitfall": "Capturing large objects or buffers in an outer scope that is referenced by a long-lived closure (e.g. interval callback) prevents GC reclamation, creating a memory leak.",
+      "citation": "V8 Internals Documentation / Node.js Memory Management Guide"
+    },
+    {
+      "id": "mcq-03-001-06",
+      "concept": "Lexical Scoping & Nested Functions: Private Class Fields vs Closure Encapsulation",
+      "category": "Encapsulation",
+      "difficulty": "Intermediate",
+      "question": "How do ECMAScript Private Class Fields (`#field`) guarantee hard encapsulation compared to closure-based private variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private fields are stored in global Symbol registries accessible via getOwnPropertySymbols.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private fields use internal private brand checks enforced at bytecode level; they cannot be accessed or overridden outside class declaration.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Private fields are encrypted using AES-256 in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Private fields create a new V8 heap isolate per class instance.",
+          "correct": false
+        }
+      ],
+      "explanation": "Private class fields (#field) provide hard private state. Outside code cannot inspect or access them even with Object.getOwnPropertyNames or Proxy reflection.",
+      "codeSnippet": "class Account {\n  #balance = 0;\n  deposit(amt) { this.#balance += amt; }\n  getBalance() { return this.#balance; }\n}\nconst a = new Account();\n// a.#balance; // SyntaxError: Private field '#balance' must be declared in an enclosing class",
+      "pitfall": "Attempting to dynamically access private fields using bracket notation (this[`#${name}`]) is a syntax error.",
+      "citation": "MDN Web Docs: Private properties / TC39 Class Fields Proposal"
+    },
+    {
+      "id": "mcq-03-001-07",
+      "concept": "Lexical Scoping & Nested Functions: Closure Memory Retention & Heap Allocation",
+      "category": "Closures & Memory",
+      "difficulty": "Advanced",
+      "question": "How does V8 preserve outer lexical scope bindings captured by an inner closure that outlives its parent function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It duplicates the entire process memory space to worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "V8 allocates a Context object on the managed Heap to store captured variables, referenced via the inner function's internal [[Scopes]] link.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It serializes the scope into JSON buffers in the code cache.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It locks the operating system thread from terminating.",
+          "correct": false
+        }
+      ],
+      "explanation": "When variables in an outer function are captured by an escaping inner function, V8 allocates a Heap Context for those variables. The inner function retains a reference via its internal [[Scopes]] property.",
+      "codeSnippet": "function makeCounter() {\n  let count = 0; // Moved to Heap Context\n  return () => ++count;\n}",
+      "pitfall": "Capturing large objects or buffers in an outer scope that is referenced by a long-lived closure (e.g. interval callback) prevents GC reclamation, creating a memory leak.",
+      "citation": "V8 Internals Documentation / Node.js Memory Management Guide"
+    },
+    {
+      "id": "mcq-03-001-08",
+      "concept": "Lexical Scoping & Nested Functions: Private Class Fields vs Closure Encapsulation",
+      "category": "Encapsulation",
+      "difficulty": "Intermediate",
+      "question": "How do ECMAScript Private Class Fields (`#field`) guarantee hard encapsulation compared to closure-based private variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private fields are stored in global Symbol registries accessible via getOwnPropertySymbols.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private fields use internal private brand checks enforced at bytecode level; they cannot be accessed or overridden outside class declaration.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Private fields are encrypted using AES-256 in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Private fields create a new V8 heap isolate per class instance.",
+          "correct": false
+        }
+      ],
+      "explanation": "Private class fields (#field) provide hard private state. Outside code cannot inspect or access them even with Object.getOwnPropertyNames or Proxy reflection.",
+      "codeSnippet": "class Account {\n  #balance = 0;\n  deposit(amt) { this.#balance += amt; }\n  getBalance() { return this.#balance; }\n}\nconst a = new Account();\n// a.#balance; // SyntaxError: Private field '#balance' must be declared in an enclosing class",
+      "pitfall": "Attempting to dynamically access private fields using bracket notation (this[`#${name}`]) is a syntax error.",
+      "citation": "MDN Web Docs: Private properties / TC39 Class Fields Proposal"
+    },
+    {
+      "id": "mcq-03-002-01",
+      "concept": "Closure Mechanics & Parallel Closures: Closure Memory Retention & Heap Allocation",
+      "category": "Closures & Memory",
+      "difficulty": "Advanced",
+      "question": "How does V8 preserve outer lexical scope bindings captured by an inner closure that outlives its parent function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It duplicates the entire process memory space to worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "V8 allocates a Context object on the managed Heap to store captured variables, referenced via the inner function's internal [[Scopes]] link.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It serializes the scope into JSON buffers in the code cache.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It locks the operating system thread from terminating.",
+          "correct": false
+        }
+      ],
+      "explanation": "When variables in an outer function are captured by an escaping inner function, V8 allocates a Heap Context for those variables. The inner function retains a reference via its internal [[Scopes]] property.",
+      "codeSnippet": "function makeCounter() {\n  let count = 0; // Moved to Heap Context\n  return () => ++count;\n}",
+      "pitfall": "Capturing large objects or buffers in an outer scope that is referenced by a long-lived closure (e.g. interval callback) prevents GC reclamation, creating a memory leak.",
+      "citation": "V8 Internals Documentation / Node.js Memory Management Guide"
+    },
+    {
+      "id": "mcq-03-002-02",
+      "concept": "Closure Mechanics & Parallel Closures: Private Class Fields vs Closure Encapsulation",
+      "category": "Encapsulation",
+      "difficulty": "Intermediate",
+      "question": "How do ECMAScript Private Class Fields (`#field`) guarantee hard encapsulation compared to closure-based private variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private fields are stored in global Symbol registries accessible via getOwnPropertySymbols.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private fields use internal private brand checks enforced at bytecode level; they cannot be accessed or overridden outside class declaration.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Private fields are encrypted using AES-256 in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Private fields create a new V8 heap isolate per class instance.",
+          "correct": false
+        }
+      ],
+      "explanation": "Private class fields (#field) provide hard private state. Outside code cannot inspect or access them even with Object.getOwnPropertyNames or Proxy reflection.",
+      "codeSnippet": "class Account {\n  #balance = 0;\n  deposit(amt) { this.#balance += amt; }\n  getBalance() { return this.#balance; }\n}\nconst a = new Account();\n// a.#balance; // SyntaxError: Private field '#balance' must be declared in an enclosing class",
+      "pitfall": "Attempting to dynamically access private fields using bracket notation (this[`#${name}`]) is a syntax error.",
+      "citation": "MDN Web Docs: Private properties / TC39 Class Fields Proposal"
+    },
+    {
+      "id": "mcq-03-002-03",
+      "concept": "Closure Mechanics & Parallel Closures: Closure Memory Retention & Heap Allocation",
+      "category": "Closures & Memory",
+      "difficulty": "Advanced",
+      "question": "How does V8 preserve outer lexical scope bindings captured by an inner closure that outlives its parent function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It duplicates the entire process memory space to worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "V8 allocates a Context object on the managed Heap to store captured variables, referenced via the inner function's internal [[Scopes]] link.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It serializes the scope into JSON buffers in the code cache.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It locks the operating system thread from terminating.",
+          "correct": false
+        }
+      ],
+      "explanation": "When variables in an outer function are captured by an escaping inner function, V8 allocates a Heap Context for those variables. The inner function retains a reference via its internal [[Scopes]] property.",
+      "codeSnippet": "function makeCounter() {\n  let count = 0; // Moved to Heap Context\n  return () => ++count;\n}",
+      "pitfall": "Capturing large objects or buffers in an outer scope that is referenced by a long-lived closure (e.g. interval callback) prevents GC reclamation, creating a memory leak.",
+      "citation": "V8 Internals Documentation / Node.js Memory Management Guide"
+    },
+    {
+      "id": "mcq-03-002-04",
+      "concept": "Closure Mechanics & Parallel Closures: Private Class Fields vs Closure Encapsulation",
+      "category": "Encapsulation",
+      "difficulty": "Intermediate",
+      "question": "How do ECMAScript Private Class Fields (`#field`) guarantee hard encapsulation compared to closure-based private variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private fields are stored in global Symbol registries accessible via getOwnPropertySymbols.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private fields use internal private brand checks enforced at bytecode level; they cannot be accessed or overridden outside class declaration.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Private fields are encrypted using AES-256 in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Private fields create a new V8 heap isolate per class instance.",
+          "correct": false
+        }
+      ],
+      "explanation": "Private class fields (#field) provide hard private state. Outside code cannot inspect or access them even with Object.getOwnPropertyNames or Proxy reflection.",
+      "codeSnippet": "class Account {\n  #balance = 0;\n  deposit(amt) { this.#balance += amt; }\n  getBalance() { return this.#balance; }\n}\nconst a = new Account();\n// a.#balance; // SyntaxError: Private field '#balance' must be declared in an enclosing class",
+      "pitfall": "Attempting to dynamically access private fields using bracket notation (this[`#${name}`]) is a syntax error.",
+      "citation": "MDN Web Docs: Private properties / TC39 Class Fields Proposal"
+    },
+    {
+      "id": "mcq-03-002-05",
+      "concept": "Closure Mechanics & Parallel Closures: Closure Memory Retention & Heap Allocation",
+      "category": "Closures & Memory",
+      "difficulty": "Advanced",
+      "question": "How does V8 preserve outer lexical scope bindings captured by an inner closure that outlives its parent function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It duplicates the entire process memory space to worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "V8 allocates a Context object on the managed Heap to store captured variables, referenced via the inner function's internal [[Scopes]] link.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It serializes the scope into JSON buffers in the code cache.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It locks the operating system thread from terminating.",
+          "correct": false
+        }
+      ],
+      "explanation": "When variables in an outer function are captured by an escaping inner function, V8 allocates a Heap Context for those variables. The inner function retains a reference via its internal [[Scopes]] property.",
+      "codeSnippet": "function makeCounter() {\n  let count = 0; // Moved to Heap Context\n  return () => ++count;\n}",
+      "pitfall": "Capturing large objects or buffers in an outer scope that is referenced by a long-lived closure (e.g. interval callback) prevents GC reclamation, creating a memory leak.",
+      "citation": "V8 Internals Documentation / Node.js Memory Management Guide"
+    },
+    {
+      "id": "mcq-03-002-06",
+      "concept": "Closure Mechanics & Parallel Closures: Private Class Fields vs Closure Encapsulation",
+      "category": "Encapsulation",
+      "difficulty": "Intermediate",
+      "question": "How do ECMAScript Private Class Fields (`#field`) guarantee hard encapsulation compared to closure-based private variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private fields are stored in global Symbol registries accessible via getOwnPropertySymbols.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private fields use internal private brand checks enforced at bytecode level; they cannot be accessed or overridden outside class declaration.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Private fields are encrypted using AES-256 in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Private fields create a new V8 heap isolate per class instance.",
+          "correct": false
+        }
+      ],
+      "explanation": "Private class fields (#field) provide hard private state. Outside code cannot inspect or access them even with Object.getOwnPropertyNames or Proxy reflection.",
+      "codeSnippet": "class Account {\n  #balance = 0;\n  deposit(amt) { this.#balance += amt; }\n  getBalance() { return this.#balance; }\n}\nconst a = new Account();\n// a.#balance; // SyntaxError: Private field '#balance' must be declared in an enclosing class",
+      "pitfall": "Attempting to dynamically access private fields using bracket notation (this[`#${name}`]) is a syntax error.",
+      "citation": "MDN Web Docs: Private properties / TC39 Class Fields Proposal"
+    },
+    {
+      "id": "mcq-03-002-07",
+      "concept": "Closure Mechanics & Parallel Closures: Closure Memory Retention & Heap Allocation",
+      "category": "Closures & Memory",
+      "difficulty": "Advanced",
+      "question": "How does V8 preserve outer lexical scope bindings captured by an inner closure that outlives its parent function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It duplicates the entire process memory space to worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "V8 allocates a Context object on the managed Heap to store captured variables, referenced via the inner function's internal [[Scopes]] link.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It serializes the scope into JSON buffers in the code cache.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It locks the operating system thread from terminating.",
+          "correct": false
+        }
+      ],
+      "explanation": "When variables in an outer function are captured by an escaping inner function, V8 allocates a Heap Context for those variables. The inner function retains a reference via its internal [[Scopes]] property.",
+      "codeSnippet": "function makeCounter() {\n  let count = 0; // Moved to Heap Context\n  return () => ++count;\n}",
+      "pitfall": "Capturing large objects or buffers in an outer scope that is referenced by a long-lived closure (e.g. interval callback) prevents GC reclamation, creating a memory leak.",
+      "citation": "V8 Internals Documentation / Node.js Memory Management Guide"
+    },
+    {
+      "id": "mcq-03-002-08",
+      "concept": "Closure Mechanics & Parallel Closures: Private Class Fields vs Closure Encapsulation",
+      "category": "Encapsulation",
+      "difficulty": "Intermediate",
+      "question": "How do ECMAScript Private Class Fields (`#field`) guarantee hard encapsulation compared to closure-based private variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private fields are stored in global Symbol registries accessible via getOwnPropertySymbols.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private fields use internal private brand checks enforced at bytecode level; they cannot be accessed or overridden outside class declaration.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Private fields are encrypted using AES-256 in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Private fields create a new V8 heap isolate per class instance.",
+          "correct": false
+        }
+      ],
+      "explanation": "Private class fields (#field) provide hard private state. Outside code cannot inspect or access them even with Object.getOwnPropertyNames or Proxy reflection.",
+      "codeSnippet": "class Account {\n  #balance = 0;\n  deposit(amt) { this.#balance += amt; }\n  getBalance() { return this.#balance; }\n}\nconst a = new Account();\n// a.#balance; // SyntaxError: Private field '#balance' must be declared in an enclosing class",
+      "pitfall": "Attempting to dynamically access private fields using bracket notation (this[`#${name}`]) is a syntax error.",
+      "citation": "MDN Web Docs: Private properties / TC39 Class Fields Proposal"
+    },
+    {
+      "id": "mcq-03-003-01",
+      "concept": "Module Pattern & Preventing Memory Leaks: Closure Memory Retention & Heap Allocation",
+      "category": "Closures & Memory",
+      "difficulty": "Advanced",
+      "question": "How does V8 preserve outer lexical scope bindings captured by an inner closure that outlives its parent function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It duplicates the entire process memory space to worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "V8 allocates a Context object on the managed Heap to store captured variables, referenced via the inner function's internal [[Scopes]] link.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It serializes the scope into JSON buffers in the code cache.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It locks the operating system thread from terminating.",
+          "correct": false
+        }
+      ],
+      "explanation": "When variables in an outer function are captured by an escaping inner function, V8 allocates a Heap Context for those variables. The inner function retains a reference via its internal [[Scopes]] property.",
+      "codeSnippet": "function makeCounter() {\n  let count = 0; // Moved to Heap Context\n  return () => ++count;\n}",
+      "pitfall": "Capturing large objects or buffers in an outer scope that is referenced by a long-lived closure (e.g. interval callback) prevents GC reclamation, creating a memory leak.",
+      "citation": "V8 Internals Documentation / Node.js Memory Management Guide"
+    },
+    {
+      "id": "mcq-03-003-02",
+      "concept": "Module Pattern & Preventing Memory Leaks: Private Class Fields vs Closure Encapsulation",
+      "category": "Encapsulation",
+      "difficulty": "Intermediate",
+      "question": "How do ECMAScript Private Class Fields (`#field`) guarantee hard encapsulation compared to closure-based private variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private fields are stored in global Symbol registries accessible via getOwnPropertySymbols.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private fields use internal private brand checks enforced at bytecode level; they cannot be accessed or overridden outside class declaration.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Private fields are encrypted using AES-256 in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Private fields create a new V8 heap isolate per class instance.",
+          "correct": false
+        }
+      ],
+      "explanation": "Private class fields (#field) provide hard private state. Outside code cannot inspect or access them even with Object.getOwnPropertyNames or Proxy reflection.",
+      "codeSnippet": "class Account {\n  #balance = 0;\n  deposit(amt) { this.#balance += amt; }\n  getBalance() { return this.#balance; }\n}\nconst a = new Account();\n// a.#balance; // SyntaxError: Private field '#balance' must be declared in an enclosing class",
+      "pitfall": "Attempting to dynamically access private fields using bracket notation (this[`#${name}`]) is a syntax error.",
+      "citation": "MDN Web Docs: Private properties / TC39 Class Fields Proposal"
+    },
+    {
+      "id": "mcq-03-003-03",
+      "concept": "Module Pattern & Preventing Memory Leaks: Closure Memory Retention & Heap Allocation",
+      "category": "Closures & Memory",
+      "difficulty": "Advanced",
+      "question": "How does V8 preserve outer lexical scope bindings captured by an inner closure that outlives its parent function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It duplicates the entire process memory space to worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "V8 allocates a Context object on the managed Heap to store captured variables, referenced via the inner function's internal [[Scopes]] link.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It serializes the scope into JSON buffers in the code cache.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It locks the operating system thread from terminating.",
+          "correct": false
+        }
+      ],
+      "explanation": "When variables in an outer function are captured by an escaping inner function, V8 allocates a Heap Context for those variables. The inner function retains a reference via its internal [[Scopes]] property.",
+      "codeSnippet": "function makeCounter() {\n  let count = 0; // Moved to Heap Context\n  return () => ++count;\n}",
+      "pitfall": "Capturing large objects or buffers in an outer scope that is referenced by a long-lived closure (e.g. interval callback) prevents GC reclamation, creating a memory leak.",
+      "citation": "V8 Internals Documentation / Node.js Memory Management Guide"
+    },
+    {
+      "id": "mcq-03-003-04",
+      "concept": "Module Pattern & Preventing Memory Leaks: Private Class Fields vs Closure Encapsulation",
+      "category": "Encapsulation",
+      "difficulty": "Intermediate",
+      "question": "How do ECMAScript Private Class Fields (`#field`) guarantee hard encapsulation compared to closure-based private variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private fields are stored in global Symbol registries accessible via getOwnPropertySymbols.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private fields use internal private brand checks enforced at bytecode level; they cannot be accessed or overridden outside class declaration.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Private fields are encrypted using AES-256 in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Private fields create a new V8 heap isolate per class instance.",
+          "correct": false
+        }
+      ],
+      "explanation": "Private class fields (#field) provide hard private state. Outside code cannot inspect or access them even with Object.getOwnPropertyNames or Proxy reflection.",
+      "codeSnippet": "class Account {\n  #balance = 0;\n  deposit(amt) { this.#balance += amt; }\n  getBalance() { return this.#balance; }\n}\nconst a = new Account();\n// a.#balance; // SyntaxError: Private field '#balance' must be declared in an enclosing class",
+      "pitfall": "Attempting to dynamically access private fields using bracket notation (this[`#${name}`]) is a syntax error.",
+      "citation": "MDN Web Docs: Private properties / TC39 Class Fields Proposal"
+    },
+    {
+      "id": "mcq-03-003-05",
+      "concept": "Module Pattern & Preventing Memory Leaks: Closure Memory Retention & Heap Allocation",
+      "category": "Closures & Memory",
+      "difficulty": "Advanced",
+      "question": "How does V8 preserve outer lexical scope bindings captured by an inner closure that outlives its parent function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It duplicates the entire process memory space to worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "V8 allocates a Context object on the managed Heap to store captured variables, referenced via the inner function's internal [[Scopes]] link.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It serializes the scope into JSON buffers in the code cache.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It locks the operating system thread from terminating.",
+          "correct": false
+        }
+      ],
+      "explanation": "When variables in an outer function are captured by an escaping inner function, V8 allocates a Heap Context for those variables. The inner function retains a reference via its internal [[Scopes]] property.",
+      "codeSnippet": "function makeCounter() {\n  let count = 0; // Moved to Heap Context\n  return () => ++count;\n}",
+      "pitfall": "Capturing large objects or buffers in an outer scope that is referenced by a long-lived closure (e.g. interval callback) prevents GC reclamation, creating a memory leak.",
+      "citation": "V8 Internals Documentation / Node.js Memory Management Guide"
+    },
+    {
+      "id": "mcq-03-003-06",
+      "concept": "Module Pattern & Preventing Memory Leaks: Private Class Fields vs Closure Encapsulation",
+      "category": "Encapsulation",
+      "difficulty": "Intermediate",
+      "question": "How do ECMAScript Private Class Fields (`#field`) guarantee hard encapsulation compared to closure-based private variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private fields are stored in global Symbol registries accessible via getOwnPropertySymbols.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private fields use internal private brand checks enforced at bytecode level; they cannot be accessed or overridden outside class declaration.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Private fields are encrypted using AES-256 in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Private fields create a new V8 heap isolate per class instance.",
+          "correct": false
+        }
+      ],
+      "explanation": "Private class fields (#field) provide hard private state. Outside code cannot inspect or access them even with Object.getOwnPropertyNames or Proxy reflection.",
+      "codeSnippet": "class Account {\n  #balance = 0;\n  deposit(amt) { this.#balance += amt; }\n  getBalance() { return this.#balance; }\n}\nconst a = new Account();\n// a.#balance; // SyntaxError: Private field '#balance' must be declared in an enclosing class",
+      "pitfall": "Attempting to dynamically access private fields using bracket notation (this[`#${name}`]) is a syntax error.",
+      "citation": "MDN Web Docs: Private properties / TC39 Class Fields Proposal"
+    },
+    {
+      "id": "mcq-03-003-07",
+      "concept": "Module Pattern & Preventing Memory Leaks: Closure Memory Retention & Heap Allocation",
+      "category": "Closures & Memory",
+      "difficulty": "Advanced",
+      "question": "How does V8 preserve outer lexical scope bindings captured by an inner closure that outlives its parent function?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It duplicates the entire process memory space to worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "V8 allocates a Context object on the managed Heap to store captured variables, referenced via the inner function's internal [[Scopes]] link.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It serializes the scope into JSON buffers in the code cache.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It locks the operating system thread from terminating.",
+          "correct": false
+        }
+      ],
+      "explanation": "When variables in an outer function are captured by an escaping inner function, V8 allocates a Heap Context for those variables. The inner function retains a reference via its internal [[Scopes]] property.",
+      "codeSnippet": "function makeCounter() {\n  let count = 0; // Moved to Heap Context\n  return () => ++count;\n}",
+      "pitfall": "Capturing large objects or buffers in an outer scope that is referenced by a long-lived closure (e.g. interval callback) prevents GC reclamation, creating a memory leak.",
+      "citation": "V8 Internals Documentation / Node.js Memory Management Guide"
+    },
+    {
+      "id": "mcq-03-003-08",
+      "concept": "Module Pattern & Preventing Memory Leaks: Private Class Fields vs Closure Encapsulation",
+      "category": "Encapsulation",
+      "difficulty": "Intermediate",
+      "question": "How do ECMAScript Private Class Fields (`#field`) guarantee hard encapsulation compared to closure-based private variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private fields are stored in global Symbol registries accessible via getOwnPropertySymbols.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Private fields use internal private brand checks enforced at bytecode level; they cannot be accessed or overridden outside class declaration.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Private fields are encrypted using AES-256 in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Private fields create a new V8 heap isolate per class instance.",
+          "correct": false
+        }
+      ],
+      "explanation": "Private class fields (#field) provide hard private state. Outside code cannot inspect or access them even with Object.getOwnPropertyNames or Proxy reflection.",
+      "codeSnippet": "class Account {\n  #balance = 0;\n  deposit(amt) { this.#balance += amt; }\n  getBalance() { return this.#balance; }\n}\nconst a = new Account();\n// a.#balance; // SyntaxError: Private field '#balance' must be declared in an enclosing class",
+      "pitfall": "Attempting to dynamically access private fields using bracket notation (this[`#${name}`]) is a syntax error.",
+      "citation": "MDN Web Docs: Private properties / TC39 Class Fields Proposal"
+    }
+  ]
+}

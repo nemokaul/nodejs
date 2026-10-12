@@ -1,0 +1,802 @@
+{
+  "deckId": "sec-22",
+  "title": "Module 22: Reliable & Maintainable Data Systems Architecture (All Chapters)",
+  "chapterId": "all",
+  "sectionId": "section-22",
+  "description": "Comprehensive module-level assessment covering all chapters of Module 22: Reliable & Maintainable Data Systems Architecture.",
+  "totalCards": 24,
+  "cards": [
+    {
+      "id": "mcq-22-001-01",
+      "concept": "Database Systems Overview & Driver Connection Pooling: Database Connection Pool Management",
+      "category": "Data Systems",
+      "difficulty": "Intermediate",
+      "question": "Why must database client acquisitions from a connection pool always be wrapped in a `try...finally` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the SQL connection during queries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that `client.release()` is executed even if the query throws an exception, preventing connection pool starvation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To automatically commit transactions upon return.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To clear memory heap buffers.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a database client is acquired and an exception occurs before release() is called, the connection leaks. Repeated leaks deplete available connections, hanging the application.",
+      "codeSnippet": "const client = await pool.connect();\ntry {\n  await client.query('SELECT 1');\n} finally {\n  client.release(); // Always returned to pool\n}",
+      "pitfall": "Failing to release pooled connections in error handling paths exhausts pool capacity, causing subsequent requests to time out.",
+      "citation": "node-postgres (pg) Official Documentation: Connection Pooling"
+    },
+    {
+      "id": "mcq-22-001-02",
+      "concept": "Database Systems Overview & Driver Connection Pooling: Database Statement Timeouts",
+      "category": "Database Reliability",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js services configure explicit `statement_timeout` on relational database connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up query compilation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To automatically terminate runaway queries (e.g. unindexed full table scans or lock deadlocks) before they exhaust database CPU and connection pool slots.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To disable query caching.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To force transactions to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded queries that encounter lock contention or unindexed tables can hold database connections indefinitely. Statement timeouts abort queries exceeding safe thresholds (e.g. 5000ms).",
+      "codeSnippet": "const pool = new Pool({\n  connectionString: process.env.DATABASE_URL,\n  statement_timeout: 5000 // Abort queries running longer than 5 seconds\n});",
+      "pitfall": "Leaving statement_timeout at 0 (unlimited) allows a single accidental slow query to back up connection pools and cause cascaded system failure.",
+      "citation": "PostgreSQL Documentation: statement_timeout"
+    },
+    {
+      "id": "mcq-22-001-03",
+      "concept": "Database Systems Overview & Driver Connection Pooling: Database Connection Pool Management",
+      "category": "Data Systems",
+      "difficulty": "Intermediate",
+      "question": "Why must database client acquisitions from a connection pool always be wrapped in a `try...finally` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the SQL connection during queries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that `client.release()` is executed even if the query throws an exception, preventing connection pool starvation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To automatically commit transactions upon return.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To clear memory heap buffers.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a database client is acquired and an exception occurs before release() is called, the connection leaks. Repeated leaks deplete available connections, hanging the application.",
+      "codeSnippet": "const client = await pool.connect();\ntry {\n  await client.query('SELECT 1');\n} finally {\n  client.release(); // Always returned to pool\n}",
+      "pitfall": "Failing to release pooled connections in error handling paths exhausts pool capacity, causing subsequent requests to time out.",
+      "citation": "node-postgres (pg) Official Documentation: Connection Pooling"
+    },
+    {
+      "id": "mcq-22-001-04",
+      "concept": "Database Systems Overview & Driver Connection Pooling: Database Statement Timeouts",
+      "category": "Database Reliability",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js services configure explicit `statement_timeout` on relational database connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up query compilation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To automatically terminate runaway queries (e.g. unindexed full table scans or lock deadlocks) before they exhaust database CPU and connection pool slots.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To disable query caching.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To force transactions to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded queries that encounter lock contention or unindexed tables can hold database connections indefinitely. Statement timeouts abort queries exceeding safe thresholds (e.g. 5000ms).",
+      "codeSnippet": "const pool = new Pool({\n  connectionString: process.env.DATABASE_URL,\n  statement_timeout: 5000 // Abort queries running longer than 5 seconds\n});",
+      "pitfall": "Leaving statement_timeout at 0 (unlimited) allows a single accidental slow query to back up connection pools and cause cascaded system failure.",
+      "citation": "PostgreSQL Documentation: statement_timeout"
+    },
+    {
+      "id": "mcq-22-001-05",
+      "concept": "Database Systems Overview & Driver Connection Pooling: Database Connection Pool Management",
+      "category": "Data Systems",
+      "difficulty": "Intermediate",
+      "question": "Why must database client acquisitions from a connection pool always be wrapped in a `try...finally` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the SQL connection during queries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that `client.release()` is executed even if the query throws an exception, preventing connection pool starvation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To automatically commit transactions upon return.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To clear memory heap buffers.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a database client is acquired and an exception occurs before release() is called, the connection leaks. Repeated leaks deplete available connections, hanging the application.",
+      "codeSnippet": "const client = await pool.connect();\ntry {\n  await client.query('SELECT 1');\n} finally {\n  client.release(); // Always returned to pool\n}",
+      "pitfall": "Failing to release pooled connections in error handling paths exhausts pool capacity, causing subsequent requests to time out.",
+      "citation": "node-postgres (pg) Official Documentation: Connection Pooling"
+    },
+    {
+      "id": "mcq-22-001-06",
+      "concept": "Database Systems Overview & Driver Connection Pooling: Database Statement Timeouts",
+      "category": "Database Reliability",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js services configure explicit `statement_timeout` on relational database connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up query compilation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To automatically terminate runaway queries (e.g. unindexed full table scans or lock deadlocks) before they exhaust database CPU and connection pool slots.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To disable query caching.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To force transactions to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded queries that encounter lock contention or unindexed tables can hold database connections indefinitely. Statement timeouts abort queries exceeding safe thresholds (e.g. 5000ms).",
+      "codeSnippet": "const pool = new Pool({\n  connectionString: process.env.DATABASE_URL,\n  statement_timeout: 5000 // Abort queries running longer than 5 seconds\n});",
+      "pitfall": "Leaving statement_timeout at 0 (unlimited) allows a single accidental slow query to back up connection pools and cause cascaded system failure.",
+      "citation": "PostgreSQL Documentation: statement_timeout"
+    },
+    {
+      "id": "mcq-22-001-07",
+      "concept": "Database Systems Overview & Driver Connection Pooling: Database Connection Pool Management",
+      "category": "Data Systems",
+      "difficulty": "Intermediate",
+      "question": "Why must database client acquisitions from a connection pool always be wrapped in a `try...finally` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the SQL connection during queries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that `client.release()` is executed even if the query throws an exception, preventing connection pool starvation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To automatically commit transactions upon return.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To clear memory heap buffers.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a database client is acquired and an exception occurs before release() is called, the connection leaks. Repeated leaks deplete available connections, hanging the application.",
+      "codeSnippet": "const client = await pool.connect();\ntry {\n  await client.query('SELECT 1');\n} finally {\n  client.release(); // Always returned to pool\n}",
+      "pitfall": "Failing to release pooled connections in error handling paths exhausts pool capacity, causing subsequent requests to time out.",
+      "citation": "node-postgres (pg) Official Documentation: Connection Pooling"
+    },
+    {
+      "id": "mcq-22-001-08",
+      "concept": "Database Systems Overview & Driver Connection Pooling: Database Statement Timeouts",
+      "category": "Database Reliability",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js services configure explicit `statement_timeout` on relational database connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up query compilation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To automatically terminate runaway queries (e.g. unindexed full table scans or lock deadlocks) before they exhaust database CPU and connection pool slots.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To disable query caching.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To force transactions to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded queries that encounter lock contention or unindexed tables can hold database connections indefinitely. Statement timeouts abort queries exceeding safe thresholds (e.g. 5000ms).",
+      "codeSnippet": "const pool = new Pool({\n  connectionString: process.env.DATABASE_URL,\n  statement_timeout: 5000 // Abort queries running longer than 5 seconds\n});",
+      "pitfall": "Leaving statement_timeout at 0 (unlimited) allows a single accidental slow query to back up connection pools and cause cascaded system failure.",
+      "citation": "PostgreSQL Documentation: statement_timeout"
+    },
+    {
+      "id": "mcq-22-002-01",
+      "concept": "Data Modeling, Schema Migrations & Reliability: Database Connection Pool Management",
+      "category": "Data Systems",
+      "difficulty": "Intermediate",
+      "question": "Why must database client acquisitions from a connection pool always be wrapped in a `try...finally` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the SQL connection during queries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that `client.release()` is executed even if the query throws an exception, preventing connection pool starvation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To automatically commit transactions upon return.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To clear memory heap buffers.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a database client is acquired and an exception occurs before release() is called, the connection leaks. Repeated leaks deplete available connections, hanging the application.",
+      "codeSnippet": "const client = await pool.connect();\ntry {\n  await client.query('SELECT 1');\n} finally {\n  client.release(); // Always returned to pool\n}",
+      "pitfall": "Failing to release pooled connections in error handling paths exhausts pool capacity, causing subsequent requests to time out.",
+      "citation": "node-postgres (pg) Official Documentation: Connection Pooling"
+    },
+    {
+      "id": "mcq-22-002-02",
+      "concept": "Data Modeling, Schema Migrations & Reliability: Database Statement Timeouts",
+      "category": "Database Reliability",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js services configure explicit `statement_timeout` on relational database connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up query compilation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To automatically terminate runaway queries (e.g. unindexed full table scans or lock deadlocks) before they exhaust database CPU and connection pool slots.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To disable query caching.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To force transactions to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded queries that encounter lock contention or unindexed tables can hold database connections indefinitely. Statement timeouts abort queries exceeding safe thresholds (e.g. 5000ms).",
+      "codeSnippet": "const pool = new Pool({\n  connectionString: process.env.DATABASE_URL,\n  statement_timeout: 5000 // Abort queries running longer than 5 seconds\n});",
+      "pitfall": "Leaving statement_timeout at 0 (unlimited) allows a single accidental slow query to back up connection pools and cause cascaded system failure.",
+      "citation": "PostgreSQL Documentation: statement_timeout"
+    },
+    {
+      "id": "mcq-22-002-03",
+      "concept": "Data Modeling, Schema Migrations & Reliability: Database Connection Pool Management",
+      "category": "Data Systems",
+      "difficulty": "Intermediate",
+      "question": "Why must database client acquisitions from a connection pool always be wrapped in a `try...finally` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the SQL connection during queries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that `client.release()` is executed even if the query throws an exception, preventing connection pool starvation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To automatically commit transactions upon return.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To clear memory heap buffers.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a database client is acquired and an exception occurs before release() is called, the connection leaks. Repeated leaks deplete available connections, hanging the application.",
+      "codeSnippet": "const client = await pool.connect();\ntry {\n  await client.query('SELECT 1');\n} finally {\n  client.release(); // Always returned to pool\n}",
+      "pitfall": "Failing to release pooled connections in error handling paths exhausts pool capacity, causing subsequent requests to time out.",
+      "citation": "node-postgres (pg) Official Documentation: Connection Pooling"
+    },
+    {
+      "id": "mcq-22-002-04",
+      "concept": "Data Modeling, Schema Migrations & Reliability: Database Statement Timeouts",
+      "category": "Database Reliability",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js services configure explicit `statement_timeout` on relational database connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up query compilation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To automatically terminate runaway queries (e.g. unindexed full table scans or lock deadlocks) before they exhaust database CPU and connection pool slots.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To disable query caching.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To force transactions to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded queries that encounter lock contention or unindexed tables can hold database connections indefinitely. Statement timeouts abort queries exceeding safe thresholds (e.g. 5000ms).",
+      "codeSnippet": "const pool = new Pool({\n  connectionString: process.env.DATABASE_URL,\n  statement_timeout: 5000 // Abort queries running longer than 5 seconds\n});",
+      "pitfall": "Leaving statement_timeout at 0 (unlimited) allows a single accidental slow query to back up connection pools and cause cascaded system failure.",
+      "citation": "PostgreSQL Documentation: statement_timeout"
+    },
+    {
+      "id": "mcq-22-002-05",
+      "concept": "Data Modeling, Schema Migrations & Reliability: Database Connection Pool Management",
+      "category": "Data Systems",
+      "difficulty": "Intermediate",
+      "question": "Why must database client acquisitions from a connection pool always be wrapped in a `try...finally` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the SQL connection during queries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that `client.release()` is executed even if the query throws an exception, preventing connection pool starvation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To automatically commit transactions upon return.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To clear memory heap buffers.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a database client is acquired and an exception occurs before release() is called, the connection leaks. Repeated leaks deplete available connections, hanging the application.",
+      "codeSnippet": "const client = await pool.connect();\ntry {\n  await client.query('SELECT 1');\n} finally {\n  client.release(); // Always returned to pool\n}",
+      "pitfall": "Failing to release pooled connections in error handling paths exhausts pool capacity, causing subsequent requests to time out.",
+      "citation": "node-postgres (pg) Official Documentation: Connection Pooling"
+    },
+    {
+      "id": "mcq-22-002-06",
+      "concept": "Data Modeling, Schema Migrations & Reliability: Database Statement Timeouts",
+      "category": "Database Reliability",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js services configure explicit `statement_timeout` on relational database connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up query compilation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To automatically terminate runaway queries (e.g. unindexed full table scans or lock deadlocks) before they exhaust database CPU and connection pool slots.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To disable query caching.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To force transactions to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded queries that encounter lock contention or unindexed tables can hold database connections indefinitely. Statement timeouts abort queries exceeding safe thresholds (e.g. 5000ms).",
+      "codeSnippet": "const pool = new Pool({\n  connectionString: process.env.DATABASE_URL,\n  statement_timeout: 5000 // Abort queries running longer than 5 seconds\n});",
+      "pitfall": "Leaving statement_timeout at 0 (unlimited) allows a single accidental slow query to back up connection pools and cause cascaded system failure.",
+      "citation": "PostgreSQL Documentation: statement_timeout"
+    },
+    {
+      "id": "mcq-22-002-07",
+      "concept": "Data Modeling, Schema Migrations & Reliability: Database Connection Pool Management",
+      "category": "Data Systems",
+      "difficulty": "Intermediate",
+      "question": "Why must database client acquisitions from a connection pool always be wrapped in a `try...finally` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the SQL connection during queries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that `client.release()` is executed even if the query throws an exception, preventing connection pool starvation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To automatically commit transactions upon return.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To clear memory heap buffers.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a database client is acquired and an exception occurs before release() is called, the connection leaks. Repeated leaks deplete available connections, hanging the application.",
+      "codeSnippet": "const client = await pool.connect();\ntry {\n  await client.query('SELECT 1');\n} finally {\n  client.release(); // Always returned to pool\n}",
+      "pitfall": "Failing to release pooled connections in error handling paths exhausts pool capacity, causing subsequent requests to time out.",
+      "citation": "node-postgres (pg) Official Documentation: Connection Pooling"
+    },
+    {
+      "id": "mcq-22-002-08",
+      "concept": "Data Modeling, Schema Migrations & Reliability: Database Statement Timeouts",
+      "category": "Database Reliability",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js services configure explicit `statement_timeout` on relational database connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up query compilation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To automatically terminate runaway queries (e.g. unindexed full table scans or lock deadlocks) before they exhaust database CPU and connection pool slots.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To disable query caching.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To force transactions to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded queries that encounter lock contention or unindexed tables can hold database connections indefinitely. Statement timeouts abort queries exceeding safe thresholds (e.g. 5000ms).",
+      "codeSnippet": "const pool = new Pool({\n  connectionString: process.env.DATABASE_URL,\n  statement_timeout: 5000 // Abort queries running longer than 5 seconds\n});",
+      "pitfall": "Leaving statement_timeout at 0 (unlimited) allows a single accidental slow query to back up connection pools and cause cascaded system failure.",
+      "citation": "PostgreSQL Documentation: statement_timeout"
+    },
+    {
+      "id": "mcq-22-003-01",
+      "concept": "Error Handling, Reconnection Loops & Resilient Reads: Database Connection Pool Management",
+      "category": "Data Systems",
+      "difficulty": "Intermediate",
+      "question": "Why must database client acquisitions from a connection pool always be wrapped in a `try...finally` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the SQL connection during queries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that `client.release()` is executed even if the query throws an exception, preventing connection pool starvation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To automatically commit transactions upon return.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To clear memory heap buffers.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a database client is acquired and an exception occurs before release() is called, the connection leaks. Repeated leaks deplete available connections, hanging the application.",
+      "codeSnippet": "const client = await pool.connect();\ntry {\n  await client.query('SELECT 1');\n} finally {\n  client.release(); // Always returned to pool\n}",
+      "pitfall": "Failing to release pooled connections in error handling paths exhausts pool capacity, causing subsequent requests to time out.",
+      "citation": "node-postgres (pg) Official Documentation: Connection Pooling"
+    },
+    {
+      "id": "mcq-22-003-02",
+      "concept": "Error Handling, Reconnection Loops & Resilient Reads: Database Statement Timeouts",
+      "category": "Database Reliability",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js services configure explicit `statement_timeout` on relational database connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up query compilation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To automatically terminate runaway queries (e.g. unindexed full table scans or lock deadlocks) before they exhaust database CPU and connection pool slots.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To disable query caching.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To force transactions to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded queries that encounter lock contention or unindexed tables can hold database connections indefinitely. Statement timeouts abort queries exceeding safe thresholds (e.g. 5000ms).",
+      "codeSnippet": "const pool = new Pool({\n  connectionString: process.env.DATABASE_URL,\n  statement_timeout: 5000 // Abort queries running longer than 5 seconds\n});",
+      "pitfall": "Leaving statement_timeout at 0 (unlimited) allows a single accidental slow query to back up connection pools and cause cascaded system failure.",
+      "citation": "PostgreSQL Documentation: statement_timeout"
+    },
+    {
+      "id": "mcq-22-003-03",
+      "concept": "Error Handling, Reconnection Loops & Resilient Reads: Database Connection Pool Management",
+      "category": "Data Systems",
+      "difficulty": "Intermediate",
+      "question": "Why must database client acquisitions from a connection pool always be wrapped in a `try...finally` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the SQL connection during queries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that `client.release()` is executed even if the query throws an exception, preventing connection pool starvation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To automatically commit transactions upon return.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To clear memory heap buffers.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a database client is acquired and an exception occurs before release() is called, the connection leaks. Repeated leaks deplete available connections, hanging the application.",
+      "codeSnippet": "const client = await pool.connect();\ntry {\n  await client.query('SELECT 1');\n} finally {\n  client.release(); // Always returned to pool\n}",
+      "pitfall": "Failing to release pooled connections in error handling paths exhausts pool capacity, causing subsequent requests to time out.",
+      "citation": "node-postgres (pg) Official Documentation: Connection Pooling"
+    },
+    {
+      "id": "mcq-22-003-04",
+      "concept": "Error Handling, Reconnection Loops & Resilient Reads: Database Statement Timeouts",
+      "category": "Database Reliability",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js services configure explicit `statement_timeout` on relational database connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up query compilation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To automatically terminate runaway queries (e.g. unindexed full table scans or lock deadlocks) before they exhaust database CPU and connection pool slots.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To disable query caching.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To force transactions to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded queries that encounter lock contention or unindexed tables can hold database connections indefinitely. Statement timeouts abort queries exceeding safe thresholds (e.g. 5000ms).",
+      "codeSnippet": "const pool = new Pool({\n  connectionString: process.env.DATABASE_URL,\n  statement_timeout: 5000 // Abort queries running longer than 5 seconds\n});",
+      "pitfall": "Leaving statement_timeout at 0 (unlimited) allows a single accidental slow query to back up connection pools and cause cascaded system failure.",
+      "citation": "PostgreSQL Documentation: statement_timeout"
+    },
+    {
+      "id": "mcq-22-003-05",
+      "concept": "Error Handling, Reconnection Loops & Resilient Reads: Database Connection Pool Management",
+      "category": "Data Systems",
+      "difficulty": "Intermediate",
+      "question": "Why must database client acquisitions from a connection pool always be wrapped in a `try...finally` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the SQL connection during queries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that `client.release()` is executed even if the query throws an exception, preventing connection pool starvation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To automatically commit transactions upon return.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To clear memory heap buffers.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a database client is acquired and an exception occurs before release() is called, the connection leaks. Repeated leaks deplete available connections, hanging the application.",
+      "codeSnippet": "const client = await pool.connect();\ntry {\n  await client.query('SELECT 1');\n} finally {\n  client.release(); // Always returned to pool\n}",
+      "pitfall": "Failing to release pooled connections in error handling paths exhausts pool capacity, causing subsequent requests to time out.",
+      "citation": "node-postgres (pg) Official Documentation: Connection Pooling"
+    },
+    {
+      "id": "mcq-22-003-06",
+      "concept": "Error Handling, Reconnection Loops & Resilient Reads: Database Statement Timeouts",
+      "category": "Database Reliability",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js services configure explicit `statement_timeout` on relational database connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up query compilation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To automatically terminate runaway queries (e.g. unindexed full table scans or lock deadlocks) before they exhaust database CPU and connection pool slots.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To disable query caching.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To force transactions to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded queries that encounter lock contention or unindexed tables can hold database connections indefinitely. Statement timeouts abort queries exceeding safe thresholds (e.g. 5000ms).",
+      "codeSnippet": "const pool = new Pool({\n  connectionString: process.env.DATABASE_URL,\n  statement_timeout: 5000 // Abort queries running longer than 5 seconds\n});",
+      "pitfall": "Leaving statement_timeout at 0 (unlimited) allows a single accidental slow query to back up connection pools and cause cascaded system failure.",
+      "citation": "PostgreSQL Documentation: statement_timeout"
+    },
+    {
+      "id": "mcq-22-003-07",
+      "concept": "Error Handling, Reconnection Loops & Resilient Reads: Database Connection Pool Management",
+      "category": "Data Systems",
+      "difficulty": "Intermediate",
+      "question": "Why must database client acquisitions from a connection pool always be wrapped in a `try...finally` block?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the SQL connection during queries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that `client.release()` is executed even if the query throws an exception, preventing connection pool starvation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To automatically commit transactions upon return.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To clear memory heap buffers.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a database client is acquired and an exception occurs before release() is called, the connection leaks. Repeated leaks deplete available connections, hanging the application.",
+      "codeSnippet": "const client = await pool.connect();\ntry {\n  await client.query('SELECT 1');\n} finally {\n  client.release(); // Always returned to pool\n}",
+      "pitfall": "Failing to release pooled connections in error handling paths exhausts pool capacity, causing subsequent requests to time out.",
+      "citation": "node-postgres (pg) Official Documentation: Connection Pooling"
+    },
+    {
+      "id": "mcq-22-003-08",
+      "concept": "Error Handling, Reconnection Loops & Resilient Reads: Database Statement Timeouts",
+      "category": "Database Reliability",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js services configure explicit `statement_timeout` on relational database connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up query compilation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "To automatically terminate runaway queries (e.g. unindexed full table scans or lock deadlocks) before they exhaust database CPU and connection pool slots.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "To disable query caching.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "To force transactions to run in read-only mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "Unbounded queries that encounter lock contention or unindexed tables can hold database connections indefinitely. Statement timeouts abort queries exceeding safe thresholds (e.g. 5000ms).",
+      "codeSnippet": "const pool = new Pool({\n  connectionString: process.env.DATABASE_URL,\n  statement_timeout: 5000 // Abort queries running longer than 5 seconds\n});",
+      "pitfall": "Leaving statement_timeout at 0 (unlimited) allows a single accidental slow query to back up connection pools and cause cascaded system failure.",
+      "citation": "PostgreSQL Documentation: statement_timeout"
+    }
+  ]
+}

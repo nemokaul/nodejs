@@ -42,6 +42,17 @@
     return `${String(m).padStart(2, '0')}m${String(s).padStart(2, '0')}s`;
   }
 
+  // Helper: Escape HTML strings to prevent XSS and rendering breakages
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   // Get aggregated stats for a specific chapter
   function getChapterStats(chapId) {
     const courseData = window.COURSE_DATA;
@@ -2157,6 +2168,16 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
   // ==========================================
   // CHAPTER SUMMARY & ASK AI MODAL CONTROLLER
   // ==========================================
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   function openChapterSummaryModal(chId) {
     const modal = document.getElementById("chapter-summary-modal");
     if (!modal || !window.COURSE_DATA) return;

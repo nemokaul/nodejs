@@ -8904,7 +8904,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Set proper HTTP headers with Helmet is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 v
+                        Set proper HTTP headers with Helmet is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulne
                       </p>
                     
 
@@ -8977,7 +8977,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Set proper HTTP headers with Helmet is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Set proper HTTP headers with Helmet is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -8991,8 +8991,8 @@
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Set proper HTTP headers with Helmet:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9006,17 +9006,16 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Parameterized Database Query Execution
+export async function findUserSecure(dbPool, emailInput) {
+  if (typeof emailInput !== &quot;string&quot;) {
+    throw new TypeError(&quot;Email must be a valid string&quot;);
   }
-  
-  return evaluateFrame(10);
+
+  // Prepared statement: query template compiled by DB; input bound as literal value
+  const query = &quot;SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1&quot;;
+  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);
+  return rows[0] || null;
 }</code></pre>
                         </div>
                         
@@ -9029,7 +9028,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Set proper HTTP headers with Helmet execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Set proper HTTP headers with Helmet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9177,7 +9176,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Encrypt user data and session management is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top
+                        Encrypt user data and session management is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 
                       </p>
                     
 
@@ -9250,7 +9249,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Encrypt user data and session management is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Encrypt user data and session management is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -9264,8 +9263,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Encrypt user data and session management:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9279,17 +9278,16 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Parameterized Database Query Execution
+export async function findUserSecure(dbPool, emailInput) {
+  if (typeof emailInput !== &quot;string&quot;) {
+    throw new TypeError(&quot;Email must be a valid string&quot;);
   }
-  
-  return evaluateFrame(10);
+
+  // Prepared statement: query template compiled by DB; input bound as literal value
+  const query = &quot;SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1&quot;;
+  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);
+  return rows[0] || null;
 }</code></pre>
                         </div>
                         
@@ -9302,7 +9300,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Encrypt user data and session management execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Encrypt user data and session management execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9450,7 +9448,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Use secure HTTPS protocol is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabili
+                        Use secure HTTPS protocol is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities
                       </p>
                     
 
@@ -9523,7 +9521,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Use secure HTTPS protocol is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Use secure HTTPS protocol is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -9537,8 +9535,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Use secure HTTPS protocol:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9552,17 +9550,16 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Parameterized Database Query Execution
+export async function findUserSecure(dbPool, emailInput) {
+  if (typeof emailInput !== &quot;string&quot;) {
+    throw new TypeError(&quot;Email must be a valid string&quot;);
   }
-  
-  return evaluateFrame(10);
+
+  // Prepared statement: query template compiled by DB; input bound as literal value
+  const query = &quot;SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1&quot;;
+  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);
+  return rows[0] || null;
 }</code></pre>
                         </div>
                         
@@ -9575,7 +9572,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Use secure HTTPS protocol execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Use secure HTTPS protocol execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9785,7 +9782,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Rate limiting against DoS attacks is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vul
+                        Rate limiting against DoS attacks is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnera
                       </p>
                     
 
@@ -9858,7 +9855,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Rate limiting against DoS attacks is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Rate limiting against DoS attacks is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -9872,8 +9869,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Rate limiting against DoS attacks:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9887,17 +9884,16 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Parameterized Database Query Execution
+export async function findUserSecure(dbPool, emailInput) {
+  if (typeof emailInput !== &quot;string&quot;) {
+    throw new TypeError(&quot;Email must be a valid string&quot;);
   }
-  
-  return evaluateFrame(10);
+
+  // Prepared statement: query template compiled by DB; input bound as literal value
+  const query = &quot;SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1&quot;;
+  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);
+  return rows[0] || null;
 }</code></pre>
                         </div>
                         
@@ -9910,7 +9906,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Rate limiting against DoS attacks execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Rate limiting against DoS attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10058,7 +10054,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Use a library to prevent CSRF attacks is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10
+                        Use a library to prevent CSRF attacks is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vul
                       </p>
                     
 
@@ -10131,7 +10127,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Use a library to prevent CSRF attacks is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Use a library to prevent CSRF attacks is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -10145,8 +10141,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Use a library to prevent CSRF attacks:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10160,17 +10156,16 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Parameterized Database Query Execution
+export async function findUserSecure(dbPool, emailInput) {
+  if (typeof emailInput !== &quot;string&quot;) {
+    throw new TypeError(&quot;Email must be a valid string&quot;);
   }
-  
-  return evaluateFrame(10);
+
+  // Prepared statement: query template compiled by DB; input bound as literal value
+  const query = &quot;SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1&quot;;
+  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);
+  return rows[0] || null;
 }</code></pre>
                         </div>
                         
@@ -10183,7 +10178,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Use a library to prevent CSRF attacks execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Use a library to prevent CSRF attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10331,7 +10326,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Use cookie attributes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities
+                        Use cookie attributes is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                       </p>
                     
 
@@ -10404,7 +10399,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Use cookie attributes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Use cookie attributes is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -10418,8 +10413,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Use cookie attributes:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10433,17 +10428,16 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Parameterized Database Query Execution
+export async function findUserSecure(dbPool, emailInput) {
+  if (typeof emailInput !== &quot;string&quot;) {
+    throw new TypeError(&quot;Email must be a valid string&quot;);
   }
-  
-  return evaluateFrame(10);
+
+  // Prepared statement: query template compiled by DB; input bound as literal value
+  const query = &quot;SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1&quot;;
+  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);
+  return rows[0] || null;
 }</code></pre>
                         </div>
                         
@@ -10456,7 +10450,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Use cookie attributes execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Use cookie attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10666,7 +10660,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Introduction to OWASP dependency check is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 1
+                        Introduction to OWASP dependency check is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vu
                       </p>
                     
 
@@ -10739,7 +10733,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Introduction to OWASP dependency check is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Introduction to OWASP dependency check is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -10753,8 +10747,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Introduction to OWASP dependency check:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10768,17 +10762,16 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Parameterized Database Query Execution
+export async function findUserSecure(dbPool, emailInput) {
+  if (typeof emailInput !== &quot;string&quot;) {
+    throw new TypeError(&quot;Email must be a valid string&quot;);
   }
-  
-  return evaluateFrame(10);
+
+  // Prepared statement: query template compiled by DB; input bound as literal value
+  const query = &quot;SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1&quot;;
+  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);
+  return rows[0] || null;
 }</code></pre>
                         </div>
                         
@@ -10791,7 +10784,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP dependency check execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP dependency check execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10939,7 +10932,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Find vulnerabilities with Snyk is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulner
+                        Find vulnerabilities with Snyk is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabil
                       </p>
                     
 
@@ -11012,7 +11005,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Find vulnerabilities with Snyk is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Find vulnerabilities with Snyk is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -11026,8 +11019,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Find vulnerabilities with Snyk:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11041,17 +11034,16 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Parameterized Database Query Execution
+export async function findUserSecure(dbPool, emailInput) {
+  if (typeof emailInput !== &quot;string&quot;) {
+    throw new TypeError(&quot;Email must be a valid string&quot;);
   }
-  
-  return evaluateFrame(10);
+
+  // Prepared statement: query template compiled by DB; input bound as literal value
+  const query = &quot;SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1&quot;;
+  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);
+  return rows[0] || null;
 }</code></pre>
                         </div>
                         
@@ -11064,7 +11056,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Find vulnerabilities with Snyk execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Find vulnerabilities with Snyk execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11212,7 +11204,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Penetration testing with Burp Suite is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 v
+                        Penetration testing with Burp Suite is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulne
                       </p>
                     
 
@@ -11285,7 +11277,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Penetration testing with Burp Suite is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Penetration testing with Burp Suite is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL &amp; OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -11299,8 +11291,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Penetration testing with Burp Suite:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11314,17 +11306,16 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Secure Parameterized Database Query Execution
+export async function findUserSecure(dbPool, emailInput) {
+  if (typeof emailInput !== &quot;string&quot;) {
+    throw new TypeError(&quot;Email must be a valid string&quot;);
   }
-  
-  return evaluateFrame(10);
+
+  // Prepared statement: query template compiled by DB; input bound as literal value
+  const query = &quot;SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1&quot;;
+  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);
+  return rows[0] || null;
 }</code></pre>
                         </div>
                         
@@ -11337,7 +11328,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Penetration testing with Burp Suite execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Penetration testing with Burp Suite execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         

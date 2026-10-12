@@ -25,11 +25,11 @@
       "url": "/data/flashcards/ch-01-003.json"
     },
     {
-      "deckId": "section-01",
-      "title": "Section 01: JavaScript Language Foundations & Execution Context Review Deck",
+      "deckId": "sec-1",
+      "title": "Module 1 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-01.json"
+      "url": "/data/flashcards/sec-1.json"
     },
     {
       "deckId": "ch-02-001",
@@ -53,11 +53,11 @@
       "url": "/data/flashcards/ch-02-003.json"
     },
     {
-      "deckId": "section-02",
-      "title": "Section 02: Lexical Scope, Hoisting & Variable Declarations Review Deck",
+      "deckId": "sec-2",
+      "title": "Module 2 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-02.json"
+      "url": "/data/flashcards/sec-2.json"
     },
     {
       "deckId": "ch-03-001",
@@ -81,11 +81,11 @@
       "url": "/data/flashcards/ch-03-003.json"
     },
     {
-      "deckId": "section-03",
-      "title": "Section 03: Closures, Lexical Environment & Module Patterns Review Deck",
+      "deckId": "sec-3",
+      "title": "Module 3 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-03.json"
+      "url": "/data/flashcards/sec-3.json"
     },
     {
       "deckId": "ch-04-001",
@@ -109,11 +109,11 @@
       "url": "/data/flashcards/ch-04-003.json"
     },
     {
-      "deckId": "section-04",
-      "title": "Section 04: Objects, Prototypes & Prototypal Delegation Review Deck",
+      "deckId": "sec-4",
+      "title": "Module 4 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-04.json"
+      "url": "/data/flashcards/sec-4.json"
     },
     {
       "deckId": "ch-05-001",
@@ -137,11 +137,11 @@
       "url": "/data/flashcards/ch-05-003.json"
     },
     {
-      "deckId": "section-05",
-      "title": "Section 05: Types, Grammar, Coercion & Equality Review Deck",
+      "deckId": "sec-5",
+      "title": "Module 5 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-05.json"
+      "url": "/data/flashcards/sec-5.json"
     },
     {
       "deckId": "ch-06-001",
@@ -165,11 +165,11 @@
       "url": "/data/flashcards/ch-06-003.json"
     },
     {
-      "deckId": "section-06",
-      "title": "Section 06: Asynchronous JavaScript & Event Loop Mechanics Review Deck",
+      "deckId": "sec-6",
+      "title": "Module 6 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-06.json"
+      "url": "/data/flashcards/sec-6.json"
     },
     {
       "deckId": "ch-07-001",
@@ -193,11 +193,11 @@
       "url": "/data/flashcards/ch-07-003.json"
     },
     {
-      "deckId": "section-07",
-      "title": "Section 07: Node.js Core Architecture, V8 & libuv Review Deck",
+      "deckId": "sec-7",
+      "title": "Module 7 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-07.json"
+      "url": "/data/flashcards/sec-7.json"
     },
     {
       "deckId": "ch-08-001",
@@ -221,11 +221,11 @@
       "url": "/data/flashcards/ch-08-003.json"
     },
     {
-      "deckId": "section-08",
-      "title": "Section 08: Module System: CommonJS & ES Modules Review Deck",
+      "deckId": "sec-8",
+      "title": "Module 8 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-08.json"
+      "url": "/data/flashcards/sec-8.json"
     },
     {
       "deckId": "ch-09-001",
@@ -249,11 +249,11 @@
       "url": "/data/flashcards/ch-09-003.json"
     },
     {
-      "deckId": "section-09",
-      "title": "Section 09: Asynchronous Control Flow & Concurrency Limits Review Deck",
+      "deckId": "sec-9",
+      "title": "Module 9 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-09.json"
+      "url": "/data/flashcards/sec-9.json"
     },
     {
       "deckId": "ch-10-001",
@@ -277,11 +277,11 @@
       "url": "/data/flashcards/ch-10-003.json"
     },
     {
-      "deckId": "section-10",
-      "title": "Section 10: Streams, Buffers & Backpressure Handling Review Deck",
+      "deckId": "sec-10",
+      "title": "Module 10 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-10.json"
+      "url": "/data/flashcards/sec-10.json"
     },
     {
       "deckId": "ch-11-001",
@@ -305,11 +305,11 @@
       "url": "/data/flashcards/ch-11-003.json"
     },
     {
-      "deckId": "section-11",
-      "title": "Section 11: Creational & Structural Design Patterns in Node.js Review Deck",
+      "deckId": "sec-11",
+      "title": "Module 11 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-11.json"
+      "url": "/data/flashcards/sec-11.json"
     },
     {
       "deckId": "ch-12-001",
@@ -333,11 +333,11 @@
       "url": "/data/flashcards/ch-12-003.json"
     },
     {
-      "deckId": "section-12",
-      "title": "Section 12: Behavioral Patterns & Event-Driven Architecture Review Deck",
+      "deckId": "sec-12",
+      "title": "Module 12 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-12.json"
+      "url": "/data/flashcards/sec-12.json"
     },
     {
       "deckId": "ch-13-001",
@@ -361,11 +361,11 @@
       "url": "/data/flashcards/ch-13-003.json"
     },
     {
-      "deckId": "section-13",
-      "title": "Section 13: Web Services Architecture: Fastify & Express Review Deck",
+      "deckId": "sec-13",
+      "title": "Module 13 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-13.json"
+      "url": "/data/flashcards/sec-13.json"
     },
     {
       "deckId": "ch-14-001",
@@ -389,11 +389,11 @@
       "url": "/data/flashcards/ch-14-003.json"
     },
     {
-      "deckId": "section-14",
-      "title": "Section 14: Multithreading, Worker Threads & Message Queues Review Deck",
+      "deckId": "sec-14",
+      "title": "Module 14 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-14.json"
+      "url": "/data/flashcards/sec-14.json"
     },
     {
       "deckId": "ch-15-001",
@@ -417,11 +417,11 @@
       "url": "/data/flashcards/ch-15-003.json"
     },
     {
-      "deckId": "section-15",
-      "title": "Section 15: Testing Pyramid, Assertions & Test Runners Review Deck",
+      "deckId": "sec-15",
+      "title": "Module 15 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-15.json"
+      "url": "/data/flashcards/sec-15.json"
     },
     {
       "deckId": "ch-16-001",
@@ -445,11 +445,11 @@
       "url": "/data/flashcards/ch-16-003.json"
     },
     {
-      "deckId": "section-16",
-      "title": "Section 16: Backend Unit Testing, Mocking & Integration Tests Review Deck",
+      "deckId": "sec-16",
+      "title": "Module 16 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-16.json"
+      "url": "/data/flashcards/sec-16.json"
     },
     {
       "deckId": "ch-17-001",
@@ -473,11 +473,11 @@
       "url": "/data/flashcards/ch-17-003.json"
     },
     {
-      "deckId": "section-17",
-      "title": "Section 17: Test-Driven Development (TDD) & End-to-End API Testing Review Deck",
+      "deckId": "sec-17",
+      "title": "Module 17 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-17.json"
+      "url": "/data/flashcards/sec-17.json"
     },
     {
       "deckId": "ch-18-001",
@@ -501,11 +501,11 @@
       "url": "/data/flashcards/ch-18-003.json"
     },
     {
-      "deckId": "section-18",
-      "title": "Section 18: Core Node.js Security, Secrets & Process Hardening Review Deck",
+      "deckId": "sec-18",
+      "title": "Module 18 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-18.json"
+      "url": "/data/flashcards/sec-18.json"
     },
     {
       "deckId": "ch-19-001",
@@ -529,11 +529,11 @@
       "url": "/data/flashcards/ch-19-003.json"
     },
     {
-      "deckId": "section-19",
-      "title": "Section 19: Injection Attacks Defense: SQL, NoSQL & OS Command Review Deck",
+      "deckId": "sec-19",
+      "title": "Module 19 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-19.json"
+      "url": "/data/flashcards/sec-19.json"
     },
     {
       "deckId": "ch-20-001",
@@ -557,11 +557,11 @@
       "url": "/data/flashcards/ch-20-003.json"
     },
     {
-      "deckId": "section-20",
-      "title": "Section 20: Authentication, JWT Tokens & Session Security Review Deck",
+      "deckId": "sec-20",
+      "title": "Module 20 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-20.json"
+      "url": "/data/flashcards/sec-20.json"
     },
     {
       "deckId": "ch-21-001",
@@ -585,11 +585,11 @@
       "url": "/data/flashcards/ch-21-003.json"
     },
     {
-      "deckId": "section-21",
-      "title": "Section 21: XSS, CSRF, ReDoS & Denial of Service Defense Review Deck",
+      "deckId": "sec-21",
+      "title": "Module 21 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-21.json"
+      "url": "/data/flashcards/sec-21.json"
     },
     {
       "deckId": "ch-22-001",
@@ -613,11 +613,11 @@
       "url": "/data/flashcards/ch-22-003.json"
     },
     {
-      "deckId": "section-22",
-      "title": "Section 22: Reliable & Maintainable Data Systems Architecture Review Deck",
+      "deckId": "sec-22",
+      "title": "Module 22 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-22.json"
+      "url": "/data/flashcards/sec-22.json"
     },
     {
       "deckId": "ch-23-001",
@@ -641,11 +641,11 @@
       "url": "/data/flashcards/ch-23-003.json"
     },
     {
-      "deckId": "section-23",
-      "title": "Section 23: Data Storage Engines, Indexing & Caching Strategies Review Deck",
+      "deckId": "sec-23",
+      "title": "Module 23 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-23.json"
+      "url": "/data/flashcards/sec-23.json"
     },
     {
       "deckId": "ch-24-001",
@@ -669,11 +669,11 @@
       "url": "/data/flashcards/ch-24-003.json"
     },
     {
-      "deckId": "section-24",
-      "title": "Section 24: Replication, Sharding & Partitioning Strategies Review Deck",
+      "deckId": "sec-24",
+      "title": "Module 24 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-24.json"
+      "url": "/data/flashcards/sec-24.json"
     },
     {
       "deckId": "ch-25-001",
@@ -697,11 +697,11 @@
       "url": "/data/flashcards/ch-25-003.json"
     },
     {
-      "deckId": "section-25",
-      "title": "Section 25: Transactions, Isolation Levels & Distributed Consistency Review Deck",
+      "deckId": "sec-25",
+      "title": "Module 25 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-25.json"
+      "url": "/data/flashcards/sec-25.json"
     },
     {
       "deckId": "ch-26-001",
@@ -725,11 +725,11 @@
       "url": "/data/flashcards/ch-26-003.json"
     },
     {
-      "deckId": "section-26",
-      "title": "Section 26: Distributed Services, Reverse Proxies & Load Balancing Review Deck",
+      "deckId": "sec-26",
+      "title": "Module 26 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-26.json"
+      "url": "/data/flashcards/sec-26.json"
     },
     {
       "deckId": "ch-27-001",
@@ -753,11 +753,11 @@
       "url": "/data/flashcards/ch-27-003.json"
     },
     {
-      "deckId": "section-27",
-      "title": "Section 27: Inter-Service Communication: gRPC, Protobuf & REST Review Deck",
+      "deckId": "sec-27",
+      "title": "Module 27 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-27.json"
+      "url": "/data/flashcards/sec-27.json"
     },
     {
       "deckId": "ch-28-001",
@@ -781,11 +781,11 @@
       "url": "/data/flashcards/ch-28-003.json"
     },
     {
-      "deckId": "section-28",
-      "title": "Section 28: Observability, OpenTelemetry, Diagnostics & Profiling Review Deck",
+      "deckId": "sec-28",
+      "title": "Module 28 Master Deck",
       "chapterId": "all",
       "totalCards": 24,
-      "url": "/data/flashcards/section-28.json"
+      "url": "/data/flashcards/sec-28.json"
     }
   ]
 }

@@ -8916,7 +8916,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Object methods is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, l
+                        Object methods is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loo
                       </p>
                     
 
@@ -8989,7 +8989,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Object methods is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Object methods is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -9003,8 +9003,8 @@
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Object methods:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9018,17 +9018,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -9041,7 +9039,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Object methods execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Object methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9189,7 +9187,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Practice: Build a new method is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals
+                        Practice: Build a new method is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, 
                       </p>
                     
 
@@ -9262,7 +9260,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Practice: Build a new method is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Practice: Build a new method is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -9276,8 +9274,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Practice: Build a new method:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9291,17 +9289,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -9314,7 +9310,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new method execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new method execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9462,7 +9458,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Classes: Object blueprints is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, 
+                        Classes: Object blueprints is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, fu
                       </p>
                     
 
@@ -9535,7 +9531,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Classes: Object blueprints is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Classes: Object blueprints is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -9549,8 +9545,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Classes: Object blueprints:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9564,17 +9560,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -9587,7 +9581,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Classes: Object blueprints execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Classes: Object blueprints execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9735,7 +9729,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Object constructors is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functio
+                        Object constructors is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions
                       </p>
                     
 
@@ -9808,7 +9802,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Object constructors is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Object constructors is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -9822,8 +9816,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Object constructors:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9837,17 +9831,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -9860,7 +9852,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Object constructors execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Object constructors execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10008,7 +10000,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Practice: Build a new object with a constructor is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data 
+                        Practice: Build a new object with a constructor is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data ty
                       </p>
                     
 
@@ -10081,7 +10073,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Practice: Build a new object with a constructor is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Practice: Build a new object with a constructor is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -10095,8 +10087,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Practice: Build a new object with a constructor:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10110,17 +10102,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -10133,7 +10123,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new object with a constructor execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new object with a constructor execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10281,7 +10271,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Global objects is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, l
+                        Global objects is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loo
                       </p>
                     
 
@@ -10354,7 +10344,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Global objects is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Global objects is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -10368,8 +10358,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Global objects:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10383,17 +10373,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -10406,7 +10394,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Global objects execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Global objects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10628,7 +10616,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Challenge intro: Create a new object type is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types,
+                        Challenge intro: Create a new object type is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, c
                       </p>
                     
 
@@ -10701,7 +10689,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Challenge intro: Create a new object type is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Challenge intro: Create a new object type is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -10715,8 +10703,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Challenge intro: Create a new object type:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10730,17 +10718,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -10753,7 +10739,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a new object type execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a new object type execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10901,7 +10887,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Solution: Create a new object type is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, condit
+                        Solution: Create a new object type is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditio
                       </p>
                     
 
@@ -10974,7 +10960,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Solution: Create a new object type is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Solution: Create a new object type is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -10988,8 +10974,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Solution: Create a new object type:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11003,17 +10989,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -11026,7 +11010,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a new object type execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a new object type execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11174,7 +11158,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Mix text and variables with template literals is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data ty
+                        Mix text and variables with template literals is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data type
                       </p>
                     
 
@@ -11247,7 +11231,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Mix text and variables with template literals is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Mix text and variables with template literals is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -11261,8 +11245,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Mix text and variables with template literals:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11276,17 +11260,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -11299,7 +11281,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Mix text and variables with template literals execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Mix text and variables with template literals execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11447,7 +11429,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Traditional string output is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, f
+                        Traditional string output is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, fun
                       </p>
                     
 
@@ -11520,7 +11502,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Traditional string output is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Traditional string output is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -11534,8 +11516,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Traditional string output:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11549,17 +11531,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -11572,7 +11552,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Traditional string output execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Traditional string output execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11720,7 +11700,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Challenge intro: Create a template literal is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types
+                        Challenge intro: Create a template literal is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, 
                       </p>
                     
 
@@ -11793,7 +11773,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Challenge intro: Create a template literal is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Challenge intro: Create a template literal is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -11807,8 +11787,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Challenge intro: Create a template literal:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11822,17 +11802,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -11845,7 +11823,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a template literal execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a template literal execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11993,7 +11971,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Solution: Create a template literal is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, condi
+                        Solution: Create a template literal is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditi
                       </p>
                     
 
@@ -12066,7 +12044,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Solution: Create a template literal is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Solution: Create a template literal is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -12080,8 +12058,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Solution: Create a template literal:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12095,17 +12073,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -12118,7 +12094,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a template literal execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a template literal execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12340,7 +12316,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        DOM: The Document Object Model is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditiona
+                        DOM: The Document Object Model is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals
                       </p>
                     
 
@@ -12413,7 +12389,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            DOM: The Document Object Model is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            DOM: The Document Object Model is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -12427,8 +12403,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for DOM: The Document Object Model:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12442,17 +12418,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -12465,7 +12439,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during DOM: The Document Object Model execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during DOM: The Document Object Model execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12613,7 +12587,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Access elements with querySelector methods is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types
+                        Access elements with querySelector methods is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, 
                       </p>
                     
 
@@ -12686,7 +12660,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Access elements with querySelector methods is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Access elements with querySelector methods is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -12700,8 +12674,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Access elements with querySelector methods:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12715,17 +12689,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -12738,7 +12710,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements with querySelector methods execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements with querySelector methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12886,7 +12858,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Access elements using older methods is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, condi
+                        Access elements using older methods is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditi
                       </p>
                     
 
@@ -12959,7 +12931,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Access elements using older methods is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Access elements using older methods is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -12973,8 +12945,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Access elements using older methods:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12988,17 +12960,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -13011,7 +12981,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements using older methods execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements using older methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -13159,7 +13129,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Practice: Find an element is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, f
+                        Practice: Find an element is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, fun
                       </p>
                     
 
@@ -13232,7 +13202,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Practice: Find an element is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Practice: Find an element is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -13246,8 +13216,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Practice: Find an element:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -13261,17 +13231,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -13284,7 +13252,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Find an element execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Find an element execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -13432,7 +13400,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Modifying element classes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, f
+                        Modifying element classes is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, fun
                       </p>
                     
 
@@ -13505,7 +13473,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Modifying element classes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Modifying element classes is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -13519,8 +13487,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Modifying element classes:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -13534,17 +13502,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -13557,7 +13523,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Modifying element classes execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Modifying element classes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -13705,7 +13671,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Attributes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops
+                        Attributes is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, 
                       </p>
                     
 
@@ -13778,7 +13744,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Attributes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Attributes is a core architectural concept in **Types, Grammar, Coercion &amp; Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -13792,8 +13758,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Attributes:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -13807,17 +13773,15 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Type Validation &amp; Safe Coercion Helpers
+export function parseConfigPort(rawPort, defaultPort = 3000) {
+  if (rawPort === null || rawPort === undefined) return defaultPort;
   
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  const portNum = Number(rawPort);
+  if (!Number.isInteger(portNum) || portNum &lt; 1 || portNum &gt; 65535) {
+    throw new RangeError(`Invalid TCP port configuration: &quot;${rawPort}&quot;`);
   }
-  
-  return evaluateFrame(10);
+  return portNum;
 }</code></pre>
                         </div>
                         
@@ -13830,7 +13794,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Attributes execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         

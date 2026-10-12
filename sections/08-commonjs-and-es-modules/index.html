@@ -8908,7 +8908,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Using readline is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Using readline is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Nod
                       </p>
                     
 
@@ -8981,7 +8981,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Using readline is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Using readline is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -8995,8 +8995,8 @@
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Using readline:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9010,17 +9010,18 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Modern ESM Utility with Path Reconstruction &amp; Conditional Loading
+import { fileURLToPath } from &quot;node:url&quot;;
+import { dirname, join } from &quot;node:path&quot;;
+import { readFile } from &quot;node:fs/promises&quot;;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function loadModuleConfig(configName = &quot;config.json&quot;) {
+  const targetPath = join(__dirname, configName);
+  const raw = await readFile(targetPath, &quot;utf-8&quot;);
+  return JSON.parse(raw);
 }</code></pre>
                         </div>
                         
@@ -9033,7 +9034,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readline execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readline execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9181,7 +9182,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Exporting custom modules is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with 
+                        Exporting custom modules is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript application
                       </p>
                     
 
@@ -9254,7 +9255,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Exporting custom modules is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Exporting custom modules is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -9268,8 +9269,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Exporting custom modules:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9283,17 +9284,18 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Modern ESM Utility with Path Reconstruction &amp; Conditional Loading
+import { fileURLToPath } from &quot;node:url&quot;;
+import { dirname, join } from &quot;node:path&quot;;
+import { readFile } from &quot;node:fs/promises&quot;;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function loadModuleConfig(configName = &quot;config.json&quot;) {
+  const targetPath = join(__dirname, configName);
+  const raw = await readFile(targetPath, &quot;utf-8&quot;);
+  return JSON.parse(raw);
 }</code></pre>
                         </div>
                         
@@ -9306,7 +9308,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Exporting custom modules execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Exporting custom modules execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9454,7 +9456,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Creating a module is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js
+                        Creating a module is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with 
                       </p>
                     
 
@@ -9527,7 +9529,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Creating a module is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Creating a module is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -9541,8 +9543,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Creating a module:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9556,17 +9558,18 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Modern ESM Utility with Path Reconstruction &amp; Conditional Loading
+import { fileURLToPath } from &quot;node:url&quot;;
+import { dirname, join } from &quot;node:path&quot;;
+import { readFile } from &quot;node:fs/promises&quot;;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function loadModuleConfig(configName = &quot;config.json&quot;) {
+  const targetPath = join(__dirname, configName);
+  const raw = await readFile(targetPath, &quot;utf-8&quot;);
+  return JSON.parse(raw);
 }</code></pre>
                         </div>
                         
@@ -9579,7 +9582,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a module execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a module execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -9727,7 +9730,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Custom events with the EventEmitter is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applica
+                        Custom events with the EventEmitter is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript 
                       </p>
                     
 
@@ -9800,7 +9803,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Custom events with the EventEmitter is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Custom events with the EventEmitter is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -9814,8 +9817,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Custom events with the EventEmitter:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -9829,17 +9832,18 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Modern ESM Utility with Path Reconstruction &amp; Conditional Loading
+import { fileURLToPath } from &quot;node:url&quot;;
+import { dirname, join } from &quot;node:path&quot;;
+import { readFile } from &quot;node:fs/promises&quot;;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function loadModuleConfig(configName = &quot;config.json&quot;) {
+  const targetPath = join(__dirname, configName);
+  const raw = await readFile(targetPath, &quot;utf-8&quot;);
+  return JSON.parse(raw);
 }</code></pre>
                         </div>
                         
@@ -9852,7 +9856,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Custom events with the EventEmitter execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Custom events with the EventEmitter execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10066,7 +10070,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Consuming a module with EventEmitter is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applic
+                        Consuming a module with EventEmitter is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript
                       </p>
                     
 
@@ -10139,7 +10143,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Consuming a module with EventEmitter is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Consuming a module with EventEmitter is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -10153,8 +10157,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Consuming a module with EventEmitter:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10168,17 +10172,18 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Modern ESM Utility with Path Reconstruction &amp; Conditional Loading
+import { fileURLToPath } from &quot;node:url&quot;;
+import { dirname, join } from &quot;node:path&quot;;
+import { readFile } from &quot;node:fs/promises&quot;;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function loadModuleConfig(configName = &quot;config.json&quot;) {
+  const targetPath = join(__dirname, configName);
+  const raw = await readFile(targetPath, &quot;utf-8&quot;);
+  return JSON.parse(raw);
 }</code></pre>
                         </div>
                         
@@ -10191,7 +10196,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Consuming a module with EventEmitter execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Consuming a module with EventEmitter execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10339,7 +10344,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Listing directory files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with N
+                        Listing directory files is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications
                       </p>
                     
 
@@ -10412,7 +10417,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Listing directory files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Listing directory files is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -10426,8 +10431,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Listing directory files:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10441,17 +10446,18 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Modern ESM Utility with Path Reconstruction &amp; Conditional Loading
+import { fileURLToPath } from &quot;node:url&quot;;
+import { dirname, join } from &quot;node:path&quot;;
+import { readFile } from &quot;node:fs/promises&quot;;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function loadModuleConfig(configName = &quot;config.json&quot;) {
+  const targetPath = join(__dirname, configName);
+  const raw = await readFile(targetPath, &quot;utf-8&quot;);
+  return JSON.parse(raw);
 }</code></pre>
                         </div>
                         
@@ -10464,7 +10470,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Listing directory files execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Listing directory files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10612,7 +10618,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Reading files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Reading files is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node
                       </p>
                     
 
@@ -10685,7 +10691,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Reading files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Reading files is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -10699,8 +10705,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Reading files:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10714,17 +10720,18 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Modern ESM Utility with Path Reconstruction &amp; Conditional Loading
+import { fileURLToPath } from &quot;node:url&quot;;
+import { dirname, join } from &quot;node:path&quot;;
+import { readFile } from &quot;node:fs/promises&quot;;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function loadModuleConfig(configName = &quot;config.json&quot;) {
+  const targetPath = join(__dirname, configName);
+  const raw = await readFile(targetPath, &quot;utf-8&quot;);
+  return JSON.parse(raw);
 }</code></pre>
                         </div>
                         
@@ -10737,7 +10744,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Reading files execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Reading files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -10885,7 +10892,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Writing and appending files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications wi
+                        Writing and appending files is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applicat
                       </p>
                     
 
@@ -10958,7 +10965,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Writing and appending files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Writing and appending files is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -10972,8 +10979,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Writing and appending files:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -10987,17 +10994,18 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Modern ESM Utility with Path Reconstruction &amp; Conditional Loading
+import { fileURLToPath } from &quot;node:url&quot;;
+import { dirname, join } from &quot;node:path&quot;;
+import { readFile } from &quot;node:fs/promises&quot;;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function loadModuleConfig(configName = &quot;config.json&quot;) {
+  const targetPath = join(__dirname, configName);
+  const raw = await readFile(targetPath, &quot;utf-8&quot;);
+  return JSON.parse(raw);
 }</code></pre>
                         </div>
                         
@@ -11010,7 +11018,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing and appending files execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing and appending files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11224,7 +11232,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Creating directories is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node
+                        Creating directories is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications wi
                       </p>
                     
 
@@ -11297,7 +11305,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Creating directories is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Creating directories is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -11311,8 +11319,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Creating directories:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11326,17 +11334,18 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Modern ESM Utility with Path Reconstruction &amp; Conditional Loading
+import { fileURLToPath } from &quot;node:url&quot;;
+import { dirname, join } from &quot;node:path&quot;;
+import { readFile } from &quot;node:fs/promises&quot;;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function loadModuleConfig(configName = &quot;config.json&quot;) {
+  const targetPath = join(__dirname, configName);
+  const raw = await readFile(targetPath, &quot;utf-8&quot;);
+  return JSON.parse(raw);
 }</code></pre>
                         </div>
                         
@@ -11349,7 +11358,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating directories execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating directories execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11497,7 +11506,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Renaming and removing files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications wi
+                        Renaming and removing files is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applicat
                       </p>
                     
 
@@ -11570,7 +11579,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Renaming and removing files is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Renaming and removing files is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -11584,8 +11593,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Renaming and removing files:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11599,17 +11608,18 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Modern ESM Utility with Path Reconstruction &amp; Conditional Loading
+import { fileURLToPath } from &quot;node:url&quot;;
+import { dirname, join } from &quot;node:path&quot;;
+import { readFile } from &quot;node:fs/promises&quot;;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function loadModuleConfig(configName = &quot;config.json&quot;) {
+  const targetPath = join(__dirname, configName);
+  const raw = await readFile(targetPath, &quot;utf-8&quot;);
+  return JSON.parse(raw);
 }</code></pre>
                         </div>
                         
@@ -11622,7 +11632,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Renaming and removing files execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Renaming and removing files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -11770,7 +11780,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Renaming and removing directories is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applicati
+                        Renaming and removing directories is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript ap
                       </p>
                     
 
@@ -11843,7 +11853,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Renaming and removing directories is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Renaming and removing directories is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -11857,8 +11867,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Renaming and removing directories:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -11872,17 +11882,18 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Modern ESM Utility with Path Reconstruction &amp; Conditional Loading
+import { fileURLToPath } from &quot;node:url&quot;;
+import { dirname, join } from &quot;node:path&quot;;
+import { readFile } from &quot;node:fs/promises&quot;;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function loadModuleConfig(configName = &quot;config.json&quot;) {
+  const targetPath = join(__dirname, configName);
+  const raw = await readFile(targetPath, &quot;utf-8&quot;);
+  return JSON.parse(raw);
 }</code></pre>
                         </div>
                         
@@ -11895,7 +11906,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Renaming and removing directories execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Renaming and removing directories execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         
@@ -12043,7 +12054,7 @@ export function analyzeScope(initialVal) {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Readable file streams is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Nod
+                        Readable file streams is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications w
                       </p>
                     
 
@@ -12116,7 +12127,7 @@ export function analyzeScope(initialVal) {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Readable file streams is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Readable file streams is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules &amp; Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -12130,8 +12141,8 @@ export function analyzeScope(initialVal) {
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             Execution Flow for Readable file streams:
-[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
-Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
+[ Source Call ] ---&gt; [ Engine Call Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Event Loop / OS I/O ]
+Ensures zero-leak memory allocation and predictable throughput across application lifecycle phases.
                           </p>
                         </div>
                         
@@ -12145,17 +12156,18 @@ Ensures zero-leak memory allocation and predictable throughput across lifecycle 
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
-export function analyzeScope(initialVal) {
-  const outerScope = &quot;lexical-bound&quot;;
-  
-  function evaluateFrame(modifier) {
-    // New execution context frame pushed to call stack
-    const localVal = modifier * 2;
-    return `${outerScope} -&gt; ${initialVal + localVal}`;
-  }
-  
-  return evaluateFrame(10);
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Modern ESM Utility with Path Reconstruction &amp; Conditional Loading
+import { fileURLToPath } from &quot;node:url&quot;;
+import { dirname, join } from &quot;node:path&quot;;
+import { readFile } from &quot;node:fs/promises&quot;;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function loadModuleConfig(configName = &quot;config.json&quot;) {
+  const targetPath = join(__dirname, configName);
+  const raw = await readFile(targetPath, &quot;utf-8&quot;);
+  return JSON.parse(raw);
 }</code></pre>
                         </div>
                         
@@ -12168,7 +12180,7 @@ export function analyzeScope(initialVal) {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable file streams execution, which can result in unhandledRejection crashes or memory leaks.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable file streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.
                           </p>
                         </div>
                         

@@ -8,267 +8,267 @@
   "cards": [
     {
       "id": "mcq-16-003-01",
-      "concept": "Testing Stream Pipelines & Event Emitters: libuv Event Loop Architecture",
-      "category": "Node Internals",
-      "difficulty": "Advanced",
-      "question": "Which of the following describes the correct order of phases in a single tick of the libuv event loop?",
+      "concept": "Testing Stream Pipelines & Event Emitters: Test Doubles: Mocks, Stubs & Spies",
+      "category": "Mocking",
+      "difficulty": "Intermediate",
+      "question": "In automated testing, what is the exact conceptual distinction between a Stub and a Spy?",
       "options": [
         {
           "id": "A",
-          "text": "Poll -> Timers -> Close -> Check -> Pending I/O",
+          "text": "A Stub runs on the server; a Spy runs in the browser.",
           "correct": false
         },
         {
           "id": "B",
-          "text": "Timers -> Pending Callbacks -> Idle/Prepare -> Poll -> Check -> Close Callbacks",
+          "text": "A Stub replaces a dependency with pre-programmed canned responses; a Spy records invocation details (arguments, call count, return values) without necessarily replacing behavior.",
           "correct": true
         },
         {
           "id": "C",
-          "text": "Worker Pool -> Network IO -> Microtasks -> Timers -> Cleanup",
+          "text": "A Stub verifies security; a Spy benchmarks speed.",
           "correct": false
         },
         {
           "id": "D",
-          "text": "Check -> Poll -> Timers -> Pending Callbacks -> Close Callbacks",
+          "text": "There is no difference.",
           "correct": false
         }
       ],
-      "explanation": "Each loop iteration walks through: 1. Timers (setTimeout/setInterval), 2. Pending Callbacks (deferred OS I/O), 3. Idle/Prepare (internal), 4. Poll (retrieve new I/O events, blocking if queue empty), 5. Check (setImmediate), 6. Close Callbacks (socket.on('close')).",
-      "codeSnippet": "// Phase demonstration:\nsetTimeout(() => console.log('Timer phase'), 0);\nsetImmediate(() => console.log('Check phase'));\n// Within I/O cycle, check phase (setImmediate) is always called before timer",
-      "pitfall": "Assuming setImmediate and setTimeout(fn, 0) execute in a deterministic order when called from main module top-level scope (subject to process scheduling jitter).",
-      "citation": "libuv Official Architecture Documentation: Loop Iteration Phases"
+      "explanation": "Stubs provide canned return values to isolate tested code from external side effects. Spies record execution telemetry to verify interactions.",
+      "codeSnippet": "import test from 'node:test';\ntest('Spy verification', (t) => {\n  const spy = t.mock.fn((x) => x * 2);\n  spy(5);\n  assert.equal(spy.mock.callCount(), 1);\n  assert.deepEqual(spy.mock.calls[0].arguments, [5]);\n});",
+      "pitfall": "Over-mocking internal implementation details rather than testing public interface contracts makes tests brittle to harmless refactoring.",
+      "citation": "Martin Fowler: Mocks Aren't Stubs / Node.js Mock API"
     },
     {
       "id": "mcq-16-003-02",
-      "concept": "Testing Stream Pipelines & Event Emitters: Node.js Buffer Allocation & Pool Mechanics",
-      "category": "Memory & Buffers",
-      "difficulty": "Intermediate",
-      "question": "Why is `Buffer.allocUnsafe(size)` faster than `Buffer.alloc(size)`, and what critical security vulnerability does it introduce if uninitialized?",
+      "concept": "Testing Stream Pipelines & Event Emitters: Integration Test Isolation & Database Cleanup",
+      "category": "Integration Testing",
+      "difficulty": "Advanced",
+      "question": "What is the most reliable strategy to ensure database integration tests remain isolated and deterministic across parallel test runs?",
       "options": [
         {
           "id": "A",
-          "text": "It uses hardware encryption; it causes memory corruption if freed twice.",
+          "text": "Sharing a single permanent test database without cleanup.",
           "correct": false
         },
         {
           "id": "B",
-          "text": "It skips zero-filling memory, potentially exposing sensitive lingering process memory (keys, passwords, tokens) if transmitted directly.",
+          "text": "Running each test within a rolled-back transaction or using ephemeral isolated database containers (Testcontainers) with schema truncation between suites.",
           "correct": true
         },
         {
           "id": "C",
-          "text": "It executes on the GPU; it blocks the main thread during V8 compilation.",
+          "text": "Adding arbitrary sleep delays between tests.",
           "correct": false
         },
         {
           "id": "D",
-          "text": "It bypasses V8 heap limits, risking instant kernel segmentation faults.",
+          "text": "Running integration tests exclusively in production.",
           "correct": false
         }
       ],
-      "explanation": "Buffer.allocUnsafe allocates memory from Node's internal 8KB pool without zero-initializing bytes. If written directly to a network stream without fully overwriting, historical residual memory is leaked to clients.",
-      "codeSnippet": "// Safe allocation (zero-filled):\nconst safeBuf = Buffer.alloc(1024);\n// Fast allocation (must be completely overwritten before sending!):\nconst fastBuf = Buffer.allocUnsafe(1024);\nfastBuf.fill(0); // Zero out or write complete payload",
-      "pitfall": "Sending Buffer.allocUnsafe directly over an HTTP response or socket leaks memory artifacts from other users or requests.",
-      "citation": "Node.js API Reference: Buffer.allocUnsafe Security Considerations"
+      "explanation": "Transactional rollbacks or ephemeral database containers ensure test runs leave zero lingering state, preventing test order dependencies and flaky failures.",
+      "codeSnippet": "beforeEach(async () => await db.query('BEGIN'));\nafterEach(async () => await db.query('ROLLBACK'));",
+      "pitfall": "Failing to drain and close database connection pools in test teardown hooks causes test runners (Jest, node:test) to hang indefinitely.",
+      "citation": "Testing Best Practices: Ephemeral Test Environments"
     },
     {
       "id": "mcq-16-003-03",
-      "concept": "Testing Stream Pipelines & Event Emitters: Backpressure in Stream Pipelines",
-      "category": "Streams & I/O",
-      "difficulty": "Advanced",
-      "question": "What signal does `writable.write(chunk)` return to indicate that the internal stream buffer exceeds `highWaterMark`, and how must producers respond?",
+      "concept": "Testing Stream Pipelines & Event Emitters: Test Doubles: Mocks, Stubs & Spies",
+      "category": "Mocking",
+      "difficulty": "Intermediate",
+      "question": "In automated testing, what is the exact conceptual distinction between a Stub and a Spy?",
       "options": [
         {
           "id": "A",
-          "text": "Throws an Error('BufferFull'); producer must catch and retry.",
+          "text": "A Stub runs on the server; a Spy runs in the browser.",
           "correct": false
         },
         {
           "id": "B",
-          "text": "Returns `false`; the producer must pause writing until the writable stream emits the `'drain'` event.",
+          "text": "A Stub replaces a dependency with pre-programmed canned responses; a Spy records invocation details (arguments, call count, return values) without necessarily replacing behavior.",
           "correct": true
         },
         {
           "id": "C",
-          "text": "Returns `null`; the producer should spawn an additional worker thread.",
+          "text": "A Stub verifies security; a Spy benchmarks speed.",
           "correct": false
         },
         {
           "id": "D",
-          "text": "Returns an unhandled Promise rejection to the libuv threadpool.",
+          "text": "There is no difference.",
           "correct": false
         }
       ],
-      "explanation": "When writable.write(chunk) returns false, the buffer has reached its highWaterMark limit. Producers must pause writing. Once the underlying system drains the buffer, a 'drain' event fires, signaling it is safe to resume.",
-      "codeSnippet": "function writeData(writer, data) {\n  let i = data.length;\n  function write() {\n    let ok = true;\n    do {\n      i--;\n      if (i === 0) writer.write(data[i]);\n      else ok = writer.write(data[i]);\n    } while (i > 0 && ok);\n    if (i > 0) writer.once('drain', write);\n  }\n  write();\n}",
-      "pitfall": "Ignoring `write() === false` causes memory consumption to balloon as unbound chunks accumulate in RAM, triggering process crash with OOM.",
-      "citation": "Node.js Stream API Reference: Backpressure in Streams"
+      "explanation": "Stubs provide canned return values to isolate tested code from external side effects. Spies record execution telemetry to verify interactions.",
+      "codeSnippet": "import test from 'node:test';\ntest('Spy verification', (t) => {\n  const spy = t.mock.fn((x) => x * 2);\n  spy(5);\n  assert.equal(spy.mock.callCount(), 1);\n  assert.deepEqual(spy.mock.calls[0].arguments, [5]);\n});",
+      "pitfall": "Over-mocking internal implementation details rather than testing public interface contracts makes tests brittle to harmless refactoring.",
+      "citation": "Martin Fowler: Mocks Aren't Stubs / Node.js Mock API"
     },
     {
       "id": "mcq-16-003-04",
-      "concept": "Testing Stream Pipelines & Event Emitters: Worker Threads vs Cluster Module",
-      "category": "Concurrency & Scale",
-      "difficulty": "Intermediate",
-      "question": "What is the primary difference between Node's `cluster` module and `worker_threads` module?",
+      "concept": "Testing Stream Pipelines & Event Emitters: Integration Test Isolation & Database Cleanup",
+      "category": "Integration Testing",
+      "difficulty": "Advanced",
+      "question": "What is the most reliable strategy to ensure database integration tests remain isolated and deterministic across parallel test runs?",
       "options": [
         {
           "id": "A",
-          "text": "`cluster` runs on Windows only; `worker_threads` runs on Linux.",
+          "text": "Sharing a single permanent test database without cleanup.",
           "correct": false
         },
         {
           "id": "B",
-          "text": "`cluster` forks multiple OS processes with isolated V8 instances sharing server sockets, while `worker_threads` runs multiple V8 isolates in separate threads sharing the same process memory (via SharedArrayBuffer).",
+          "text": "Running each test within a rolled-back transaction or using ephemeral isolated database containers (Testcontainers) with schema truncation between suites.",
           "correct": true
         },
         {
           "id": "C",
-          "text": "`worker_threads` does not support asynchronous I/O; `cluster` only supports TCP sockets.",
+          "text": "Adding arbitrary sleep delays between tests.",
           "correct": false
         },
         {
           "id": "D",
-          "text": "`cluster` is deprecated in favor of child_process.spawn.",
+          "text": "Running integration tests exclusively in production.",
           "correct": false
         }
       ],
-      "explanation": "Cluster creates separate OS child processes with independent memory heaps and event loops, coordinated via master IPC to distribute TCP connections. worker_threads creates distinct V8 isolates within the same OS process for CPU-intensive tasks with shared memory capabilities.",
-      "codeSnippet": "import { Worker, isMainThread, parentPort } from 'node:worker_threads';\nif (isMainThread) {\n  const worker = new Worker(import.meta.filename);\n  worker.on('message', msg => console.log('Result:', msg));\n} else {\n  parentPort.postMessage('CPU task complete');\n}",
-      "pitfall": "Using worker_threads for standard non-blocking I/O tasks adds overhead without speedup; worker threads are designed for CPU-intensive computation.",
-      "citation": "Node.js API Reference: worker_threads vs cluster"
+      "explanation": "Transactional rollbacks or ephemeral database containers ensure test runs leave zero lingering state, preventing test order dependencies and flaky failures.",
+      "codeSnippet": "beforeEach(async () => await db.query('BEGIN'));\nafterEach(async () => await db.query('ROLLBACK'));",
+      "pitfall": "Failing to drain and close database connection pools in test teardown hooks causes test runners (Jest, node:test) to hang indefinitely.",
+      "citation": "Testing Best Practices: Ephemeral Test Environments"
     },
     {
       "id": "mcq-16-003-05",
-      "concept": "Testing Stream Pipelines & Event Emitters: AsyncLocalStorage & Context Propagation",
-      "category": "Tracing & Diagnostics",
-      "difficulty": "Advanced",
-      "question": "What problem does Node's `AsyncLocalStorage` solve in production web applications (Fastify, Express)?",
+      "concept": "Testing Stream Pipelines & Event Emitters: Test Doubles: Mocks, Stubs & Spies",
+      "category": "Mocking",
+      "difficulty": "Intermediate",
+      "question": "In automated testing, what is the exact conceptual distinction between a Stub and a Spy?",
       "options": [
         {
           "id": "A",
-          "text": "It stores user browser cookies in permanent disk storage.",
+          "text": "A Stub runs on the server; a Spy runs in the browser.",
           "correct": false
         },
         {
           "id": "B",
-          "text": "It preserves request-scoped state (e.g. trace ID, user ID, transaction context) across asynchronous operations without parameter drilling.",
+          "text": "A Stub replaces a dependency with pre-programmed canned responses; a Spy records invocation details (arguments, call count, return values) without necessarily replacing behavior.",
           "correct": true
         },
         {
           "id": "C",
-          "text": "It synchronizes variables between multiple Redis cache nodes.",
+          "text": "A Stub verifies security; a Spy benchmarks speed.",
           "correct": false
         },
         {
           "id": "D",
-          "text": "It enables hot-reloading of backend source modules without restarting the process.",
+          "text": "There is no difference.",
           "correct": false
         }
       ],
-      "explanation": "AsyncLocalStorage (built on async_hooks) tracks execution contexts across asynchronous boundaries (promises, callbacks, timers), allowing libraries and loggers to access request context anywhere without passing a request object down every function.",
-      "codeSnippet": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst als = new AsyncLocalStorage();\nfunction log(msg) {\n  const store = als.getStore();\n  console.log(`[${store?.traceId || 'no-trace'}] ${msg}`);\n}\nals.run({ traceId: 'req-abc-123' }, () => {\n  setTimeout(() => log('Database query completed'), 100);\n});",
-      "pitfall": "Leaking memory by storing large request/response objects in AsyncLocalStorage if long-lived background jobs retain references to stores.",
-      "citation": "Node.js API Reference: AsyncLocalStorage"
+      "explanation": "Stubs provide canned return values to isolate tested code from external side effects. Spies record execution telemetry to verify interactions.",
+      "codeSnippet": "import test from 'node:test';\ntest('Spy verification', (t) => {\n  const spy = t.mock.fn((x) => x * 2);\n  spy(5);\n  assert.equal(spy.mock.callCount(), 1);\n  assert.deepEqual(spy.mock.calls[0].arguments, [5]);\n});",
+      "pitfall": "Over-mocking internal implementation details rather than testing public interface contracts makes tests brittle to harmless refactoring.",
+      "citation": "Martin Fowler: Mocks Aren't Stubs / Node.js Mock API"
     },
     {
       "id": "mcq-16-003-06",
-      "concept": "Testing Stream Pipelines & Event Emitters: SQL Injection Prevention with Parameterized Queries",
-      "category": "Security",
-      "difficulty": "Intermediate",
-      "question": "Why does string concatenation in SQL queries lead to SQL injection vulnerabilities, and how does parameterization prevent it?",
+      "concept": "Testing Stream Pipelines & Event Emitters: Integration Test Isolation & Database Cleanup",
+      "category": "Integration Testing",
+      "difficulty": "Advanced",
+      "question": "What is the most reliable strategy to ensure database integration tests remain isolated and deterministic across parallel test runs?",
       "options": [
         {
           "id": "A",
-          "text": "String concatenation crashes the query compiler; parameterization minifies the query.",
+          "text": "Sharing a single permanent test database without cleanup.",
           "correct": false
         },
         {
           "id": "B",
-          "text": "Concatenation merges user input into the SQL command AST; parameterized queries send SQL structure and data values through separate database protocol phases.",
+          "text": "Running each test within a rolled-back transaction or using ephemeral isolated database containers (Testcontainers) with schema truncation between suites.",
           "correct": true
         },
         {
           "id": "C",
-          "text": "Parameterization encodes all input data into Base64 before sending to the driver.",
+          "text": "Adding arbitrary sleep delays between tests.",
           "correct": false
         },
         {
           "id": "D",
-          "text": "Concatenation forces database connections to run in read-only mode.",
+          "text": "Running integration tests exclusively in production.",
           "correct": false
         }
       ],
-      "explanation": "Parameterized queries (prepared statements) ensure the database driver sends the query template to be parsed and compiled first. User parameters are transmitted separately and treated strictly as literal data, never executable syntax.",
-      "codeSnippet": "// VULNERABLE:\n// const query = `SELECT * FROM users WHERE email = '${email}'`;\n// SECURE (Parameterized):\nconst query = 'SELECT id, email FROM users WHERE email = $1';\nconst result = await db.query(query, [email]);",
-      "pitfall": "Relying on manual regex string escaping or 'sanitization' functions instead of native parameterized driver queries.",
-      "citation": "OWASP Cheat Sheet Series: SQL Injection Prevention in Node.js"
+      "explanation": "Transactional rollbacks or ephemeral database containers ensure test runs leave zero lingering state, preventing test order dependencies and flaky failures.",
+      "codeSnippet": "beforeEach(async () => await db.query('BEGIN'));\nafterEach(async () => await db.query('ROLLBACK'));",
+      "pitfall": "Failing to drain and close database connection pools in test teardown hooks causes test runners (Jest, node:test) to hang indefinitely.",
+      "citation": "Testing Best Practices: Ephemeral Test Environments"
     },
     {
       "id": "mcq-16-003-07",
-      "concept": "Testing Stream Pipelines & Event Emitters: ReDoS: Regular Expression Denial of Service",
-      "category": "Security & Performance",
-      "difficulty": "Advanced",
-      "question": "What regular expression characteristic triggers catastrophic backtracking leading to ReDoS in Node.js?",
+      "concept": "Testing Stream Pipelines & Event Emitters: Test Doubles: Mocks, Stubs & Spies",
+      "category": "Mocking",
+      "difficulty": "Intermediate",
+      "question": "In automated testing, what is the exact conceptual distinction between a Stub and a Spy?",
       "options": [
         {
           "id": "A",
-          "text": "Using unicode escape sequences in RegExp literals.",
+          "text": "A Stub runs on the server; a Spy runs in the browser.",
           "correct": false
         },
         {
           "id": "B",
-          "text": "Nested quantifiers (e.g. `(a+)+`) or overlapping disjunctions that evaluate exponential combinations against non-matching input strings on the single-threaded event loop.",
+          "text": "A Stub replaces a dependency with pre-programmed canned responses; a Spy records invocation details (arguments, call count, return values) without necessarily replacing behavior.",
           "correct": true
         },
         {
           "id": "C",
-          "text": "Compiling RegExp using `new RegExp()` rather than literal `/pattern/` syntax.",
+          "text": "A Stub verifies security; a Spy benchmarks speed.",
           "correct": false
         },
         {
           "id": "D",
-          "text": "Exceeding 256 characters in a single regular expression pattern.",
+          "text": "There is no difference.",
           "correct": false
         }
       ],
-      "explanation": "Catastrophic backtracking occurs when a non-deterministic finite automaton (NFA) engine tests exponential branch permutations on a long near-match string. Because Node.js runs on a single thread, ReDoS completely blocks the event loop for all users.",
-      "codeSnippet": "// Catastrophic pattern: O(2^N) complexity\nconst vulnerableRegex = /([a-zA-Z]+)*[0-9]/;\n// Matching 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa!' hangs the entire Node.js event loop\n// Remediation: Use linear-time engines (e.g. re2) or avoid overlapping quantifiers",
-      "pitfall": "Evaluating user-supplied regexes without validation or executing complex regexes without timeout boundaries on the main thread.",
-      "citation": "OWASP Regular Expression Denial of Service (ReDoS) Cheat Sheet"
+      "explanation": "Stubs provide canned return values to isolate tested code from external side effects. Spies record execution telemetry to verify interactions.",
+      "codeSnippet": "import test from 'node:test';\ntest('Spy verification', (t) => {\n  const spy = t.mock.fn((x) => x * 2);\n  spy(5);\n  assert.equal(spy.mock.callCount(), 1);\n  assert.deepEqual(spy.mock.calls[0].arguments, [5]);\n});",
+      "pitfall": "Over-mocking internal implementation details rather than testing public interface contracts makes tests brittle to harmless refactoring.",
+      "citation": "Martin Fowler: Mocks Aren't Stubs / Node.js Mock API"
     },
     {
       "id": "mcq-16-003-08",
-      "concept": "Testing Stream Pipelines & Event Emitters: Fastify vs Express Architecture & Performance",
-      "category": "Web Frameworks",
-      "difficulty": "Intermediate",
-      "question": "What core architectural designs allow Fastify to achieve significantly higher throughput than Express in Node.js?",
+      "concept": "Testing Stream Pipelines & Event Emitters: Integration Test Isolation & Database Cleanup",
+      "category": "Integration Testing",
+      "difficulty": "Advanced",
+      "question": "What is the most reliable strategy to ensure database integration tests remain isolated and deterministic across parallel test runs?",
       "options": [
         {
           "id": "A",
-          "text": "Fastify is written in C++ and bypasses V8 entirely.",
+          "text": "Sharing a single permanent test database without cleanup.",
           "correct": false
         },
         {
           "id": "B",
-          "text": "Fastify utilizes fast-json-stringify for JIT schema-based serialization, find-my-way radix tree routing, and a structured encapsulation plugin model.",
+          "text": "Running each test within a rolled-back transaction or using ephemeral isolated database containers (Testcontainers) with schema truncation between suites.",
           "correct": true
         },
         {
           "id": "C",
-          "text": "Fastify uses cluster fork for each incoming HTTP connection automatically.",
+          "text": "Adding arbitrary sleep delays between tests.",
           "correct": false
         },
         {
           "id": "D",
-          "text": "Fastify only supports HTTP/3 and WebSocket protocols.",
+          "text": "Running integration tests exclusively in production.",
           "correct": false
         }
       ],
-      "explanation": "Fastify optimizes performance via: 1. `fast-json-stringify` which compiles JSON schemas into optimized string concatenation code, 2. `find-my-way` radix tree routing with O(k) lookup, 3. avvio plugin graph architecture.",
-      "codeSnippet": "import Fastify from 'fastify';\nconst fastify = Fastify({ logger: true });\nfastify.get('/users/:id', {\n  schema: {\n    response: {\n      200: {\n        type: 'object',\n        properties: { id: { type: 'string' }, name: { type: 'string' } }\n      }\n    }\n  }\n}, async (req, reply) => {\n  return { id: req.params.id, name: 'Alice' };\n});",
-      "pitfall": "Omitting output validation schemas in Fastify disables fast-json-stringify compilation, falling back to JSON.stringify and degrading throughput.",
-      "citation": "Fastify Documentation: Design Principles & Benchmarks"
+      "explanation": "Transactional rollbacks or ephemeral database containers ensure test runs leave zero lingering state, preventing test order dependencies and flaky failures.",
+      "codeSnippet": "beforeEach(async () => await db.query('BEGIN'));\nafterEach(async () => await db.query('ROLLBACK'));",
+      "pitfall": "Failing to drain and close database connection pools in test teardown hooks causes test runners (Jest, node:test) to hang indefinitely.",
+      "citation": "Testing Best Practices: Ephemeral Test Environments"
     }
   ]
 }

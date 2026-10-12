@@ -1953,3 +1953,141 @@ button * {
   color: #ffffff !important;
 }
 
+/* ==========================================================================
+   Chapter Summary Detailed Lesson Notes & Card Highlighting
+   ========================================================================== */
+@keyframes highlightPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(9, 105, 218, 0.45);
+    border-color: #0969da;
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(9, 105, 218, 0.18);
+    border-color: #0969da;
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(9, 105, 218, 0.28);
+    border-color: #0969da;
+  }
+}
+
+@keyframes highlightPulseDark {
+  0% {
+    box-shadow: 0 0 0 0 rgba(88, 166, 255, 0.55);
+    border-color: #58a6ff;
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(88, 166, 255, 0.22);
+    border-color: #58a6ff;
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(88, 166, 255, 0.32);
+    border-color: #58a6ff;
+  }
+}
+
+.highlight-card {
+  animation: highlightPulse 0.65s ease 3 !important;
+  border-color: #0969da !important;
+}
+
+.dark .highlight-card {
+  animation: highlightPulseDark 0.65s ease 3 !important;
+  border-color: #58a6ff !important;
+}
+
+.ch-notes-section {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.875rem !important;
+  margin-top: 0.5rem !important;
+}
+
+.ch-notes-section-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-size: 0.8125rem !important;
+  font-weight: 700 !important;
+  color: #1f2328 !important;
+  border-bottom: 1px solid #d0d7de !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.dark .ch-notes-section-title {
+  color: #f0f6fc !important;
+  border-bottom-color: #30363d !important;
+}
+
+.ch-lesson-card {
+  background: #ffffff !important;
+  border: 1px solid #d0d7de !important;
+  border-radius: 0.625rem !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.dark .ch-lesson-card {
+  background: #161b22 !important;
+  border-color: #30363d !important;
+}
+
+.ch-lesson-summary-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0.75rem 1rem !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  font-size: 0.8125rem !important;
+  user-select: none !important;
+  background-color: #f6f8fa !important;
+  border-bottom: 1px solid transparent !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.ch-lesson-card[open] .ch-lesson-summary-bar {
+  border-bottom-color: #d0d7de !important;
+}
+
+.dark .ch-lesson-summary-bar {
+  background-color: #21262d !important;
+}
+
+.dark .ch-lesson-card[open] .ch-lesson-summary-bar {
+  border-bottom-color: #30363d !important;
+}
+
+.ch-lesson-body {
+  padding: 1rem 1.125rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.875rem !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.5 !important;
+}
+
+.ch-btn-jump-lesson {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.25rem !important;
+  font-size: 0.6875rem !important;
+  font-weight: 600 !important;
+  padding: 0.2rem 0.5rem !important;
+  border-radius: 0.25rem !important;
+  background-color: #ddf4ff !important;
+  color: #0969da !important;
+  border: 1px solid #54aeff !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.dark .ch-btn-jump-lesson {
+  background-color: rgba(56, 139, 253, 0.15) !important;
+  color: #58a6ff !important;
+  border-color: rgba(56, 139, 253, 0.4) !important;
+}
+
+
