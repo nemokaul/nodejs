@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-11-001",
+  "title": "§11-001: Singleton, Prototype & Factory Patterns",
+  "chapterId": "11-001",
+  "sectionId": "section-11",
+  "description": "Multiple-choice practice questions and deep runtime verification for §11-001 (Singleton, Prototype & Factory Patterns).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-11-001-01",
+      "concept": "Singleton, Prototype & Factory Patterns: Proxy & Reflect Structural Pattern",
+      "category": "Design Patterns",
+      "difficulty": "Intermediate",
+      "question": "How do `Proxy` and `Reflect` enable non-invasive structural interception (such as metrics logging or validation) in Node.js services?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They compile JavaScript objects into C++ binary shared libraries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Proxy intercepts fundamental object operations via handler traps, while Reflect forwards the default operation with proper receiver binding.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "They run on a separate V8 thread isolate automatically.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "They serialize objects to disk before each method invocation.",
+          "correct": false
+        }
+      ],
+      "explanation": "The Proxy object allows wrapping targets to intercept property lookups, method calls, and assignments. Reflect provides static methods that perform default behaviors, preserving `this` context via receiver.",
+      "codeSnippet": "const loggingProxy = new Proxy(service, {\n  get(target, prop, receiver) {\n    console.log(`Called: ${String(prop)}`);\n    return Reflect.get(target, prop, receiver);\n  }\n});",
+      "pitfall": "Failing to pass `receiver` to Reflect.get breaks getter methods that rely on the proxy's `this` context.",
+      "citation": "MDN Web Docs: Proxy & Reflect / JavaScript Design Patterns"
+    },
+    {
+      "id": "mcq-11-001-02",
+      "concept": "Singleton, Prototype & Factory Patterns: Module Caching & The Singleton Pattern",
+      "category": "Design Patterns",
+      "difficulty": "Beginner",
+      "question": "How does Node.js enforce the Singleton pattern natively across CommonJS and ESM module imports?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By locking the file with OS file mutexes during read.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By caching the resolved module exports in `require.cache` after initial evaluation, returning the identical cached instance on subsequent imports.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By storing singletons in Redis by default.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By refusing to load a module more than once per user session.",
+          "correct": false
+        }
+      ],
+      "explanation": "Node.js caches modules by resolved absolute filename. The first require/import evaluates the module; subsequent calls return the cached export, naturally creating a singleton.",
+      "codeSnippet": "// db.js\nconst pool = createConnectionPool();\nexport default pool; // Singleton pool instance across application",
+      "pitfall": "If two packages resolve different case-sensitive paths or different versions in node_modules, module caching creates multiple instances, breaking the singleton.",
+      "citation": "Node.js Modules Documentation: Caching"
+    },
+    {
+      "id": "mcq-11-001-03",
+      "concept": "Singleton, Prototype & Factory Patterns: Proxy & Reflect Structural Pattern",
+      "category": "Design Patterns",
+      "difficulty": "Intermediate",
+      "question": "How do `Proxy` and `Reflect` enable non-invasive structural interception (such as metrics logging or validation) in Node.js services?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They compile JavaScript objects into C++ binary shared libraries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Proxy intercepts fundamental object operations via handler traps, while Reflect forwards the default operation with proper receiver binding.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "They run on a separate V8 thread isolate automatically.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "They serialize objects to disk before each method invocation.",
+          "correct": false
+        }
+      ],
+      "explanation": "The Proxy object allows wrapping targets to intercept property lookups, method calls, and assignments. Reflect provides static methods that perform default behaviors, preserving `this` context via receiver.",
+      "codeSnippet": "const loggingProxy = new Proxy(service, {\n  get(target, prop, receiver) {\n    console.log(`Called: ${String(prop)}`);\n    return Reflect.get(target, prop, receiver);\n  }\n});",
+      "pitfall": "Failing to pass `receiver` to Reflect.get breaks getter methods that rely on the proxy's `this` context.",
+      "citation": "MDN Web Docs: Proxy & Reflect / JavaScript Design Patterns"
+    },
+    {
+      "id": "mcq-11-001-04",
+      "concept": "Singleton, Prototype & Factory Patterns: Module Caching & The Singleton Pattern",
+      "category": "Design Patterns",
+      "difficulty": "Beginner",
+      "question": "How does Node.js enforce the Singleton pattern natively across CommonJS and ESM module imports?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By locking the file with OS file mutexes during read.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By caching the resolved module exports in `require.cache` after initial evaluation, returning the identical cached instance on subsequent imports.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By storing singletons in Redis by default.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By refusing to load a module more than once per user session.",
+          "correct": false
+        }
+      ],
+      "explanation": "Node.js caches modules by resolved absolute filename. The first require/import evaluates the module; subsequent calls return the cached export, naturally creating a singleton.",
+      "codeSnippet": "// db.js\nconst pool = createConnectionPool();\nexport default pool; // Singleton pool instance across application",
+      "pitfall": "If two packages resolve different case-sensitive paths or different versions in node_modules, module caching creates multiple instances, breaking the singleton.",
+      "citation": "Node.js Modules Documentation: Caching"
+    },
+    {
+      "id": "mcq-11-001-05",
+      "concept": "Singleton, Prototype & Factory Patterns: Proxy & Reflect Structural Pattern",
+      "category": "Design Patterns",
+      "difficulty": "Intermediate",
+      "question": "How do `Proxy` and `Reflect` enable non-invasive structural interception (such as metrics logging or validation) in Node.js services?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They compile JavaScript objects into C++ binary shared libraries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Proxy intercepts fundamental object operations via handler traps, while Reflect forwards the default operation with proper receiver binding.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "They run on a separate V8 thread isolate automatically.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "They serialize objects to disk before each method invocation.",
+          "correct": false
+        }
+      ],
+      "explanation": "The Proxy object allows wrapping targets to intercept property lookups, method calls, and assignments. Reflect provides static methods that perform default behaviors, preserving `this` context via receiver.",
+      "codeSnippet": "const loggingProxy = new Proxy(service, {\n  get(target, prop, receiver) {\n    console.log(`Called: ${String(prop)}`);\n    return Reflect.get(target, prop, receiver);\n  }\n});",
+      "pitfall": "Failing to pass `receiver` to Reflect.get breaks getter methods that rely on the proxy's `this` context.",
+      "citation": "MDN Web Docs: Proxy & Reflect / JavaScript Design Patterns"
+    },
+    {
+      "id": "mcq-11-001-06",
+      "concept": "Singleton, Prototype & Factory Patterns: Module Caching & The Singleton Pattern",
+      "category": "Design Patterns",
+      "difficulty": "Beginner",
+      "question": "How does Node.js enforce the Singleton pattern natively across CommonJS and ESM module imports?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By locking the file with OS file mutexes during read.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By caching the resolved module exports in `require.cache` after initial evaluation, returning the identical cached instance on subsequent imports.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By storing singletons in Redis by default.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By refusing to load a module more than once per user session.",
+          "correct": false
+        }
+      ],
+      "explanation": "Node.js caches modules by resolved absolute filename. The first require/import evaluates the module; subsequent calls return the cached export, naturally creating a singleton.",
+      "codeSnippet": "// db.js\nconst pool = createConnectionPool();\nexport default pool; // Singleton pool instance across application",
+      "pitfall": "If two packages resolve different case-sensitive paths or different versions in node_modules, module caching creates multiple instances, breaking the singleton.",
+      "citation": "Node.js Modules Documentation: Caching"
+    },
+    {
+      "id": "mcq-11-001-07",
+      "concept": "Singleton, Prototype & Factory Patterns: Proxy & Reflect Structural Pattern",
+      "category": "Design Patterns",
+      "difficulty": "Intermediate",
+      "question": "How do `Proxy` and `Reflect` enable non-invasive structural interception (such as metrics logging or validation) in Node.js services?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They compile JavaScript objects into C++ binary shared libraries.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Proxy intercepts fundamental object operations via handler traps, while Reflect forwards the default operation with proper receiver binding.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "They run on a separate V8 thread isolate automatically.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "They serialize objects to disk before each method invocation.",
+          "correct": false
+        }
+      ],
+      "explanation": "The Proxy object allows wrapping targets to intercept property lookups, method calls, and assignments. Reflect provides static methods that perform default behaviors, preserving `this` context via receiver.",
+      "codeSnippet": "const loggingProxy = new Proxy(service, {\n  get(target, prop, receiver) {\n    console.log(`Called: ${String(prop)}`);\n    return Reflect.get(target, prop, receiver);\n  }\n});",
+      "pitfall": "Failing to pass `receiver` to Reflect.get breaks getter methods that rely on the proxy's `this` context.",
+      "citation": "MDN Web Docs: Proxy & Reflect / JavaScript Design Patterns"
+    },
+    {
+      "id": "mcq-11-001-08",
+      "concept": "Singleton, Prototype & Factory Patterns: Module Caching & The Singleton Pattern",
+      "category": "Design Patterns",
+      "difficulty": "Beginner",
+      "question": "How does Node.js enforce the Singleton pattern natively across CommonJS and ESM module imports?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By locking the file with OS file mutexes during read.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By caching the resolved module exports in `require.cache` after initial evaluation, returning the identical cached instance on subsequent imports.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By storing singletons in Redis by default.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By refusing to load a module more than once per user session.",
+          "correct": false
+        }
+      ],
+      "explanation": "Node.js caches modules by resolved absolute filename. The first require/import evaluates the module; subsequent calls return the cached export, naturally creating a singleton.",
+      "codeSnippet": "// db.js\nconst pool = createConnectionPool();\nexport default pool; // Singleton pool instance across application",
+      "pitfall": "If two packages resolve different case-sensitive paths or different versions in node_modules, module caching creates multiple instances, breaking the singleton.",
+      "citation": "Node.js Modules Documentation: Caching"
+    }
+  ]
+}

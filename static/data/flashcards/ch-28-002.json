@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-28-002",
+  "title": "§28-002: Event Loop Lag Monitoring & Heap Profiling",
+  "chapterId": "28-002",
+  "sectionId": "section-28",
+  "description": "Multiple-choice practice questions and deep runtime verification for §28-002 (Event Loop Lag Monitoring & Heap Profiling).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-28-002-01",
+      "concept": "Event Loop Lag Monitoring & Heap Profiling: OpenTelemetry Distributed Tracing",
+      "category": "Observability",
+      "difficulty": "Intermediate",
+      "question": "How does OpenTelemetry correlate logs and spans across distributed microservices in a Node.js ecosystem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By syncing server clocks using NTP down to the microsecond.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By propagating the standard `traceparent` header (Trace ID, Span ID, Trace Flags) across network requests and tracking execution context via `AsyncLocalStorage`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By funneling all logs through a single shared socket.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By capturing screenshots of terminal output.",
+          "correct": false
+        }
+      ],
+      "explanation": "OpenTelemetry injects the W3C Trace Context (traceparent header) into outbound HTTP/gRPC requests and uses AsyncLocalStorage to propagate context across asynchronous boundaries.",
+      "codeSnippet": "import { trace } from '@opentelemetry/api';\nconst tracer = trace.getTracer('user-service');\nconst span = tracer.startSpan('database-query');\n// ... execute query ...\nspan.end();",
+      "pitfall": "Failing to propagate context when dispatching background asynchronous jobs, breaking trace continuity.",
+      "citation": "W3C Trace Context Specification / OpenTelemetry Node.js SDK"
+    },
+    {
+      "id": "mcq-28-002-02",
+      "concept": "Event Loop Lag Monitoring & Heap Profiling: Event Loop Delay Monitoring with perf_hooks",
+      "category": "Diagnostics & Profiling",
+      "difficulty": "Advanced",
+      "question": "How does Node's `perf_hooks.monitorEventLoopDelay()` measure event loop lag, and what does a high lag percentile indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It measures network round-trip ping time to external DNS servers.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It samples timer execution delay against clock time using a high-resolution histogram; high lag percentiles indicate synchronous CPU-intensive tasks blocking the single thread.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It tracks operating system swap memory paging.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It measures disk read/write throughput in MB/s.",
+          "correct": false
+        }
+      ],
+      "explanation": "monitorEventLoopDelay samples the time between timer checks and system clocks. If synchronous code blocks the event loop, timer callbacks are delayed, recorded as event loop delay.",
+      "codeSnippet": "import { monitorEventLoopDelay } from 'perf_hooks';\nconst histogram = monitorEventLoopDelay({ resolution: 20 });\nhistogram.enable();\n// Check p99 lag in milliseconds:\nconsole.log('p99 lag (ms):', histogram.percentile(99) / 1e6);",
+      "pitfall": "Taking synchronous full V8 heap snapshots during peak production traffic freezes the event loop for seconds, triggering orchestrator healthcheck terminations.",
+      "citation": "Node.js API Reference: perf_hooks.monitorEventLoopDelay"
+    },
+    {
+      "id": "mcq-28-002-03",
+      "concept": "Event Loop Lag Monitoring & Heap Profiling: OpenTelemetry Distributed Tracing",
+      "category": "Observability",
+      "difficulty": "Intermediate",
+      "question": "How does OpenTelemetry correlate logs and spans across distributed microservices in a Node.js ecosystem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By syncing server clocks using NTP down to the microsecond.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By propagating the standard `traceparent` header (Trace ID, Span ID, Trace Flags) across network requests and tracking execution context via `AsyncLocalStorage`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By funneling all logs through a single shared socket.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By capturing screenshots of terminal output.",
+          "correct": false
+        }
+      ],
+      "explanation": "OpenTelemetry injects the W3C Trace Context (traceparent header) into outbound HTTP/gRPC requests and uses AsyncLocalStorage to propagate context across asynchronous boundaries.",
+      "codeSnippet": "import { trace } from '@opentelemetry/api';\nconst tracer = trace.getTracer('user-service');\nconst span = tracer.startSpan('database-query');\n// ... execute query ...\nspan.end();",
+      "pitfall": "Failing to propagate context when dispatching background asynchronous jobs, breaking trace continuity.",
+      "citation": "W3C Trace Context Specification / OpenTelemetry Node.js SDK"
+    },
+    {
+      "id": "mcq-28-002-04",
+      "concept": "Event Loop Lag Monitoring & Heap Profiling: Event Loop Delay Monitoring with perf_hooks",
+      "category": "Diagnostics & Profiling",
+      "difficulty": "Advanced",
+      "question": "How does Node's `perf_hooks.monitorEventLoopDelay()` measure event loop lag, and what does a high lag percentile indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It measures network round-trip ping time to external DNS servers.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It samples timer execution delay against clock time using a high-resolution histogram; high lag percentiles indicate synchronous CPU-intensive tasks blocking the single thread.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It tracks operating system swap memory paging.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It measures disk read/write throughput in MB/s.",
+          "correct": false
+        }
+      ],
+      "explanation": "monitorEventLoopDelay samples the time between timer checks and system clocks. If synchronous code blocks the event loop, timer callbacks are delayed, recorded as event loop delay.",
+      "codeSnippet": "import { monitorEventLoopDelay } from 'perf_hooks';\nconst histogram = monitorEventLoopDelay({ resolution: 20 });\nhistogram.enable();\n// Check p99 lag in milliseconds:\nconsole.log('p99 lag (ms):', histogram.percentile(99) / 1e6);",
+      "pitfall": "Taking synchronous full V8 heap snapshots during peak production traffic freezes the event loop for seconds, triggering orchestrator healthcheck terminations.",
+      "citation": "Node.js API Reference: perf_hooks.monitorEventLoopDelay"
+    },
+    {
+      "id": "mcq-28-002-05",
+      "concept": "Event Loop Lag Monitoring & Heap Profiling: OpenTelemetry Distributed Tracing",
+      "category": "Observability",
+      "difficulty": "Intermediate",
+      "question": "How does OpenTelemetry correlate logs and spans across distributed microservices in a Node.js ecosystem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By syncing server clocks using NTP down to the microsecond.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By propagating the standard `traceparent` header (Trace ID, Span ID, Trace Flags) across network requests and tracking execution context via `AsyncLocalStorage`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By funneling all logs through a single shared socket.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By capturing screenshots of terminal output.",
+          "correct": false
+        }
+      ],
+      "explanation": "OpenTelemetry injects the W3C Trace Context (traceparent header) into outbound HTTP/gRPC requests and uses AsyncLocalStorage to propagate context across asynchronous boundaries.",
+      "codeSnippet": "import { trace } from '@opentelemetry/api';\nconst tracer = trace.getTracer('user-service');\nconst span = tracer.startSpan('database-query');\n// ... execute query ...\nspan.end();",
+      "pitfall": "Failing to propagate context when dispatching background asynchronous jobs, breaking trace continuity.",
+      "citation": "W3C Trace Context Specification / OpenTelemetry Node.js SDK"
+    },
+    {
+      "id": "mcq-28-002-06",
+      "concept": "Event Loop Lag Monitoring & Heap Profiling: Event Loop Delay Monitoring with perf_hooks",
+      "category": "Diagnostics & Profiling",
+      "difficulty": "Advanced",
+      "question": "How does Node's `perf_hooks.monitorEventLoopDelay()` measure event loop lag, and what does a high lag percentile indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It measures network round-trip ping time to external DNS servers.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It samples timer execution delay against clock time using a high-resolution histogram; high lag percentiles indicate synchronous CPU-intensive tasks blocking the single thread.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It tracks operating system swap memory paging.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It measures disk read/write throughput in MB/s.",
+          "correct": false
+        }
+      ],
+      "explanation": "monitorEventLoopDelay samples the time between timer checks and system clocks. If synchronous code blocks the event loop, timer callbacks are delayed, recorded as event loop delay.",
+      "codeSnippet": "import { monitorEventLoopDelay } from 'perf_hooks';\nconst histogram = monitorEventLoopDelay({ resolution: 20 });\nhistogram.enable();\n// Check p99 lag in milliseconds:\nconsole.log('p99 lag (ms):', histogram.percentile(99) / 1e6);",
+      "pitfall": "Taking synchronous full V8 heap snapshots during peak production traffic freezes the event loop for seconds, triggering orchestrator healthcheck terminations.",
+      "citation": "Node.js API Reference: perf_hooks.monitorEventLoopDelay"
+    },
+    {
+      "id": "mcq-28-002-07",
+      "concept": "Event Loop Lag Monitoring & Heap Profiling: OpenTelemetry Distributed Tracing",
+      "category": "Observability",
+      "difficulty": "Intermediate",
+      "question": "How does OpenTelemetry correlate logs and spans across distributed microservices in a Node.js ecosystem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By syncing server clocks using NTP down to the microsecond.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By propagating the standard `traceparent` header (Trace ID, Span ID, Trace Flags) across network requests and tracking execution context via `AsyncLocalStorage`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By funneling all logs through a single shared socket.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By capturing screenshots of terminal output.",
+          "correct": false
+        }
+      ],
+      "explanation": "OpenTelemetry injects the W3C Trace Context (traceparent header) into outbound HTTP/gRPC requests and uses AsyncLocalStorage to propagate context across asynchronous boundaries.",
+      "codeSnippet": "import { trace } from '@opentelemetry/api';\nconst tracer = trace.getTracer('user-service');\nconst span = tracer.startSpan('database-query');\n// ... execute query ...\nspan.end();",
+      "pitfall": "Failing to propagate context when dispatching background asynchronous jobs, breaking trace continuity.",
+      "citation": "W3C Trace Context Specification / OpenTelemetry Node.js SDK"
+    },
+    {
+      "id": "mcq-28-002-08",
+      "concept": "Event Loop Lag Monitoring & Heap Profiling: Event Loop Delay Monitoring with perf_hooks",
+      "category": "Diagnostics & Profiling",
+      "difficulty": "Advanced",
+      "question": "How does Node's `perf_hooks.monitorEventLoopDelay()` measure event loop lag, and what does a high lag percentile indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It measures network round-trip ping time to external DNS servers.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It samples timer execution delay against clock time using a high-resolution histogram; high lag percentiles indicate synchronous CPU-intensive tasks blocking the single thread.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It tracks operating system swap memory paging.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It measures disk read/write throughput in MB/s.",
+          "correct": false
+        }
+      ],
+      "explanation": "monitorEventLoopDelay samples the time between timer checks and system clocks. If synchronous code blocks the event loop, timer callbacks are delayed, recorded as event loop delay.",
+      "codeSnippet": "import { monitorEventLoopDelay } from 'perf_hooks';\nconst histogram = monitorEventLoopDelay({ resolution: 20 });\nhistogram.enable();\n// Check p99 lag in milliseconds:\nconsole.log('p99 lag (ms):', histogram.percentile(99) / 1e6);",
+      "pitfall": "Taking synchronous full V8 heap snapshots during peak production traffic freezes the event loop for seconds, triggering orchestrator healthcheck terminations.",
+      "citation": "Node.js API Reference: perf_hooks.monitorEventLoopDelay"
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-13-001",
+  "title": "§13-001: HTTP Routing, Endpoints & Tooling",
+  "chapterId": "13-001",
+  "sectionId": "section-13",
+  "description": "Multiple-choice practice questions and deep runtime verification for §13-001 (HTTP Routing, Endpoints & Tooling).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-13-001-01",
+      "concept": "HTTP Routing, Endpoints & Tooling: Fastify Radix Tree & Schema Serialization",
+      "category": "Web Frameworks",
+      "difficulty": "Advanced",
+      "question": "What core architectural mechanisms allow Fastify to outperform Express in HTTP throughput and latency?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fastify is written in Rust and runs outside V8.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Radix tree routing (find-my-way) with O(k) lookup and pre-compiled JSON schema serialization (fast-json-stringify).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Fastify automatically forks an OS process for every incoming request.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Fastify only supports HTTP/3 protocols.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fastify uses a radix tree router for O(k) path matching (where k is path length) and compiles JSON response schemas ahead of time using fast-json-stringify, avoiding runtime reflection.",
+      "codeSnippet": "fastify.get('/user/:id', {\n  schema: {\n    response: {\n      200: { type: 'object', properties: { id: { type: 'string' } } }\n    }\n  }\n}, async (req) => ({ id: req.params.id }));",
+      "pitfall": "Omitting response schemas disables fast-json-stringify optimization, falling back to standard JSON.stringify.",
+      "citation": "Fastify Documentation: Design Principles & Benchmarks"
+    },
+    {
+      "id": "mcq-13-001-02",
+      "concept": "HTTP Routing, Endpoints & Tooling: HTTP Keep-Alive & Socket Exhaustion",
+      "category": "HTTP Architecture",
+      "difficulty": "Intermediate",
+      "question": "Why should backend microservices reuse TCP connections using HTTP Keep-Alive when communicating with internal services?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It encrypts payloads using hardware TLS.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It avoids the latency and CPU overhead of repeated 3-way TCP handshakes and TLS negotiation, preventing port exhaustion (TIME_WAIT states).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It compresses HTTP headers using Brotli.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It guarantees zero dropped packets over UDP.",
+          "correct": false
+        }
+      ],
+      "explanation": "Reusing persistent TCP connections avoids establishing new TCP and TLS handshakes on every request, eliminating port exhaustion caused by sockets lingering in TIME_WAIT.",
+      "codeSnippet": "import http from 'node:http';\nconst agent = new http.Agent({ keepAlive: true, maxSockets: 100 });\nfetch('http://internal-service/api', { agent });",
+      "pitfall": "Not setting keep-alive timeouts appropriately can leave idle sockets open indefinitely or cause race conditions when servers close sockets prematurely.",
+      "citation": "Node.js HTTP Documentation: http.Agent KeepAlive"
+    },
+    {
+      "id": "mcq-13-001-03",
+      "concept": "HTTP Routing, Endpoints & Tooling: Fastify Radix Tree & Schema Serialization",
+      "category": "Web Frameworks",
+      "difficulty": "Advanced",
+      "question": "What core architectural mechanisms allow Fastify to outperform Express in HTTP throughput and latency?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fastify is written in Rust and runs outside V8.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Radix tree routing (find-my-way) with O(k) lookup and pre-compiled JSON schema serialization (fast-json-stringify).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Fastify automatically forks an OS process for every incoming request.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Fastify only supports HTTP/3 protocols.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fastify uses a radix tree router for O(k) path matching (where k is path length) and compiles JSON response schemas ahead of time using fast-json-stringify, avoiding runtime reflection.",
+      "codeSnippet": "fastify.get('/user/:id', {\n  schema: {\n    response: {\n      200: { type: 'object', properties: { id: { type: 'string' } } }\n    }\n  }\n}, async (req) => ({ id: req.params.id }));",
+      "pitfall": "Omitting response schemas disables fast-json-stringify optimization, falling back to standard JSON.stringify.",
+      "citation": "Fastify Documentation: Design Principles & Benchmarks"
+    },
+    {
+      "id": "mcq-13-001-04",
+      "concept": "HTTP Routing, Endpoints & Tooling: HTTP Keep-Alive & Socket Exhaustion",
+      "category": "HTTP Architecture",
+      "difficulty": "Intermediate",
+      "question": "Why should backend microservices reuse TCP connections using HTTP Keep-Alive when communicating with internal services?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It encrypts payloads using hardware TLS.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It avoids the latency and CPU overhead of repeated 3-way TCP handshakes and TLS negotiation, preventing port exhaustion (TIME_WAIT states).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It compresses HTTP headers using Brotli.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It guarantees zero dropped packets over UDP.",
+          "correct": false
+        }
+      ],
+      "explanation": "Reusing persistent TCP connections avoids establishing new TCP and TLS handshakes on every request, eliminating port exhaustion caused by sockets lingering in TIME_WAIT.",
+      "codeSnippet": "import http from 'node:http';\nconst agent = new http.Agent({ keepAlive: true, maxSockets: 100 });\nfetch('http://internal-service/api', { agent });",
+      "pitfall": "Not setting keep-alive timeouts appropriately can leave idle sockets open indefinitely or cause race conditions when servers close sockets prematurely.",
+      "citation": "Node.js HTTP Documentation: http.Agent KeepAlive"
+    },
+    {
+      "id": "mcq-13-001-05",
+      "concept": "HTTP Routing, Endpoints & Tooling: Fastify Radix Tree & Schema Serialization",
+      "category": "Web Frameworks",
+      "difficulty": "Advanced",
+      "question": "What core architectural mechanisms allow Fastify to outperform Express in HTTP throughput and latency?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fastify is written in Rust and runs outside V8.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Radix tree routing (find-my-way) with O(k) lookup and pre-compiled JSON schema serialization (fast-json-stringify).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Fastify automatically forks an OS process for every incoming request.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Fastify only supports HTTP/3 protocols.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fastify uses a radix tree router for O(k) path matching (where k is path length) and compiles JSON response schemas ahead of time using fast-json-stringify, avoiding runtime reflection.",
+      "codeSnippet": "fastify.get('/user/:id', {\n  schema: {\n    response: {\n      200: { type: 'object', properties: { id: { type: 'string' } } }\n    }\n  }\n}, async (req) => ({ id: req.params.id }));",
+      "pitfall": "Omitting response schemas disables fast-json-stringify optimization, falling back to standard JSON.stringify.",
+      "citation": "Fastify Documentation: Design Principles & Benchmarks"
+    },
+    {
+      "id": "mcq-13-001-06",
+      "concept": "HTTP Routing, Endpoints & Tooling: HTTP Keep-Alive & Socket Exhaustion",
+      "category": "HTTP Architecture",
+      "difficulty": "Intermediate",
+      "question": "Why should backend microservices reuse TCP connections using HTTP Keep-Alive when communicating with internal services?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It encrypts payloads using hardware TLS.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It avoids the latency and CPU overhead of repeated 3-way TCP handshakes and TLS negotiation, preventing port exhaustion (TIME_WAIT states).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It compresses HTTP headers using Brotli.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It guarantees zero dropped packets over UDP.",
+          "correct": false
+        }
+      ],
+      "explanation": "Reusing persistent TCP connections avoids establishing new TCP and TLS handshakes on every request, eliminating port exhaustion caused by sockets lingering in TIME_WAIT.",
+      "codeSnippet": "import http from 'node:http';\nconst agent = new http.Agent({ keepAlive: true, maxSockets: 100 });\nfetch('http://internal-service/api', { agent });",
+      "pitfall": "Not setting keep-alive timeouts appropriately can leave idle sockets open indefinitely or cause race conditions when servers close sockets prematurely.",
+      "citation": "Node.js HTTP Documentation: http.Agent KeepAlive"
+    },
+    {
+      "id": "mcq-13-001-07",
+      "concept": "HTTP Routing, Endpoints & Tooling: Fastify Radix Tree & Schema Serialization",
+      "category": "Web Frameworks",
+      "difficulty": "Advanced",
+      "question": "What core architectural mechanisms allow Fastify to outperform Express in HTTP throughput and latency?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fastify is written in Rust and runs outside V8.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Radix tree routing (find-my-way) with O(k) lookup and pre-compiled JSON schema serialization (fast-json-stringify).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Fastify automatically forks an OS process for every incoming request.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Fastify only supports HTTP/3 protocols.",
+          "correct": false
+        }
+      ],
+      "explanation": "Fastify uses a radix tree router for O(k) path matching (where k is path length) and compiles JSON response schemas ahead of time using fast-json-stringify, avoiding runtime reflection.",
+      "codeSnippet": "fastify.get('/user/:id', {\n  schema: {\n    response: {\n      200: { type: 'object', properties: { id: { type: 'string' } } }\n    }\n  }\n}, async (req) => ({ id: req.params.id }));",
+      "pitfall": "Omitting response schemas disables fast-json-stringify optimization, falling back to standard JSON.stringify.",
+      "citation": "Fastify Documentation: Design Principles & Benchmarks"
+    },
+    {
+      "id": "mcq-13-001-08",
+      "concept": "HTTP Routing, Endpoints & Tooling: HTTP Keep-Alive & Socket Exhaustion",
+      "category": "HTTP Architecture",
+      "difficulty": "Intermediate",
+      "question": "Why should backend microservices reuse TCP connections using HTTP Keep-Alive when communicating with internal services?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It encrypts payloads using hardware TLS.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It avoids the latency and CPU overhead of repeated 3-way TCP handshakes and TLS negotiation, preventing port exhaustion (TIME_WAIT states).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It compresses HTTP headers using Brotli.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It guarantees zero dropped packets over UDP.",
+          "correct": false
+        }
+      ],
+      "explanation": "Reusing persistent TCP connections avoids establishing new TCP and TLS handshakes on every request, eliminating port exhaustion caused by sockets lingering in TIME_WAIT.",
+      "codeSnippet": "import http from 'node:http';\nconst agent = new http.Agent({ keepAlive: true, maxSockets: 100 });\nfetch('http://internal-service/api', { agent });",
+      "pitfall": "Not setting keep-alive timeouts appropriately can leave idle sockets open indefinitely or cause race conditions when servers close sockets prematurely.",
+      "citation": "Node.js HTTP Documentation: http.Agent KeepAlive"
+    }
+  ]
+}

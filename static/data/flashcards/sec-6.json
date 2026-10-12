@@ -1,0 +1,802 @@
+{
+  "deckId": "sec-6",
+  "title": "Module 6: Asynchronous JavaScript & Event Loop Mechanics (All Chapters)",
+  "chapterId": "all",
+  "sectionId": "section-06",
+  "description": "Comprehensive module-level assessment covering all chapters of Module 6: Asynchronous JavaScript & Event Loop Mechanics.",
+  "totalCards": 24,
+  "cards": [
+    {
+      "id": "mcq-06-001-01",
+      "concept": "The Callback Pattern & Event Loop Architecture: Microtasks vs Macrotasks Execution Order",
+      "category": "Event Loop",
+      "difficulty": "Advanced",
+      "question": "When a script resolves a Promise and schedules `setTimeout(fn, 0)`, what is the guaranteed execution order in the event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`setTimeout` callback runs first because timers have top priority.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Microtasks (Promise reactions, queueMicrotask) drain completely immediately after the current call stack clears, before any timer callback runs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both run concurrently in libuv's worker thread pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop randomly alternates between microtasks and macrotasks.",
+          "correct": false
+        }
+      ],
+      "explanation": "Microtasks execute with highest priority as soon as the current synchronous stack empties. The microtask queue must drain to zero before the event loop advances to macrotask phases.",
+      "codeSnippet": "console.log('1: Sync');\nsetTimeout(() => console.log('4: Macro'), 0);\nPromise.resolve().then(() => console.log('3: Micro'));\nprocess.nextTick(() => console.log('2: NextTick'));\n// Output: 1: Sync -> 2: NextTick -> 3: Micro -> 4: Macro",
+      "pitfall": "Recursively enqueuing microtasks starves the event loop, preventing all I/O, timers, and network responses from executing.",
+      "citation": "Node.js Event Loop, Timers, and process.nextTick() Official Guide"
+    },
+    {
+      "id": "mcq-06-001-02",
+      "concept": "The Callback Pattern & Event Loop Architecture: Promise.all vs Promise.allSettled Error Semantics",
+      "category": "Promises",
+      "difficulty": "Intermediate",
+      "question": "In what scenario MUST an engineer use `Promise.allSettled()` instead of `Promise.all()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When running CPU-intensive cryptography on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When executing concurrent independent tasks where partial failures should not abort other operations, and full outcome inspection is required.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "When tasks must execute strictly sequentially in series.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "When promises return primitive values rather than objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "Promise.all short-circuits and rejects immediately on the first failure, abandoning remaining promises. Promise.allSettled waits for all promises to complete and returns an array of status objects.",
+      "codeSnippet": "const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);\nconst successful = results.filter(r => r.status === 'fulfilled').map(r => r.value);",
+      "pitfall": "Using Promise.all for independent batch operations causes a single non-critical error to drop all successful parallel operations.",
+      "citation": "MDN Web Docs: Promise.allSettled() / TC39 Promise Specifications"
+    },
+    {
+      "id": "mcq-06-001-03",
+      "concept": "The Callback Pattern & Event Loop Architecture: Microtasks vs Macrotasks Execution Order",
+      "category": "Event Loop",
+      "difficulty": "Advanced",
+      "question": "When a script resolves a Promise and schedules `setTimeout(fn, 0)`, what is the guaranteed execution order in the event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`setTimeout` callback runs first because timers have top priority.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Microtasks (Promise reactions, queueMicrotask) drain completely immediately after the current call stack clears, before any timer callback runs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both run concurrently in libuv's worker thread pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop randomly alternates between microtasks and macrotasks.",
+          "correct": false
+        }
+      ],
+      "explanation": "Microtasks execute with highest priority as soon as the current synchronous stack empties. The microtask queue must drain to zero before the event loop advances to macrotask phases.",
+      "codeSnippet": "console.log('1: Sync');\nsetTimeout(() => console.log('4: Macro'), 0);\nPromise.resolve().then(() => console.log('3: Micro'));\nprocess.nextTick(() => console.log('2: NextTick'));\n// Output: 1: Sync -> 2: NextTick -> 3: Micro -> 4: Macro",
+      "pitfall": "Recursively enqueuing microtasks starves the event loop, preventing all I/O, timers, and network responses from executing.",
+      "citation": "Node.js Event Loop, Timers, and process.nextTick() Official Guide"
+    },
+    {
+      "id": "mcq-06-001-04",
+      "concept": "The Callback Pattern & Event Loop Architecture: Promise.all vs Promise.allSettled Error Semantics",
+      "category": "Promises",
+      "difficulty": "Intermediate",
+      "question": "In what scenario MUST an engineer use `Promise.allSettled()` instead of `Promise.all()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When running CPU-intensive cryptography on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When executing concurrent independent tasks where partial failures should not abort other operations, and full outcome inspection is required.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "When tasks must execute strictly sequentially in series.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "When promises return primitive values rather than objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "Promise.all short-circuits and rejects immediately on the first failure, abandoning remaining promises. Promise.allSettled waits for all promises to complete and returns an array of status objects.",
+      "codeSnippet": "const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);\nconst successful = results.filter(r => r.status === 'fulfilled').map(r => r.value);",
+      "pitfall": "Using Promise.all for independent batch operations causes a single non-critical error to drop all successful parallel operations.",
+      "citation": "MDN Web Docs: Promise.allSettled() / TC39 Promise Specifications"
+    },
+    {
+      "id": "mcq-06-001-05",
+      "concept": "The Callback Pattern & Event Loop Architecture: Microtasks vs Macrotasks Execution Order",
+      "category": "Event Loop",
+      "difficulty": "Advanced",
+      "question": "When a script resolves a Promise and schedules `setTimeout(fn, 0)`, what is the guaranteed execution order in the event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`setTimeout` callback runs first because timers have top priority.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Microtasks (Promise reactions, queueMicrotask) drain completely immediately after the current call stack clears, before any timer callback runs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both run concurrently in libuv's worker thread pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop randomly alternates between microtasks and macrotasks.",
+          "correct": false
+        }
+      ],
+      "explanation": "Microtasks execute with highest priority as soon as the current synchronous stack empties. The microtask queue must drain to zero before the event loop advances to macrotask phases.",
+      "codeSnippet": "console.log('1: Sync');\nsetTimeout(() => console.log('4: Macro'), 0);\nPromise.resolve().then(() => console.log('3: Micro'));\nprocess.nextTick(() => console.log('2: NextTick'));\n// Output: 1: Sync -> 2: NextTick -> 3: Micro -> 4: Macro",
+      "pitfall": "Recursively enqueuing microtasks starves the event loop, preventing all I/O, timers, and network responses from executing.",
+      "citation": "Node.js Event Loop, Timers, and process.nextTick() Official Guide"
+    },
+    {
+      "id": "mcq-06-001-06",
+      "concept": "The Callback Pattern & Event Loop Architecture: Promise.all vs Promise.allSettled Error Semantics",
+      "category": "Promises",
+      "difficulty": "Intermediate",
+      "question": "In what scenario MUST an engineer use `Promise.allSettled()` instead of `Promise.all()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When running CPU-intensive cryptography on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When executing concurrent independent tasks where partial failures should not abort other operations, and full outcome inspection is required.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "When tasks must execute strictly sequentially in series.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "When promises return primitive values rather than objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "Promise.all short-circuits and rejects immediately on the first failure, abandoning remaining promises. Promise.allSettled waits for all promises to complete and returns an array of status objects.",
+      "codeSnippet": "const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);\nconst successful = results.filter(r => r.status === 'fulfilled').map(r => r.value);",
+      "pitfall": "Using Promise.all for independent batch operations causes a single non-critical error to drop all successful parallel operations.",
+      "citation": "MDN Web Docs: Promise.allSettled() / TC39 Promise Specifications"
+    },
+    {
+      "id": "mcq-06-001-07",
+      "concept": "The Callback Pattern & Event Loop Architecture: Microtasks vs Macrotasks Execution Order",
+      "category": "Event Loop",
+      "difficulty": "Advanced",
+      "question": "When a script resolves a Promise and schedules `setTimeout(fn, 0)`, what is the guaranteed execution order in the event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`setTimeout` callback runs first because timers have top priority.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Microtasks (Promise reactions, queueMicrotask) drain completely immediately after the current call stack clears, before any timer callback runs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both run concurrently in libuv's worker thread pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop randomly alternates between microtasks and macrotasks.",
+          "correct": false
+        }
+      ],
+      "explanation": "Microtasks execute with highest priority as soon as the current synchronous stack empties. The microtask queue must drain to zero before the event loop advances to macrotask phases.",
+      "codeSnippet": "console.log('1: Sync');\nsetTimeout(() => console.log('4: Macro'), 0);\nPromise.resolve().then(() => console.log('3: Micro'));\nprocess.nextTick(() => console.log('2: NextTick'));\n// Output: 1: Sync -> 2: NextTick -> 3: Micro -> 4: Macro",
+      "pitfall": "Recursively enqueuing microtasks starves the event loop, preventing all I/O, timers, and network responses from executing.",
+      "citation": "Node.js Event Loop, Timers, and process.nextTick() Official Guide"
+    },
+    {
+      "id": "mcq-06-001-08",
+      "concept": "The Callback Pattern & Event Loop Architecture: Promise.all vs Promise.allSettled Error Semantics",
+      "category": "Promises",
+      "difficulty": "Intermediate",
+      "question": "In what scenario MUST an engineer use `Promise.allSettled()` instead of `Promise.all()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When running CPU-intensive cryptography on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When executing concurrent independent tasks where partial failures should not abort other operations, and full outcome inspection is required.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "When tasks must execute strictly sequentially in series.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "When promises return primitive values rather than objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "Promise.all short-circuits and rejects immediately on the first failure, abandoning remaining promises. Promise.allSettled waits for all promises to complete and returns an array of status objects.",
+      "codeSnippet": "const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);\nconst successful = results.filter(r => r.status === 'fulfilled').map(r => r.value);",
+      "pitfall": "Using Promise.all for independent batch operations causes a single non-critical error to drop all successful parallel operations.",
+      "citation": "MDN Web Docs: Promise.allSettled() / TC39 Promise Specifications"
+    },
+    {
+      "id": "mcq-06-002-01",
+      "concept": "Promises: Resolving, Rejecting & Promisify: Microtasks vs Macrotasks Execution Order",
+      "category": "Event Loop",
+      "difficulty": "Advanced",
+      "question": "When a script resolves a Promise and schedules `setTimeout(fn, 0)`, what is the guaranteed execution order in the event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`setTimeout` callback runs first because timers have top priority.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Microtasks (Promise reactions, queueMicrotask) drain completely immediately after the current call stack clears, before any timer callback runs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both run concurrently in libuv's worker thread pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop randomly alternates between microtasks and macrotasks.",
+          "correct": false
+        }
+      ],
+      "explanation": "Microtasks execute with highest priority as soon as the current synchronous stack empties. The microtask queue must drain to zero before the event loop advances to macrotask phases.",
+      "codeSnippet": "console.log('1: Sync');\nsetTimeout(() => console.log('4: Macro'), 0);\nPromise.resolve().then(() => console.log('3: Micro'));\nprocess.nextTick(() => console.log('2: NextTick'));\n// Output: 1: Sync -> 2: NextTick -> 3: Micro -> 4: Macro",
+      "pitfall": "Recursively enqueuing microtasks starves the event loop, preventing all I/O, timers, and network responses from executing.",
+      "citation": "Node.js Event Loop, Timers, and process.nextTick() Official Guide"
+    },
+    {
+      "id": "mcq-06-002-02",
+      "concept": "Promises: Resolving, Rejecting & Promisify: Promise.all vs Promise.allSettled Error Semantics",
+      "category": "Promises",
+      "difficulty": "Intermediate",
+      "question": "In what scenario MUST an engineer use `Promise.allSettled()` instead of `Promise.all()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When running CPU-intensive cryptography on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When executing concurrent independent tasks where partial failures should not abort other operations, and full outcome inspection is required.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "When tasks must execute strictly sequentially in series.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "When promises return primitive values rather than objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "Promise.all short-circuits and rejects immediately on the first failure, abandoning remaining promises. Promise.allSettled waits for all promises to complete and returns an array of status objects.",
+      "codeSnippet": "const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);\nconst successful = results.filter(r => r.status === 'fulfilled').map(r => r.value);",
+      "pitfall": "Using Promise.all for independent batch operations causes a single non-critical error to drop all successful parallel operations.",
+      "citation": "MDN Web Docs: Promise.allSettled() / TC39 Promise Specifications"
+    },
+    {
+      "id": "mcq-06-002-03",
+      "concept": "Promises: Resolving, Rejecting & Promisify: Microtasks vs Macrotasks Execution Order",
+      "category": "Event Loop",
+      "difficulty": "Advanced",
+      "question": "When a script resolves a Promise and schedules `setTimeout(fn, 0)`, what is the guaranteed execution order in the event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`setTimeout` callback runs first because timers have top priority.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Microtasks (Promise reactions, queueMicrotask) drain completely immediately after the current call stack clears, before any timer callback runs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both run concurrently in libuv's worker thread pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop randomly alternates between microtasks and macrotasks.",
+          "correct": false
+        }
+      ],
+      "explanation": "Microtasks execute with highest priority as soon as the current synchronous stack empties. The microtask queue must drain to zero before the event loop advances to macrotask phases.",
+      "codeSnippet": "console.log('1: Sync');\nsetTimeout(() => console.log('4: Macro'), 0);\nPromise.resolve().then(() => console.log('3: Micro'));\nprocess.nextTick(() => console.log('2: NextTick'));\n// Output: 1: Sync -> 2: NextTick -> 3: Micro -> 4: Macro",
+      "pitfall": "Recursively enqueuing microtasks starves the event loop, preventing all I/O, timers, and network responses from executing.",
+      "citation": "Node.js Event Loop, Timers, and process.nextTick() Official Guide"
+    },
+    {
+      "id": "mcq-06-002-04",
+      "concept": "Promises: Resolving, Rejecting & Promisify: Promise.all vs Promise.allSettled Error Semantics",
+      "category": "Promises",
+      "difficulty": "Intermediate",
+      "question": "In what scenario MUST an engineer use `Promise.allSettled()` instead of `Promise.all()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When running CPU-intensive cryptography on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When executing concurrent independent tasks where partial failures should not abort other operations, and full outcome inspection is required.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "When tasks must execute strictly sequentially in series.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "When promises return primitive values rather than objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "Promise.all short-circuits and rejects immediately on the first failure, abandoning remaining promises. Promise.allSettled waits for all promises to complete and returns an array of status objects.",
+      "codeSnippet": "const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);\nconst successful = results.filter(r => r.status === 'fulfilled').map(r => r.value);",
+      "pitfall": "Using Promise.all for independent batch operations causes a single non-critical error to drop all successful parallel operations.",
+      "citation": "MDN Web Docs: Promise.allSettled() / TC39 Promise Specifications"
+    },
+    {
+      "id": "mcq-06-002-05",
+      "concept": "Promises: Resolving, Rejecting & Promisify: Microtasks vs Macrotasks Execution Order",
+      "category": "Event Loop",
+      "difficulty": "Advanced",
+      "question": "When a script resolves a Promise and schedules `setTimeout(fn, 0)`, what is the guaranteed execution order in the event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`setTimeout` callback runs first because timers have top priority.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Microtasks (Promise reactions, queueMicrotask) drain completely immediately after the current call stack clears, before any timer callback runs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both run concurrently in libuv's worker thread pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop randomly alternates between microtasks and macrotasks.",
+          "correct": false
+        }
+      ],
+      "explanation": "Microtasks execute with highest priority as soon as the current synchronous stack empties. The microtask queue must drain to zero before the event loop advances to macrotask phases.",
+      "codeSnippet": "console.log('1: Sync');\nsetTimeout(() => console.log('4: Macro'), 0);\nPromise.resolve().then(() => console.log('3: Micro'));\nprocess.nextTick(() => console.log('2: NextTick'));\n// Output: 1: Sync -> 2: NextTick -> 3: Micro -> 4: Macro",
+      "pitfall": "Recursively enqueuing microtasks starves the event loop, preventing all I/O, timers, and network responses from executing.",
+      "citation": "Node.js Event Loop, Timers, and process.nextTick() Official Guide"
+    },
+    {
+      "id": "mcq-06-002-06",
+      "concept": "Promises: Resolving, Rejecting & Promisify: Promise.all vs Promise.allSettled Error Semantics",
+      "category": "Promises",
+      "difficulty": "Intermediate",
+      "question": "In what scenario MUST an engineer use `Promise.allSettled()` instead of `Promise.all()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When running CPU-intensive cryptography on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When executing concurrent independent tasks where partial failures should not abort other operations, and full outcome inspection is required.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "When tasks must execute strictly sequentially in series.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "When promises return primitive values rather than objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "Promise.all short-circuits and rejects immediately on the first failure, abandoning remaining promises. Promise.allSettled waits for all promises to complete and returns an array of status objects.",
+      "codeSnippet": "const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);\nconst successful = results.filter(r => r.status === 'fulfilled').map(r => r.value);",
+      "pitfall": "Using Promise.all for independent batch operations causes a single non-critical error to drop all successful parallel operations.",
+      "citation": "MDN Web Docs: Promise.allSettled() / TC39 Promise Specifications"
+    },
+    {
+      "id": "mcq-06-002-07",
+      "concept": "Promises: Resolving, Rejecting & Promisify: Microtasks vs Macrotasks Execution Order",
+      "category": "Event Loop",
+      "difficulty": "Advanced",
+      "question": "When a script resolves a Promise and schedules `setTimeout(fn, 0)`, what is the guaranteed execution order in the event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`setTimeout` callback runs first because timers have top priority.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Microtasks (Promise reactions, queueMicrotask) drain completely immediately after the current call stack clears, before any timer callback runs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both run concurrently in libuv's worker thread pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop randomly alternates between microtasks and macrotasks.",
+          "correct": false
+        }
+      ],
+      "explanation": "Microtasks execute with highest priority as soon as the current synchronous stack empties. The microtask queue must drain to zero before the event loop advances to macrotask phases.",
+      "codeSnippet": "console.log('1: Sync');\nsetTimeout(() => console.log('4: Macro'), 0);\nPromise.resolve().then(() => console.log('3: Micro'));\nprocess.nextTick(() => console.log('2: NextTick'));\n// Output: 1: Sync -> 2: NextTick -> 3: Micro -> 4: Macro",
+      "pitfall": "Recursively enqueuing microtasks starves the event loop, preventing all I/O, timers, and network responses from executing.",
+      "citation": "Node.js Event Loop, Timers, and process.nextTick() Official Guide"
+    },
+    {
+      "id": "mcq-06-002-08",
+      "concept": "Promises: Resolving, Rejecting & Promisify: Promise.all vs Promise.allSettled Error Semantics",
+      "category": "Promises",
+      "difficulty": "Intermediate",
+      "question": "In what scenario MUST an engineer use `Promise.allSettled()` instead of `Promise.all()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When running CPU-intensive cryptography on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When executing concurrent independent tasks where partial failures should not abort other operations, and full outcome inspection is required.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "When tasks must execute strictly sequentially in series.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "When promises return primitive values rather than objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "Promise.all short-circuits and rejects immediately on the first failure, abandoning remaining promises. Promise.allSettled waits for all promises to complete and returns an array of status objects.",
+      "codeSnippet": "const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);\nconst successful = results.filter(r => r.status === 'fulfilled').map(r => r.value);",
+      "pitfall": "Using Promise.all for independent batch operations causes a single non-critical error to drop all successful parallel operations.",
+      "citation": "MDN Web Docs: Promise.allSettled() / TC39 Promise Specifications"
+    },
+    {
+      "id": "mcq-06-003-01",
+      "concept": "Async/Await & Sequential vs Parallel Flow: Microtasks vs Macrotasks Execution Order",
+      "category": "Event Loop",
+      "difficulty": "Advanced",
+      "question": "When a script resolves a Promise and schedules `setTimeout(fn, 0)`, what is the guaranteed execution order in the event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`setTimeout` callback runs first because timers have top priority.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Microtasks (Promise reactions, queueMicrotask) drain completely immediately after the current call stack clears, before any timer callback runs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both run concurrently in libuv's worker thread pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop randomly alternates between microtasks and macrotasks.",
+          "correct": false
+        }
+      ],
+      "explanation": "Microtasks execute with highest priority as soon as the current synchronous stack empties. The microtask queue must drain to zero before the event loop advances to macrotask phases.",
+      "codeSnippet": "console.log('1: Sync');\nsetTimeout(() => console.log('4: Macro'), 0);\nPromise.resolve().then(() => console.log('3: Micro'));\nprocess.nextTick(() => console.log('2: NextTick'));\n// Output: 1: Sync -> 2: NextTick -> 3: Micro -> 4: Macro",
+      "pitfall": "Recursively enqueuing microtasks starves the event loop, preventing all I/O, timers, and network responses from executing.",
+      "citation": "Node.js Event Loop, Timers, and process.nextTick() Official Guide"
+    },
+    {
+      "id": "mcq-06-003-02",
+      "concept": "Async/Await & Sequential vs Parallel Flow: Promise.all vs Promise.allSettled Error Semantics",
+      "category": "Promises",
+      "difficulty": "Intermediate",
+      "question": "In what scenario MUST an engineer use `Promise.allSettled()` instead of `Promise.all()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When running CPU-intensive cryptography on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When executing concurrent independent tasks where partial failures should not abort other operations, and full outcome inspection is required.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "When tasks must execute strictly sequentially in series.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "When promises return primitive values rather than objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "Promise.all short-circuits and rejects immediately on the first failure, abandoning remaining promises. Promise.allSettled waits for all promises to complete and returns an array of status objects.",
+      "codeSnippet": "const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);\nconst successful = results.filter(r => r.status === 'fulfilled').map(r => r.value);",
+      "pitfall": "Using Promise.all for independent batch operations causes a single non-critical error to drop all successful parallel operations.",
+      "citation": "MDN Web Docs: Promise.allSettled() / TC39 Promise Specifications"
+    },
+    {
+      "id": "mcq-06-003-03",
+      "concept": "Async/Await & Sequential vs Parallel Flow: Microtasks vs Macrotasks Execution Order",
+      "category": "Event Loop",
+      "difficulty": "Advanced",
+      "question": "When a script resolves a Promise and schedules `setTimeout(fn, 0)`, what is the guaranteed execution order in the event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`setTimeout` callback runs first because timers have top priority.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Microtasks (Promise reactions, queueMicrotask) drain completely immediately after the current call stack clears, before any timer callback runs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both run concurrently in libuv's worker thread pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop randomly alternates between microtasks and macrotasks.",
+          "correct": false
+        }
+      ],
+      "explanation": "Microtasks execute with highest priority as soon as the current synchronous stack empties. The microtask queue must drain to zero before the event loop advances to macrotask phases.",
+      "codeSnippet": "console.log('1: Sync');\nsetTimeout(() => console.log('4: Macro'), 0);\nPromise.resolve().then(() => console.log('3: Micro'));\nprocess.nextTick(() => console.log('2: NextTick'));\n// Output: 1: Sync -> 2: NextTick -> 3: Micro -> 4: Macro",
+      "pitfall": "Recursively enqueuing microtasks starves the event loop, preventing all I/O, timers, and network responses from executing.",
+      "citation": "Node.js Event Loop, Timers, and process.nextTick() Official Guide"
+    },
+    {
+      "id": "mcq-06-003-04",
+      "concept": "Async/Await & Sequential vs Parallel Flow: Promise.all vs Promise.allSettled Error Semantics",
+      "category": "Promises",
+      "difficulty": "Intermediate",
+      "question": "In what scenario MUST an engineer use `Promise.allSettled()` instead of `Promise.all()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When running CPU-intensive cryptography on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When executing concurrent independent tasks where partial failures should not abort other operations, and full outcome inspection is required.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "When tasks must execute strictly sequentially in series.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "When promises return primitive values rather than objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "Promise.all short-circuits and rejects immediately on the first failure, abandoning remaining promises. Promise.allSettled waits for all promises to complete and returns an array of status objects.",
+      "codeSnippet": "const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);\nconst successful = results.filter(r => r.status === 'fulfilled').map(r => r.value);",
+      "pitfall": "Using Promise.all for independent batch operations causes a single non-critical error to drop all successful parallel operations.",
+      "citation": "MDN Web Docs: Promise.allSettled() / TC39 Promise Specifications"
+    },
+    {
+      "id": "mcq-06-003-05",
+      "concept": "Async/Await & Sequential vs Parallel Flow: Microtasks vs Macrotasks Execution Order",
+      "category": "Event Loop",
+      "difficulty": "Advanced",
+      "question": "When a script resolves a Promise and schedules `setTimeout(fn, 0)`, what is the guaranteed execution order in the event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`setTimeout` callback runs first because timers have top priority.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Microtasks (Promise reactions, queueMicrotask) drain completely immediately after the current call stack clears, before any timer callback runs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both run concurrently in libuv's worker thread pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop randomly alternates between microtasks and macrotasks.",
+          "correct": false
+        }
+      ],
+      "explanation": "Microtasks execute with highest priority as soon as the current synchronous stack empties. The microtask queue must drain to zero before the event loop advances to macrotask phases.",
+      "codeSnippet": "console.log('1: Sync');\nsetTimeout(() => console.log('4: Macro'), 0);\nPromise.resolve().then(() => console.log('3: Micro'));\nprocess.nextTick(() => console.log('2: NextTick'));\n// Output: 1: Sync -> 2: NextTick -> 3: Micro -> 4: Macro",
+      "pitfall": "Recursively enqueuing microtasks starves the event loop, preventing all I/O, timers, and network responses from executing.",
+      "citation": "Node.js Event Loop, Timers, and process.nextTick() Official Guide"
+    },
+    {
+      "id": "mcq-06-003-06",
+      "concept": "Async/Await & Sequential vs Parallel Flow: Promise.all vs Promise.allSettled Error Semantics",
+      "category": "Promises",
+      "difficulty": "Intermediate",
+      "question": "In what scenario MUST an engineer use `Promise.allSettled()` instead of `Promise.all()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When running CPU-intensive cryptography on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When executing concurrent independent tasks where partial failures should not abort other operations, and full outcome inspection is required.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "When tasks must execute strictly sequentially in series.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "When promises return primitive values rather than objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "Promise.all short-circuits and rejects immediately on the first failure, abandoning remaining promises. Promise.allSettled waits for all promises to complete and returns an array of status objects.",
+      "codeSnippet": "const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);\nconst successful = results.filter(r => r.status === 'fulfilled').map(r => r.value);",
+      "pitfall": "Using Promise.all for independent batch operations causes a single non-critical error to drop all successful parallel operations.",
+      "citation": "MDN Web Docs: Promise.allSettled() / TC39 Promise Specifications"
+    },
+    {
+      "id": "mcq-06-003-07",
+      "concept": "Async/Await & Sequential vs Parallel Flow: Microtasks vs Macrotasks Execution Order",
+      "category": "Event Loop",
+      "difficulty": "Advanced",
+      "question": "When a script resolves a Promise and schedules `setTimeout(fn, 0)`, what is the guaranteed execution order in the event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`setTimeout` callback runs first because timers have top priority.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Microtasks (Promise reactions, queueMicrotask) drain completely immediately after the current call stack clears, before any timer callback runs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both run concurrently in libuv's worker thread pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop randomly alternates between microtasks and macrotasks.",
+          "correct": false
+        }
+      ],
+      "explanation": "Microtasks execute with highest priority as soon as the current synchronous stack empties. The microtask queue must drain to zero before the event loop advances to macrotask phases.",
+      "codeSnippet": "console.log('1: Sync');\nsetTimeout(() => console.log('4: Macro'), 0);\nPromise.resolve().then(() => console.log('3: Micro'));\nprocess.nextTick(() => console.log('2: NextTick'));\n// Output: 1: Sync -> 2: NextTick -> 3: Micro -> 4: Macro",
+      "pitfall": "Recursively enqueuing microtasks starves the event loop, preventing all I/O, timers, and network responses from executing.",
+      "citation": "Node.js Event Loop, Timers, and process.nextTick() Official Guide"
+    },
+    {
+      "id": "mcq-06-003-08",
+      "concept": "Async/Await & Sequential vs Parallel Flow: Promise.all vs Promise.allSettled Error Semantics",
+      "category": "Promises",
+      "difficulty": "Intermediate",
+      "question": "In what scenario MUST an engineer use `Promise.allSettled()` instead of `Promise.all()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When running CPU-intensive cryptography on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When executing concurrent independent tasks where partial failures should not abort other operations, and full outcome inspection is required.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "When tasks must execute strictly sequentially in series.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "When promises return primitive values rather than objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "Promise.all short-circuits and rejects immediately on the first failure, abandoning remaining promises. Promise.allSettled waits for all promises to complete and returns an array of status objects.",
+      "codeSnippet": "const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);\nconst successful = results.filter(r => r.status === 'fulfilled').map(r => r.value);",
+      "pitfall": "Using Promise.all for independent batch operations causes a single non-critical error to drop all successful parallel operations.",
+      "citation": "MDN Web Docs: Promise.allSettled() / TC39 Promise Specifications"
+    }
+  ]
+}

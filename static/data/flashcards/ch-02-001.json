@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-02-001",
+  "title": "§02-001: Scope Hierarchy & Global Context",
+  "chapterId": "02-001",
+  "sectionId": "section-02",
+  "description": "Multiple-choice practice questions and deep runtime verification for §02-001 (Scope Hierarchy & Global Context).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-02-001-01",
+      "concept": "Scope Hierarchy & Global Context: Temporal Dead Zone (TDZ)",
+      "category": "Scope & Hoisting",
+      "difficulty": "Intermediate",
+      "question": "What causes a `ReferenceError` when accessing a `let` or `const` identifier before its syntactic declaration?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The identifier is never hoisted during compile phase.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The identifier is hoisted into the declarative environment record, but remains uninitialized in the TDZ until evaluated.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "The identifier is assigned `undefined` which prohibits read access.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Block scopes delete uninitialized identifiers at runtime.",
+          "correct": false
+        }
+      ],
+      "explanation": "let and const declarations are hoisted to the top of their enclosing block, but remain in the Temporal Dead Zone (TDZ). Accessing them before initialization throws ReferenceError.",
+      "codeSnippet": "// console.log(val); // ReferenceError: Cannot access 'val' before initialization\nlet val = 42;",
+      "pitfall": "Using typeof on a TDZ variable does not safely return 'undefined'; it throws ReferenceError unlike genuinely undeclared variables.",
+      "citation": "ECMAScript 2024 Specification §14.3.1 / You Don't Know JS: Scope & Closures"
+    },
+    {
+      "id": "mcq-02-001-02",
+      "concept": "Scope Hierarchy & Global Context: Function Declaration vs Expression Hoisting",
+      "category": "Hoisting",
+      "difficulty": "Beginner",
+      "question": "Why can a function declaration be invoked before its syntactic definition, while a `var` or `const` function expression cannot?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Function declarations are compiled into WebAssembly at startup.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Function declarations are hoisted with their complete function bodies during environment record instantiation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Function expressions run in separate isolates.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Strict mode forbids invoking function declarations before declaration.",
+          "correct": false
+        }
+      ],
+      "explanation": "Function declarations have both identifier and function value initialized during compile/instantiation phase, whereas function expressions assign the value only when statement execution occurs.",
+      "codeSnippet": "greet(); // 'Hello' (Declaration hoisted with body)\nfunction greet() { return 'Hello'; }\n\n// sayHi(); // TypeError: sayHi is not a function\nvar sayHi = function() { return 'Hi'; };",
+      "pitfall": "Calling a var function expression before definition results in TypeError (undefined is not a function), whereas let/const results in ReferenceError.",
+      "citation": "ECMAScript 2024 Specification §15.2 / MDN Web Docs: Hoisting"
+    },
+    {
+      "id": "mcq-02-001-03",
+      "concept": "Scope Hierarchy & Global Context: Temporal Dead Zone (TDZ)",
+      "category": "Scope & Hoisting",
+      "difficulty": "Intermediate",
+      "question": "What causes a `ReferenceError` when accessing a `let` or `const` identifier before its syntactic declaration?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The identifier is never hoisted during compile phase.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The identifier is hoisted into the declarative environment record, but remains uninitialized in the TDZ until evaluated.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "The identifier is assigned `undefined` which prohibits read access.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Block scopes delete uninitialized identifiers at runtime.",
+          "correct": false
+        }
+      ],
+      "explanation": "let and const declarations are hoisted to the top of their enclosing block, but remain in the Temporal Dead Zone (TDZ). Accessing them before initialization throws ReferenceError.",
+      "codeSnippet": "// console.log(val); // ReferenceError: Cannot access 'val' before initialization\nlet val = 42;",
+      "pitfall": "Using typeof on a TDZ variable does not safely return 'undefined'; it throws ReferenceError unlike genuinely undeclared variables.",
+      "citation": "ECMAScript 2024 Specification §14.3.1 / You Don't Know JS: Scope & Closures"
+    },
+    {
+      "id": "mcq-02-001-04",
+      "concept": "Scope Hierarchy & Global Context: Function Declaration vs Expression Hoisting",
+      "category": "Hoisting",
+      "difficulty": "Beginner",
+      "question": "Why can a function declaration be invoked before its syntactic definition, while a `var` or `const` function expression cannot?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Function declarations are compiled into WebAssembly at startup.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Function declarations are hoisted with their complete function bodies during environment record instantiation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Function expressions run in separate isolates.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Strict mode forbids invoking function declarations before declaration.",
+          "correct": false
+        }
+      ],
+      "explanation": "Function declarations have both identifier and function value initialized during compile/instantiation phase, whereas function expressions assign the value only when statement execution occurs.",
+      "codeSnippet": "greet(); // 'Hello' (Declaration hoisted with body)\nfunction greet() { return 'Hello'; }\n\n// sayHi(); // TypeError: sayHi is not a function\nvar sayHi = function() { return 'Hi'; };",
+      "pitfall": "Calling a var function expression before definition results in TypeError (undefined is not a function), whereas let/const results in ReferenceError.",
+      "citation": "ECMAScript 2024 Specification §15.2 / MDN Web Docs: Hoisting"
+    },
+    {
+      "id": "mcq-02-001-05",
+      "concept": "Scope Hierarchy & Global Context: Temporal Dead Zone (TDZ)",
+      "category": "Scope & Hoisting",
+      "difficulty": "Intermediate",
+      "question": "What causes a `ReferenceError` when accessing a `let` or `const` identifier before its syntactic declaration?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The identifier is never hoisted during compile phase.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The identifier is hoisted into the declarative environment record, but remains uninitialized in the TDZ until evaluated.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "The identifier is assigned `undefined` which prohibits read access.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Block scopes delete uninitialized identifiers at runtime.",
+          "correct": false
+        }
+      ],
+      "explanation": "let and const declarations are hoisted to the top of their enclosing block, but remain in the Temporal Dead Zone (TDZ). Accessing them before initialization throws ReferenceError.",
+      "codeSnippet": "// console.log(val); // ReferenceError: Cannot access 'val' before initialization\nlet val = 42;",
+      "pitfall": "Using typeof on a TDZ variable does not safely return 'undefined'; it throws ReferenceError unlike genuinely undeclared variables.",
+      "citation": "ECMAScript 2024 Specification §14.3.1 / You Don't Know JS: Scope & Closures"
+    },
+    {
+      "id": "mcq-02-001-06",
+      "concept": "Scope Hierarchy & Global Context: Function Declaration vs Expression Hoisting",
+      "category": "Hoisting",
+      "difficulty": "Beginner",
+      "question": "Why can a function declaration be invoked before its syntactic definition, while a `var` or `const` function expression cannot?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Function declarations are compiled into WebAssembly at startup.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Function declarations are hoisted with their complete function bodies during environment record instantiation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Function expressions run in separate isolates.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Strict mode forbids invoking function declarations before declaration.",
+          "correct": false
+        }
+      ],
+      "explanation": "Function declarations have both identifier and function value initialized during compile/instantiation phase, whereas function expressions assign the value only when statement execution occurs.",
+      "codeSnippet": "greet(); // 'Hello' (Declaration hoisted with body)\nfunction greet() { return 'Hello'; }\n\n// sayHi(); // TypeError: sayHi is not a function\nvar sayHi = function() { return 'Hi'; };",
+      "pitfall": "Calling a var function expression before definition results in TypeError (undefined is not a function), whereas let/const results in ReferenceError.",
+      "citation": "ECMAScript 2024 Specification §15.2 / MDN Web Docs: Hoisting"
+    },
+    {
+      "id": "mcq-02-001-07",
+      "concept": "Scope Hierarchy & Global Context: Temporal Dead Zone (TDZ)",
+      "category": "Scope & Hoisting",
+      "difficulty": "Intermediate",
+      "question": "What causes a `ReferenceError` when accessing a `let` or `const` identifier before its syntactic declaration?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The identifier is never hoisted during compile phase.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The identifier is hoisted into the declarative environment record, but remains uninitialized in the TDZ until evaluated.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "The identifier is assigned `undefined` which prohibits read access.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Block scopes delete uninitialized identifiers at runtime.",
+          "correct": false
+        }
+      ],
+      "explanation": "let and const declarations are hoisted to the top of their enclosing block, but remain in the Temporal Dead Zone (TDZ). Accessing them before initialization throws ReferenceError.",
+      "codeSnippet": "// console.log(val); // ReferenceError: Cannot access 'val' before initialization\nlet val = 42;",
+      "pitfall": "Using typeof on a TDZ variable does not safely return 'undefined'; it throws ReferenceError unlike genuinely undeclared variables.",
+      "citation": "ECMAScript 2024 Specification §14.3.1 / You Don't Know JS: Scope & Closures"
+    },
+    {
+      "id": "mcq-02-001-08",
+      "concept": "Scope Hierarchy & Global Context: Function Declaration vs Expression Hoisting",
+      "category": "Hoisting",
+      "difficulty": "Beginner",
+      "question": "Why can a function declaration be invoked before its syntactic definition, while a `var` or `const` function expression cannot?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Function declarations are compiled into WebAssembly at startup.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Function declarations are hoisted with their complete function bodies during environment record instantiation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Function expressions run in separate isolates.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Strict mode forbids invoking function declarations before declaration.",
+          "correct": false
+        }
+      ],
+      "explanation": "Function declarations have both identifier and function value initialized during compile/instantiation phase, whereas function expressions assign the value only when statement execution occurs.",
+      "codeSnippet": "greet(); // 'Hello' (Declaration hoisted with body)\nfunction greet() { return 'Hello'; }\n\n// sayHi(); // TypeError: sayHi is not a function\nvar sayHi = function() { return 'Hi'; };",
+      "pitfall": "Calling a var function expression before definition results in TypeError (undefined is not a function), whereas let/const results in ReferenceError.",
+      "citation": "ECMAScript 2024 Specification §15.2 / MDN Web Docs: Hoisting"
+    }
+  ]
+}

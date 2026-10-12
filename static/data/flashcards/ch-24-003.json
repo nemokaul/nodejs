@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-24-003",
+  "title": "§24-003: Horizontal Partitioning, Sharding & Consistent Hashing",
+  "chapterId": "24-003",
+  "sectionId": "section-24",
+  "description": "Multiple-choice practice questions and deep runtime verification for §24-003 (Horizontal Partitioning, Sharding & Consistent Hashing).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-24-003-01",
+      "concept": "Horizontal Partitioning, Sharding & Consistent Hashing: Replication Lag & Read-Your-Own-Writes",
+      "category": "Distributed Data",
+      "difficulty": "Intermediate",
+      "question": "In a primary-replica database architecture, what consistency anomaly occurs when a user reads from a replica immediately after updating their profile?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The primary database rolls back the transaction.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Replication lag causes the read replica to return stale data (prior to the update), leading the user to believe their update was lost; mitigate by routing recent-write reads to the primary.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "The database triggers an automatic primary failover.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The client connection is terminated with ECONNRESET.",
+          "correct": false
+        }
+      ],
+      "explanation": "Asynchronous replication means replicas lag behind the primary. Read-your-own-writes consistency guarantees that a user's own updates are immediately visible to them by routing subsequent reads to the primary.",
+      "codeSnippet": "function getDb(req) {\n  if (req.session.lastWriteTime > Date.now() - 2000) {\n    return primaryPool; // Enforce read-your-own-writes\n  }\n  return replicaPool;\n}",
+      "pitfall": "Directing all reads to read replicas without tracking mutation timestamps causes confusing UI regressions for active users.",
+      "citation": "Designing Data-Intensive Applications (Chapter 5: Replication)"
+    },
+    {
+      "id": "mcq-24-003-02",
+      "concept": "Horizontal Partitioning, Sharding & Consistent Hashing: Consistent Hashing & Sharding Key Selection",
+      "category": "Sharding",
+      "difficulty": "Advanced",
+      "question": "Why is Consistent Hashing preferred over simple modulo hashing (`hash(key) % N`) when partitioning data across N database shards?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Modulo hashing requires binary database keys.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When adding or removing a shard node, modulo hashing forces almost all keys to relocate; consistent hashing remaps only K/N keys on average.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Consistent hashing compresses keys in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Consistent hashing eliminates the need for primary keys.",
+          "correct": false
+        }
+      ],
+      "explanation": "With hash(key) % N, changing N (scaling shards) redistributes almost 100% of data. Consistent hashing places nodes and keys on a logical hash ring, minimizing data movement.",
+      "codeSnippet": "// Consistent hash ring maps keys to the next clockwise node\n// Adding a node only reassigns keys from its direct neighbor",
+      "pitfall": "Selecting low-cardinality shard keys (e.g. status='ACTIVE' or date) concentrates write traffic onto a single shard hot spot.",
+      "citation": "Consistent Hashing and Random Trees (Karger et al.)"
+    },
+    {
+      "id": "mcq-24-003-03",
+      "concept": "Horizontal Partitioning, Sharding & Consistent Hashing: Replication Lag & Read-Your-Own-Writes",
+      "category": "Distributed Data",
+      "difficulty": "Intermediate",
+      "question": "In a primary-replica database architecture, what consistency anomaly occurs when a user reads from a replica immediately after updating their profile?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The primary database rolls back the transaction.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Replication lag causes the read replica to return stale data (prior to the update), leading the user to believe their update was lost; mitigate by routing recent-write reads to the primary.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "The database triggers an automatic primary failover.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The client connection is terminated with ECONNRESET.",
+          "correct": false
+        }
+      ],
+      "explanation": "Asynchronous replication means replicas lag behind the primary. Read-your-own-writes consistency guarantees that a user's own updates are immediately visible to them by routing subsequent reads to the primary.",
+      "codeSnippet": "function getDb(req) {\n  if (req.session.lastWriteTime > Date.now() - 2000) {\n    return primaryPool; // Enforce read-your-own-writes\n  }\n  return replicaPool;\n}",
+      "pitfall": "Directing all reads to read replicas without tracking mutation timestamps causes confusing UI regressions for active users.",
+      "citation": "Designing Data-Intensive Applications (Chapter 5: Replication)"
+    },
+    {
+      "id": "mcq-24-003-04",
+      "concept": "Horizontal Partitioning, Sharding & Consistent Hashing: Consistent Hashing & Sharding Key Selection",
+      "category": "Sharding",
+      "difficulty": "Advanced",
+      "question": "Why is Consistent Hashing preferred over simple modulo hashing (`hash(key) % N`) when partitioning data across N database shards?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Modulo hashing requires binary database keys.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When adding or removing a shard node, modulo hashing forces almost all keys to relocate; consistent hashing remaps only K/N keys on average.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Consistent hashing compresses keys in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Consistent hashing eliminates the need for primary keys.",
+          "correct": false
+        }
+      ],
+      "explanation": "With hash(key) % N, changing N (scaling shards) redistributes almost 100% of data. Consistent hashing places nodes and keys on a logical hash ring, minimizing data movement.",
+      "codeSnippet": "// Consistent hash ring maps keys to the next clockwise node\n// Adding a node only reassigns keys from its direct neighbor",
+      "pitfall": "Selecting low-cardinality shard keys (e.g. status='ACTIVE' or date) concentrates write traffic onto a single shard hot spot.",
+      "citation": "Consistent Hashing and Random Trees (Karger et al.)"
+    },
+    {
+      "id": "mcq-24-003-05",
+      "concept": "Horizontal Partitioning, Sharding & Consistent Hashing: Replication Lag & Read-Your-Own-Writes",
+      "category": "Distributed Data",
+      "difficulty": "Intermediate",
+      "question": "In a primary-replica database architecture, what consistency anomaly occurs when a user reads from a replica immediately after updating their profile?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The primary database rolls back the transaction.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Replication lag causes the read replica to return stale data (prior to the update), leading the user to believe their update was lost; mitigate by routing recent-write reads to the primary.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "The database triggers an automatic primary failover.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The client connection is terminated with ECONNRESET.",
+          "correct": false
+        }
+      ],
+      "explanation": "Asynchronous replication means replicas lag behind the primary. Read-your-own-writes consistency guarantees that a user's own updates are immediately visible to them by routing subsequent reads to the primary.",
+      "codeSnippet": "function getDb(req) {\n  if (req.session.lastWriteTime > Date.now() - 2000) {\n    return primaryPool; // Enforce read-your-own-writes\n  }\n  return replicaPool;\n}",
+      "pitfall": "Directing all reads to read replicas without tracking mutation timestamps causes confusing UI regressions for active users.",
+      "citation": "Designing Data-Intensive Applications (Chapter 5: Replication)"
+    },
+    {
+      "id": "mcq-24-003-06",
+      "concept": "Horizontal Partitioning, Sharding & Consistent Hashing: Consistent Hashing & Sharding Key Selection",
+      "category": "Sharding",
+      "difficulty": "Advanced",
+      "question": "Why is Consistent Hashing preferred over simple modulo hashing (`hash(key) % N`) when partitioning data across N database shards?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Modulo hashing requires binary database keys.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When adding or removing a shard node, modulo hashing forces almost all keys to relocate; consistent hashing remaps only K/N keys on average.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Consistent hashing compresses keys in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Consistent hashing eliminates the need for primary keys.",
+          "correct": false
+        }
+      ],
+      "explanation": "With hash(key) % N, changing N (scaling shards) redistributes almost 100% of data. Consistent hashing places nodes and keys on a logical hash ring, minimizing data movement.",
+      "codeSnippet": "// Consistent hash ring maps keys to the next clockwise node\n// Adding a node only reassigns keys from its direct neighbor",
+      "pitfall": "Selecting low-cardinality shard keys (e.g. status='ACTIVE' or date) concentrates write traffic onto a single shard hot spot.",
+      "citation": "Consistent Hashing and Random Trees (Karger et al.)"
+    },
+    {
+      "id": "mcq-24-003-07",
+      "concept": "Horizontal Partitioning, Sharding & Consistent Hashing: Replication Lag & Read-Your-Own-Writes",
+      "category": "Distributed Data",
+      "difficulty": "Intermediate",
+      "question": "In a primary-replica database architecture, what consistency anomaly occurs when a user reads from a replica immediately after updating their profile?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The primary database rolls back the transaction.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Replication lag causes the read replica to return stale data (prior to the update), leading the user to believe their update was lost; mitigate by routing recent-write reads to the primary.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "The database triggers an automatic primary failover.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The client connection is terminated with ECONNRESET.",
+          "correct": false
+        }
+      ],
+      "explanation": "Asynchronous replication means replicas lag behind the primary. Read-your-own-writes consistency guarantees that a user's own updates are immediately visible to them by routing subsequent reads to the primary.",
+      "codeSnippet": "function getDb(req) {\n  if (req.session.lastWriteTime > Date.now() - 2000) {\n    return primaryPool; // Enforce read-your-own-writes\n  }\n  return replicaPool;\n}",
+      "pitfall": "Directing all reads to read replicas without tracking mutation timestamps causes confusing UI regressions for active users.",
+      "citation": "Designing Data-Intensive Applications (Chapter 5: Replication)"
+    },
+    {
+      "id": "mcq-24-003-08",
+      "concept": "Horizontal Partitioning, Sharding & Consistent Hashing: Consistent Hashing & Sharding Key Selection",
+      "category": "Sharding",
+      "difficulty": "Advanced",
+      "question": "Why is Consistent Hashing preferred over simple modulo hashing (`hash(key) % N`) when partitioning data across N database shards?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Modulo hashing requires binary database keys.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When adding or removing a shard node, modulo hashing forces almost all keys to relocate; consistent hashing remaps only K/N keys on average.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Consistent hashing compresses keys in memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Consistent hashing eliminates the need for primary keys.",
+          "correct": false
+        }
+      ],
+      "explanation": "With hash(key) % N, changing N (scaling shards) redistributes almost 100% of data. Consistent hashing places nodes and keys on a logical hash ring, minimizing data movement.",
+      "codeSnippet": "// Consistent hash ring maps keys to the next clockwise node\n// Adding a node only reassigns keys from its direct neighbor",
+      "pitfall": "Selecting low-cardinality shard keys (e.g. status='ACTIVE' or date) concentrates write traffic onto a single shard hot spot.",
+      "citation": "Consistent Hashing and Random Trees (Karger et al.)"
+    }
+  ]
+}

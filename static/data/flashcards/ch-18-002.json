@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-18-002",
+  "title": "§18-002: Hardening HTTP Headers with Helmet & Secure Cookies",
+  "chapterId": "18-002",
+  "sectionId": "section-18",
+  "description": "Multiple-choice practice questions and deep runtime verification for §18-002 (Hardening HTTP Headers with Helmet & Secure Cookies).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-18-002-01",
+      "concept": "Hardening HTTP Headers with Helmet & Secure Cookies: Node.js Permission Model Security",
+      "category": "Security",
+      "difficulty": "Advanced",
+      "question": "What capabilities does the Node.js Permission Model (`--permission`) restrict at runtime when enabled?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It restricts CSS rendering and HTML canvas drawing.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It restricts file system read/write access (--allow-fs-read/write), child process spawning (--allow-child-process), and worker thread creation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It limits RAM usage to 512MB permanently.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It forces all npm packages to run in strict mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "The Node.js Permission Model restricts access to system resources (file system paths, spawning subprocesses, creating worker threads) unless explicitly granted via CLI flags.",
+      "codeSnippet": "// Launch with restricted file system and no child processes:\n// $ node --permission --allow-fs-read=/app/public app.js",
+      "pitfall": "Relying on software sandboxes without OS-level container isolation (e.g. non-root Docker, dropped Linux capabilities).",
+      "citation": "Node.js Official Documentation: Permission Model"
+    },
+    {
+      "id": "mcq-18-002-02",
+      "concept": "Hardening HTTP Headers with Helmet & Secure Cookies: Prototype Pollution Defense",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "How can an attacker exploit deep object merging to achieve Prototype Pollution, and how is it defended?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By sending infinite loops in JSON arrays.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By injecting keys like `__proto__`, `constructor`, or `prototype` in unvalidated JSON payloads, mutating `Object.prototype` for all objects in the runtime.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By exhausting the TCP connection pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By using invalid SSL certificates.",
+          "correct": false
+        }
+      ],
+      "explanation": "Prototype pollution occurs when recursive merge functions copy properties onto __proto__, injecting properties onto Object.prototype. Defend by stripping dangerous keys or using Map.",
+      "codeSnippet": "function safeMerge(target, source) {\n  for (const key of Object.keys(source)) {\n    if (key === '__proto__' || key === 'constructor' || key === 'prototype') continue;\n    target[key] = source[key];\n  }\n  return target;\n}",
+      "pitfall": "Using unvetted npm utility libraries for object cloning without checking for prototype pollution CVEs.",
+      "citation": "OWASP Prototype Pollution Prevention Cheat Sheet"
+    },
+    {
+      "id": "mcq-18-002-03",
+      "concept": "Hardening HTTP Headers with Helmet & Secure Cookies: Node.js Permission Model Security",
+      "category": "Security",
+      "difficulty": "Advanced",
+      "question": "What capabilities does the Node.js Permission Model (`--permission`) restrict at runtime when enabled?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It restricts CSS rendering and HTML canvas drawing.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It restricts file system read/write access (--allow-fs-read/write), child process spawning (--allow-child-process), and worker thread creation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It limits RAM usage to 512MB permanently.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It forces all npm packages to run in strict mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "The Node.js Permission Model restricts access to system resources (file system paths, spawning subprocesses, creating worker threads) unless explicitly granted via CLI flags.",
+      "codeSnippet": "// Launch with restricted file system and no child processes:\n// $ node --permission --allow-fs-read=/app/public app.js",
+      "pitfall": "Relying on software sandboxes without OS-level container isolation (e.g. non-root Docker, dropped Linux capabilities).",
+      "citation": "Node.js Official Documentation: Permission Model"
+    },
+    {
+      "id": "mcq-18-002-04",
+      "concept": "Hardening HTTP Headers with Helmet & Secure Cookies: Prototype Pollution Defense",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "How can an attacker exploit deep object merging to achieve Prototype Pollution, and how is it defended?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By sending infinite loops in JSON arrays.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By injecting keys like `__proto__`, `constructor`, or `prototype` in unvalidated JSON payloads, mutating `Object.prototype` for all objects in the runtime.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By exhausting the TCP connection pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By using invalid SSL certificates.",
+          "correct": false
+        }
+      ],
+      "explanation": "Prototype pollution occurs when recursive merge functions copy properties onto __proto__, injecting properties onto Object.prototype. Defend by stripping dangerous keys or using Map.",
+      "codeSnippet": "function safeMerge(target, source) {\n  for (const key of Object.keys(source)) {\n    if (key === '__proto__' || key === 'constructor' || key === 'prototype') continue;\n    target[key] = source[key];\n  }\n  return target;\n}",
+      "pitfall": "Using unvetted npm utility libraries for object cloning without checking for prototype pollution CVEs.",
+      "citation": "OWASP Prototype Pollution Prevention Cheat Sheet"
+    },
+    {
+      "id": "mcq-18-002-05",
+      "concept": "Hardening HTTP Headers with Helmet & Secure Cookies: Node.js Permission Model Security",
+      "category": "Security",
+      "difficulty": "Advanced",
+      "question": "What capabilities does the Node.js Permission Model (`--permission`) restrict at runtime when enabled?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It restricts CSS rendering and HTML canvas drawing.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It restricts file system read/write access (--allow-fs-read/write), child process spawning (--allow-child-process), and worker thread creation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It limits RAM usage to 512MB permanently.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It forces all npm packages to run in strict mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "The Node.js Permission Model restricts access to system resources (file system paths, spawning subprocesses, creating worker threads) unless explicitly granted via CLI flags.",
+      "codeSnippet": "// Launch with restricted file system and no child processes:\n// $ node --permission --allow-fs-read=/app/public app.js",
+      "pitfall": "Relying on software sandboxes without OS-level container isolation (e.g. non-root Docker, dropped Linux capabilities).",
+      "citation": "Node.js Official Documentation: Permission Model"
+    },
+    {
+      "id": "mcq-18-002-06",
+      "concept": "Hardening HTTP Headers with Helmet & Secure Cookies: Prototype Pollution Defense",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "How can an attacker exploit deep object merging to achieve Prototype Pollution, and how is it defended?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By sending infinite loops in JSON arrays.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By injecting keys like `__proto__`, `constructor`, or `prototype` in unvalidated JSON payloads, mutating `Object.prototype` for all objects in the runtime.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By exhausting the TCP connection pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By using invalid SSL certificates.",
+          "correct": false
+        }
+      ],
+      "explanation": "Prototype pollution occurs when recursive merge functions copy properties onto __proto__, injecting properties onto Object.prototype. Defend by stripping dangerous keys or using Map.",
+      "codeSnippet": "function safeMerge(target, source) {\n  for (const key of Object.keys(source)) {\n    if (key === '__proto__' || key === 'constructor' || key === 'prototype') continue;\n    target[key] = source[key];\n  }\n  return target;\n}",
+      "pitfall": "Using unvetted npm utility libraries for object cloning without checking for prototype pollution CVEs.",
+      "citation": "OWASP Prototype Pollution Prevention Cheat Sheet"
+    },
+    {
+      "id": "mcq-18-002-07",
+      "concept": "Hardening HTTP Headers with Helmet & Secure Cookies: Node.js Permission Model Security",
+      "category": "Security",
+      "difficulty": "Advanced",
+      "question": "What capabilities does the Node.js Permission Model (`--permission`) restrict at runtime when enabled?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It restricts CSS rendering and HTML canvas drawing.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It restricts file system read/write access (--allow-fs-read/write), child process spawning (--allow-child-process), and worker thread creation.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It limits RAM usage to 512MB permanently.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It forces all npm packages to run in strict mode.",
+          "correct": false
+        }
+      ],
+      "explanation": "The Node.js Permission Model restricts access to system resources (file system paths, spawning subprocesses, creating worker threads) unless explicitly granted via CLI flags.",
+      "codeSnippet": "// Launch with restricted file system and no child processes:\n// $ node --permission --allow-fs-read=/app/public app.js",
+      "pitfall": "Relying on software sandboxes without OS-level container isolation (e.g. non-root Docker, dropped Linux capabilities).",
+      "citation": "Node.js Official Documentation: Permission Model"
+    },
+    {
+      "id": "mcq-18-002-08",
+      "concept": "Hardening HTTP Headers with Helmet & Secure Cookies: Prototype Pollution Defense",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "How can an attacker exploit deep object merging to achieve Prototype Pollution, and how is it defended?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By sending infinite loops in JSON arrays.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By injecting keys like `__proto__`, `constructor`, or `prototype` in unvalidated JSON payloads, mutating `Object.prototype` for all objects in the runtime.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By exhausting the TCP connection pool.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By using invalid SSL certificates.",
+          "correct": false
+        }
+      ],
+      "explanation": "Prototype pollution occurs when recursive merge functions copy properties onto __proto__, injecting properties onto Object.prototype. Defend by stripping dangerous keys or using Map.",
+      "codeSnippet": "function safeMerge(target, source) {\n  for (const key of Object.keys(source)) {\n    if (key === '__proto__' || key === 'constructor' || key === 'prototype') continue;\n    target[key] = source[key];\n  }\n  return target;\n}",
+      "pitfall": "Using unvetted npm utility libraries for object cloning without checking for prototype pollution CVEs.",
+      "citation": "OWASP Prototype Pollution Prevention Cheat Sheet"
+    }
+  ]
+}

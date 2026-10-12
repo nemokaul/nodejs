@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-26-003",
+  "title": "§26-003: Circuit Breakers, Bulkheads & Graceful Degradation",
+  "chapterId": "26-003",
+  "sectionId": "section-26",
+  "description": "Multiple-choice practice questions and deep runtime verification for §26-003 (Circuit Breakers, Bulkheads & Graceful Degradation).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-26-003-01",
+      "concept": "Circuit Breakers, Bulkheads & Graceful Degradation: Reverse Proxy Architecture & TLS Termination",
+      "category": "Distributed Systems",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js microservices be deployed behind a reverse proxy (e.g. NGINX, HAProxy, Envoy) rather than exposed directly to the public internet?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Node.js cannot listen on port 443.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The reverse proxy offloads TLS termination, buffers slow clients (Slowloris defense), serves static assets, provides load balancing, and rate limits traffic before reaching Node.js.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Reverse proxies rewrite JavaScript code into machine code.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Direct Node.js ports are blocked by modern browsers.",
+          "correct": false
+        }
+      ],
+      "explanation": "Reverse proxies excel at handling thousands of idle connections, terminating SSL handshakes, and buffering requests. This frees the Node.js event loop to focus entirely on application logic.",
+      "codeSnippet": "// NGINX upstream proxy configuration:\n// upstream backend_nodes { server 127.0.0.1:3000; server 127.0.0.1:3001; }\n// location / { proxy_pass http://backend_nodes; proxy_set_header X-Forwarded-For $remote_addr; }",
+      "pitfall": "Failing to configure `app.set('trust proxy', true)` causes Express to misidentify proxy IP addresses as the client IP, breaking rate limiters.",
+      "citation": "NGINX Documentation: Reverse Proxy Architecture / Node.js Production Guide"
+    },
+    {
+      "id": "mcq-26-003-02",
+      "concept": "Circuit Breakers, Bulkheads & Graceful Degradation: Circuit Breaker Pattern in Microservices",
+      "category": "Resilience",
+      "difficulty": "Advanced",
+      "question": "What are the three states of a Circuit Breaker (e.g. Opossum), and how does it prevent cascaded system failure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Read, Write, Execute.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Closed (normal traffic), Open (failing downstream; fast-fail immediately without calling remote service), and Half-Open (trial traffic to test downstream recovery).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "TCP, UDP, ICMP.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Active, Inactive, Suspended.",
+          "correct": false
+        }
+      ],
+      "explanation": "When failures exceed a threshold, the breaker trips Open, fast-failing traffic instantly. After a cooldown, it enters Half-Open to test recovery, preventing thread and socket exhaustion.",
+      "codeSnippet": "import CircuitBreaker from 'opossum';\nconst breaker = new CircuitBreaker(fetchPaymentService, {\n  timeout: 3000,\n  errorThresholdPercentage: 50,\n  resetTimeout: 10000\n});\nbreaker.fallback(() => ({ status: 'unavailable', cached: true }));",
+      "pitfall": "Not setting fallback handlers on circuit breakers causes uncaught exceptions during downstream outages.",
+      "citation": "Release It! (Michael Nygard) / Opossum Circuit Breaker Guide"
+    },
+    {
+      "id": "mcq-26-003-03",
+      "concept": "Circuit Breakers, Bulkheads & Graceful Degradation: Reverse Proxy Architecture & TLS Termination",
+      "category": "Distributed Systems",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js microservices be deployed behind a reverse proxy (e.g. NGINX, HAProxy, Envoy) rather than exposed directly to the public internet?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Node.js cannot listen on port 443.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The reverse proxy offloads TLS termination, buffers slow clients (Slowloris defense), serves static assets, provides load balancing, and rate limits traffic before reaching Node.js.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Reverse proxies rewrite JavaScript code into machine code.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Direct Node.js ports are blocked by modern browsers.",
+          "correct": false
+        }
+      ],
+      "explanation": "Reverse proxies excel at handling thousands of idle connections, terminating SSL handshakes, and buffering requests. This frees the Node.js event loop to focus entirely on application logic.",
+      "codeSnippet": "// NGINX upstream proxy configuration:\n// upstream backend_nodes { server 127.0.0.1:3000; server 127.0.0.1:3001; }\n// location / { proxy_pass http://backend_nodes; proxy_set_header X-Forwarded-For $remote_addr; }",
+      "pitfall": "Failing to configure `app.set('trust proxy', true)` causes Express to misidentify proxy IP addresses as the client IP, breaking rate limiters.",
+      "citation": "NGINX Documentation: Reverse Proxy Architecture / Node.js Production Guide"
+    },
+    {
+      "id": "mcq-26-003-04",
+      "concept": "Circuit Breakers, Bulkheads & Graceful Degradation: Circuit Breaker Pattern in Microservices",
+      "category": "Resilience",
+      "difficulty": "Advanced",
+      "question": "What are the three states of a Circuit Breaker (e.g. Opossum), and how does it prevent cascaded system failure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Read, Write, Execute.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Closed (normal traffic), Open (failing downstream; fast-fail immediately without calling remote service), and Half-Open (trial traffic to test downstream recovery).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "TCP, UDP, ICMP.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Active, Inactive, Suspended.",
+          "correct": false
+        }
+      ],
+      "explanation": "When failures exceed a threshold, the breaker trips Open, fast-failing traffic instantly. After a cooldown, it enters Half-Open to test recovery, preventing thread and socket exhaustion.",
+      "codeSnippet": "import CircuitBreaker from 'opossum';\nconst breaker = new CircuitBreaker(fetchPaymentService, {\n  timeout: 3000,\n  errorThresholdPercentage: 50,\n  resetTimeout: 10000\n});\nbreaker.fallback(() => ({ status: 'unavailable', cached: true }));",
+      "pitfall": "Not setting fallback handlers on circuit breakers causes uncaught exceptions during downstream outages.",
+      "citation": "Release It! (Michael Nygard) / Opossum Circuit Breaker Guide"
+    },
+    {
+      "id": "mcq-26-003-05",
+      "concept": "Circuit Breakers, Bulkheads & Graceful Degradation: Reverse Proxy Architecture & TLS Termination",
+      "category": "Distributed Systems",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js microservices be deployed behind a reverse proxy (e.g. NGINX, HAProxy, Envoy) rather than exposed directly to the public internet?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Node.js cannot listen on port 443.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The reverse proxy offloads TLS termination, buffers slow clients (Slowloris defense), serves static assets, provides load balancing, and rate limits traffic before reaching Node.js.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Reverse proxies rewrite JavaScript code into machine code.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Direct Node.js ports are blocked by modern browsers.",
+          "correct": false
+        }
+      ],
+      "explanation": "Reverse proxies excel at handling thousands of idle connections, terminating SSL handshakes, and buffering requests. This frees the Node.js event loop to focus entirely on application logic.",
+      "codeSnippet": "// NGINX upstream proxy configuration:\n// upstream backend_nodes { server 127.0.0.1:3000; server 127.0.0.1:3001; }\n// location / { proxy_pass http://backend_nodes; proxy_set_header X-Forwarded-For $remote_addr; }",
+      "pitfall": "Failing to configure `app.set('trust proxy', true)` causes Express to misidentify proxy IP addresses as the client IP, breaking rate limiters.",
+      "citation": "NGINX Documentation: Reverse Proxy Architecture / Node.js Production Guide"
+    },
+    {
+      "id": "mcq-26-003-06",
+      "concept": "Circuit Breakers, Bulkheads & Graceful Degradation: Circuit Breaker Pattern in Microservices",
+      "category": "Resilience",
+      "difficulty": "Advanced",
+      "question": "What are the three states of a Circuit Breaker (e.g. Opossum), and how does it prevent cascaded system failure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Read, Write, Execute.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Closed (normal traffic), Open (failing downstream; fast-fail immediately without calling remote service), and Half-Open (trial traffic to test downstream recovery).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "TCP, UDP, ICMP.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Active, Inactive, Suspended.",
+          "correct": false
+        }
+      ],
+      "explanation": "When failures exceed a threshold, the breaker trips Open, fast-failing traffic instantly. After a cooldown, it enters Half-Open to test recovery, preventing thread and socket exhaustion.",
+      "codeSnippet": "import CircuitBreaker from 'opossum';\nconst breaker = new CircuitBreaker(fetchPaymentService, {\n  timeout: 3000,\n  errorThresholdPercentage: 50,\n  resetTimeout: 10000\n});\nbreaker.fallback(() => ({ status: 'unavailable', cached: true }));",
+      "pitfall": "Not setting fallback handlers on circuit breakers causes uncaught exceptions during downstream outages.",
+      "citation": "Release It! (Michael Nygard) / Opossum Circuit Breaker Guide"
+    },
+    {
+      "id": "mcq-26-003-07",
+      "concept": "Circuit Breakers, Bulkheads & Graceful Degradation: Reverse Proxy Architecture & TLS Termination",
+      "category": "Distributed Systems",
+      "difficulty": "Intermediate",
+      "question": "Why should production Node.js microservices be deployed behind a reverse proxy (e.g. NGINX, HAProxy, Envoy) rather than exposed directly to the public internet?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Node.js cannot listen on port 443.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The reverse proxy offloads TLS termination, buffers slow clients (Slowloris defense), serves static assets, provides load balancing, and rate limits traffic before reaching Node.js.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Reverse proxies rewrite JavaScript code into machine code.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Direct Node.js ports are blocked by modern browsers.",
+          "correct": false
+        }
+      ],
+      "explanation": "Reverse proxies excel at handling thousands of idle connections, terminating SSL handshakes, and buffering requests. This frees the Node.js event loop to focus entirely on application logic.",
+      "codeSnippet": "// NGINX upstream proxy configuration:\n// upstream backend_nodes { server 127.0.0.1:3000; server 127.0.0.1:3001; }\n// location / { proxy_pass http://backend_nodes; proxy_set_header X-Forwarded-For $remote_addr; }",
+      "pitfall": "Failing to configure `app.set('trust proxy', true)` causes Express to misidentify proxy IP addresses as the client IP, breaking rate limiters.",
+      "citation": "NGINX Documentation: Reverse Proxy Architecture / Node.js Production Guide"
+    },
+    {
+      "id": "mcq-26-003-08",
+      "concept": "Circuit Breakers, Bulkheads & Graceful Degradation: Circuit Breaker Pattern in Microservices",
+      "category": "Resilience",
+      "difficulty": "Advanced",
+      "question": "What are the three states of a Circuit Breaker (e.g. Opossum), and how does it prevent cascaded system failure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Read, Write, Execute.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Closed (normal traffic), Open (failing downstream; fast-fail immediately without calling remote service), and Half-Open (trial traffic to test downstream recovery).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "TCP, UDP, ICMP.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Active, Inactive, Suspended.",
+          "correct": false
+        }
+      ],
+      "explanation": "When failures exceed a threshold, the breaker trips Open, fast-failing traffic instantly. After a cooldown, it enters Half-Open to test recovery, preventing thread and socket exhaustion.",
+      "codeSnippet": "import CircuitBreaker from 'opossum';\nconst breaker = new CircuitBreaker(fetchPaymentService, {\n  timeout: 3000,\n  errorThresholdPercentage: 50,\n  resetTimeout: 10000\n});\nbreaker.fallback(() => ({ status: 'unavailable', cached: true }));",
+      "pitfall": "Not setting fallback handlers on circuit breakers causes uncaught exceptions during downstream outages.",
+      "citation": "Release It! (Michael Nygard) / Opossum Circuit Breaker Guide"
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-21-001",
+  "title": "§21-001: Cross-Site Scripting (XSS) & Content Security Policy",
+  "chapterId": "21-001",
+  "sectionId": "section-21",
+  "description": "Multiple-choice practice questions and deep runtime verification for §21-001 (Cross-Site Scripting (XSS) & Content Security Policy).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-21-001-01",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: Content Security Policy (CSP) & XSS Defense",
+      "category": "Web Security",
+      "difficulty": "Intermediate",
+      "question": "How does a strict Content Security Policy (CSP) header protect Node.js applications against Cross-Site Scripting (XSS)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It minifies all JavaScript before sending to the client.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It restricts the sources from which scripts, styles, and assets can be loaded and executed, prohibiting unsafe inline scripts unless signed with valid nonces or hashes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It encrypts browser cookie jars.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It blocks cross-origin fetch requests from Node.js servers.",
+          "correct": false
+        }
+      ],
+      "explanation": "CSP HTTP response headers define trusted domains for script execution and disable inline script execution (<script>alert(1)</script>) unless authorized via cryptographic nonces.",
+      "codeSnippet": "import helmet from 'helmet';\napp.use(helmet.contentSecurityPolicy({\n  directives: {\n    defaultSrc: [\"'self'\"],\n    scriptSrc: [\"'self'\", \"'nonce-abc123xyz'\"]\n  }\n}));",
+      "pitfall": "Using `'unsafe-inline'` or `'unsafe-eval'` in CSP directives completely negates XSS protections.",
+      "citation": "MDN Web Docs: Content Security Policy / OWASP CSP Cheat Sheet"
+    },
+    {
+      "id": "mcq-21-001-02",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: ReDoS: Catastrophic Backtracking",
+      "category": "Security & Performance",
+      "difficulty": "Advanced",
+      "question": "What regular expression pattern characteristic causes catastrophic backtracking (ReDoS) on the single-threaded Node.js event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Using unicode character classes.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Nested or overlapping quantifiers (e.g. `(a+)+$` or `(a|a)+$`) that evaluate exponential O(2^N) paths against non-matching inputs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Patterns longer than 128 characters.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Using the case-insensitive `/i` flag.",
+          "correct": false
+        }
+      ],
+      "explanation": "Non-deterministic finite automata (NFA) engines explore exponential branch permutations when matching non-matching inputs with nested quantifiers, freezing the single thread.",
+      "codeSnippet": "// Catastrophic pattern: O(2^N)\nconst badRegex = /([a-zA-Z]+)*[0-9]/;\n// 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa!' freezes the Node.js event loop for seconds/minutes!\n// Defense: Linear time engines (re2) or atomic groups",
+      "pitfall": "Evaluating user-supplied regular expressions without validation or timeouts blocks all concurrent requests on the server.",
+      "citation": "OWASP Regular Expression Denial of Service (ReDoS) Cheat Sheet"
+    },
+    {
+      "id": "mcq-21-001-03",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: Content Security Policy (CSP) & XSS Defense",
+      "category": "Web Security",
+      "difficulty": "Intermediate",
+      "question": "How does a strict Content Security Policy (CSP) header protect Node.js applications against Cross-Site Scripting (XSS)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It minifies all JavaScript before sending to the client.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It restricts the sources from which scripts, styles, and assets can be loaded and executed, prohibiting unsafe inline scripts unless signed with valid nonces or hashes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It encrypts browser cookie jars.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It blocks cross-origin fetch requests from Node.js servers.",
+          "correct": false
+        }
+      ],
+      "explanation": "CSP HTTP response headers define trusted domains for script execution and disable inline script execution (<script>alert(1)</script>) unless authorized via cryptographic nonces.",
+      "codeSnippet": "import helmet from 'helmet';\napp.use(helmet.contentSecurityPolicy({\n  directives: {\n    defaultSrc: [\"'self'\"],\n    scriptSrc: [\"'self'\", \"'nonce-abc123xyz'\"]\n  }\n}));",
+      "pitfall": "Using `'unsafe-inline'` or `'unsafe-eval'` in CSP directives completely negates XSS protections.",
+      "citation": "MDN Web Docs: Content Security Policy / OWASP CSP Cheat Sheet"
+    },
+    {
+      "id": "mcq-21-001-04",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: ReDoS: Catastrophic Backtracking",
+      "category": "Security & Performance",
+      "difficulty": "Advanced",
+      "question": "What regular expression pattern characteristic causes catastrophic backtracking (ReDoS) on the single-threaded Node.js event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Using unicode character classes.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Nested or overlapping quantifiers (e.g. `(a+)+$` or `(a|a)+$`) that evaluate exponential O(2^N) paths against non-matching inputs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Patterns longer than 128 characters.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Using the case-insensitive `/i` flag.",
+          "correct": false
+        }
+      ],
+      "explanation": "Non-deterministic finite automata (NFA) engines explore exponential branch permutations when matching non-matching inputs with nested quantifiers, freezing the single thread.",
+      "codeSnippet": "// Catastrophic pattern: O(2^N)\nconst badRegex = /([a-zA-Z]+)*[0-9]/;\n// 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa!' freezes the Node.js event loop for seconds/minutes!\n// Defense: Linear time engines (re2) or atomic groups",
+      "pitfall": "Evaluating user-supplied regular expressions without validation or timeouts blocks all concurrent requests on the server.",
+      "citation": "OWASP Regular Expression Denial of Service (ReDoS) Cheat Sheet"
+    },
+    {
+      "id": "mcq-21-001-05",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: Content Security Policy (CSP) & XSS Defense",
+      "category": "Web Security",
+      "difficulty": "Intermediate",
+      "question": "How does a strict Content Security Policy (CSP) header protect Node.js applications against Cross-Site Scripting (XSS)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It minifies all JavaScript before sending to the client.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It restricts the sources from which scripts, styles, and assets can be loaded and executed, prohibiting unsafe inline scripts unless signed with valid nonces or hashes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It encrypts browser cookie jars.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It blocks cross-origin fetch requests from Node.js servers.",
+          "correct": false
+        }
+      ],
+      "explanation": "CSP HTTP response headers define trusted domains for script execution and disable inline script execution (<script>alert(1)</script>) unless authorized via cryptographic nonces.",
+      "codeSnippet": "import helmet from 'helmet';\napp.use(helmet.contentSecurityPolicy({\n  directives: {\n    defaultSrc: [\"'self'\"],\n    scriptSrc: [\"'self'\", \"'nonce-abc123xyz'\"]\n  }\n}));",
+      "pitfall": "Using `'unsafe-inline'` or `'unsafe-eval'` in CSP directives completely negates XSS protections.",
+      "citation": "MDN Web Docs: Content Security Policy / OWASP CSP Cheat Sheet"
+    },
+    {
+      "id": "mcq-21-001-06",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: ReDoS: Catastrophic Backtracking",
+      "category": "Security & Performance",
+      "difficulty": "Advanced",
+      "question": "What regular expression pattern characteristic causes catastrophic backtracking (ReDoS) on the single-threaded Node.js event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Using unicode character classes.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Nested or overlapping quantifiers (e.g. `(a+)+$` or `(a|a)+$`) that evaluate exponential O(2^N) paths against non-matching inputs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Patterns longer than 128 characters.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Using the case-insensitive `/i` flag.",
+          "correct": false
+        }
+      ],
+      "explanation": "Non-deterministic finite automata (NFA) engines explore exponential branch permutations when matching non-matching inputs with nested quantifiers, freezing the single thread.",
+      "codeSnippet": "// Catastrophic pattern: O(2^N)\nconst badRegex = /([a-zA-Z]+)*[0-9]/;\n// 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa!' freezes the Node.js event loop for seconds/minutes!\n// Defense: Linear time engines (re2) or atomic groups",
+      "pitfall": "Evaluating user-supplied regular expressions without validation or timeouts blocks all concurrent requests on the server.",
+      "citation": "OWASP Regular Expression Denial of Service (ReDoS) Cheat Sheet"
+    },
+    {
+      "id": "mcq-21-001-07",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: Content Security Policy (CSP) & XSS Defense",
+      "category": "Web Security",
+      "difficulty": "Intermediate",
+      "question": "How does a strict Content Security Policy (CSP) header protect Node.js applications against Cross-Site Scripting (XSS)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It minifies all JavaScript before sending to the client.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It restricts the sources from which scripts, styles, and assets can be loaded and executed, prohibiting unsafe inline scripts unless signed with valid nonces or hashes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It encrypts browser cookie jars.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It blocks cross-origin fetch requests from Node.js servers.",
+          "correct": false
+        }
+      ],
+      "explanation": "CSP HTTP response headers define trusted domains for script execution and disable inline script execution (<script>alert(1)</script>) unless authorized via cryptographic nonces.",
+      "codeSnippet": "import helmet from 'helmet';\napp.use(helmet.contentSecurityPolicy({\n  directives: {\n    defaultSrc: [\"'self'\"],\n    scriptSrc: [\"'self'\", \"'nonce-abc123xyz'\"]\n  }\n}));",
+      "pitfall": "Using `'unsafe-inline'` or `'unsafe-eval'` in CSP directives completely negates XSS protections.",
+      "citation": "MDN Web Docs: Content Security Policy / OWASP CSP Cheat Sheet"
+    },
+    {
+      "id": "mcq-21-001-08",
+      "concept": "Cross-Site Scripting (XSS) & Content Security Policy: ReDoS: Catastrophic Backtracking",
+      "category": "Security & Performance",
+      "difficulty": "Advanced",
+      "question": "What regular expression pattern characteristic causes catastrophic backtracking (ReDoS) on the single-threaded Node.js event loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Using unicode character classes.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Nested or overlapping quantifiers (e.g. `(a+)+$` or `(a|a)+$`) that evaluate exponential O(2^N) paths against non-matching inputs.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Patterns longer than 128 characters.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Using the case-insensitive `/i` flag.",
+          "correct": false
+        }
+      ],
+      "explanation": "Non-deterministic finite automata (NFA) engines explore exponential branch permutations when matching non-matching inputs with nested quantifiers, freezing the single thread.",
+      "codeSnippet": "// Catastrophic pattern: O(2^N)\nconst badRegex = /([a-zA-Z]+)*[0-9]/;\n// 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa!' freezes the Node.js event loop for seconds/minutes!\n// Defense: Linear time engines (re2) or atomic groups",
+      "pitfall": "Evaluating user-supplied regular expressions without validation or timeouts blocks all concurrent requests on the server.",
+      "citation": "OWASP Regular Expression Denial of Service (ReDoS) Cheat Sheet"
+    }
+  ]
+}

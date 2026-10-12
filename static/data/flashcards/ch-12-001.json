@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-12-001",
+  "title": "§12-001: Chain of Responsibility & Command Patterns",
+  "chapterId": "12-001",
+  "sectionId": "section-12",
+  "description": "Multiple-choice practice questions and deep runtime verification for §12-001 (Chain of Responsibility & Command Patterns).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-12-001-01",
+      "concept": "Chain of Responsibility & Command Patterns: EventEmitter Synchronous Execution Semantics",
+      "category": "Event Architecture",
+      "difficulty": "Intermediate",
+      "question": "In what order and execution model does Node's `EventEmitter` invoke registered listener functions upon `emit()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Asynchronously in the next libuv poll phase via threadpool.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Synchronously, in the exact order in which listeners were registered.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Concurrently on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "In reverse order of registration.",
+          "correct": false
+        }
+      ],
+      "explanation": "EventEmitter invokes all listeners synchronously in registration order. An unhandled error thrown inside one listener prevents subsequent listeners from executing.",
+      "codeSnippet": "const emitter = new EventEmitter();\nemitter.on('event', () => console.log('First'));\nemitter.on('event', () => console.log('Second'));\nemitter.emit('event'); // Synchronous output: First -> Second",
+      "pitfall": "Emitting an 'error' event on an EventEmitter with no registered 'error' listener causes Node.js to throw an unhandled exception and crash the process.",
+      "citation": "Node.js Events API Documentation: Passing arguments and this to listeners"
+    },
+    {
+      "id": "mcq-12-001-02",
+      "concept": "Chain of Responsibility & Command Patterns: EventEmitter Memory Leak Warning",
+      "category": "Memory & Diagnostics",
+      "difficulty": "Intermediate",
+      "question": "What causes Node.js to log `MaxListenersExceededWarning: Possible EventEmitter memory leak detected`, and how should it be managed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The process has exceeded 2GB V8 heap allocation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "More than 10 listeners (default threshold) have been added to a single event on an emitter, typically indicating unremoved event listeners.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Network sockets are closing prematurely.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop has stopped polling.",
+          "correct": false
+        }
+      ],
+      "explanation": "By default, EventEmitter warns if >10 listeners are added to an event. If intentional, tune with emitter.setMaxListeners(n). If unintentional, remove listeners with emitter.off().",
+      "codeSnippet": "// When intentional for pub/sub brokers:\nemitter.setMaxListeners(50);\n// When cleanup is needed:\nemitter.off('data', dataHandler);",
+      "pitfall": "Adding event listeners inside repeated HTTP request handlers without removing them upon response completion steadily leaks memory.",
+      "citation": "Node.js Events API Reference: emitter.setMaxListeners(n)"
+    },
+    {
+      "id": "mcq-12-001-03",
+      "concept": "Chain of Responsibility & Command Patterns: EventEmitter Synchronous Execution Semantics",
+      "category": "Event Architecture",
+      "difficulty": "Intermediate",
+      "question": "In what order and execution model does Node's `EventEmitter` invoke registered listener functions upon `emit()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Asynchronously in the next libuv poll phase via threadpool.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Synchronously, in the exact order in which listeners were registered.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Concurrently on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "In reverse order of registration.",
+          "correct": false
+        }
+      ],
+      "explanation": "EventEmitter invokes all listeners synchronously in registration order. An unhandled error thrown inside one listener prevents subsequent listeners from executing.",
+      "codeSnippet": "const emitter = new EventEmitter();\nemitter.on('event', () => console.log('First'));\nemitter.on('event', () => console.log('Second'));\nemitter.emit('event'); // Synchronous output: First -> Second",
+      "pitfall": "Emitting an 'error' event on an EventEmitter with no registered 'error' listener causes Node.js to throw an unhandled exception and crash the process.",
+      "citation": "Node.js Events API Documentation: Passing arguments and this to listeners"
+    },
+    {
+      "id": "mcq-12-001-04",
+      "concept": "Chain of Responsibility & Command Patterns: EventEmitter Memory Leak Warning",
+      "category": "Memory & Diagnostics",
+      "difficulty": "Intermediate",
+      "question": "What causes Node.js to log `MaxListenersExceededWarning: Possible EventEmitter memory leak detected`, and how should it be managed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The process has exceeded 2GB V8 heap allocation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "More than 10 listeners (default threshold) have been added to a single event on an emitter, typically indicating unremoved event listeners.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Network sockets are closing prematurely.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop has stopped polling.",
+          "correct": false
+        }
+      ],
+      "explanation": "By default, EventEmitter warns if >10 listeners are added to an event. If intentional, tune with emitter.setMaxListeners(n). If unintentional, remove listeners with emitter.off().",
+      "codeSnippet": "// When intentional for pub/sub brokers:\nemitter.setMaxListeners(50);\n// When cleanup is needed:\nemitter.off('data', dataHandler);",
+      "pitfall": "Adding event listeners inside repeated HTTP request handlers without removing them upon response completion steadily leaks memory.",
+      "citation": "Node.js Events API Reference: emitter.setMaxListeners(n)"
+    },
+    {
+      "id": "mcq-12-001-05",
+      "concept": "Chain of Responsibility & Command Patterns: EventEmitter Synchronous Execution Semantics",
+      "category": "Event Architecture",
+      "difficulty": "Intermediate",
+      "question": "In what order and execution model does Node's `EventEmitter` invoke registered listener functions upon `emit()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Asynchronously in the next libuv poll phase via threadpool.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Synchronously, in the exact order in which listeners were registered.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Concurrently on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "In reverse order of registration.",
+          "correct": false
+        }
+      ],
+      "explanation": "EventEmitter invokes all listeners synchronously in registration order. An unhandled error thrown inside one listener prevents subsequent listeners from executing.",
+      "codeSnippet": "const emitter = new EventEmitter();\nemitter.on('event', () => console.log('First'));\nemitter.on('event', () => console.log('Second'));\nemitter.emit('event'); // Synchronous output: First -> Second",
+      "pitfall": "Emitting an 'error' event on an EventEmitter with no registered 'error' listener causes Node.js to throw an unhandled exception and crash the process.",
+      "citation": "Node.js Events API Documentation: Passing arguments and this to listeners"
+    },
+    {
+      "id": "mcq-12-001-06",
+      "concept": "Chain of Responsibility & Command Patterns: EventEmitter Memory Leak Warning",
+      "category": "Memory & Diagnostics",
+      "difficulty": "Intermediate",
+      "question": "What causes Node.js to log `MaxListenersExceededWarning: Possible EventEmitter memory leak detected`, and how should it be managed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The process has exceeded 2GB V8 heap allocation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "More than 10 listeners (default threshold) have been added to a single event on an emitter, typically indicating unremoved event listeners.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Network sockets are closing prematurely.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop has stopped polling.",
+          "correct": false
+        }
+      ],
+      "explanation": "By default, EventEmitter warns if >10 listeners are added to an event. If intentional, tune with emitter.setMaxListeners(n). If unintentional, remove listeners with emitter.off().",
+      "codeSnippet": "// When intentional for pub/sub brokers:\nemitter.setMaxListeners(50);\n// When cleanup is needed:\nemitter.off('data', dataHandler);",
+      "pitfall": "Adding event listeners inside repeated HTTP request handlers without removing them upon response completion steadily leaks memory.",
+      "citation": "Node.js Events API Reference: emitter.setMaxListeners(n)"
+    },
+    {
+      "id": "mcq-12-001-07",
+      "concept": "Chain of Responsibility & Command Patterns: EventEmitter Synchronous Execution Semantics",
+      "category": "Event Architecture",
+      "difficulty": "Intermediate",
+      "question": "In what order and execution model does Node's `EventEmitter` invoke registered listener functions upon `emit()`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Asynchronously in the next libuv poll phase via threadpool.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Synchronously, in the exact order in which listeners were registered.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Concurrently on worker threads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "In reverse order of registration.",
+          "correct": false
+        }
+      ],
+      "explanation": "EventEmitter invokes all listeners synchronously in registration order. An unhandled error thrown inside one listener prevents subsequent listeners from executing.",
+      "codeSnippet": "const emitter = new EventEmitter();\nemitter.on('event', () => console.log('First'));\nemitter.on('event', () => console.log('Second'));\nemitter.emit('event'); // Synchronous output: First -> Second",
+      "pitfall": "Emitting an 'error' event on an EventEmitter with no registered 'error' listener causes Node.js to throw an unhandled exception and crash the process.",
+      "citation": "Node.js Events API Documentation: Passing arguments and this to listeners"
+    },
+    {
+      "id": "mcq-12-001-08",
+      "concept": "Chain of Responsibility & Command Patterns: EventEmitter Memory Leak Warning",
+      "category": "Memory & Diagnostics",
+      "difficulty": "Intermediate",
+      "question": "What causes Node.js to log `MaxListenersExceededWarning: Possible EventEmitter memory leak detected`, and how should it be managed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The process has exceeded 2GB V8 heap allocation.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "More than 10 listeners (default threshold) have been added to a single event on an emitter, typically indicating unremoved event listeners.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Network sockets are closing prematurely.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The event loop has stopped polling.",
+          "correct": false
+        }
+      ],
+      "explanation": "By default, EventEmitter warns if >10 listeners are added to an event. If intentional, tune with emitter.setMaxListeners(n). If unintentional, remove listeners with emitter.off().",
+      "codeSnippet": "// When intentional for pub/sub brokers:\nemitter.setMaxListeners(50);\n// When cleanup is needed:\nemitter.off('data', dataHandler);",
+      "pitfall": "Adding event listeners inside repeated HTTP request handlers without removing them upon response completion steadily leaks memory.",
+      "citation": "Node.js Events API Reference: emitter.setMaxListeners(n)"
+    }
+  ]
+}

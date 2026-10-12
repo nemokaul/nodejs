@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-07-002",
+  "title": "§07-002: Process Object, CLI Arguments & Standard I/O",
+  "chapterId": "07-002",
+  "sectionId": "section-07",
+  "description": "Multiple-choice practice questions and deep runtime verification for §07-002 (Process Object, CLI Arguments & Standard I/O).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-07-002-01",
+      "concept": "Process Object, CLI Arguments & Standard I/O: libuv Event Loop Phase Ordering",
+      "category": "Node Internals",
+      "difficulty": "Advanced",
+      "question": "Which sequence correctly describes the phases of a single tick of the libuv event loop in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Poll -> Timers -> Close -> Check -> Pending Callbacks",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Timers -> Pending Callbacks -> Idle/Prepare -> Poll -> Check -> Close Callbacks",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Threadpool -> Network IO -> Microtasks -> Timers -> Cleanup",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Check -> Poll -> Timers -> Pending Callbacks -> Close Callbacks",
+          "correct": false
+        }
+      ],
+      "explanation": "libuv loop iteration steps through: 1. Timers (setTimeout/setInterval), 2. Pending Callbacks (OS I/O), 3. Idle/Prepare (internals), 4. Poll (retrieve new I/O events), 5. Check (setImmediate), 6. Close Callbacks.",
+      "codeSnippet": "setTimeout(() => console.log('Timers Phase'), 0);\nsetImmediate(() => console.log('Check Phase'));\n// Inside an I/O cycle (fs.readFile), setImmediate is always invoked before setTimeout",
+      "pitfall": "Assuming setImmediate and setTimeout(fn, 0) execute in deterministic order when invoked from top-level script scope (subject to process scheduling jitter).",
+      "citation": "libuv Official Architecture Documentation: Loop Iteration Phases"
+    },
+    {
+      "id": "mcq-07-002-02",
+      "concept": "Process Object, CLI Arguments & Standard I/O: libuv Thread Pool Workloads",
+      "category": "Concurrency",
+      "difficulty": "Intermediate",
+      "question": "Which of the following operations in Node.js utilize the internal libuv thread pool (UV_THREADPOOL_SIZE, default 4)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TCP network sockets and HTTP server connections.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "File system operations (fs), DNS lookups (dns.lookup), compression (zlib), and specific crypto functions (crypto.pbkdf2, scrypt).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "setTimeout and setImmediate timers.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Parsing JSON payloads with JSON.parse().",
+          "correct": false
+        }
+      ],
+      "explanation": "Network I/O is non-blocking via OS polling (epoll/kqueue). libuv offloads blocking file system I/O, synchronous DNS resolutions, zlib, and CPU-intensive crypto to its thread pool.",
+      "codeSnippet": "// Increase threadpool size before startup:\n// $ UV_THREADPOOL_SIZE=16 node server.js\nprocess.env.UV_THREADPOOL_SIZE = '16'; // Must be set before any native bindings initialize",
+      "pitfall": "Running multiple heavy crypto.pbkdf2 tasks concurrently exhausts the 4-thread pool, blocking all file I/O and dns.lookup calls.",
+      "citation": "Node.js API Reference: Threadpool Usage & Libuv Architecture"
+    },
+    {
+      "id": "mcq-07-002-03",
+      "concept": "Process Object, CLI Arguments & Standard I/O: libuv Event Loop Phase Ordering",
+      "category": "Node Internals",
+      "difficulty": "Advanced",
+      "question": "Which sequence correctly describes the phases of a single tick of the libuv event loop in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Poll -> Timers -> Close -> Check -> Pending Callbacks",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Timers -> Pending Callbacks -> Idle/Prepare -> Poll -> Check -> Close Callbacks",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Threadpool -> Network IO -> Microtasks -> Timers -> Cleanup",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Check -> Poll -> Timers -> Pending Callbacks -> Close Callbacks",
+          "correct": false
+        }
+      ],
+      "explanation": "libuv loop iteration steps through: 1. Timers (setTimeout/setInterval), 2. Pending Callbacks (OS I/O), 3. Idle/Prepare (internals), 4. Poll (retrieve new I/O events), 5. Check (setImmediate), 6. Close Callbacks.",
+      "codeSnippet": "setTimeout(() => console.log('Timers Phase'), 0);\nsetImmediate(() => console.log('Check Phase'));\n// Inside an I/O cycle (fs.readFile), setImmediate is always invoked before setTimeout",
+      "pitfall": "Assuming setImmediate and setTimeout(fn, 0) execute in deterministic order when invoked from top-level script scope (subject to process scheduling jitter).",
+      "citation": "libuv Official Architecture Documentation: Loop Iteration Phases"
+    },
+    {
+      "id": "mcq-07-002-04",
+      "concept": "Process Object, CLI Arguments & Standard I/O: libuv Thread Pool Workloads",
+      "category": "Concurrency",
+      "difficulty": "Intermediate",
+      "question": "Which of the following operations in Node.js utilize the internal libuv thread pool (UV_THREADPOOL_SIZE, default 4)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TCP network sockets and HTTP server connections.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "File system operations (fs), DNS lookups (dns.lookup), compression (zlib), and specific crypto functions (crypto.pbkdf2, scrypt).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "setTimeout and setImmediate timers.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Parsing JSON payloads with JSON.parse().",
+          "correct": false
+        }
+      ],
+      "explanation": "Network I/O is non-blocking via OS polling (epoll/kqueue). libuv offloads blocking file system I/O, synchronous DNS resolutions, zlib, and CPU-intensive crypto to its thread pool.",
+      "codeSnippet": "// Increase threadpool size before startup:\n// $ UV_THREADPOOL_SIZE=16 node server.js\nprocess.env.UV_THREADPOOL_SIZE = '16'; // Must be set before any native bindings initialize",
+      "pitfall": "Running multiple heavy crypto.pbkdf2 tasks concurrently exhausts the 4-thread pool, blocking all file I/O and dns.lookup calls.",
+      "citation": "Node.js API Reference: Threadpool Usage & Libuv Architecture"
+    },
+    {
+      "id": "mcq-07-002-05",
+      "concept": "Process Object, CLI Arguments & Standard I/O: libuv Event Loop Phase Ordering",
+      "category": "Node Internals",
+      "difficulty": "Advanced",
+      "question": "Which sequence correctly describes the phases of a single tick of the libuv event loop in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Poll -> Timers -> Close -> Check -> Pending Callbacks",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Timers -> Pending Callbacks -> Idle/Prepare -> Poll -> Check -> Close Callbacks",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Threadpool -> Network IO -> Microtasks -> Timers -> Cleanup",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Check -> Poll -> Timers -> Pending Callbacks -> Close Callbacks",
+          "correct": false
+        }
+      ],
+      "explanation": "libuv loop iteration steps through: 1. Timers (setTimeout/setInterval), 2. Pending Callbacks (OS I/O), 3. Idle/Prepare (internals), 4. Poll (retrieve new I/O events), 5. Check (setImmediate), 6. Close Callbacks.",
+      "codeSnippet": "setTimeout(() => console.log('Timers Phase'), 0);\nsetImmediate(() => console.log('Check Phase'));\n// Inside an I/O cycle (fs.readFile), setImmediate is always invoked before setTimeout",
+      "pitfall": "Assuming setImmediate and setTimeout(fn, 0) execute in deterministic order when invoked from top-level script scope (subject to process scheduling jitter).",
+      "citation": "libuv Official Architecture Documentation: Loop Iteration Phases"
+    },
+    {
+      "id": "mcq-07-002-06",
+      "concept": "Process Object, CLI Arguments & Standard I/O: libuv Thread Pool Workloads",
+      "category": "Concurrency",
+      "difficulty": "Intermediate",
+      "question": "Which of the following operations in Node.js utilize the internal libuv thread pool (UV_THREADPOOL_SIZE, default 4)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TCP network sockets and HTTP server connections.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "File system operations (fs), DNS lookups (dns.lookup), compression (zlib), and specific crypto functions (crypto.pbkdf2, scrypt).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "setTimeout and setImmediate timers.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Parsing JSON payloads with JSON.parse().",
+          "correct": false
+        }
+      ],
+      "explanation": "Network I/O is non-blocking via OS polling (epoll/kqueue). libuv offloads blocking file system I/O, synchronous DNS resolutions, zlib, and CPU-intensive crypto to its thread pool.",
+      "codeSnippet": "// Increase threadpool size before startup:\n// $ UV_THREADPOOL_SIZE=16 node server.js\nprocess.env.UV_THREADPOOL_SIZE = '16'; // Must be set before any native bindings initialize",
+      "pitfall": "Running multiple heavy crypto.pbkdf2 tasks concurrently exhausts the 4-thread pool, blocking all file I/O and dns.lookup calls.",
+      "citation": "Node.js API Reference: Threadpool Usage & Libuv Architecture"
+    },
+    {
+      "id": "mcq-07-002-07",
+      "concept": "Process Object, CLI Arguments & Standard I/O: libuv Event Loop Phase Ordering",
+      "category": "Node Internals",
+      "difficulty": "Advanced",
+      "question": "Which sequence correctly describes the phases of a single tick of the libuv event loop in Node.js?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Poll -> Timers -> Close -> Check -> Pending Callbacks",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Timers -> Pending Callbacks -> Idle/Prepare -> Poll -> Check -> Close Callbacks",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Threadpool -> Network IO -> Microtasks -> Timers -> Cleanup",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Check -> Poll -> Timers -> Pending Callbacks -> Close Callbacks",
+          "correct": false
+        }
+      ],
+      "explanation": "libuv loop iteration steps through: 1. Timers (setTimeout/setInterval), 2. Pending Callbacks (OS I/O), 3. Idle/Prepare (internals), 4. Poll (retrieve new I/O events), 5. Check (setImmediate), 6. Close Callbacks.",
+      "codeSnippet": "setTimeout(() => console.log('Timers Phase'), 0);\nsetImmediate(() => console.log('Check Phase'));\n// Inside an I/O cycle (fs.readFile), setImmediate is always invoked before setTimeout",
+      "pitfall": "Assuming setImmediate and setTimeout(fn, 0) execute in deterministic order when invoked from top-level script scope (subject to process scheduling jitter).",
+      "citation": "libuv Official Architecture Documentation: Loop Iteration Phases"
+    },
+    {
+      "id": "mcq-07-002-08",
+      "concept": "Process Object, CLI Arguments & Standard I/O: libuv Thread Pool Workloads",
+      "category": "Concurrency",
+      "difficulty": "Intermediate",
+      "question": "Which of the following operations in Node.js utilize the internal libuv thread pool (UV_THREADPOOL_SIZE, default 4)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TCP network sockets and HTTP server connections.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "File system operations (fs), DNS lookups (dns.lookup), compression (zlib), and specific crypto functions (crypto.pbkdf2, scrypt).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "setTimeout and setImmediate timers.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Parsing JSON payloads with JSON.parse().",
+          "correct": false
+        }
+      ],
+      "explanation": "Network I/O is non-blocking via OS polling (epoll/kqueue). libuv offloads blocking file system I/O, synchronous DNS resolutions, zlib, and CPU-intensive crypto to its thread pool.",
+      "codeSnippet": "// Increase threadpool size before startup:\n// $ UV_THREADPOOL_SIZE=16 node server.js\nprocess.env.UV_THREADPOOL_SIZE = '16'; // Must be set before any native bindings initialize",
+      "pitfall": "Running multiple heavy crypto.pbkdf2 tasks concurrently exhausts the 4-thread pool, blocking all file I/O and dns.lookup calls.",
+      "citation": "Node.js API Reference: Threadpool Usage & Libuv Architecture"
+    }
+  ]
+}

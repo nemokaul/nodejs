@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-19-003",
+  "title": "§19-003: OS Command Injection & Prototype Pollution Defense",
+  "chapterId": "19-003",
+  "sectionId": "section-19",
+  "description": "Multiple-choice practice questions and deep runtime verification for §19-003 (OS Command Injection & Prototype Pollution Defense).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-19-003-01",
+      "concept": "OS Command Injection & Prototype Pollution Defense: SQL Injection Prevention with Parameterized Queries",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "Why does parameterized query execution prevent SQL injection attacks, whereas string concatenation is vulnerable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Parameterized queries encrypt the SQL database file.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The database parses and compiles the SQL query template AST first; parameters are transmitted separately and treated strictly as literal data values, never executable syntax.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Parameterized queries convert user inputs into Base64 strings.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "String concatenation only works with integer fields.",
+          "correct": false
+        }
+      ],
+      "explanation": "Parameterized queries transmit the query structure and user data separately. The database compiler treats bound parameters purely as literal values, rendering SQL syntax injection impossible.",
+      "codeSnippet": "// SECURE (Parameterized):\nconst query = 'SELECT id, email FROM users WHERE email = $1';\nconst { rows } = await db.query(query, [userEmail]);",
+      "pitfall": "Attempting to sanitize SQL inputs using custom regex replace routines instead of native prepared statements.",
+      "citation": "OWASP Cheat Sheet Series: SQL Injection Prevention in Node.js"
+    },
+    {
+      "id": "mcq-19-003-02",
+      "concept": "OS Command Injection & Prototype Pollution Defense: NoSQL Operator Injection Defense",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "How can an attacker bypass authentication in a MongoDB/Node.js app using NoSQL injection, and how is it mitigated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By sending SQL UNION SELECT statements in headers.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By passing object payloads (e.g. `{ username: 'admin', password: { $gt: '' } }`) in JSON request bodies; mitigate by strictly validating input types (e.g. ensuring password is a string).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By flooding the MongoDB replication log.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By modifying the MongoDB port number.",
+          "correct": false
+        }
+      ],
+      "explanation": "If request bodies are passed directly to findOne(), query operators like {$gt: ''} or {$ne: null} evaluate to true. Defend with strict schema validation (Zod, Ajv) verifying string primitives.",
+      "codeSnippet": "if (typeof req.body.password !== 'string') {\n  return res.status(400).json({ error: 'Password must be a string' });\n}\nconst user = await db.users.findOne({ username, password: req.body.password });",
+      "pitfall": "Using express.json() parser without type verification allows JSON objects where string primitives are expected.",
+      "citation": "OWASP NoSQL Injection Prevention Cheat Sheet"
+    },
+    {
+      "id": "mcq-19-003-03",
+      "concept": "OS Command Injection & Prototype Pollution Defense: SQL Injection Prevention with Parameterized Queries",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "Why does parameterized query execution prevent SQL injection attacks, whereas string concatenation is vulnerable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Parameterized queries encrypt the SQL database file.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The database parses and compiles the SQL query template AST first; parameters are transmitted separately and treated strictly as literal data values, never executable syntax.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Parameterized queries convert user inputs into Base64 strings.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "String concatenation only works with integer fields.",
+          "correct": false
+        }
+      ],
+      "explanation": "Parameterized queries transmit the query structure and user data separately. The database compiler treats bound parameters purely as literal values, rendering SQL syntax injection impossible.",
+      "codeSnippet": "// SECURE (Parameterized):\nconst query = 'SELECT id, email FROM users WHERE email = $1';\nconst { rows } = await db.query(query, [userEmail]);",
+      "pitfall": "Attempting to sanitize SQL inputs using custom regex replace routines instead of native prepared statements.",
+      "citation": "OWASP Cheat Sheet Series: SQL Injection Prevention in Node.js"
+    },
+    {
+      "id": "mcq-19-003-04",
+      "concept": "OS Command Injection & Prototype Pollution Defense: NoSQL Operator Injection Defense",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "How can an attacker bypass authentication in a MongoDB/Node.js app using NoSQL injection, and how is it mitigated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By sending SQL UNION SELECT statements in headers.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By passing object payloads (e.g. `{ username: 'admin', password: { $gt: '' } }`) in JSON request bodies; mitigate by strictly validating input types (e.g. ensuring password is a string).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By flooding the MongoDB replication log.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By modifying the MongoDB port number.",
+          "correct": false
+        }
+      ],
+      "explanation": "If request bodies are passed directly to findOne(), query operators like {$gt: ''} or {$ne: null} evaluate to true. Defend with strict schema validation (Zod, Ajv) verifying string primitives.",
+      "codeSnippet": "if (typeof req.body.password !== 'string') {\n  return res.status(400).json({ error: 'Password must be a string' });\n}\nconst user = await db.users.findOne({ username, password: req.body.password });",
+      "pitfall": "Using express.json() parser without type verification allows JSON objects where string primitives are expected.",
+      "citation": "OWASP NoSQL Injection Prevention Cheat Sheet"
+    },
+    {
+      "id": "mcq-19-003-05",
+      "concept": "OS Command Injection & Prototype Pollution Defense: SQL Injection Prevention with Parameterized Queries",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "Why does parameterized query execution prevent SQL injection attacks, whereas string concatenation is vulnerable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Parameterized queries encrypt the SQL database file.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The database parses and compiles the SQL query template AST first; parameters are transmitted separately and treated strictly as literal data values, never executable syntax.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Parameterized queries convert user inputs into Base64 strings.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "String concatenation only works with integer fields.",
+          "correct": false
+        }
+      ],
+      "explanation": "Parameterized queries transmit the query structure and user data separately. The database compiler treats bound parameters purely as literal values, rendering SQL syntax injection impossible.",
+      "codeSnippet": "// SECURE (Parameterized):\nconst query = 'SELECT id, email FROM users WHERE email = $1';\nconst { rows } = await db.query(query, [userEmail]);",
+      "pitfall": "Attempting to sanitize SQL inputs using custom regex replace routines instead of native prepared statements.",
+      "citation": "OWASP Cheat Sheet Series: SQL Injection Prevention in Node.js"
+    },
+    {
+      "id": "mcq-19-003-06",
+      "concept": "OS Command Injection & Prototype Pollution Defense: NoSQL Operator Injection Defense",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "How can an attacker bypass authentication in a MongoDB/Node.js app using NoSQL injection, and how is it mitigated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By sending SQL UNION SELECT statements in headers.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By passing object payloads (e.g. `{ username: 'admin', password: { $gt: '' } }`) in JSON request bodies; mitigate by strictly validating input types (e.g. ensuring password is a string).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By flooding the MongoDB replication log.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By modifying the MongoDB port number.",
+          "correct": false
+        }
+      ],
+      "explanation": "If request bodies are passed directly to findOne(), query operators like {$gt: ''} or {$ne: null} evaluate to true. Defend with strict schema validation (Zod, Ajv) verifying string primitives.",
+      "codeSnippet": "if (typeof req.body.password !== 'string') {\n  return res.status(400).json({ error: 'Password must be a string' });\n}\nconst user = await db.users.findOne({ username, password: req.body.password });",
+      "pitfall": "Using express.json() parser without type verification allows JSON objects where string primitives are expected.",
+      "citation": "OWASP NoSQL Injection Prevention Cheat Sheet"
+    },
+    {
+      "id": "mcq-19-003-07",
+      "concept": "OS Command Injection & Prototype Pollution Defense: SQL Injection Prevention with Parameterized Queries",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "Why does parameterized query execution prevent SQL injection attacks, whereas string concatenation is vulnerable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Parameterized queries encrypt the SQL database file.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The database parses and compiles the SQL query template AST first; parameters are transmitted separately and treated strictly as literal data values, never executable syntax.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Parameterized queries convert user inputs into Base64 strings.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "String concatenation only works with integer fields.",
+          "correct": false
+        }
+      ],
+      "explanation": "Parameterized queries transmit the query structure and user data separately. The database compiler treats bound parameters purely as literal values, rendering SQL syntax injection impossible.",
+      "codeSnippet": "// SECURE (Parameterized):\nconst query = 'SELECT id, email FROM users WHERE email = $1';\nconst { rows } = await db.query(query, [userEmail]);",
+      "pitfall": "Attempting to sanitize SQL inputs using custom regex replace routines instead of native prepared statements.",
+      "citation": "OWASP Cheat Sheet Series: SQL Injection Prevention in Node.js"
+    },
+    {
+      "id": "mcq-19-003-08",
+      "concept": "OS Command Injection & Prototype Pollution Defense: NoSQL Operator Injection Defense",
+      "category": "Security",
+      "difficulty": "Intermediate",
+      "question": "How can an attacker bypass authentication in a MongoDB/Node.js app using NoSQL injection, and how is it mitigated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By sending SQL UNION SELECT statements in headers.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By passing object payloads (e.g. `{ username: 'admin', password: { $gt: '' } }`) in JSON request bodies; mitigate by strictly validating input types (e.g. ensuring password is a string).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By flooding the MongoDB replication log.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By modifying the MongoDB port number.",
+          "correct": false
+        }
+      ],
+      "explanation": "If request bodies are passed directly to findOne(), query operators like {$gt: ''} or {$ne: null} evaluate to true. Defend with strict schema validation (Zod, Ajv) verifying string primitives.",
+      "codeSnippet": "if (typeof req.body.password !== 'string') {\n  return res.status(400).json({ error: 'Password must be a string' });\n}\nconst user = await db.users.findOne({ username, password: req.body.password });",
+      "pitfall": "Using express.json() parser without type verification allows JSON objects where string primitives are expected.",
+      "citation": "OWASP NoSQL Injection Prevention Cheat Sheet"
+    }
+  ]
+}

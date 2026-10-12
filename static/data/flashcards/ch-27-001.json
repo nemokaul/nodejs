@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-27-001",
+  "title": "§27-001: Microservices Communication Paradigms & REST Contracts",
+  "chapterId": "27-001",
+  "sectionId": "section-27",
+  "description": "Multiple-choice practice questions and deep runtime verification for §27-001 (Microservices Communication Paradigms & REST Contracts).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-27-001-01",
+      "concept": "Microservices Communication Paradigms & REST Contracts: gRPC & Protocol Buffers Efficiency",
+      "category": "Microservices",
+      "difficulty": "Intermediate",
+      "question": "Why does gRPC over HTTP/2 deliver significantly higher throughput and lower latency than traditional REST over JSON?",
+      "options": [
+        {
+          "id": "A",
+          "text": "gRPC compiles JavaScript into native assembly at runtime.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Protocol Buffers uses compact binary serialization (varints, field tags) eliminating JSON text parsing overhead, and HTTP/2 multiplexes concurrent RPCs over a single persistent TCP connection.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "gRPC operates exclusively over UDP without handshakes.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "REST requires manual encryption of each HTTP header.",
+          "correct": false
+        }
+      ],
+      "explanation": "Protobuf encodes structured data into binary format without field name string overhead. HTTP/2 multiplexing prevents head-of-line blocking and reuses connections efficiently.",
+      "codeSnippet": "// user.proto\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string name = 1; int32 age = 2; }",
+      "pitfall": "Altering existing Protocol Buffer field tag numbers breaks backward and forward compatibility across microservice versions.",
+      "citation": "gRPC Official Documentation: Core Concepts / Protocol Buffers Encoding"
+    },
+    {
+      "id": "mcq-27-001-02",
+      "concept": "Microservices Communication Paradigms & REST Contracts: Protocol Buffer Schema Evolution Rules",
+      "category": "Protobuf Contracts",
+      "difficulty": "Advanced",
+      "question": "When updating a `.proto` service definition in production, what rule MUST be strictly followed to preserve backward and forward compatibility?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Field names cannot be longer than 8 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Never change the numeric tag identifier of an existing field; if removing a field, mark its tag as `reserved` to prevent reuse.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "All fields must be marked required in proto3.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Proto files must be recompiled simultaneously across all microservices.",
+          "correct": false
+        }
+      ],
+      "explanation": "Protobuf serializes field tags, not field names. Changing a field tag corrupts data decoding in older services. Removed tags must be marked 'reserved' so future fields don't accidentally reuse them.",
+      "codeSnippet": "message User {\n  reserved 2, 5;\n  reserved \"old_address\";\n  string id = 1;\n  string email = 3;\n}",
+      "pitfall": "Reusing a deleted tag number for a new field causes older microservices to decode new data into old field types, causing silent data corruption.",
+      "citation": "Protocol Buffers Documentation: Updating A Message Type"
+    },
+    {
+      "id": "mcq-27-001-03",
+      "concept": "Microservices Communication Paradigms & REST Contracts: gRPC & Protocol Buffers Efficiency",
+      "category": "Microservices",
+      "difficulty": "Intermediate",
+      "question": "Why does gRPC over HTTP/2 deliver significantly higher throughput and lower latency than traditional REST over JSON?",
+      "options": [
+        {
+          "id": "A",
+          "text": "gRPC compiles JavaScript into native assembly at runtime.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Protocol Buffers uses compact binary serialization (varints, field tags) eliminating JSON text parsing overhead, and HTTP/2 multiplexes concurrent RPCs over a single persistent TCP connection.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "gRPC operates exclusively over UDP without handshakes.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "REST requires manual encryption of each HTTP header.",
+          "correct": false
+        }
+      ],
+      "explanation": "Protobuf encodes structured data into binary format without field name string overhead. HTTP/2 multiplexing prevents head-of-line blocking and reuses connections efficiently.",
+      "codeSnippet": "// user.proto\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string name = 1; int32 age = 2; }",
+      "pitfall": "Altering existing Protocol Buffer field tag numbers breaks backward and forward compatibility across microservice versions.",
+      "citation": "gRPC Official Documentation: Core Concepts / Protocol Buffers Encoding"
+    },
+    {
+      "id": "mcq-27-001-04",
+      "concept": "Microservices Communication Paradigms & REST Contracts: Protocol Buffer Schema Evolution Rules",
+      "category": "Protobuf Contracts",
+      "difficulty": "Advanced",
+      "question": "When updating a `.proto` service definition in production, what rule MUST be strictly followed to preserve backward and forward compatibility?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Field names cannot be longer than 8 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Never change the numeric tag identifier of an existing field; if removing a field, mark its tag as `reserved` to prevent reuse.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "All fields must be marked required in proto3.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Proto files must be recompiled simultaneously across all microservices.",
+          "correct": false
+        }
+      ],
+      "explanation": "Protobuf serializes field tags, not field names. Changing a field tag corrupts data decoding in older services. Removed tags must be marked 'reserved' so future fields don't accidentally reuse them.",
+      "codeSnippet": "message User {\n  reserved 2, 5;\n  reserved \"old_address\";\n  string id = 1;\n  string email = 3;\n}",
+      "pitfall": "Reusing a deleted tag number for a new field causes older microservices to decode new data into old field types, causing silent data corruption.",
+      "citation": "Protocol Buffers Documentation: Updating A Message Type"
+    },
+    {
+      "id": "mcq-27-001-05",
+      "concept": "Microservices Communication Paradigms & REST Contracts: gRPC & Protocol Buffers Efficiency",
+      "category": "Microservices",
+      "difficulty": "Intermediate",
+      "question": "Why does gRPC over HTTP/2 deliver significantly higher throughput and lower latency than traditional REST over JSON?",
+      "options": [
+        {
+          "id": "A",
+          "text": "gRPC compiles JavaScript into native assembly at runtime.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Protocol Buffers uses compact binary serialization (varints, field tags) eliminating JSON text parsing overhead, and HTTP/2 multiplexes concurrent RPCs over a single persistent TCP connection.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "gRPC operates exclusively over UDP without handshakes.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "REST requires manual encryption of each HTTP header.",
+          "correct": false
+        }
+      ],
+      "explanation": "Protobuf encodes structured data into binary format without field name string overhead. HTTP/2 multiplexing prevents head-of-line blocking and reuses connections efficiently.",
+      "codeSnippet": "// user.proto\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string name = 1; int32 age = 2; }",
+      "pitfall": "Altering existing Protocol Buffer field tag numbers breaks backward and forward compatibility across microservice versions.",
+      "citation": "gRPC Official Documentation: Core Concepts / Protocol Buffers Encoding"
+    },
+    {
+      "id": "mcq-27-001-06",
+      "concept": "Microservices Communication Paradigms & REST Contracts: Protocol Buffer Schema Evolution Rules",
+      "category": "Protobuf Contracts",
+      "difficulty": "Advanced",
+      "question": "When updating a `.proto` service definition in production, what rule MUST be strictly followed to preserve backward and forward compatibility?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Field names cannot be longer than 8 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Never change the numeric tag identifier of an existing field; if removing a field, mark its tag as `reserved` to prevent reuse.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "All fields must be marked required in proto3.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Proto files must be recompiled simultaneously across all microservices.",
+          "correct": false
+        }
+      ],
+      "explanation": "Protobuf serializes field tags, not field names. Changing a field tag corrupts data decoding in older services. Removed tags must be marked 'reserved' so future fields don't accidentally reuse them.",
+      "codeSnippet": "message User {\n  reserved 2, 5;\n  reserved \"old_address\";\n  string id = 1;\n  string email = 3;\n}",
+      "pitfall": "Reusing a deleted tag number for a new field causes older microservices to decode new data into old field types, causing silent data corruption.",
+      "citation": "Protocol Buffers Documentation: Updating A Message Type"
+    },
+    {
+      "id": "mcq-27-001-07",
+      "concept": "Microservices Communication Paradigms & REST Contracts: gRPC & Protocol Buffers Efficiency",
+      "category": "Microservices",
+      "difficulty": "Intermediate",
+      "question": "Why does gRPC over HTTP/2 deliver significantly higher throughput and lower latency than traditional REST over JSON?",
+      "options": [
+        {
+          "id": "A",
+          "text": "gRPC compiles JavaScript into native assembly at runtime.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Protocol Buffers uses compact binary serialization (varints, field tags) eliminating JSON text parsing overhead, and HTTP/2 multiplexes concurrent RPCs over a single persistent TCP connection.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "gRPC operates exclusively over UDP without handshakes.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "REST requires manual encryption of each HTTP header.",
+          "correct": false
+        }
+      ],
+      "explanation": "Protobuf encodes structured data into binary format without field name string overhead. HTTP/2 multiplexing prevents head-of-line blocking and reuses connections efficiently.",
+      "codeSnippet": "// user.proto\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string name = 1; int32 age = 2; }",
+      "pitfall": "Altering existing Protocol Buffer field tag numbers breaks backward and forward compatibility across microservice versions.",
+      "citation": "gRPC Official Documentation: Core Concepts / Protocol Buffers Encoding"
+    },
+    {
+      "id": "mcq-27-001-08",
+      "concept": "Microservices Communication Paradigms & REST Contracts: Protocol Buffer Schema Evolution Rules",
+      "category": "Protobuf Contracts",
+      "difficulty": "Advanced",
+      "question": "When updating a `.proto` service definition in production, what rule MUST be strictly followed to preserve backward and forward compatibility?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Field names cannot be longer than 8 characters.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Never change the numeric tag identifier of an existing field; if removing a field, mark its tag as `reserved` to prevent reuse.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "All fields must be marked required in proto3.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Proto files must be recompiled simultaneously across all microservices.",
+          "correct": false
+        }
+      ],
+      "explanation": "Protobuf serializes field tags, not field names. Changing a field tag corrupts data decoding in older services. Removed tags must be marked 'reserved' so future fields don't accidentally reuse them.",
+      "codeSnippet": "message User {\n  reserved 2, 5;\n  reserved \"old_address\";\n  string id = 1;\n  string email = 3;\n}",
+      "pitfall": "Reusing a deleted tag number for a new field causes older microservices to decode new data into old field types, causing silent data corruption.",
+      "citation": "Protocol Buffers Documentation: Updating A Message Type"
+    }
+  ]
+}

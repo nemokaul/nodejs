@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-10-001",
+  "title": "§10-001: Why Streams & Readable Stream Pipeline",
+  "chapterId": "10-001",
+  "sectionId": "section-10",
+  "description": "Multiple-choice practice questions and deep runtime verification for §10-001 (Why Streams & Readable Stream Pipeline).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-10-001-01",
+      "concept": "Why Streams & Readable Stream Pipeline: Stream Backpressure & Drain Event",
+      "category": "Streams & I/O",
+      "difficulty": "Advanced",
+      "question": "What does a return value of `false` from `writable.write(chunk)` signify, and what action must the producer take?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The chunk was rejected; the producer must re-open the stream.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The internal stream buffer has exceeded its `highWaterMark`; the producer must pause writing until the `'drain'` event is emitted.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "An unhandled stream error occurred; process will terminate.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The stream has reached EOF.",
+          "correct": false
+        }
+      ],
+      "explanation": "When writable.write() returns false, the buffer has reached highWaterMark. The producer must stop writing. Once the underlying destination clears the buffer, 'drain' fires, signaling it is safe to resume.",
+      "codeSnippet": "function writeSafe(writer, data) {\n  const ok = writer.write(data);\n  if (!ok) {\n    writer.once('drain', () => resumeWriting());\n  }\n}",
+      "pitfall": "Ignoring `write() === false` causes memory consumption to balloon as chunks accumulate in RAM, triggering process crash with OOM.",
+      "citation": "Node.js Stream API Reference: Backpressure in Streams"
+    },
+    {
+      "id": "mcq-10-001-02",
+      "concept": "Why Streams & Readable Stream Pipeline: Buffer.alloc vs Buffer.allocUnsafe Security",
+      "category": "Buffers & Memory",
+      "difficulty": "Intermediate",
+      "question": "Why is `Buffer.allocUnsafe(size)` faster than `Buffer.alloc(size)`, and what critical security risk does it carry?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It uses hardware acceleration; it crashes if freed twice.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It allocates uninitialized memory without zero-filling bytes, potentially leaking sensitive residual memory (passwords, tokens, private keys) if sent to clients.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It runs in kernel space; it bypasses V8 heap limits.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It disables garbage collection permanently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Buffer.allocUnsafe allocates memory from Node's 8KB internal slab without zeroing out existing bytes. If transmitted before completely overwriting, historical residual process memory is exposed.",
+      "codeSnippet": "// Safe: zero-initialized\nconst safe = Buffer.alloc(1024);\n// Fast: must be fully overwritten before transmission!\nconst fast = Buffer.allocUnsafe(1024);\nfast.fill(0);",
+      "pitfall": "Transmitting Buffer.allocUnsafe directly over an HTTP response or WebSocket without writing complete data leaks memory artifacts.",
+      "citation": "Node.js API Reference: Buffer.allocUnsafe Security Considerations"
+    },
+    {
+      "id": "mcq-10-001-03",
+      "concept": "Why Streams & Readable Stream Pipeline: Stream Backpressure & Drain Event",
+      "category": "Streams & I/O",
+      "difficulty": "Advanced",
+      "question": "What does a return value of `false` from `writable.write(chunk)` signify, and what action must the producer take?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The chunk was rejected; the producer must re-open the stream.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The internal stream buffer has exceeded its `highWaterMark`; the producer must pause writing until the `'drain'` event is emitted.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "An unhandled stream error occurred; process will terminate.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The stream has reached EOF.",
+          "correct": false
+        }
+      ],
+      "explanation": "When writable.write() returns false, the buffer has reached highWaterMark. The producer must stop writing. Once the underlying destination clears the buffer, 'drain' fires, signaling it is safe to resume.",
+      "codeSnippet": "function writeSafe(writer, data) {\n  const ok = writer.write(data);\n  if (!ok) {\n    writer.once('drain', () => resumeWriting());\n  }\n}",
+      "pitfall": "Ignoring `write() === false` causes memory consumption to balloon as chunks accumulate in RAM, triggering process crash with OOM.",
+      "citation": "Node.js Stream API Reference: Backpressure in Streams"
+    },
+    {
+      "id": "mcq-10-001-04",
+      "concept": "Why Streams & Readable Stream Pipeline: Buffer.alloc vs Buffer.allocUnsafe Security",
+      "category": "Buffers & Memory",
+      "difficulty": "Intermediate",
+      "question": "Why is `Buffer.allocUnsafe(size)` faster than `Buffer.alloc(size)`, and what critical security risk does it carry?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It uses hardware acceleration; it crashes if freed twice.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It allocates uninitialized memory without zero-filling bytes, potentially leaking sensitive residual memory (passwords, tokens, private keys) if sent to clients.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It runs in kernel space; it bypasses V8 heap limits.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It disables garbage collection permanently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Buffer.allocUnsafe allocates memory from Node's 8KB internal slab without zeroing out existing bytes. If transmitted before completely overwriting, historical residual process memory is exposed.",
+      "codeSnippet": "// Safe: zero-initialized\nconst safe = Buffer.alloc(1024);\n// Fast: must be fully overwritten before transmission!\nconst fast = Buffer.allocUnsafe(1024);\nfast.fill(0);",
+      "pitfall": "Transmitting Buffer.allocUnsafe directly over an HTTP response or WebSocket without writing complete data leaks memory artifacts.",
+      "citation": "Node.js API Reference: Buffer.allocUnsafe Security Considerations"
+    },
+    {
+      "id": "mcq-10-001-05",
+      "concept": "Why Streams & Readable Stream Pipeline: Stream Backpressure & Drain Event",
+      "category": "Streams & I/O",
+      "difficulty": "Advanced",
+      "question": "What does a return value of `false` from `writable.write(chunk)` signify, and what action must the producer take?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The chunk was rejected; the producer must re-open the stream.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The internal stream buffer has exceeded its `highWaterMark`; the producer must pause writing until the `'drain'` event is emitted.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "An unhandled stream error occurred; process will terminate.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The stream has reached EOF.",
+          "correct": false
+        }
+      ],
+      "explanation": "When writable.write() returns false, the buffer has reached highWaterMark. The producer must stop writing. Once the underlying destination clears the buffer, 'drain' fires, signaling it is safe to resume.",
+      "codeSnippet": "function writeSafe(writer, data) {\n  const ok = writer.write(data);\n  if (!ok) {\n    writer.once('drain', () => resumeWriting());\n  }\n}",
+      "pitfall": "Ignoring `write() === false` causes memory consumption to balloon as chunks accumulate in RAM, triggering process crash with OOM.",
+      "citation": "Node.js Stream API Reference: Backpressure in Streams"
+    },
+    {
+      "id": "mcq-10-001-06",
+      "concept": "Why Streams & Readable Stream Pipeline: Buffer.alloc vs Buffer.allocUnsafe Security",
+      "category": "Buffers & Memory",
+      "difficulty": "Intermediate",
+      "question": "Why is `Buffer.allocUnsafe(size)` faster than `Buffer.alloc(size)`, and what critical security risk does it carry?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It uses hardware acceleration; it crashes if freed twice.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It allocates uninitialized memory without zero-filling bytes, potentially leaking sensitive residual memory (passwords, tokens, private keys) if sent to clients.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It runs in kernel space; it bypasses V8 heap limits.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It disables garbage collection permanently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Buffer.allocUnsafe allocates memory from Node's 8KB internal slab without zeroing out existing bytes. If transmitted before completely overwriting, historical residual process memory is exposed.",
+      "codeSnippet": "// Safe: zero-initialized\nconst safe = Buffer.alloc(1024);\n// Fast: must be fully overwritten before transmission!\nconst fast = Buffer.allocUnsafe(1024);\nfast.fill(0);",
+      "pitfall": "Transmitting Buffer.allocUnsafe directly over an HTTP response or WebSocket without writing complete data leaks memory artifacts.",
+      "citation": "Node.js API Reference: Buffer.allocUnsafe Security Considerations"
+    },
+    {
+      "id": "mcq-10-001-07",
+      "concept": "Why Streams & Readable Stream Pipeline: Stream Backpressure & Drain Event",
+      "category": "Streams & I/O",
+      "difficulty": "Advanced",
+      "question": "What does a return value of `false` from `writable.write(chunk)` signify, and what action must the producer take?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The chunk was rejected; the producer must re-open the stream.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The internal stream buffer has exceeded its `highWaterMark`; the producer must pause writing until the `'drain'` event is emitted.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "An unhandled stream error occurred; process will terminate.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The stream has reached EOF.",
+          "correct": false
+        }
+      ],
+      "explanation": "When writable.write() returns false, the buffer has reached highWaterMark. The producer must stop writing. Once the underlying destination clears the buffer, 'drain' fires, signaling it is safe to resume.",
+      "codeSnippet": "function writeSafe(writer, data) {\n  const ok = writer.write(data);\n  if (!ok) {\n    writer.once('drain', () => resumeWriting());\n  }\n}",
+      "pitfall": "Ignoring `write() === false` causes memory consumption to balloon as chunks accumulate in RAM, triggering process crash with OOM.",
+      "citation": "Node.js Stream API Reference: Backpressure in Streams"
+    },
+    {
+      "id": "mcq-10-001-08",
+      "concept": "Why Streams & Readable Stream Pipeline: Buffer.alloc vs Buffer.allocUnsafe Security",
+      "category": "Buffers & Memory",
+      "difficulty": "Intermediate",
+      "question": "Why is `Buffer.allocUnsafe(size)` faster than `Buffer.alloc(size)`, and what critical security risk does it carry?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It uses hardware acceleration; it crashes if freed twice.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It allocates uninitialized memory without zero-filling bytes, potentially leaking sensitive residual memory (passwords, tokens, private keys) if sent to clients.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It runs in kernel space; it bypasses V8 heap limits.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It disables garbage collection permanently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Buffer.allocUnsafe allocates memory from Node's 8KB internal slab without zeroing out existing bytes. If transmitted before completely overwriting, historical residual process memory is exposed.",
+      "codeSnippet": "// Safe: zero-initialized\nconst safe = Buffer.alloc(1024);\n// Fast: must be fully overwritten before transmission!\nconst fast = Buffer.allocUnsafe(1024);\nfast.fill(0);",
+      "pitfall": "Transmitting Buffer.allocUnsafe directly over an HTTP response or WebSocket without writing complete data leaks memory artifacts.",
+      "citation": "Node.js API Reference: Buffer.allocUnsafe Security Considerations"
+    }
+  ]
+}

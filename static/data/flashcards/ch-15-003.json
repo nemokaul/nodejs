@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-15-003",
+  "title": "§15-003: Test Suites, Lifecycle Hooks & Configuration",
+  "chapterId": "15-003",
+  "sectionId": "section-15",
+  "description": "Multiple-choice practice questions and deep runtime verification for §15-003 (Test Suites, Lifecycle Hooks & Configuration).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-15-003-01",
+      "concept": "Test Suites, Lifecycle Hooks & Configuration: Node.js Native Test Runner (node:test)",
+      "category": "Testing",
+      "difficulty": "Intermediate",
+      "question": "What advantage does Node's built-in `node:test` runner provide over external frameworks like Jest or Mocha?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It automatically rewrites code to Rust.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It runs natively with zero external dependencies, supports TypeScript/ESM out of the box, provides subtest concurrency, and emits standard TAP/spec output.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It executes tests directly inside production databases.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It replaces the need for write operations.",
+          "correct": false
+        }
+      ],
+      "explanation": "Node.js native test runner (node:test) is built directly into the runtime, eliminating dependency overhead, supply chain attack surface, and transpilation setup.",
+      "codeSnippet": "import test, { describe, it } from 'node:test';\nimport assert from 'node:assert/strict';\n\ndescribe('Math utilities', () => {\n  it('adds numbers correctly', () => {\n    assert.equal(1 + 1, 2);\n  });\n});",
+      "pitfall": "Importing 'node:assert' instead of 'node:assert/strict' allows loose type coercion in assert.equal(), masking type mismatch bugs.",
+      "citation": "Node.js API Reference: Test runner (node:test)"
+    },
+    {
+      "id": "mcq-15-003-02",
+      "concept": "Test Suites, Lifecycle Hooks & Configuration: Strict Assertions vs Loose Equality in Tests",
+      "category": "Testing Quality",
+      "difficulty": "Beginner",
+      "question": "Why should tests strictly use `node:assert/strict` rather than legacy `node:assert`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Legacy assert runs slower in CI environments.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`assert/strict` forces `assert.equal()` to behave like `assert.strictEqual()` (===), preventing false positive passes caused by loose type coercion.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Legacy assert throws exceptions on valid syntax.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Strict mode only works with CommonJS.",
+          "correct": false
+        }
+      ],
+      "explanation": "In legacy assert, assert.equal(1, '1') passes due to == coercion. In assert/strict, assert.equal(1, '1') throws an AssertionError, enforcing strict type correctness.",
+      "codeSnippet": "import assert from 'node:assert/strict';\n// assert.equal(1, '1'); // Throws AssertionError: 1 === '1'",
+      "pitfall": "Relying on loose assert matchers permits silent type regressions in API response tests.",
+      "citation": "Node.js API Reference: assert/strict"
+    },
+    {
+      "id": "mcq-15-003-03",
+      "concept": "Test Suites, Lifecycle Hooks & Configuration: Node.js Native Test Runner (node:test)",
+      "category": "Testing",
+      "difficulty": "Intermediate",
+      "question": "What advantage does Node's built-in `node:test` runner provide over external frameworks like Jest or Mocha?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It automatically rewrites code to Rust.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It runs natively with zero external dependencies, supports TypeScript/ESM out of the box, provides subtest concurrency, and emits standard TAP/spec output.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It executes tests directly inside production databases.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It replaces the need for write operations.",
+          "correct": false
+        }
+      ],
+      "explanation": "Node.js native test runner (node:test) is built directly into the runtime, eliminating dependency overhead, supply chain attack surface, and transpilation setup.",
+      "codeSnippet": "import test, { describe, it } from 'node:test';\nimport assert from 'node:assert/strict';\n\ndescribe('Math utilities', () => {\n  it('adds numbers correctly', () => {\n    assert.equal(1 + 1, 2);\n  });\n});",
+      "pitfall": "Importing 'node:assert' instead of 'node:assert/strict' allows loose type coercion in assert.equal(), masking type mismatch bugs.",
+      "citation": "Node.js API Reference: Test runner (node:test)"
+    },
+    {
+      "id": "mcq-15-003-04",
+      "concept": "Test Suites, Lifecycle Hooks & Configuration: Strict Assertions vs Loose Equality in Tests",
+      "category": "Testing Quality",
+      "difficulty": "Beginner",
+      "question": "Why should tests strictly use `node:assert/strict` rather than legacy `node:assert`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Legacy assert runs slower in CI environments.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`assert/strict` forces `assert.equal()` to behave like `assert.strictEqual()` (===), preventing false positive passes caused by loose type coercion.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Legacy assert throws exceptions on valid syntax.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Strict mode only works with CommonJS.",
+          "correct": false
+        }
+      ],
+      "explanation": "In legacy assert, assert.equal(1, '1') passes due to == coercion. In assert/strict, assert.equal(1, '1') throws an AssertionError, enforcing strict type correctness.",
+      "codeSnippet": "import assert from 'node:assert/strict';\n// assert.equal(1, '1'); // Throws AssertionError: 1 === '1'",
+      "pitfall": "Relying on loose assert matchers permits silent type regressions in API response tests.",
+      "citation": "Node.js API Reference: assert/strict"
+    },
+    {
+      "id": "mcq-15-003-05",
+      "concept": "Test Suites, Lifecycle Hooks & Configuration: Node.js Native Test Runner (node:test)",
+      "category": "Testing",
+      "difficulty": "Intermediate",
+      "question": "What advantage does Node's built-in `node:test` runner provide over external frameworks like Jest or Mocha?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It automatically rewrites code to Rust.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It runs natively with zero external dependencies, supports TypeScript/ESM out of the box, provides subtest concurrency, and emits standard TAP/spec output.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It executes tests directly inside production databases.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It replaces the need for write operations.",
+          "correct": false
+        }
+      ],
+      "explanation": "Node.js native test runner (node:test) is built directly into the runtime, eliminating dependency overhead, supply chain attack surface, and transpilation setup.",
+      "codeSnippet": "import test, { describe, it } from 'node:test';\nimport assert from 'node:assert/strict';\n\ndescribe('Math utilities', () => {\n  it('adds numbers correctly', () => {\n    assert.equal(1 + 1, 2);\n  });\n});",
+      "pitfall": "Importing 'node:assert' instead of 'node:assert/strict' allows loose type coercion in assert.equal(), masking type mismatch bugs.",
+      "citation": "Node.js API Reference: Test runner (node:test)"
+    },
+    {
+      "id": "mcq-15-003-06",
+      "concept": "Test Suites, Lifecycle Hooks & Configuration: Strict Assertions vs Loose Equality in Tests",
+      "category": "Testing Quality",
+      "difficulty": "Beginner",
+      "question": "Why should tests strictly use `node:assert/strict` rather than legacy `node:assert`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Legacy assert runs slower in CI environments.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`assert/strict` forces `assert.equal()` to behave like `assert.strictEqual()` (===), preventing false positive passes caused by loose type coercion.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Legacy assert throws exceptions on valid syntax.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Strict mode only works with CommonJS.",
+          "correct": false
+        }
+      ],
+      "explanation": "In legacy assert, assert.equal(1, '1') passes due to == coercion. In assert/strict, assert.equal(1, '1') throws an AssertionError, enforcing strict type correctness.",
+      "codeSnippet": "import assert from 'node:assert/strict';\n// assert.equal(1, '1'); // Throws AssertionError: 1 === '1'",
+      "pitfall": "Relying on loose assert matchers permits silent type regressions in API response tests.",
+      "citation": "Node.js API Reference: assert/strict"
+    },
+    {
+      "id": "mcq-15-003-07",
+      "concept": "Test Suites, Lifecycle Hooks & Configuration: Node.js Native Test Runner (node:test)",
+      "category": "Testing",
+      "difficulty": "Intermediate",
+      "question": "What advantage does Node's built-in `node:test` runner provide over external frameworks like Jest or Mocha?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It automatically rewrites code to Rust.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It runs natively with zero external dependencies, supports TypeScript/ESM out of the box, provides subtest concurrency, and emits standard TAP/spec output.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It executes tests directly inside production databases.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It replaces the need for write operations.",
+          "correct": false
+        }
+      ],
+      "explanation": "Node.js native test runner (node:test) is built directly into the runtime, eliminating dependency overhead, supply chain attack surface, and transpilation setup.",
+      "codeSnippet": "import test, { describe, it } from 'node:test';\nimport assert from 'node:assert/strict';\n\ndescribe('Math utilities', () => {\n  it('adds numbers correctly', () => {\n    assert.equal(1 + 1, 2);\n  });\n});",
+      "pitfall": "Importing 'node:assert' instead of 'node:assert/strict' allows loose type coercion in assert.equal(), masking type mismatch bugs.",
+      "citation": "Node.js API Reference: Test runner (node:test)"
+    },
+    {
+      "id": "mcq-15-003-08",
+      "concept": "Test Suites, Lifecycle Hooks & Configuration: Strict Assertions vs Loose Equality in Tests",
+      "category": "Testing Quality",
+      "difficulty": "Beginner",
+      "question": "Why should tests strictly use `node:assert/strict` rather than legacy `node:assert`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Legacy assert runs slower in CI environments.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`assert/strict` forces `assert.equal()` to behave like `assert.strictEqual()` (===), preventing false positive passes caused by loose type coercion.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Legacy assert throws exceptions on valid syntax.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Strict mode only works with CommonJS.",
+          "correct": false
+        }
+      ],
+      "explanation": "In legacy assert, assert.equal(1, '1') passes due to == coercion. In assert/strict, assert.equal(1, '1') throws an AssertionError, enforcing strict type correctness.",
+      "codeSnippet": "import assert from 'node:assert/strict';\n// assert.equal(1, '1'); // Throws AssertionError: 1 === '1'",
+      "pitfall": "Relying on loose assert matchers permits silent type regressions in API response tests.",
+      "citation": "Node.js API Reference: assert/strict"
+    }
+  ]
+}

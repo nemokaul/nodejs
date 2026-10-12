@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-16-002",
+  "title": "§16-002: Integration Testing: Database & Network Boundaries",
+  "chapterId": "16-002",
+  "sectionId": "section-16",
+  "description": "Multiple-choice practice questions and deep runtime verification for §16-002 (Integration Testing: Database & Network Boundaries).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-16-002-01",
+      "concept": "Integration Testing: Database & Network Boundaries: Test Doubles: Mocks, Stubs & Spies",
+      "category": "Mocking",
+      "difficulty": "Intermediate",
+      "question": "In automated testing, what is the exact conceptual distinction between a Stub and a Spy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Stub runs on the server; a Spy runs in the browser.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "A Stub replaces a dependency with pre-programmed canned responses; a Spy records invocation details (arguments, call count, return values) without necessarily replacing behavior.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "A Stub verifies security; a Spy benchmarks speed.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "There is no difference.",
+          "correct": false
+        }
+      ],
+      "explanation": "Stubs provide canned return values to isolate tested code from external side effects. Spies record execution telemetry to verify interactions.",
+      "codeSnippet": "import test from 'node:test';\ntest('Spy verification', (t) => {\n  const spy = t.mock.fn((x) => x * 2);\n  spy(5);\n  assert.equal(spy.mock.callCount(), 1);\n  assert.deepEqual(spy.mock.calls[0].arguments, [5]);\n});",
+      "pitfall": "Over-mocking internal implementation details rather than testing public interface contracts makes tests brittle to harmless refactoring.",
+      "citation": "Martin Fowler: Mocks Aren't Stubs / Node.js Mock API"
+    },
+    {
+      "id": "mcq-16-002-02",
+      "concept": "Integration Testing: Database & Network Boundaries: Integration Test Isolation & Database Cleanup",
+      "category": "Integration Testing",
+      "difficulty": "Advanced",
+      "question": "What is the most reliable strategy to ensure database integration tests remain isolated and deterministic across parallel test runs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sharing a single permanent test database without cleanup.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Running each test within a rolled-back transaction or using ephemeral isolated database containers (Testcontainers) with schema truncation between suites.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Adding arbitrary sleep delays between tests.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Running integration tests exclusively in production.",
+          "correct": false
+        }
+      ],
+      "explanation": "Transactional rollbacks or ephemeral database containers ensure test runs leave zero lingering state, preventing test order dependencies and flaky failures.",
+      "codeSnippet": "beforeEach(async () => await db.query('BEGIN'));\nafterEach(async () => await db.query('ROLLBACK'));",
+      "pitfall": "Failing to drain and close database connection pools in test teardown hooks causes test runners (Jest, node:test) to hang indefinitely.",
+      "citation": "Testing Best Practices: Ephemeral Test Environments"
+    },
+    {
+      "id": "mcq-16-002-03",
+      "concept": "Integration Testing: Database & Network Boundaries: Test Doubles: Mocks, Stubs & Spies",
+      "category": "Mocking",
+      "difficulty": "Intermediate",
+      "question": "In automated testing, what is the exact conceptual distinction between a Stub and a Spy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Stub runs on the server; a Spy runs in the browser.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "A Stub replaces a dependency with pre-programmed canned responses; a Spy records invocation details (arguments, call count, return values) without necessarily replacing behavior.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "A Stub verifies security; a Spy benchmarks speed.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "There is no difference.",
+          "correct": false
+        }
+      ],
+      "explanation": "Stubs provide canned return values to isolate tested code from external side effects. Spies record execution telemetry to verify interactions.",
+      "codeSnippet": "import test from 'node:test';\ntest('Spy verification', (t) => {\n  const spy = t.mock.fn((x) => x * 2);\n  spy(5);\n  assert.equal(spy.mock.callCount(), 1);\n  assert.deepEqual(spy.mock.calls[0].arguments, [5]);\n});",
+      "pitfall": "Over-mocking internal implementation details rather than testing public interface contracts makes tests brittle to harmless refactoring.",
+      "citation": "Martin Fowler: Mocks Aren't Stubs / Node.js Mock API"
+    },
+    {
+      "id": "mcq-16-002-04",
+      "concept": "Integration Testing: Database & Network Boundaries: Integration Test Isolation & Database Cleanup",
+      "category": "Integration Testing",
+      "difficulty": "Advanced",
+      "question": "What is the most reliable strategy to ensure database integration tests remain isolated and deterministic across parallel test runs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sharing a single permanent test database without cleanup.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Running each test within a rolled-back transaction or using ephemeral isolated database containers (Testcontainers) with schema truncation between suites.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Adding arbitrary sleep delays between tests.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Running integration tests exclusively in production.",
+          "correct": false
+        }
+      ],
+      "explanation": "Transactional rollbacks or ephemeral database containers ensure test runs leave zero lingering state, preventing test order dependencies and flaky failures.",
+      "codeSnippet": "beforeEach(async () => await db.query('BEGIN'));\nafterEach(async () => await db.query('ROLLBACK'));",
+      "pitfall": "Failing to drain and close database connection pools in test teardown hooks causes test runners (Jest, node:test) to hang indefinitely.",
+      "citation": "Testing Best Practices: Ephemeral Test Environments"
+    },
+    {
+      "id": "mcq-16-002-05",
+      "concept": "Integration Testing: Database & Network Boundaries: Test Doubles: Mocks, Stubs & Spies",
+      "category": "Mocking",
+      "difficulty": "Intermediate",
+      "question": "In automated testing, what is the exact conceptual distinction between a Stub and a Spy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Stub runs on the server; a Spy runs in the browser.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "A Stub replaces a dependency with pre-programmed canned responses; a Spy records invocation details (arguments, call count, return values) without necessarily replacing behavior.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "A Stub verifies security; a Spy benchmarks speed.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "There is no difference.",
+          "correct": false
+        }
+      ],
+      "explanation": "Stubs provide canned return values to isolate tested code from external side effects. Spies record execution telemetry to verify interactions.",
+      "codeSnippet": "import test from 'node:test';\ntest('Spy verification', (t) => {\n  const spy = t.mock.fn((x) => x * 2);\n  spy(5);\n  assert.equal(spy.mock.callCount(), 1);\n  assert.deepEqual(spy.mock.calls[0].arguments, [5]);\n});",
+      "pitfall": "Over-mocking internal implementation details rather than testing public interface contracts makes tests brittle to harmless refactoring.",
+      "citation": "Martin Fowler: Mocks Aren't Stubs / Node.js Mock API"
+    },
+    {
+      "id": "mcq-16-002-06",
+      "concept": "Integration Testing: Database & Network Boundaries: Integration Test Isolation & Database Cleanup",
+      "category": "Integration Testing",
+      "difficulty": "Advanced",
+      "question": "What is the most reliable strategy to ensure database integration tests remain isolated and deterministic across parallel test runs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sharing a single permanent test database without cleanup.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Running each test within a rolled-back transaction or using ephemeral isolated database containers (Testcontainers) with schema truncation between suites.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Adding arbitrary sleep delays between tests.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Running integration tests exclusively in production.",
+          "correct": false
+        }
+      ],
+      "explanation": "Transactional rollbacks or ephemeral database containers ensure test runs leave zero lingering state, preventing test order dependencies and flaky failures.",
+      "codeSnippet": "beforeEach(async () => await db.query('BEGIN'));\nafterEach(async () => await db.query('ROLLBACK'));",
+      "pitfall": "Failing to drain and close database connection pools in test teardown hooks causes test runners (Jest, node:test) to hang indefinitely.",
+      "citation": "Testing Best Practices: Ephemeral Test Environments"
+    },
+    {
+      "id": "mcq-16-002-07",
+      "concept": "Integration Testing: Database & Network Boundaries: Test Doubles: Mocks, Stubs & Spies",
+      "category": "Mocking",
+      "difficulty": "Intermediate",
+      "question": "In automated testing, what is the exact conceptual distinction between a Stub and a Spy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Stub runs on the server; a Spy runs in the browser.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "A Stub replaces a dependency with pre-programmed canned responses; a Spy records invocation details (arguments, call count, return values) without necessarily replacing behavior.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "A Stub verifies security; a Spy benchmarks speed.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "There is no difference.",
+          "correct": false
+        }
+      ],
+      "explanation": "Stubs provide canned return values to isolate tested code from external side effects. Spies record execution telemetry to verify interactions.",
+      "codeSnippet": "import test from 'node:test';\ntest('Spy verification', (t) => {\n  const spy = t.mock.fn((x) => x * 2);\n  spy(5);\n  assert.equal(spy.mock.callCount(), 1);\n  assert.deepEqual(spy.mock.calls[0].arguments, [5]);\n});",
+      "pitfall": "Over-mocking internal implementation details rather than testing public interface contracts makes tests brittle to harmless refactoring.",
+      "citation": "Martin Fowler: Mocks Aren't Stubs / Node.js Mock API"
+    },
+    {
+      "id": "mcq-16-002-08",
+      "concept": "Integration Testing: Database & Network Boundaries: Integration Test Isolation & Database Cleanup",
+      "category": "Integration Testing",
+      "difficulty": "Advanced",
+      "question": "What is the most reliable strategy to ensure database integration tests remain isolated and deterministic across parallel test runs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sharing a single permanent test database without cleanup.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Running each test within a rolled-back transaction or using ephemeral isolated database containers (Testcontainers) with schema truncation between suites.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Adding arbitrary sleep delays between tests.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Running integration tests exclusively in production.",
+          "correct": false
+        }
+      ],
+      "explanation": "Transactional rollbacks or ephemeral database containers ensure test runs leave zero lingering state, preventing test order dependencies and flaky failures.",
+      "codeSnippet": "beforeEach(async () => await db.query('BEGIN'));\nafterEach(async () => await db.query('ROLLBACK'));",
+      "pitfall": "Failing to drain and close database connection pools in test teardown hooks causes test runners (Jest, node:test) to hang indefinitely.",
+      "citation": "Testing Best Practices: Ephemeral Test Environments"
+    }
+  ]
+}

@@ -1,0 +1,791 @@
+{
+  "sectionId": "all",
+  "totalDecks": 112,
+  "totalCards": 672,
+  "decks": [
+    {
+      "deckId": "ch-01-001",
+      "title": "§01-001: JavaScript Language Foundations & Environment",
+      "chapterId": "01-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-01-001.json"
+    },
+    {
+      "deckId": "ch-01-002",
+      "title": "§01-002: Execution Context & Modern Script Loading",
+      "chapterId": "01-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-01-002.json"
+    },
+    {
+      "deckId": "ch-01-003",
+      "title": "§01-003: Core Language Primitives & Operators",
+      "chapterId": "01-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-01-003.json"
+    },
+    {
+      "deckId": "sec-1",
+      "title": "Module 1 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-1.json"
+    },
+    {
+      "deckId": "ch-02-001",
+      "title": "§02-001: Scope Hierarchy & Global Context",
+      "chapterId": "02-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-02-001.json"
+    },
+    {
+      "deckId": "ch-02-002",
+      "title": "§02-002: Variable Declarations: var, let, and const",
+      "chapterId": "02-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-02-002.json"
+    },
+    {
+      "deckId": "ch-02-003",
+      "title": "§02-003: Hoisting & The Temporal Dead Zone (TDZ)",
+      "chapterId": "02-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-02-003.json"
+    },
+    {
+      "deckId": "sec-2",
+      "title": "Module 2 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-2.json"
+    },
+    {
+      "deckId": "ch-03-001",
+      "title": "§03-001: Lexical Scoping & Nested Functions",
+      "chapterId": "03-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-03-001.json"
+    },
+    {
+      "deckId": "ch-03-002",
+      "title": "§03-002: Closure Mechanics & Parallel Closures",
+      "chapterId": "03-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-03-002.json"
+    },
+    {
+      "deckId": "ch-03-003",
+      "title": "§03-003: Module Pattern & Preventing Memory Leaks",
+      "chapterId": "03-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-03-003.json"
+    },
+    {
+      "deckId": "sec-3",
+      "title": "Module 3 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-3.json"
+    },
+    {
+      "deckId": "ch-04-001",
+      "title": "§04-001: Object Literals & Constructor Functions",
+      "chapterId": "04-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-04-001.json"
+    },
+    {
+      "deckId": "ch-04-002",
+      "title": "§04-002: Prototype Property & Prototype Chain",
+      "chapterId": "04-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-04-002.json"
+    },
+    {
+      "deckId": "ch-04-003",
+      "title": "§04-003: Prototypal Inheritance & ES6 Class Delegation",
+      "chapterId": "04-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-04-003.json"
+    },
+    {
+      "deckId": "sec-4",
+      "title": "Module 4 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-4.json"
+    },
+    {
+      "deckId": "ch-05-001",
+      "title": "§05-001: Primitive Types & Reference Types",
+      "chapterId": "05-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-05-001.json"
+    },
+    {
+      "deckId": "ch-05-002",
+      "title": "§05-002: Implicit Coercion & Equality Comparison Rules",
+      "chapterId": "05-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-05-002.json"
+    },
+    {
+      "deckId": "ch-05-003",
+      "title": "§05-003: Strict Mode Grammar & Defensive Type Checking",
+      "chapterId": "05-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-05-003.json"
+    },
+    {
+      "deckId": "sec-5",
+      "title": "Module 5 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-5.json"
+    },
+    {
+      "deckId": "ch-06-001",
+      "title": "§06-001: The Callback Pattern & Event Loop Architecture",
+      "chapterId": "06-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-06-001.json"
+    },
+    {
+      "deckId": "ch-06-002",
+      "title": "§06-002: Promises: Resolving, Rejecting & Promisify",
+      "chapterId": "06-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-06-002.json"
+    },
+    {
+      "deckId": "ch-06-003",
+      "title": "§06-003: Async/Await & Sequential vs Parallel Flow",
+      "chapterId": "06-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-06-003.json"
+    },
+    {
+      "deckId": "sec-6",
+      "title": "Module 6 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-6.json"
+    },
+    {
+      "deckId": "ch-07-001",
+      "title": "§07-001: Node.js Runtime Architecture & Globals",
+      "chapterId": "07-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-07-001.json"
+    },
+    {
+      "deckId": "ch-07-002",
+      "title": "§07-002: Process Object, CLI Arguments & Standard I/O",
+      "chapterId": "07-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-07-002.json"
+    },
+    {
+      "deckId": "ch-07-003",
+      "title": "§07-003: Timers, Delays & Asynchronous Scheduling",
+      "chapterId": "07-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-07-003.json"
+    },
+    {
+      "deckId": "sec-7",
+      "title": "Module 7 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-7.json"
+    },
+    {
+      "deckId": "ch-08-001",
+      "title": "§08-001: Core Modules & Standard Library Loading",
+      "chapterId": "08-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-08-001.json"
+    },
+    {
+      "deckId": "ch-08-002",
+      "title": "§08-002: Custom Modules: module.exports & CommonJS",
+      "chapterId": "08-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-08-002.json"
+    },
+    {
+      "deckId": "ch-08-003",
+      "title": "§08-003: Package Management, Module Isolation & ESM Interop",
+      "chapterId": "08-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-08-003.json"
+    },
+    {
+      "deckId": "sec-8",
+      "title": "Module 8 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-8.json"
+    },
+    {
+      "deckId": "ch-09-001",
+      "title": "§09-001: Sequential Asynchronous Flow Control",
+      "chapterId": "09-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-09-001.json"
+    },
+    {
+      "deckId": "ch-09-002",
+      "title": "§09-002: Parallel Execution & Resource Limiting",
+      "chapterId": "09-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-09-002.json"
+    },
+    {
+      "deckId": "ch-09-003",
+      "title": "§09-003: Concurrent Tasks & Failure Resilience",
+      "chapterId": "09-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-09-003.json"
+    },
+    {
+      "deckId": "sec-9",
+      "title": "Module 9 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-9.json"
+    },
+    {
+      "deckId": "ch-10-001",
+      "title": "§10-001: Why Streams & Readable Stream Pipeline",
+      "chapterId": "10-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-10-001.json"
+    },
+    {
+      "deckId": "ch-10-002",
+      "title": "§10-002: Writable Streams & Backpressure Drain Mechanics",
+      "chapterId": "10-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-10-002.json"
+    },
+    {
+      "deckId": "ch-10-003",
+      "title": "§10-003: Piping, Duplex & Transform Stream Processing",
+      "chapterId": "10-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-10-003.json"
+    },
+    {
+      "deckId": "sec-10",
+      "title": "Module 10 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-10.json"
+    },
+    {
+      "deckId": "ch-11-001",
+      "title": "§11-001: Singleton, Prototype & Factory Patterns",
+      "chapterId": "11-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-11-001.json"
+    },
+    {
+      "deckId": "ch-11-002",
+      "title": "§11-002: Builder & Adapter Patterns for Node.js Services",
+      "chapterId": "11-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-11-002.json"
+    },
+    {
+      "deckId": "ch-11-003",
+      "title": "§11-003: Proxy, Composite & Decorator Patterns",
+      "chapterId": "11-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-11-003.json"
+    },
+    {
+      "deckId": "sec-11",
+      "title": "Module 11 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-11.json"
+    },
+    {
+      "deckId": "ch-12-001",
+      "title": "§12-001: Chain of Responsibility & Command Patterns",
+      "chapterId": "12-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-12-001.json"
+    },
+    {
+      "deckId": "ch-12-002",
+      "title": "§12-002: Iterator & Observer Patterns in Event Loops",
+      "chapterId": "12-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-12-002.json"
+    },
+    {
+      "deckId": "ch-12-003",
+      "title": "§12-003: Strategy Pattern & Pluggable Middleware Pipelines",
+      "chapterId": "12-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-12-003.json"
+    },
+    {
+      "deckId": "sec-12",
+      "title": "Module 12 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-12.json"
+    },
+    {
+      "deckId": "ch-13-001",
+      "title": "§13-001: HTTP Routing, Endpoints & Tooling",
+      "chapterId": "13-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-13-001.json"
+    },
+    {
+      "deckId": "ch-13-002",
+      "title": "§13-002: Middleware Pipeline & Schema Validation",
+      "chapterId": "13-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-13-002.json"
+    },
+    {
+      "deckId": "ch-13-003",
+      "title": "§13-003: Database Integration & High-Performance Endpoints",
+      "chapterId": "13-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-13-003.json"
+    },
+    {
+      "deckId": "sec-13",
+      "title": "Module 13 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-13.json"
+    },
+    {
+      "deckId": "ch-14-001",
+      "title": "§14-001: Child Process Execution: Exec, Spawn & Fork",
+      "chapterId": "14-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-14-001.json"
+    },
+    {
+      "deckId": "ch-14-002",
+      "title": "§14-002: Cluster Module & TCP Load Distribution",
+      "chapterId": "14-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-14-002.json"
+    },
+    {
+      "deckId": "ch-14-003",
+      "title": "§14-003: Worker Threads & Shared Memory Architecture",
+      "chapterId": "14-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-14-003.json"
+    },
+    {
+      "deckId": "sec-14",
+      "title": "Module 14 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-14.json"
+    },
+    {
+      "deckId": "ch-15-001",
+      "title": "§15-001: Testing Pyramid Fundamentals & Test Runners",
+      "chapterId": "15-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-15-001.json"
+    },
+    {
+      "deckId": "ch-15-002",
+      "title": "§15-002: Assertions, Test Structure & Asynchronous Tests",
+      "chapterId": "15-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-15-002.json"
+    },
+    {
+      "deckId": "ch-15-003",
+      "title": "§15-003: Test Suites, Lifecycle Hooks & Configuration",
+      "chapterId": "15-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-15-003.json"
+    },
+    {
+      "deckId": "sec-15",
+      "title": "Module 15 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-15.json"
+    },
+    {
+      "deckId": "ch-16-001",
+      "title": "§16-001: Mocking Functions, Spies & Stubbing Dependencies",
+      "chapterId": "16-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-16-001.json"
+    },
+    {
+      "deckId": "ch-16-002",
+      "title": "§16-002: Integration Testing: Database & Network Boundaries",
+      "chapterId": "16-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-16-002.json"
+    },
+    {
+      "deckId": "ch-16-003",
+      "title": "§16-003: Testing Stream Pipelines & Event Emitters",
+      "chapterId": "16-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-16-003.json"
+    },
+    {
+      "deckId": "sec-16",
+      "title": "Module 16 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-16.json"
+    },
+    {
+      "deckId": "ch-17-001",
+      "title": "§17-001: TDD Red-Green-Refactor Cycle in Practice",
+      "chapterId": "17-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-17-001.json"
+    },
+    {
+      "deckId": "ch-17-002",
+      "title": "§17-002: End-to-End HTTP Service Testing with Supertest",
+      "chapterId": "17-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-17-002.json"
+    },
+    {
+      "deckId": "ch-17-003",
+      "title": "§17-003: Code Coverage Analysis & Quality Gate Enforcement",
+      "chapterId": "17-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-17-003.json"
+    },
+    {
+      "deckId": "sec-17",
+      "title": "Module 17 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-17.json"
+    },
+    {
+      "deckId": "ch-18-001",
+      "title": "§18-001: Security Threat Modeling & Core Defense Fundamentals",
+      "chapterId": "18-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-18-001.json"
+    },
+    {
+      "deckId": "ch-18-002",
+      "title": "§18-002: Hardening HTTP Headers with Helmet & Secure Cookies",
+      "chapterId": "18-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-18-002.json"
+    },
+    {
+      "deckId": "ch-18-003",
+      "title": "§18-003: Dependency Vulnerability Audits & Least Privilege",
+      "chapterId": "18-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-18-003.json"
+    },
+    {
+      "deckId": "sec-18",
+      "title": "Module 18 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-18.json"
+    },
+    {
+      "deckId": "ch-19-001",
+      "title": "§19-001: SQL Injection Vectors & Parameterized Queries",
+      "chapterId": "19-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-19-001.json"
+    },
+    {
+      "deckId": "ch-19-002",
+      "title": "§19-002: NoSQL Injection & Object Query Sanitization",
+      "chapterId": "19-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-19-002.json"
+    },
+    {
+      "deckId": "ch-19-003",
+      "title": "§19-003: OS Command Injection & Prototype Pollution Defense",
+      "chapterId": "19-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-19-003.json"
+    },
+    {
+      "deckId": "sec-19",
+      "title": "Module 19 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-19.json"
+    },
+    {
+      "deckId": "ch-20-001",
+      "title": "§20-001: Password Hashing with Argon2 & Salt Rounds",
+      "chapterId": "20-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-20-001.json"
+    },
+    {
+      "deckId": "ch-20-002",
+      "title": "§20-002: JSON Web Tokens (JWT): Signing & Refresh Rotation",
+      "chapterId": "20-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-20-002.json"
+    },
+    {
+      "deckId": "ch-20-003",
+      "title": "§20-003: Session Hijacking, Revocation & RBAC Authorization",
+      "chapterId": "20-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-20-003.json"
+    },
+    {
+      "deckId": "sec-20",
+      "title": "Module 20 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-20.json"
+    },
+    {
+      "deckId": "ch-21-001",
+      "title": "§21-001: Cross-Site Scripting (XSS) & Content Security Policy",
+      "chapterId": "21-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-21-001.json"
+    },
+    {
+      "deckId": "ch-21-002",
+      "title": "§21-002: Cross-Site Request Forgery (CSRF) & SameSite Defenses",
+      "chapterId": "21-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-21-002.json"
+    },
+    {
+      "deckId": "ch-21-003",
+      "title": "§21-003: Regular Expression Denial of Service (ReDoS) Defense",
+      "chapterId": "21-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-21-003.json"
+    },
+    {
+      "deckId": "sec-21",
+      "title": "Module 21 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-21.json"
+    },
+    {
+      "deckId": "ch-22-001",
+      "title": "§22-001: Database Systems Overview & Driver Connection Pooling",
+      "chapterId": "22-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-22-001.json"
+    },
+    {
+      "deckId": "ch-22-002",
+      "title": "§22-002: Data Modeling, Schema Migrations & Reliability",
+      "chapterId": "22-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-22-002.json"
+    },
+    {
+      "deckId": "ch-22-003",
+      "title": "§22-003: Error Handling, Reconnection Loops & Resilient Reads",
+      "chapterId": "22-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-22-003.json"
+    },
+    {
+      "deckId": "sec-22",
+      "title": "Module 22 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-22.json"
+    },
+    {
+      "deckId": "ch-23-001",
+      "title": "§23-001: B-Tree vs LSM-Tree Indexes & Query Execution Plans",
+      "chapterId": "23-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-23-001.json"
+    },
+    {
+      "deckId": "ch-23-002",
+      "title": "§23-002: In-Memory Caching with Redis & ioredis Integration",
+      "chapterId": "23-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-23-002.json"
+    },
+    {
+      "deckId": "ch-23-003",
+      "title": "§23-003: Cache Invalidation, TTL Expiry & Eviction Policies",
+      "chapterId": "23-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-23-003.json"
+    },
+    {
+      "deckId": "sec-23",
+      "title": "Module 23 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-23.json"
+    },
+    {
+      "deckId": "ch-24-001",
+      "title": "§24-001: Primary-Replica Replication & Failover Handling",
+      "chapterId": "24-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-24-001.json"
+    },
+    {
+      "deckId": "ch-24-002",
+      "title": "§24-002: Replication Lag, Read Scaling & Eventual Consistency",
+      "chapterId": "24-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-24-002.json"
+    },
+    {
+      "deckId": "ch-24-003",
+      "title": "§24-003: Horizontal Partitioning, Sharding & Consistent Hashing",
+      "chapterId": "24-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-24-003.json"
+    },
+    {
+      "deckId": "sec-24",
+      "title": "Module 24 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-24.json"
+    },
+    {
+      "deckId": "ch-25-001",
+      "title": "§25-001: ACID Transactions & Isolation Levels in PostgreSQL",
+      "chapterId": "25-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-25-001.json"
+    },
+    {
+      "deckId": "ch-25-002",
+      "title": "§25-002: Concurrency Anomalies & Optimistic Locking",
+      "chapterId": "25-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-25-002.json"
+    },
+    {
+      "deckId": "ch-25-003",
+      "title": "§25-003: Distributed Sagas, Compensations & Idempotency",
+      "chapterId": "25-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-25-003.json"
+    },
+    {
+      "deckId": "sec-25",
+      "title": "Module 25 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-25.json"
+    },
+    {
+      "deckId": "ch-26-001",
+      "title": "§26-001: Stateless Node.js Services & Horizontal Scaling",
+      "chapterId": "26-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-26-001.json"
+    },
+    {
+      "deckId": "ch-26-002",
+      "title": "§26-002: Reverse Proxies, Load Balancers & Zero-Downtime Deployments",
+      "chapterId": "26-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-26-002.json"
+    },
+    {
+      "deckId": "ch-26-003",
+      "title": "§26-003: Circuit Breakers, Bulkheads & Graceful Degradation",
+      "chapterId": "26-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-26-003.json"
+    },
+    {
+      "deckId": "sec-26",
+      "title": "Module 26 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-26.json"
+    },
+    {
+      "deckId": "ch-27-001",
+      "title": "§27-001: Microservices Communication Paradigms & REST Contracts",
+      "chapterId": "27-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-27-001.json"
+    },
+    {
+      "deckId": "ch-27-002",
+      "title": "§27-002: Protocol Buffers, gRPC RPC Interfaces & HTTP/2",
+      "chapterId": "27-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-27-002.json"
+    },
+    {
+      "deckId": "ch-27-003",
+      "title": "§27-003: Service Meshes, API Gateways & Serialization Efficiency",
+      "chapterId": "27-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-27-003.json"
+    },
+    {
+      "deckId": "sec-27",
+      "title": "Module 27 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-27.json"
+    },
+    {
+      "deckId": "ch-28-001",
+      "title": "§28-001: Structured Logging, Tracing & Correlation IDs",
+      "chapterId": "28-001",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-28-001.json"
+    },
+    {
+      "deckId": "ch-28-002",
+      "title": "§28-002: Event Loop Lag Monitoring & Heap Profiling",
+      "chapterId": "28-002",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-28-002.json"
+    },
+    {
+      "deckId": "ch-28-003",
+      "title": "§28-003: Health Checks, Graceful Shutdown & Production Triage",
+      "chapterId": "28-003",
+      "totalCards": 8,
+      "url": "/data/flashcards/ch-28-003.json"
+    },
+    {
+      "deckId": "sec-28",
+      "title": "Module 28 Master Deck",
+      "chapterId": "all",
+      "totalCards": 24,
+      "url": "/data/flashcards/sec-28.json"
+    }
+  ]
+}

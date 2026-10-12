@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-14-001",
+  "title": "§14-001: Child Process Execution: Exec, Spawn & Fork",
+  "chapterId": "14-001",
+  "sectionId": "section-14",
+  "description": "Multiple-choice practice questions and deep runtime verification for §14-001 (Child Process Execution: Exec, Spawn & Fork).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-14-001-01",
+      "concept": "Child Process Execution: Exec, Spawn & Fork: Worker Threads vs Cluster Module",
+      "category": "Concurrency & Scale",
+      "difficulty": "Intermediate",
+      "question": "What is the primary architectural difference between Node's `cluster` module and `worker_threads` module?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cluster is only for Linux; worker_threads is only for Windows.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`cluster` forks separate OS child processes with independent memory heaps sharing server ports; `worker_threads` runs multiple V8 isolates in the same process with shared memory support.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "worker_threads cannot perform file I/O.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "cluster requires Docker to operate.",
+          "correct": false
+        }
+      ],
+      "explanation": "Cluster scales I/O across multi-core CPUs via separate child processes. worker_threads runs multiple V8 isolates within the same process for CPU-heavy tasks with SharedArrayBuffer access.",
+      "codeSnippet": "import { Worker, isMainThread } from 'node:worker_threads';\nif (isMainThread) {\n  const worker = new Worker(new URL(import.meta.url));\n} else {\n  // Heavy CPU computation in thread\n}",
+      "pitfall": "Using worker_threads for standard non-blocking I/O tasks adds thread synchronization overhead without performance gains.",
+      "citation": "Node.js API Reference: worker_threads vs cluster"
+    },
+    {
+      "id": "mcq-14-001-02",
+      "concept": "Child Process Execution: Exec, Spawn & Fork: SharedArrayBuffer & Atomics Operations",
+      "category": "Multi-Threading",
+      "difficulty": "Advanced",
+      "question": "Why MUST multi-threaded operations on `SharedArrayBuffer` use `Atomics` methods (e.g. `Atomics.add`, `Atomics.wait`)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SharedArrayBuffer is read-only unless unlocked by Atomics.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Atomics operations prevent race conditions and memory corruption by guaranteeing atomic, non-interruptible read-modify-write memory access across threads.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Atomics encrypts shared memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Atomics converts binary buffers into JSON objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "When multiple worker threads access shared memory, concurrent writes produce race conditions. Atomics operations guarantee hardware-level atomic operations and synchronization barriers.",
+      "codeSnippet": "const sab = new SharedArrayBuffer(1024);\nconst int32 = new Int32Array(sab);\n// Thread-safe atomic increment:\nAtomics.add(int32, 0, 1);",
+      "pitfall": "Calling Atomics.wait() on the Node.js main thread throws a TypeError because blocking the main event loop thread is prohibited.",
+      "citation": "MDN Web Docs: Atomics / SharedArrayBuffer Specifications"
+    },
+    {
+      "id": "mcq-14-001-03",
+      "concept": "Child Process Execution: Exec, Spawn & Fork: Worker Threads vs Cluster Module",
+      "category": "Concurrency & Scale",
+      "difficulty": "Intermediate",
+      "question": "What is the primary architectural difference between Node's `cluster` module and `worker_threads` module?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cluster is only for Linux; worker_threads is only for Windows.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`cluster` forks separate OS child processes with independent memory heaps sharing server ports; `worker_threads` runs multiple V8 isolates in the same process with shared memory support.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "worker_threads cannot perform file I/O.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "cluster requires Docker to operate.",
+          "correct": false
+        }
+      ],
+      "explanation": "Cluster scales I/O across multi-core CPUs via separate child processes. worker_threads runs multiple V8 isolates within the same process for CPU-heavy tasks with SharedArrayBuffer access.",
+      "codeSnippet": "import { Worker, isMainThread } from 'node:worker_threads';\nif (isMainThread) {\n  const worker = new Worker(new URL(import.meta.url));\n} else {\n  // Heavy CPU computation in thread\n}",
+      "pitfall": "Using worker_threads for standard non-blocking I/O tasks adds thread synchronization overhead without performance gains.",
+      "citation": "Node.js API Reference: worker_threads vs cluster"
+    },
+    {
+      "id": "mcq-14-001-04",
+      "concept": "Child Process Execution: Exec, Spawn & Fork: SharedArrayBuffer & Atomics Operations",
+      "category": "Multi-Threading",
+      "difficulty": "Advanced",
+      "question": "Why MUST multi-threaded operations on `SharedArrayBuffer` use `Atomics` methods (e.g. `Atomics.add`, `Atomics.wait`)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SharedArrayBuffer is read-only unless unlocked by Atomics.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Atomics operations prevent race conditions and memory corruption by guaranteeing atomic, non-interruptible read-modify-write memory access across threads.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Atomics encrypts shared memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Atomics converts binary buffers into JSON objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "When multiple worker threads access shared memory, concurrent writes produce race conditions. Atomics operations guarantee hardware-level atomic operations and synchronization barriers.",
+      "codeSnippet": "const sab = new SharedArrayBuffer(1024);\nconst int32 = new Int32Array(sab);\n// Thread-safe atomic increment:\nAtomics.add(int32, 0, 1);",
+      "pitfall": "Calling Atomics.wait() on the Node.js main thread throws a TypeError because blocking the main event loop thread is prohibited.",
+      "citation": "MDN Web Docs: Atomics / SharedArrayBuffer Specifications"
+    },
+    {
+      "id": "mcq-14-001-05",
+      "concept": "Child Process Execution: Exec, Spawn & Fork: Worker Threads vs Cluster Module",
+      "category": "Concurrency & Scale",
+      "difficulty": "Intermediate",
+      "question": "What is the primary architectural difference between Node's `cluster` module and `worker_threads` module?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cluster is only for Linux; worker_threads is only for Windows.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`cluster` forks separate OS child processes with independent memory heaps sharing server ports; `worker_threads` runs multiple V8 isolates in the same process with shared memory support.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "worker_threads cannot perform file I/O.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "cluster requires Docker to operate.",
+          "correct": false
+        }
+      ],
+      "explanation": "Cluster scales I/O across multi-core CPUs via separate child processes. worker_threads runs multiple V8 isolates within the same process for CPU-heavy tasks with SharedArrayBuffer access.",
+      "codeSnippet": "import { Worker, isMainThread } from 'node:worker_threads';\nif (isMainThread) {\n  const worker = new Worker(new URL(import.meta.url));\n} else {\n  // Heavy CPU computation in thread\n}",
+      "pitfall": "Using worker_threads for standard non-blocking I/O tasks adds thread synchronization overhead without performance gains.",
+      "citation": "Node.js API Reference: worker_threads vs cluster"
+    },
+    {
+      "id": "mcq-14-001-06",
+      "concept": "Child Process Execution: Exec, Spawn & Fork: SharedArrayBuffer & Atomics Operations",
+      "category": "Multi-Threading",
+      "difficulty": "Advanced",
+      "question": "Why MUST multi-threaded operations on `SharedArrayBuffer` use `Atomics` methods (e.g. `Atomics.add`, `Atomics.wait`)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SharedArrayBuffer is read-only unless unlocked by Atomics.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Atomics operations prevent race conditions and memory corruption by guaranteeing atomic, non-interruptible read-modify-write memory access across threads.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Atomics encrypts shared memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Atomics converts binary buffers into JSON objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "When multiple worker threads access shared memory, concurrent writes produce race conditions. Atomics operations guarantee hardware-level atomic operations and synchronization barriers.",
+      "codeSnippet": "const sab = new SharedArrayBuffer(1024);\nconst int32 = new Int32Array(sab);\n// Thread-safe atomic increment:\nAtomics.add(int32, 0, 1);",
+      "pitfall": "Calling Atomics.wait() on the Node.js main thread throws a TypeError because blocking the main event loop thread is prohibited.",
+      "citation": "MDN Web Docs: Atomics / SharedArrayBuffer Specifications"
+    },
+    {
+      "id": "mcq-14-001-07",
+      "concept": "Child Process Execution: Exec, Spawn & Fork: Worker Threads vs Cluster Module",
+      "category": "Concurrency & Scale",
+      "difficulty": "Intermediate",
+      "question": "What is the primary architectural difference between Node's `cluster` module and `worker_threads` module?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cluster is only for Linux; worker_threads is only for Windows.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`cluster` forks separate OS child processes with independent memory heaps sharing server ports; `worker_threads` runs multiple V8 isolates in the same process with shared memory support.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "worker_threads cannot perform file I/O.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "cluster requires Docker to operate.",
+          "correct": false
+        }
+      ],
+      "explanation": "Cluster scales I/O across multi-core CPUs via separate child processes. worker_threads runs multiple V8 isolates within the same process for CPU-heavy tasks with SharedArrayBuffer access.",
+      "codeSnippet": "import { Worker, isMainThread } from 'node:worker_threads';\nif (isMainThread) {\n  const worker = new Worker(new URL(import.meta.url));\n} else {\n  // Heavy CPU computation in thread\n}",
+      "pitfall": "Using worker_threads for standard non-blocking I/O tasks adds thread synchronization overhead without performance gains.",
+      "citation": "Node.js API Reference: worker_threads vs cluster"
+    },
+    {
+      "id": "mcq-14-001-08",
+      "concept": "Child Process Execution: Exec, Spawn & Fork: SharedArrayBuffer & Atomics Operations",
+      "category": "Multi-Threading",
+      "difficulty": "Advanced",
+      "question": "Why MUST multi-threaded operations on `SharedArrayBuffer` use `Atomics` methods (e.g. `Atomics.add`, `Atomics.wait`)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SharedArrayBuffer is read-only unless unlocked by Atomics.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Atomics operations prevent race conditions and memory corruption by guaranteeing atomic, non-interruptible read-modify-write memory access across threads.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Atomics encrypts shared memory.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Atomics converts binary buffers into JSON objects.",
+          "correct": false
+        }
+      ],
+      "explanation": "When multiple worker threads access shared memory, concurrent writes produce race conditions. Atomics operations guarantee hardware-level atomic operations and synchronization barriers.",
+      "codeSnippet": "const sab = new SharedArrayBuffer(1024);\nconst int32 = new Int32Array(sab);\n// Thread-safe atomic increment:\nAtomics.add(int32, 0, 1);",
+      "pitfall": "Calling Atomics.wait() on the Node.js main thread throws a TypeError because blocking the main event loop thread is prohibited.",
+      "citation": "MDN Web Docs: Atomics / SharedArrayBuffer Specifications"
+    }
+  ]
+}

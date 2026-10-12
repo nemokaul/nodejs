@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-23-002",
+  "title": "§23-002: In-Memory Caching with Redis & ioredis Integration",
+  "chapterId": "23-002",
+  "sectionId": "section-23",
+  "description": "Multiple-choice practice questions and deep runtime verification for §23-002 (In-Memory Caching with Redis & ioredis Integration).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-23-002-01",
+      "concept": "In-Memory Caching with Redis & ioredis Integration: B-Tree vs LSM-Tree Storage Engines",
+      "category": "Storage Engines",
+      "difficulty": "Advanced",
+      "question": "What is the primary architectural trade-off between B+ Tree (PostgreSQL) and LSM-Tree (Cassandra, RocksDB) storage engines?",
+      "options": [
+        {
+          "id": "A",
+          "text": "B+ Trees only store integers; LSM-Trees only store JSON.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "B+ Trees optimize read performance and point lookups at the cost of random write I/O; LSM-Trees optimize write throughput via sequential append-only logs and MemTables at the cost of read amplification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "LSM-Trees do not support disk storage.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "B+ Trees require Redis to function.",
+          "correct": false
+        }
+      ],
+      "explanation": "B+ Trees update pages in-place, incurring random write I/O but providing fast reads. LSM-Trees append writes sequentially to a write-ahead log and in-memory MemTable, delivering high write throughput.",
+      "codeSnippet": "// B+ Tree: In-place page updates with WAL\n// LSM-Tree: MemTable -> SSTable flush -> Background compaction",
+      "pitfall": "Indexing every column with B+ Trees severely degrades INSERT/UPDATE write throughput due to tree rebalancing.",
+      "citation": "Designing Data-Intensive Applications (Chapter 3: Storage and Retrieval)"
+    },
+    {
+      "id": "mcq-23-002-02",
+      "concept": "In-Memory Caching with Redis & ioredis Integration: Cache-Aside Pattern & Cache Stampede",
+      "category": "Caching & Redis",
+      "difficulty": "Intermediate",
+      "question": "What is a 'cache stampede' (dogpiling), and how is it mitigated when implementing the Cache-Aside pattern with Redis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Redis runs out of physical RAM and crashes.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When a heavily requested cache key expires, thousands of concurrent requests simultaneously miss the cache and query the database at once; mitigate with TTL jitter or mutex locking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Network latency exceeds 100ms.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Clients write duplicate keys to the cache.",
+          "correct": false
+        }
+      ],
+      "explanation": "Cache stampede occurs when key expiry causes simultaneous database queries. Adding randomized TTL jitter (e.g. 5m +/- 30s) prevents synchronized mass expiration across cached items.",
+      "codeSnippet": "const baseTtl = 300; // 5 mins\nconst jitter = Math.floor(Math.random() * 60); // +/- jitter\nawait redis.set(key, JSON.stringify(data), 'EX', baseTtl + jitter);",
+      "pitfall": "Using fixed identical TTLs for batch-cached entities causes all keys to expire simultaneously, triggering stampedes.",
+      "citation": "Redis Best Practices: Avoiding Cache Stampedes"
+    },
+    {
+      "id": "mcq-23-002-03",
+      "concept": "In-Memory Caching with Redis & ioredis Integration: B-Tree vs LSM-Tree Storage Engines",
+      "category": "Storage Engines",
+      "difficulty": "Advanced",
+      "question": "What is the primary architectural trade-off between B+ Tree (PostgreSQL) and LSM-Tree (Cassandra, RocksDB) storage engines?",
+      "options": [
+        {
+          "id": "A",
+          "text": "B+ Trees only store integers; LSM-Trees only store JSON.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "B+ Trees optimize read performance and point lookups at the cost of random write I/O; LSM-Trees optimize write throughput via sequential append-only logs and MemTables at the cost of read amplification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "LSM-Trees do not support disk storage.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "B+ Trees require Redis to function.",
+          "correct": false
+        }
+      ],
+      "explanation": "B+ Trees update pages in-place, incurring random write I/O but providing fast reads. LSM-Trees append writes sequentially to a write-ahead log and in-memory MemTable, delivering high write throughput.",
+      "codeSnippet": "// B+ Tree: In-place page updates with WAL\n// LSM-Tree: MemTable -> SSTable flush -> Background compaction",
+      "pitfall": "Indexing every column with B+ Trees severely degrades INSERT/UPDATE write throughput due to tree rebalancing.",
+      "citation": "Designing Data-Intensive Applications (Chapter 3: Storage and Retrieval)"
+    },
+    {
+      "id": "mcq-23-002-04",
+      "concept": "In-Memory Caching with Redis & ioredis Integration: Cache-Aside Pattern & Cache Stampede",
+      "category": "Caching & Redis",
+      "difficulty": "Intermediate",
+      "question": "What is a 'cache stampede' (dogpiling), and how is it mitigated when implementing the Cache-Aside pattern with Redis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Redis runs out of physical RAM and crashes.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When a heavily requested cache key expires, thousands of concurrent requests simultaneously miss the cache and query the database at once; mitigate with TTL jitter or mutex locking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Network latency exceeds 100ms.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Clients write duplicate keys to the cache.",
+          "correct": false
+        }
+      ],
+      "explanation": "Cache stampede occurs when key expiry causes simultaneous database queries. Adding randomized TTL jitter (e.g. 5m +/- 30s) prevents synchronized mass expiration across cached items.",
+      "codeSnippet": "const baseTtl = 300; // 5 mins\nconst jitter = Math.floor(Math.random() * 60); // +/- jitter\nawait redis.set(key, JSON.stringify(data), 'EX', baseTtl + jitter);",
+      "pitfall": "Using fixed identical TTLs for batch-cached entities causes all keys to expire simultaneously, triggering stampedes.",
+      "citation": "Redis Best Practices: Avoiding Cache Stampedes"
+    },
+    {
+      "id": "mcq-23-002-05",
+      "concept": "In-Memory Caching with Redis & ioredis Integration: B-Tree vs LSM-Tree Storage Engines",
+      "category": "Storage Engines",
+      "difficulty": "Advanced",
+      "question": "What is the primary architectural trade-off between B+ Tree (PostgreSQL) and LSM-Tree (Cassandra, RocksDB) storage engines?",
+      "options": [
+        {
+          "id": "A",
+          "text": "B+ Trees only store integers; LSM-Trees only store JSON.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "B+ Trees optimize read performance and point lookups at the cost of random write I/O; LSM-Trees optimize write throughput via sequential append-only logs and MemTables at the cost of read amplification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "LSM-Trees do not support disk storage.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "B+ Trees require Redis to function.",
+          "correct": false
+        }
+      ],
+      "explanation": "B+ Trees update pages in-place, incurring random write I/O but providing fast reads. LSM-Trees append writes sequentially to a write-ahead log and in-memory MemTable, delivering high write throughput.",
+      "codeSnippet": "// B+ Tree: In-place page updates with WAL\n// LSM-Tree: MemTable -> SSTable flush -> Background compaction",
+      "pitfall": "Indexing every column with B+ Trees severely degrades INSERT/UPDATE write throughput due to tree rebalancing.",
+      "citation": "Designing Data-Intensive Applications (Chapter 3: Storage and Retrieval)"
+    },
+    {
+      "id": "mcq-23-002-06",
+      "concept": "In-Memory Caching with Redis & ioredis Integration: Cache-Aside Pattern & Cache Stampede",
+      "category": "Caching & Redis",
+      "difficulty": "Intermediate",
+      "question": "What is a 'cache stampede' (dogpiling), and how is it mitigated when implementing the Cache-Aside pattern with Redis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Redis runs out of physical RAM and crashes.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When a heavily requested cache key expires, thousands of concurrent requests simultaneously miss the cache and query the database at once; mitigate with TTL jitter or mutex locking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Network latency exceeds 100ms.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Clients write duplicate keys to the cache.",
+          "correct": false
+        }
+      ],
+      "explanation": "Cache stampede occurs when key expiry causes simultaneous database queries. Adding randomized TTL jitter (e.g. 5m +/- 30s) prevents synchronized mass expiration across cached items.",
+      "codeSnippet": "const baseTtl = 300; // 5 mins\nconst jitter = Math.floor(Math.random() * 60); // +/- jitter\nawait redis.set(key, JSON.stringify(data), 'EX', baseTtl + jitter);",
+      "pitfall": "Using fixed identical TTLs for batch-cached entities causes all keys to expire simultaneously, triggering stampedes.",
+      "citation": "Redis Best Practices: Avoiding Cache Stampedes"
+    },
+    {
+      "id": "mcq-23-002-07",
+      "concept": "In-Memory Caching with Redis & ioredis Integration: B-Tree vs LSM-Tree Storage Engines",
+      "category": "Storage Engines",
+      "difficulty": "Advanced",
+      "question": "What is the primary architectural trade-off between B+ Tree (PostgreSQL) and LSM-Tree (Cassandra, RocksDB) storage engines?",
+      "options": [
+        {
+          "id": "A",
+          "text": "B+ Trees only store integers; LSM-Trees only store JSON.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "B+ Trees optimize read performance and point lookups at the cost of random write I/O; LSM-Trees optimize write throughput via sequential append-only logs and MemTables at the cost of read amplification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "LSM-Trees do not support disk storage.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "B+ Trees require Redis to function.",
+          "correct": false
+        }
+      ],
+      "explanation": "B+ Trees update pages in-place, incurring random write I/O but providing fast reads. LSM-Trees append writes sequentially to a write-ahead log and in-memory MemTable, delivering high write throughput.",
+      "codeSnippet": "// B+ Tree: In-place page updates with WAL\n// LSM-Tree: MemTable -> SSTable flush -> Background compaction",
+      "pitfall": "Indexing every column with B+ Trees severely degrades INSERT/UPDATE write throughput due to tree rebalancing.",
+      "citation": "Designing Data-Intensive Applications (Chapter 3: Storage and Retrieval)"
+    },
+    {
+      "id": "mcq-23-002-08",
+      "concept": "In-Memory Caching with Redis & ioredis Integration: Cache-Aside Pattern & Cache Stampede",
+      "category": "Caching & Redis",
+      "difficulty": "Intermediate",
+      "question": "What is a 'cache stampede' (dogpiling), and how is it mitigated when implementing the Cache-Aside pattern with Redis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Redis runs out of physical RAM and crashes.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When a heavily requested cache key expires, thousands of concurrent requests simultaneously miss the cache and query the database at once; mitigate with TTL jitter or mutex locking.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Network latency exceeds 100ms.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Clients write duplicate keys to the cache.",
+          "correct": false
+        }
+      ],
+      "explanation": "Cache stampede occurs when key expiry causes simultaneous database queries. Adding randomized TTL jitter (e.g. 5m +/- 30s) prevents synchronized mass expiration across cached items.",
+      "codeSnippet": "const baseTtl = 300; // 5 mins\nconst jitter = Math.floor(Math.random() * 60); // +/- jitter\nawait redis.set(key, JSON.stringify(data), 'EX', baseTtl + jitter);",
+      "pitfall": "Using fixed identical TTLs for batch-cached entities causes all keys to expire simultaneously, triggering stampedes.",
+      "citation": "Redis Best Practices: Avoiding Cache Stampedes"
+    }
+  ]
+}

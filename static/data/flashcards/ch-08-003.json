@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-08-003",
+  "title": "§08-003: Package Management, Module Isolation & ESM Interop",
+  "chapterId": "08-003",
+  "sectionId": "section-08",
+  "description": "Multiple-choice practice questions and deep runtime verification for §08-003 (Package Management, Module Isolation & ESM Interop).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-08-003-01",
+      "concept": "Package Management, Module Isolation & ESM Interop: CommonJS vs ESM Live Bindings",
+      "category": "Modules",
+      "difficulty": "Intermediate",
+      "question": "What is the key difference between CommonJS exports and ECMAScript Module (ESM) exports regarding exported variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CommonJS exports live bindings, whereas ESM creates an immutable deep copy of module.exports.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "ESM exports live read-only bindings that reflect mutations in the exporting module dynamically; CommonJS exports a copied snapshot of module.exports.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "ESM requires all modules to be compiled into binary bytecode first.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "CommonJS allows top-level await in all files by default.",
+          "correct": false
+        }
+      ],
+      "explanation": "ESM creates live bindings: when a variable in an exporting module changes, all importing modules observe the updated value. CommonJS copies values onto module.exports at execution time.",
+      "codeSnippet": "// counter.js (ESM)\nexport let count = 0;\nexport function inc() { count++; }\n// consumer.js\nimport { count, inc } from './counter.js';\ninc();\nconsole.log(count); // 1 (Live binding updated!)",
+      "pitfall": "Attempting to reassign an imported binding (e.g. count = 2) in ESM throws TypeError: Assignment to constant variable.",
+      "citation": "ECMAScript 2024 Specification §16.2 / Node.js ESM Documentation"
+    },
+    {
+      "id": "mcq-08-003-02",
+      "concept": "Package Management, Module Isolation & ESM Interop: Dual-Package Hazard in Node.js",
+      "category": "Module Packaging",
+      "difficulty": "Advanced",
+      "question": "What is the 'dual-package hazard' in Node.js package development, and how is it resolved in `package.json`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Publishing a package with both JavaScript and TypeScript source files in the same folder.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When an application loads both CJS and ESM builds of the same package, causing singletons and instance checks (instanceof) to be duplicated and desynchronized.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Exceeding the npm 100MB compressed package upload limit.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Using npm and bun simultaneously in the same repo.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a package provides both CJS and ESM entry points without proper wrapping, two separate module instances are loaded into memory, breaking singletons and instanceof checks.",
+      "codeSnippet": "// package.json conditional exports solution:\n{\n  \"exports\": {\n    \"import\": \"./esm/index.js\",\n    \"require\": \"./cjs/index.js\"\n  }\n}",
+      "pitfall": "Maintaining package state in module variables when both CJS and ESM entry points are bundled without a shared state wrapper.",
+      "citation": "Node.js Packages Guide: Dual CommonJS/ES Module Packages"
+    },
+    {
+      "id": "mcq-08-003-03",
+      "concept": "Package Management, Module Isolation & ESM Interop: CommonJS vs ESM Live Bindings",
+      "category": "Modules",
+      "difficulty": "Intermediate",
+      "question": "What is the key difference between CommonJS exports and ECMAScript Module (ESM) exports regarding exported variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CommonJS exports live bindings, whereas ESM creates an immutable deep copy of module.exports.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "ESM exports live read-only bindings that reflect mutations in the exporting module dynamically; CommonJS exports a copied snapshot of module.exports.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "ESM requires all modules to be compiled into binary bytecode first.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "CommonJS allows top-level await in all files by default.",
+          "correct": false
+        }
+      ],
+      "explanation": "ESM creates live bindings: when a variable in an exporting module changes, all importing modules observe the updated value. CommonJS copies values onto module.exports at execution time.",
+      "codeSnippet": "// counter.js (ESM)\nexport let count = 0;\nexport function inc() { count++; }\n// consumer.js\nimport { count, inc } from './counter.js';\ninc();\nconsole.log(count); // 1 (Live binding updated!)",
+      "pitfall": "Attempting to reassign an imported binding (e.g. count = 2) in ESM throws TypeError: Assignment to constant variable.",
+      "citation": "ECMAScript 2024 Specification §16.2 / Node.js ESM Documentation"
+    },
+    {
+      "id": "mcq-08-003-04",
+      "concept": "Package Management, Module Isolation & ESM Interop: Dual-Package Hazard in Node.js",
+      "category": "Module Packaging",
+      "difficulty": "Advanced",
+      "question": "What is the 'dual-package hazard' in Node.js package development, and how is it resolved in `package.json`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Publishing a package with both JavaScript and TypeScript source files in the same folder.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When an application loads both CJS and ESM builds of the same package, causing singletons and instance checks (instanceof) to be duplicated and desynchronized.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Exceeding the npm 100MB compressed package upload limit.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Using npm and bun simultaneously in the same repo.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a package provides both CJS and ESM entry points without proper wrapping, two separate module instances are loaded into memory, breaking singletons and instanceof checks.",
+      "codeSnippet": "// package.json conditional exports solution:\n{\n  \"exports\": {\n    \"import\": \"./esm/index.js\",\n    \"require\": \"./cjs/index.js\"\n  }\n}",
+      "pitfall": "Maintaining package state in module variables when both CJS and ESM entry points are bundled without a shared state wrapper.",
+      "citation": "Node.js Packages Guide: Dual CommonJS/ES Module Packages"
+    },
+    {
+      "id": "mcq-08-003-05",
+      "concept": "Package Management, Module Isolation & ESM Interop: CommonJS vs ESM Live Bindings",
+      "category": "Modules",
+      "difficulty": "Intermediate",
+      "question": "What is the key difference between CommonJS exports and ECMAScript Module (ESM) exports regarding exported variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CommonJS exports live bindings, whereas ESM creates an immutable deep copy of module.exports.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "ESM exports live read-only bindings that reflect mutations in the exporting module dynamically; CommonJS exports a copied snapshot of module.exports.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "ESM requires all modules to be compiled into binary bytecode first.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "CommonJS allows top-level await in all files by default.",
+          "correct": false
+        }
+      ],
+      "explanation": "ESM creates live bindings: when a variable in an exporting module changes, all importing modules observe the updated value. CommonJS copies values onto module.exports at execution time.",
+      "codeSnippet": "// counter.js (ESM)\nexport let count = 0;\nexport function inc() { count++; }\n// consumer.js\nimport { count, inc } from './counter.js';\ninc();\nconsole.log(count); // 1 (Live binding updated!)",
+      "pitfall": "Attempting to reassign an imported binding (e.g. count = 2) in ESM throws TypeError: Assignment to constant variable.",
+      "citation": "ECMAScript 2024 Specification §16.2 / Node.js ESM Documentation"
+    },
+    {
+      "id": "mcq-08-003-06",
+      "concept": "Package Management, Module Isolation & ESM Interop: Dual-Package Hazard in Node.js",
+      "category": "Module Packaging",
+      "difficulty": "Advanced",
+      "question": "What is the 'dual-package hazard' in Node.js package development, and how is it resolved in `package.json`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Publishing a package with both JavaScript and TypeScript source files in the same folder.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When an application loads both CJS and ESM builds of the same package, causing singletons and instance checks (instanceof) to be duplicated and desynchronized.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Exceeding the npm 100MB compressed package upload limit.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Using npm and bun simultaneously in the same repo.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a package provides both CJS and ESM entry points without proper wrapping, two separate module instances are loaded into memory, breaking singletons and instanceof checks.",
+      "codeSnippet": "// package.json conditional exports solution:\n{\n  \"exports\": {\n    \"import\": \"./esm/index.js\",\n    \"require\": \"./cjs/index.js\"\n  }\n}",
+      "pitfall": "Maintaining package state in module variables when both CJS and ESM entry points are bundled without a shared state wrapper.",
+      "citation": "Node.js Packages Guide: Dual CommonJS/ES Module Packages"
+    },
+    {
+      "id": "mcq-08-003-07",
+      "concept": "Package Management, Module Isolation & ESM Interop: CommonJS vs ESM Live Bindings",
+      "category": "Modules",
+      "difficulty": "Intermediate",
+      "question": "What is the key difference between CommonJS exports and ECMAScript Module (ESM) exports regarding exported variables?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CommonJS exports live bindings, whereas ESM creates an immutable deep copy of module.exports.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "ESM exports live read-only bindings that reflect mutations in the exporting module dynamically; CommonJS exports a copied snapshot of module.exports.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "ESM requires all modules to be compiled into binary bytecode first.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "CommonJS allows top-level await in all files by default.",
+          "correct": false
+        }
+      ],
+      "explanation": "ESM creates live bindings: when a variable in an exporting module changes, all importing modules observe the updated value. CommonJS copies values onto module.exports at execution time.",
+      "codeSnippet": "// counter.js (ESM)\nexport let count = 0;\nexport function inc() { count++; }\n// consumer.js\nimport { count, inc } from './counter.js';\ninc();\nconsole.log(count); // 1 (Live binding updated!)",
+      "pitfall": "Attempting to reassign an imported binding (e.g. count = 2) in ESM throws TypeError: Assignment to constant variable.",
+      "citation": "ECMAScript 2024 Specification §16.2 / Node.js ESM Documentation"
+    },
+    {
+      "id": "mcq-08-003-08",
+      "concept": "Package Management, Module Isolation & ESM Interop: Dual-Package Hazard in Node.js",
+      "category": "Module Packaging",
+      "difficulty": "Advanced",
+      "question": "What is the 'dual-package hazard' in Node.js package development, and how is it resolved in `package.json`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Publishing a package with both JavaScript and TypeScript source files in the same folder.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "When an application loads both CJS and ESM builds of the same package, causing singletons and instance checks (instanceof) to be duplicated and desynchronized.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Exceeding the npm 100MB compressed package upload limit.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Using npm and bun simultaneously in the same repo.",
+          "correct": false
+        }
+      ],
+      "explanation": "If a package provides both CJS and ESM entry points without proper wrapping, two separate module instances are loaded into memory, breaking singletons and instanceof checks.",
+      "codeSnippet": "// package.json conditional exports solution:\n{\n  \"exports\": {\n    \"import\": \"./esm/index.js\",\n    \"require\": \"./cjs/index.js\"\n  }\n}",
+      "pitfall": "Maintaining package state in module variables when both CJS and ESM entry points are bundled without a shared state wrapper.",
+      "citation": "Node.js Packages Guide: Dual CommonJS/ES Module Packages"
+    }
+  ]
+}

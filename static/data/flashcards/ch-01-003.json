@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-01-003",
+  "title": "§01-003: Core Language Primitives & Operators",
+  "chapterId": "01-003",
+  "sectionId": "section-01",
+  "description": "Multiple-choice practice questions and deep runtime verification for §01-003 (Core Language Primitives & Operators).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-01-003-01",
+      "concept": "Core Language Primitives & Operators: Execution Context Call Stack Lifecycle",
+      "category": "Runtime Mechanics",
+      "difficulty": "Intermediate",
+      "question": "When a JavaScript function is invoked in the V8 engine, how is its Execution Context managed on the Call Stack?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is allocated in libuv's threadpool and dispatched after epoll polling completes.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It is pushed onto the Call Stack with its LexicalEnvironment and VariableEnvironment records, and popped off upon function return.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It is serialized directly into bytecode cache and bypasses execution frames.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It remains permanently on the heap until cleared by Mark-Sweep garbage collection.",
+          "correct": false
+        }
+      ],
+      "explanation": "V8 pushes a new Execution Context frame onto the Call Stack for every function invocation. When the function returns, its frame is popped in LIFO order.",
+      "codeSnippet": "function outer() {\n  function inner() { return 'evaluated'; }\n  return inner();\n}\nouter(); // outer pushed -> inner pushed -> inner popped -> outer popped",
+      "pitfall": "Deep synchronous recursion exceeding stack limits triggers 'RangeError: Maximum call stack size exceeded'.",
+      "citation": "ECMAScript 2024 Specification §9.4 / MDN Web Docs: Call Stack"
+    },
+    {
+      "id": "mcq-01-003-02",
+      "concept": "Core Language Primitives & Operators: V8 Ignition Bytecode Interpreter",
+      "category": "V8 Internals",
+      "difficulty": "Advanced",
+      "question": "What is the primary role of Ignition in Google's V8 JavaScript engine?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An optimizing compiler that compiles ASTs directly into unboxed x86 assembly.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "A memory-efficient bytecode interpreter that generates bytecode from the Abstract Syntax Tree (AST).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "A generational garbage collector that compacts young generation semi-spaces.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "An asynchronous event loop driver managing non-blocking socket descriptors.",
+          "correct": false
+        }
+      ],
+      "explanation": "Ignition compiles ASTs into compact bytecode and executes it. As code runs, it collects type feedback; hot functions are subsequently compiled by TurboFan.",
+      "codeSnippet": "// Inspection via V8 CLI flags:\n// $ node --print-bytecode --print-bytecode-filter=calculate app.js",
+      "pitfall": "Writing polymorphic functions with fluctuating hidden classes forces TurboFan deoptimization back to Ignition bytecode.",
+      "citation": "V8 JavaScript Engine Documentation: Ignition Interpreter Architecture"
+    },
+    {
+      "id": "mcq-01-003-03",
+      "concept": "Core Language Primitives & Operators: ES Module vs Script Tag Loading",
+      "category": "Script Loading",
+      "difficulty": "Intermediate",
+      "question": "How does script execution behavior differ when using `<script type=\"module\">` compared to a standard `<script>` tag?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Module scripts execute synchronously immediately, blocking HTML parsing completely.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Module scripts are automatically deferred, executed in strict mode, and evaluated in isolated module scopes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Module scripts share variables globally with standard inline script tags.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Module scripts can only be evaluated from local file:// URLs without CORS headers.",
+          "correct": false
+        }
+      ],
+      "explanation": "ESM script tags are deferred by default (downloading in parallel and executing after HTML parse), enforce strict mode semantics, and prevent global variable pollution.",
+      "codeSnippet": "<!-- Automatically deferred, strict mode, module scoped -->\n<script type=\"module\" src=\"app.js\"></script>",
+      "pitfall": "Assuming top-level module variables attach to window/globalThis; ESM scopes are strictly isolated.",
+      "citation": "HTML Living Standard §4.12 / MDN Web Docs: JavaScript modules"
+    },
+    {
+      "id": "mcq-01-003-04",
+      "concept": "Core Language Primitives & Operators: Execution Context Call Stack Lifecycle",
+      "category": "Runtime Mechanics",
+      "difficulty": "Intermediate",
+      "question": "When a JavaScript function is invoked in the V8 engine, how is its Execution Context managed on the Call Stack?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is allocated in libuv's threadpool and dispatched after epoll polling completes.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It is pushed onto the Call Stack with its LexicalEnvironment and VariableEnvironment records, and popped off upon function return.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It is serialized directly into bytecode cache and bypasses execution frames.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It remains permanently on the heap until cleared by Mark-Sweep garbage collection.",
+          "correct": false
+        }
+      ],
+      "explanation": "V8 pushes a new Execution Context frame onto the Call Stack for every function invocation. When the function returns, its frame is popped in LIFO order.",
+      "codeSnippet": "function outer() {\n  function inner() { return 'evaluated'; }\n  return inner();\n}\nouter(); // outer pushed -> inner pushed -> inner popped -> outer popped",
+      "pitfall": "Deep synchronous recursion exceeding stack limits triggers 'RangeError: Maximum call stack size exceeded'.",
+      "citation": "ECMAScript 2024 Specification §9.4 / MDN Web Docs: Call Stack"
+    },
+    {
+      "id": "mcq-01-003-05",
+      "concept": "Core Language Primitives & Operators: V8 Ignition Bytecode Interpreter",
+      "category": "V8 Internals",
+      "difficulty": "Advanced",
+      "question": "What is the primary role of Ignition in Google's V8 JavaScript engine?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An optimizing compiler that compiles ASTs directly into unboxed x86 assembly.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "A memory-efficient bytecode interpreter that generates bytecode from the Abstract Syntax Tree (AST).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "A generational garbage collector that compacts young generation semi-spaces.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "An asynchronous event loop driver managing non-blocking socket descriptors.",
+          "correct": false
+        }
+      ],
+      "explanation": "Ignition compiles ASTs into compact bytecode and executes it. As code runs, it collects type feedback; hot functions are subsequently compiled by TurboFan.",
+      "codeSnippet": "// Inspection via V8 CLI flags:\n// $ node --print-bytecode --print-bytecode-filter=calculate app.js",
+      "pitfall": "Writing polymorphic functions with fluctuating hidden classes forces TurboFan deoptimization back to Ignition bytecode.",
+      "citation": "V8 JavaScript Engine Documentation: Ignition Interpreter Architecture"
+    },
+    {
+      "id": "mcq-01-003-06",
+      "concept": "Core Language Primitives & Operators: ES Module vs Script Tag Loading",
+      "category": "Script Loading",
+      "difficulty": "Intermediate",
+      "question": "How does script execution behavior differ when using `<script type=\"module\">` compared to a standard `<script>` tag?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Module scripts execute synchronously immediately, blocking HTML parsing completely.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Module scripts are automatically deferred, executed in strict mode, and evaluated in isolated module scopes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Module scripts share variables globally with standard inline script tags.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Module scripts can only be evaluated from local file:// URLs without CORS headers.",
+          "correct": false
+        }
+      ],
+      "explanation": "ESM script tags are deferred by default (downloading in parallel and executing after HTML parse), enforce strict mode semantics, and prevent global variable pollution.",
+      "codeSnippet": "<!-- Automatically deferred, strict mode, module scoped -->\n<script type=\"module\" src=\"app.js\"></script>",
+      "pitfall": "Assuming top-level module variables attach to window/globalThis; ESM scopes are strictly isolated.",
+      "citation": "HTML Living Standard §4.12 / MDN Web Docs: JavaScript modules"
+    },
+    {
+      "id": "mcq-01-003-07",
+      "concept": "Core Language Primitives & Operators: Execution Context Call Stack Lifecycle",
+      "category": "Runtime Mechanics",
+      "difficulty": "Intermediate",
+      "question": "When a JavaScript function is invoked in the V8 engine, how is its Execution Context managed on the Call Stack?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is allocated in libuv's threadpool and dispatched after epoll polling completes.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It is pushed onto the Call Stack with its LexicalEnvironment and VariableEnvironment records, and popped off upon function return.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It is serialized directly into bytecode cache and bypasses execution frames.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It remains permanently on the heap until cleared by Mark-Sweep garbage collection.",
+          "correct": false
+        }
+      ],
+      "explanation": "V8 pushes a new Execution Context frame onto the Call Stack for every function invocation. When the function returns, its frame is popped in LIFO order.",
+      "codeSnippet": "function outer() {\n  function inner() { return 'evaluated'; }\n  return inner();\n}\nouter(); // outer pushed -> inner pushed -> inner popped -> outer popped",
+      "pitfall": "Deep synchronous recursion exceeding stack limits triggers 'RangeError: Maximum call stack size exceeded'.",
+      "citation": "ECMAScript 2024 Specification §9.4 / MDN Web Docs: Call Stack"
+    },
+    {
+      "id": "mcq-01-003-08",
+      "concept": "Core Language Primitives & Operators: V8 Ignition Bytecode Interpreter",
+      "category": "V8 Internals",
+      "difficulty": "Advanced",
+      "question": "What is the primary role of Ignition in Google's V8 JavaScript engine?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An optimizing compiler that compiles ASTs directly into unboxed x86 assembly.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "A memory-efficient bytecode interpreter that generates bytecode from the Abstract Syntax Tree (AST).",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "A generational garbage collector that compacts young generation semi-spaces.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "An asynchronous event loop driver managing non-blocking socket descriptors.",
+          "correct": false
+        }
+      ],
+      "explanation": "Ignition compiles ASTs into compact bytecode and executes it. As code runs, it collects type feedback; hot functions are subsequently compiled by TurboFan.",
+      "codeSnippet": "// Inspection via V8 CLI flags:\n// $ node --print-bytecode --print-bytecode-filter=calculate app.js",
+      "pitfall": "Writing polymorphic functions with fluctuating hidden classes forces TurboFan deoptimization back to Ignition bytecode.",
+      "citation": "V8 JavaScript Engine Documentation: Ignition Interpreter Architecture"
+    }
+  ]
+}

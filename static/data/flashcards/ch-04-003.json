@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-04-003",
+  "title": "§04-003: Prototypal Inheritance & ES6 Class Delegation",
+  "chapterId": "04-003",
+  "sectionId": "section-04",
+  "description": "Multiple-choice practice questions and deep runtime verification for §04-003 (Prototypal Inheritance & ES6 Class Delegation).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-04-003-01",
+      "concept": "Prototypal Inheritance & ES6 Class Delegation: Prototypal Delegation & Prototype Chain",
+      "category": "Prototypes & OOP",
+      "difficulty": "Intermediate",
+      "question": "When evaluating `obj.property`, what sequence does the JavaScript runtime follow across the prototype chain?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It queries constructor static properties first, then the global scope.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It checks own property descriptors on `obj`, then steps through `Object.getPrototypeOf(obj)` upward until finding the property or reaching `null`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It checks `Object.prototype` first, and cascades down.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It executes getters on all registered subclasses concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Property resolution checks the object's own property table first. If not found, it traverses upward via the [[Prototype]] internal link until it finds the property or reaches null.",
+      "codeSnippet": "const proto = { answer: 42 };\nconst instance = Object.create(proto);\nconsole.log(instance.answer); // 42 (delegated)\nconsole.log(Object.getPrototypeOf(Object.prototype)); // null (terminus)",
+      "pitfall": "Modifying Object.prototype directly introduces security risks (prototype pollution) and deoptimizes V8 hidden classes across all objects.",
+      "citation": "ECMAScript 2024 Specification §10.1.8 / MDN Web Docs: Inheritance and prototype chain"
+    },
+    {
+      "id": "mcq-04-003-02",
+      "concept": "Prototypal Inheritance & ES6 Class Delegation: Object.create(null) for Pure Dictionaries",
+      "category": "Prototypes",
+      "difficulty": "Intermediate",
+      "question": "Why is `Object.create(null)` preferred over a plain object literal `{}` when creating secure string-to-value dictionary lookups?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It compresses values with gzip in memory.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It has no [[Prototype]] link and inherits zero properties (such as toString, constructor, __proto__), preventing key collisions and prototype pollution.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It runs in constant O(1) time regardless of map size.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It automatically freezes all nested properties.",
+          "correct": false
+        }
+      ],
+      "explanation": "Object.create(null) produces an object with no prototype chain. It does not inherit hasOwnProperty or __proto__, preventing attacks where user input keys match inherited prototype properties.",
+      "codeSnippet": "const dict = Object.create(null);\nconsole.log(dict.toString); // undefined (safe from prototype collision)\nconsole.log(Object.getPrototypeOf(dict)); // null",
+      "pitfall": "Calling dict.hasOwnProperty(key) directly throws TypeError because hasOwnProperty is not inherited; use Object.prototype.hasOwnProperty.call(dict, key) or Object.hasOwn().",
+      "citation": "MDN Web Docs: Object.create() / TC39 Object.hasOwn()"
+    },
+    {
+      "id": "mcq-04-003-03",
+      "concept": "Prototypal Inheritance & ES6 Class Delegation: Prototypal Delegation & Prototype Chain",
+      "category": "Prototypes & OOP",
+      "difficulty": "Intermediate",
+      "question": "When evaluating `obj.property`, what sequence does the JavaScript runtime follow across the prototype chain?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It queries constructor static properties first, then the global scope.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It checks own property descriptors on `obj`, then steps through `Object.getPrototypeOf(obj)` upward until finding the property or reaching `null`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It checks `Object.prototype` first, and cascades down.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It executes getters on all registered subclasses concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Property resolution checks the object's own property table first. If not found, it traverses upward via the [[Prototype]] internal link until it finds the property or reaches null.",
+      "codeSnippet": "const proto = { answer: 42 };\nconst instance = Object.create(proto);\nconsole.log(instance.answer); // 42 (delegated)\nconsole.log(Object.getPrototypeOf(Object.prototype)); // null (terminus)",
+      "pitfall": "Modifying Object.prototype directly introduces security risks (prototype pollution) and deoptimizes V8 hidden classes across all objects.",
+      "citation": "ECMAScript 2024 Specification §10.1.8 / MDN Web Docs: Inheritance and prototype chain"
+    },
+    {
+      "id": "mcq-04-003-04",
+      "concept": "Prototypal Inheritance & ES6 Class Delegation: Object.create(null) for Pure Dictionaries",
+      "category": "Prototypes",
+      "difficulty": "Intermediate",
+      "question": "Why is `Object.create(null)` preferred over a plain object literal `{}` when creating secure string-to-value dictionary lookups?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It compresses values with gzip in memory.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It has no [[Prototype]] link and inherits zero properties (such as toString, constructor, __proto__), preventing key collisions and prototype pollution.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It runs in constant O(1) time regardless of map size.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It automatically freezes all nested properties.",
+          "correct": false
+        }
+      ],
+      "explanation": "Object.create(null) produces an object with no prototype chain. It does not inherit hasOwnProperty or __proto__, preventing attacks where user input keys match inherited prototype properties.",
+      "codeSnippet": "const dict = Object.create(null);\nconsole.log(dict.toString); // undefined (safe from prototype collision)\nconsole.log(Object.getPrototypeOf(dict)); // null",
+      "pitfall": "Calling dict.hasOwnProperty(key) directly throws TypeError because hasOwnProperty is not inherited; use Object.prototype.hasOwnProperty.call(dict, key) or Object.hasOwn().",
+      "citation": "MDN Web Docs: Object.create() / TC39 Object.hasOwn()"
+    },
+    {
+      "id": "mcq-04-003-05",
+      "concept": "Prototypal Inheritance & ES6 Class Delegation: Prototypal Delegation & Prototype Chain",
+      "category": "Prototypes & OOP",
+      "difficulty": "Intermediate",
+      "question": "When evaluating `obj.property`, what sequence does the JavaScript runtime follow across the prototype chain?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It queries constructor static properties first, then the global scope.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It checks own property descriptors on `obj`, then steps through `Object.getPrototypeOf(obj)` upward until finding the property or reaching `null`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It checks `Object.prototype` first, and cascades down.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It executes getters on all registered subclasses concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Property resolution checks the object's own property table first. If not found, it traverses upward via the [[Prototype]] internal link until it finds the property or reaches null.",
+      "codeSnippet": "const proto = { answer: 42 };\nconst instance = Object.create(proto);\nconsole.log(instance.answer); // 42 (delegated)\nconsole.log(Object.getPrototypeOf(Object.prototype)); // null (terminus)",
+      "pitfall": "Modifying Object.prototype directly introduces security risks (prototype pollution) and deoptimizes V8 hidden classes across all objects.",
+      "citation": "ECMAScript 2024 Specification §10.1.8 / MDN Web Docs: Inheritance and prototype chain"
+    },
+    {
+      "id": "mcq-04-003-06",
+      "concept": "Prototypal Inheritance & ES6 Class Delegation: Object.create(null) for Pure Dictionaries",
+      "category": "Prototypes",
+      "difficulty": "Intermediate",
+      "question": "Why is `Object.create(null)` preferred over a plain object literal `{}` when creating secure string-to-value dictionary lookups?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It compresses values with gzip in memory.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It has no [[Prototype]] link and inherits zero properties (such as toString, constructor, __proto__), preventing key collisions and prototype pollution.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It runs in constant O(1) time regardless of map size.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It automatically freezes all nested properties.",
+          "correct": false
+        }
+      ],
+      "explanation": "Object.create(null) produces an object with no prototype chain. It does not inherit hasOwnProperty or __proto__, preventing attacks where user input keys match inherited prototype properties.",
+      "codeSnippet": "const dict = Object.create(null);\nconsole.log(dict.toString); // undefined (safe from prototype collision)\nconsole.log(Object.getPrototypeOf(dict)); // null",
+      "pitfall": "Calling dict.hasOwnProperty(key) directly throws TypeError because hasOwnProperty is not inherited; use Object.prototype.hasOwnProperty.call(dict, key) or Object.hasOwn().",
+      "citation": "MDN Web Docs: Object.create() / TC39 Object.hasOwn()"
+    },
+    {
+      "id": "mcq-04-003-07",
+      "concept": "Prototypal Inheritance & ES6 Class Delegation: Prototypal Delegation & Prototype Chain",
+      "category": "Prototypes & OOP",
+      "difficulty": "Intermediate",
+      "question": "When evaluating `obj.property`, what sequence does the JavaScript runtime follow across the prototype chain?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It queries constructor static properties first, then the global scope.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It checks own property descriptors on `obj`, then steps through `Object.getPrototypeOf(obj)` upward until finding the property or reaching `null`.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It checks `Object.prototype` first, and cascades down.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It executes getters on all registered subclasses concurrently.",
+          "correct": false
+        }
+      ],
+      "explanation": "Property resolution checks the object's own property table first. If not found, it traverses upward via the [[Prototype]] internal link until it finds the property or reaches null.",
+      "codeSnippet": "const proto = { answer: 42 };\nconst instance = Object.create(proto);\nconsole.log(instance.answer); // 42 (delegated)\nconsole.log(Object.getPrototypeOf(Object.prototype)); // null (terminus)",
+      "pitfall": "Modifying Object.prototype directly introduces security risks (prototype pollution) and deoptimizes V8 hidden classes across all objects.",
+      "citation": "ECMAScript 2024 Specification §10.1.8 / MDN Web Docs: Inheritance and prototype chain"
+    },
+    {
+      "id": "mcq-04-003-08",
+      "concept": "Prototypal Inheritance & ES6 Class Delegation: Object.create(null) for Pure Dictionaries",
+      "category": "Prototypes",
+      "difficulty": "Intermediate",
+      "question": "Why is `Object.create(null)` preferred over a plain object literal `{}` when creating secure string-to-value dictionary lookups?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It compresses values with gzip in memory.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It has no [[Prototype]] link and inherits zero properties (such as toString, constructor, __proto__), preventing key collisions and prototype pollution.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It runs in constant O(1) time regardless of map size.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It automatically freezes all nested properties.",
+          "correct": false
+        }
+      ],
+      "explanation": "Object.create(null) produces an object with no prototype chain. It does not inherit hasOwnProperty or __proto__, preventing attacks where user input keys match inherited prototype properties.",
+      "codeSnippet": "const dict = Object.create(null);\nconsole.log(dict.toString); // undefined (safe from prototype collision)\nconsole.log(Object.getPrototypeOf(dict)); // null",
+      "pitfall": "Calling dict.hasOwnProperty(key) directly throws TypeError because hasOwnProperty is not inherited; use Object.prototype.hasOwnProperty.call(dict, key) or Object.hasOwn().",
+      "citation": "MDN Web Docs: Object.create() / TC39 Object.hasOwn()"
+    }
+  ]
+}

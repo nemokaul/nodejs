@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-17-001",
+  "title": "§17-001: TDD Red-Green-Refactor Cycle in Practice",
+  "chapterId": "17-001",
+  "sectionId": "section-17",
+  "description": "Multiple-choice practice questions and deep runtime verification for §17-001 (TDD Red-Green-Refactor Cycle in Practice).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-17-001-01",
+      "concept": "TDD Red-Green-Refactor Cycle in Practice: TDD Red-Green-Refactor Lifecycle",
+      "category": "TDD",
+      "difficulty": "Beginner",
+      "question": "What is the core principle of the Refactor phase in the Test-Driven Development (TDD) Red-Green-Refactor cycle?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Adding new user features while tests are failing.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Improving code structure, removing duplication, and optimizing design while ensuring all tests continue to pass.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Deleting tests that are difficult to maintain.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Rewriting the test suite from scratch.",
+          "correct": false
+        }
+      ],
+      "explanation": "In TDD: Red (write a failing test), Green (write minimal code to make it pass), Refactor (clean and optimize code while keeping tests green).",
+      "codeSnippet": "// Red: it('returns formatted user name', () => assert.equal(format(u), 'Alice'));\n// Green: function format(u) { return u.name; }\n// Refactor: function format({ firstName, lastName }) { return `${firstName} ${lastName}`.trim(); }",
+      "pitfall": "Skipping the Refactor phase accumulates technical debt and duplication despite having passing tests.",
+      "citation": "Kent Beck: Test-Driven Development by Example"
+    },
+    {
+      "id": "mcq-17-001-02",
+      "concept": "TDD Red-Green-Refactor Cycle in Practice: Supertest End-to-End API Verification",
+      "category": "E2E Testing",
+      "difficulty": "Intermediate",
+      "question": "How does Supertest execute HTTP integration tests against a Node.js `http.Server` instance efficiently?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By spawning an external browser instance via Selenium.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By passing the HTTP server instance to ephemeral ephemeral ports or directly invoking internal request handlers without external network latency.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By mocking the TCP protocol stack with fake buffers.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By rewriting HTTP endpoints to GraphQL queries.",
+          "correct": false
+        }
+      ],
+      "explanation": "Supertest binds the server to an ephemeral port (port 0) or feeds requests into the server handler, testing real routing, middleware, headers, and status codes.",
+      "codeSnippet": "import request from 'supertest';\nconst res = await request(app)\n  .get('/api/users/123')\n  .expect(200)\n  .expect('Content-Type', /json/);\nassert.equal(res.body.id, '123');",
+      "pitfall": "Testing only 200 OK responses while neglecting to test 400 Bad Request, 401 Unauthorized, and 500 error boundary behaviors.",
+      "citation": "Supertest API Documentation / HTTP Testing Best Practices"
+    },
+    {
+      "id": "mcq-17-001-03",
+      "concept": "TDD Red-Green-Refactor Cycle in Practice: TDD Red-Green-Refactor Lifecycle",
+      "category": "TDD",
+      "difficulty": "Beginner",
+      "question": "What is the core principle of the Refactor phase in the Test-Driven Development (TDD) Red-Green-Refactor cycle?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Adding new user features while tests are failing.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Improving code structure, removing duplication, and optimizing design while ensuring all tests continue to pass.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Deleting tests that are difficult to maintain.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Rewriting the test suite from scratch.",
+          "correct": false
+        }
+      ],
+      "explanation": "In TDD: Red (write a failing test), Green (write minimal code to make it pass), Refactor (clean and optimize code while keeping tests green).",
+      "codeSnippet": "// Red: it('returns formatted user name', () => assert.equal(format(u), 'Alice'));\n// Green: function format(u) { return u.name; }\n// Refactor: function format({ firstName, lastName }) { return `${firstName} ${lastName}`.trim(); }",
+      "pitfall": "Skipping the Refactor phase accumulates technical debt and duplication despite having passing tests.",
+      "citation": "Kent Beck: Test-Driven Development by Example"
+    },
+    {
+      "id": "mcq-17-001-04",
+      "concept": "TDD Red-Green-Refactor Cycle in Practice: Supertest End-to-End API Verification",
+      "category": "E2E Testing",
+      "difficulty": "Intermediate",
+      "question": "How does Supertest execute HTTP integration tests against a Node.js `http.Server` instance efficiently?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By spawning an external browser instance via Selenium.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By passing the HTTP server instance to ephemeral ephemeral ports or directly invoking internal request handlers without external network latency.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By mocking the TCP protocol stack with fake buffers.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By rewriting HTTP endpoints to GraphQL queries.",
+          "correct": false
+        }
+      ],
+      "explanation": "Supertest binds the server to an ephemeral port (port 0) or feeds requests into the server handler, testing real routing, middleware, headers, and status codes.",
+      "codeSnippet": "import request from 'supertest';\nconst res = await request(app)\n  .get('/api/users/123')\n  .expect(200)\n  .expect('Content-Type', /json/);\nassert.equal(res.body.id, '123');",
+      "pitfall": "Testing only 200 OK responses while neglecting to test 400 Bad Request, 401 Unauthorized, and 500 error boundary behaviors.",
+      "citation": "Supertest API Documentation / HTTP Testing Best Practices"
+    },
+    {
+      "id": "mcq-17-001-05",
+      "concept": "TDD Red-Green-Refactor Cycle in Practice: TDD Red-Green-Refactor Lifecycle",
+      "category": "TDD",
+      "difficulty": "Beginner",
+      "question": "What is the core principle of the Refactor phase in the Test-Driven Development (TDD) Red-Green-Refactor cycle?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Adding new user features while tests are failing.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Improving code structure, removing duplication, and optimizing design while ensuring all tests continue to pass.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Deleting tests that are difficult to maintain.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Rewriting the test suite from scratch.",
+          "correct": false
+        }
+      ],
+      "explanation": "In TDD: Red (write a failing test), Green (write minimal code to make it pass), Refactor (clean and optimize code while keeping tests green).",
+      "codeSnippet": "// Red: it('returns formatted user name', () => assert.equal(format(u), 'Alice'));\n// Green: function format(u) { return u.name; }\n// Refactor: function format({ firstName, lastName }) { return `${firstName} ${lastName}`.trim(); }",
+      "pitfall": "Skipping the Refactor phase accumulates technical debt and duplication despite having passing tests.",
+      "citation": "Kent Beck: Test-Driven Development by Example"
+    },
+    {
+      "id": "mcq-17-001-06",
+      "concept": "TDD Red-Green-Refactor Cycle in Practice: Supertest End-to-End API Verification",
+      "category": "E2E Testing",
+      "difficulty": "Intermediate",
+      "question": "How does Supertest execute HTTP integration tests against a Node.js `http.Server` instance efficiently?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By spawning an external browser instance via Selenium.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By passing the HTTP server instance to ephemeral ephemeral ports or directly invoking internal request handlers without external network latency.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By mocking the TCP protocol stack with fake buffers.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By rewriting HTTP endpoints to GraphQL queries.",
+          "correct": false
+        }
+      ],
+      "explanation": "Supertest binds the server to an ephemeral port (port 0) or feeds requests into the server handler, testing real routing, middleware, headers, and status codes.",
+      "codeSnippet": "import request from 'supertest';\nconst res = await request(app)\n  .get('/api/users/123')\n  .expect(200)\n  .expect('Content-Type', /json/);\nassert.equal(res.body.id, '123');",
+      "pitfall": "Testing only 200 OK responses while neglecting to test 400 Bad Request, 401 Unauthorized, and 500 error boundary behaviors.",
+      "citation": "Supertest API Documentation / HTTP Testing Best Practices"
+    },
+    {
+      "id": "mcq-17-001-07",
+      "concept": "TDD Red-Green-Refactor Cycle in Practice: TDD Red-Green-Refactor Lifecycle",
+      "category": "TDD",
+      "difficulty": "Beginner",
+      "question": "What is the core principle of the Refactor phase in the Test-Driven Development (TDD) Red-Green-Refactor cycle?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Adding new user features while tests are failing.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Improving code structure, removing duplication, and optimizing design while ensuring all tests continue to pass.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Deleting tests that are difficult to maintain.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Rewriting the test suite from scratch.",
+          "correct": false
+        }
+      ],
+      "explanation": "In TDD: Red (write a failing test), Green (write minimal code to make it pass), Refactor (clean and optimize code while keeping tests green).",
+      "codeSnippet": "// Red: it('returns formatted user name', () => assert.equal(format(u), 'Alice'));\n// Green: function format(u) { return u.name; }\n// Refactor: function format({ firstName, lastName }) { return `${firstName} ${lastName}`.trim(); }",
+      "pitfall": "Skipping the Refactor phase accumulates technical debt and duplication despite having passing tests.",
+      "citation": "Kent Beck: Test-Driven Development by Example"
+    },
+    {
+      "id": "mcq-17-001-08",
+      "concept": "TDD Red-Green-Refactor Cycle in Practice: Supertest End-to-End API Verification",
+      "category": "E2E Testing",
+      "difficulty": "Intermediate",
+      "question": "How does Supertest execute HTTP integration tests against a Node.js `http.Server` instance efficiently?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By spawning an external browser instance via Selenium.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "By passing the HTTP server instance to ephemeral ephemeral ports or directly invoking internal request handlers without external network latency.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "By mocking the TCP protocol stack with fake buffers.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "By rewriting HTTP endpoints to GraphQL queries.",
+          "correct": false
+        }
+      ],
+      "explanation": "Supertest binds the server to an ephemeral port (port 0) or feeds requests into the server handler, testing real routing, middleware, headers, and status codes.",
+      "codeSnippet": "import request from 'supertest';\nconst res = await request(app)\n  .get('/api/users/123')\n  .expect(200)\n  .expect('Content-Type', /json/);\nassert.equal(res.body.id, '123');",
+      "pitfall": "Testing only 200 OK responses while neglecting to test 400 Bad Request, 401 Unauthorized, and 500 error boundary behaviors.",
+      "citation": "Supertest API Documentation / HTTP Testing Best Practices"
+    }
+  ]
+}

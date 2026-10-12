@@ -1,9 +1,292 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block body %}
-<div class="container mx-auto">
-    <div class="markdown">
-        {{ section.content | safe }}
+{% block content %}
+<div class="max-w-5xl mx-auto space-y-10">
+
+  <!-- Hero Section -->
+  <section class="border-b border-[#d0d7de] dark:border-[#30363d] pb-8 pt-2">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#0969da]/10 text-[#0969da] dark:text-[#58a6ff]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#0969da] dark:bg-[#58a6ff]"></span>
+        Full Curriculum Tracker
+      </span>
+      <span class="text-xs text-[#656d76] dark:text-[#8b949e]">Node.js 20/22 LTS • V8 Engine • Express & Fastify • Distributed Systems</span>
     </div>
+
+    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">
+      JavaScript & Node.js E2 Mastery Track
+    </h1>
+    <p class="text-sm sm:text-base text-[#656d76] dark:text-[#8b949e] max-w-3xl leading-relaxed">
+      A comprehensive production curriculum mapping core concepts to <strong>464 curated LinkedIn Learning videos</strong> and <strong>928 verified official documentation references</strong> across 28 structured modules.
+    </p>
+
+    <!-- Quick CTAs -->
+    <div class="flex flex-wrap items-center gap-3 mt-6">
+      <a href="{{ get_url(path="sections/01-jvm-java-fundamentals") }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0969da] hover:bg-[#085ec4] text-white text-xs font-semibold shadow-xs transition-colors">
+        <span>Start Learning §01</span>
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+
+      <button type="button" onclick="document.getElementById('search-trigger-btn').click()" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa] dark:bg-[#161b22] hover:bg-[#eaeef2] dark:hover:bg-[#21262d] text-xs font-semibold text-[#1f2328] dark:text-[#f0f6fc] transition-colors cursor-pointer">
+        <svg class="w-3.5 h-3.5 text-[#656d76] dark:text-[#8b949e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <span>Search Video Lessons</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Bento Grid Course Progress Dashboard -->
+  <section class="space-y-4">
+    <div class="flex items-center justify-between">
+      <h2 class="text-sm font-bold uppercase tracking-wider text-[#656d76] dark:text-[#8b949e]">
+        Overall Course Analytics
+      </h2>
+      <span class="text-xs text-[#656d76] dark:text-[#8b949e]">Updated in real-time</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <!-- Metric 1: Completed Videos Count -->
+      <div class="p-4 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#161b22]/60">
+        <div class="flex items-center justify-between text-xs text-[#656d76] dark:text-[#8b949e] mb-1">
+          <span class="font-medium">Completed Videos</span>
+          <span class="text-emerald-600 dark:text-emerald-400 font-bold">Count</span>
+        </div>
+        <div class="text-2xl font-extrabold tracking-tight">
+          <span id="dash-completed-videos" class="text-[#238636] dark:text-[#3fb950]">0</span>
+          <span class="text-sm font-normal text-[#656d76] dark:text-[#8b949e]">/ 464</span>
+        </div>
+        <p class="text-[11px] text-[#656d76] dark:text-[#8b949e] mt-1.5">
+          Marked complete across 28 modules
+        </p>
+      </div>
+
+      <!-- Metric 2: Completed Runtime (Time) -->
+      <div class="p-4 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#161b22]/60">
+        <div class="flex items-center justify-between text-xs text-[#656d76] dark:text-[#8b949e] mb-1">
+          <span class="font-medium">Completed Time</span>
+          <span class="text-emerald-600 dark:text-emerald-400 font-bold">Runtime</span>
+        </div>
+        <div class="text-2xl font-extrabold tracking-tight font-mono">
+          <span id="dash-completed-time" class="text-[#238636] dark:text-[#3fb950]">0m</span>
+          <span class="text-sm font-normal font-sans text-[#656d76] dark:text-[#8b949e]">/ 100h 22m</span>
+        </div>
+        <p class="text-[11px] text-[#656d76] dark:text-[#8b949e] mt-1.5">
+          Aggregated published video duration
+        </p>
+      </div>
+
+      <!-- Metric 3: In Progress (Count & Time) -->
+      <div class="p-4 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#161b22]/60">
+        <div class="flex items-center justify-between text-xs text-[#656d76] dark:text-[#8b949e] mb-1">
+          <span class="font-medium">In Progress</span>
+          <span class="text-amber-600 dark:text-amber-400 font-bold">Active</span>
+        </div>
+        <div class="text-2xl font-extrabold tracking-tight">
+          <span id="dash-inprogress-videos" class="text-[#9a6700] dark:text-[#e3b341]">0</span>
+          <span class="text-sm font-normal text-[#656d76] dark:text-[#8b949e]">videos</span>
+        </div>
+        <p class="text-[11px] text-[#9a6700] dark:text-[#e3b341] font-mono mt-1.5">
+          <span id="dash-inprogress-time">0m</span> active study time
+        </p>
+      </div>
+
+      <!-- Metric 4: Progress Percentage -->
+      <div class="p-4 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#161b22]/60">
+        <div class="flex items-center justify-between text-xs text-[#656d76] dark:text-[#8b949e] mb-1">
+          <span class="font-medium">Curriculum Completion</span>
+          <span class="font-mono text-xs text-[#656d76] dark:text-[#8b949e]">Overall</span>
+        </div>
+        <div class="text-2xl font-extrabold tracking-tight font-mono text-[#0969da] dark:text-[#58a6ff]">
+          <span id="dash-progress-pct">0%</span>
+        </div>
+        <div class="w-full h-2 rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden mt-2">
+          <div id="dash-progress-bar" class="h-full bg-[#0969da] dark:bg-[#58a6ff] transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- How Tracking Works Guidance Banner -->
+  <section class="p-4 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] text-xs">
+    <div class="font-bold text-sm mb-2 text-[#1f2328] dark:text-[#f0f6fc]">
+      Interactive Tracking Guide (LinkedIn Learning Style)
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[#656d76] dark:text-[#8b949e]">
+      <div class="flex items-start gap-2.5">
+        <span class="ll-checkbox w-5 h-5 shrink-0" data-state="not_started"></span>
+        <div>
+          <strong class="text-[#1f2328] dark:text-[#f0f6fc]">Not Started</strong>: Unopened lesson.
+        </div>
+      </div>
+      <div class="flex items-start gap-2.5">
+        <span class="ll-checkbox w-5 h-5 shrink-0" data-state="in_progress">
+          <span class="icon-dot"></span>
+        </span>
+        <div>
+          <strong class="text-[#9a6700] dark:text-[#e3b341]">In Progress</strong>: Auto-triggered when clicking any video link to study.
+        </div>
+      </div>
+      <div class="flex items-start gap-2.5">
+        <span class="ll-checkbox w-5 h-5 shrink-0" data-state="completed">
+          <svg class="icon-check w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+          </svg>
+        </span>
+        <div>
+          <strong class="text-[#238636] dark:text-[#3fb950]">Completed</strong>: Marked via checkbox or "Mark as Complete" button.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- 4 Parts Breakdown -->
+  {% set sections_data = get_section(path="sections/_index.md") %}
+
+  <!-- Part 1 Card -->
+  <section class="rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] p-6 space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#d0d7de] dark:border-[#30363d]">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-[#0969da] dark:text-[#58a6ff]">Part 1</span>
+        <h3 class="text-lg font-bold">JavaScript Core & Runtime Mechanics</h3>
+        <p class="text-xs text-[#656d76] dark:text-[#8b949e]">Sections 01 to 06 • V8 Execution Context, Scopes, Closures, Prototypes, Types & Event Loop</p>
+      </div>
+      <div class="text-right">
+        <span class="text-xs font-mono font-bold text-[#656d76] dark:text-[#8b949e]" data-part-stats-id="1">Sections 01-06</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {% for s in sections_data.pages %}
+        {% if s.extra.part == 1 %}
+          <a href="{{ s.permalink }}" class="p-3.5 rounded-lg border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#0d1117]/60 hover:border-[#0969da] dark:hover:border-[#58a6ff] hover:bg-white dark:hover:bg-[#161b22] transition-all group">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs font-bold font-mono text-[#0969da] dark:text-[#58a6ff]">§{{ s.extra.section_number }}</span>
+              <span class="text-[11px] font-mono text-[#656d76] dark:text-[#8b949e]" data-section-stats-id="{{ s.extra.section_id }}" data-stats-mode="both">
+                0/{{ s.extra.total_videos }} videos
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-[#1f2328] dark:text-[#f0f6fc] group-hover:text-[#0969da] dark:group-hover:text-[#58a6ff] transition-colors">
+              {{ s.title }}
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden mt-3">
+              <div class="h-full bg-emerald-500 transition-all duration-300" data-section-progress-bar="{{ s.extra.section_id }}" style="width: 0%"></div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Part 2 Card -->
+  <section class="rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] p-6 space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#d0d7de] dark:border-[#30363d]">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-[#0969da] dark:text-[#58a6ff]">Part 2</span>
+        <h3 class="text-lg font-bold">Node.js Internals & Production Design Patterns</h3>
+        <p class="text-xs text-[#656d76] dark:text-[#8b949e]">Sections 07 to 14 • libuv Concurrency, Streams, GoF Patterns, Fastify/Express & Queues</p>
+      </div>
+      <div class="text-right">
+        <span class="text-xs font-mono font-bold text-[#656d76] dark:text-[#8b949e]" data-part-stats-id="2">Sections 07-14</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {% for s in sections_data.pages %}
+        {% if s.extra.part == 2 %}
+          <a href="{{ s.permalink }}" class="p-3.5 rounded-lg border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#0d1117]/60 hover:border-[#0969da] dark:hover:border-[#58a6ff] hover:bg-white dark:hover:bg-[#161b22] transition-all group">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs font-bold font-mono text-[#0969da] dark:text-[#58a6ff]">§{{ s.extra.section_number }}</span>
+              <span class="text-[11px] font-mono text-[#656d76] dark:text-[#8b949e]" data-section-stats-id="{{ s.extra.section_id }}" data-stats-mode="both">
+                0/{{ s.extra.total_videos }} videos
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-[#1f2328] dark:text-[#f0f6fc] group-hover:text-[#0969da] dark:group-hover:text-[#58a6ff] transition-colors">
+              {{ s.title }}
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden mt-3">
+              <div class="h-full bg-emerald-500 transition-all duration-300" data-section-progress-bar="{{ s.extra.section_id }}" style="width: 0%"></div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Part 3 Card -->
+  <section class="rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] p-6 space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#d0d7de] dark:border-[#30363d]">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-[#0969da] dark:text-[#58a6ff]">Part 3</span>
+        <h3 class="text-lg font-bold">Testing, Quality Assurance & Production Security</h3>
+        <p class="text-xs text-[#656d76] dark:text-[#8b949e]">Sections 15 to 21 • Testing Pyramid, TDD, Least Privilege, Injection Defense, JWT & ReDoS</p>
+      </div>
+      <div class="text-right">
+        <span class="text-xs font-mono font-bold text-[#656d76] dark:text-[#8b949e]" data-part-stats-id="3">Sections 15-21</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {% for s in sections_data.pages %}
+        {% if s.extra.part == 3 %}
+          <a href="{{ s.permalink }}" class="p-3.5 rounded-lg border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#0d1117]/60 hover:border-[#0969da] dark:hover:border-[#58a6ff] hover:bg-white dark:hover:bg-[#161b22] transition-all group">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs font-bold font-mono text-[#0969da] dark:text-[#58a6ff]">§{{ s.extra.section_number }}</span>
+              <span class="text-[11px] font-mono text-[#656d76] dark:text-[#8b949e]" data-section-stats-id="{{ s.extra.section_id }}" data-stats-mode="both">
+                0/{{ s.extra.total_videos }} videos
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-[#1f2328] dark:text-[#f0f6fc] group-hover:text-[#0969da] dark:group-hover:text-[#58a6ff] transition-colors">
+              {{ s.title }}
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden mt-3">
+              <div class="h-full bg-emerald-500 transition-all duration-300" data-section-progress-bar="{{ s.extra.section_id }}" style="width: 0%"></div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Part 4 Card -->
+  <section class="rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] p-6 space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#d0d7de] dark:border-[#30363d]">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-[#0969da] dark:text-[#58a6ff]">Part 4</span>
+        <h3 class="text-lg font-bold">Distributed Systems, Scalability & Data Architecture</h3>
+        <p class="text-xs text-[#656d76] dark:text-[#8b949e]">Sections 22 to 28 • Data Systems, Storage Engines, Replication, Transactions, Microservices & Observability</p>
+      </div>
+      <div class="text-right">
+        <span class="text-xs font-mono font-bold text-[#656d76] dark:text-[#8b949e]" data-part-stats-id="4">Sections 22-28</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {% for s in sections_data.pages %}
+        {% if s.extra.part == 4 %}
+          <a href="{{ s.permalink }}" class="p-3.5 rounded-lg border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#0d1117]/60 hover:border-[#0969da] dark:hover:border-[#58a6ff] hover:bg-white dark:hover:bg-[#161b22] transition-all group">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs font-bold font-mono text-[#0969da] dark:text-[#58a6ff]">§{{ s.extra.section_number }}</span>
+              <span class="text-[11px] font-mono text-[#656d76] dark:text-[#8b949e]" data-section-stats-id="{{ s.extra.section_id }}" data-stats-mode="both">
+                0/{{ s.extra.total_videos }} videos
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-[#1f2328] dark:text-[#f0f6fc] group-hover:text-[#0969da] dark:group-hover:text-[#58a6ff] transition-colors">
+              {{ s.title }}
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden mt-3">
+              <div class="h-full bg-emerald-500 transition-all duration-300" data-section-progress-bar="{{ s.extra.section_id }}" style="width: 0%"></div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
 </div>
-{% endblock body %}
+{% endblock content %}

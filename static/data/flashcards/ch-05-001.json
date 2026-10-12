@@ -1,0 +1,274 @@
+{
+  "deckId": "ch-05-001",
+  "title": "§05-001: Primitive Types & Reference Types",
+  "chapterId": "05-001",
+  "sectionId": "section-05",
+  "description": "Multiple-choice practice questions and deep runtime verification for §05-001 (Primitive Types & Reference Types).",
+  "totalCards": 8,
+  "cards": [
+    {
+      "id": "mcq-05-001-01",
+      "concept": "Primitive Types & Reference Types: Abstract Equality vs Strict Equality Algorithm",
+      "category": "Type Coercion",
+      "difficulty": "Beginner",
+      "question": "What is the key difference between strict equality (`===`) and abstract equality (`==`) according to ECMA-262?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`===` coerces strings to numbers, whereas `==` compares raw pointers.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`===` returns false immediately if operand types differ; `==` applies recursive implicit coercion rules before comparing.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "`===` only works for object references.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "`==` throws a TypeError if types do not match.",
+          "correct": false
+        }
+      ],
+      "explanation": "The strict equality operator (===) checks Type(x) === Type(y) first without coercion. Abstract equality (==) coerces booleans and strings to numbers, and objects to primitives via ToPrimitive.",
+      "codeSnippet": "console.log(0 == ''); // true ('' coerced to 0)\nconsole.log(0 === ''); // false (number !== string)\nconsole.log(null == undefined); // true\nconsole.log(null === undefined); // false",
+      "pitfall": "Relying on abstract equality with truthy/falsy checks causes subtle bugs with 0, '', false, and empty arrays [].",
+      "citation": "ECMAScript 2024 Specification §7.2.14 / You Don't Know JS: Types & Grammar"
+    },
+    {
+      "id": "mcq-05-001-02",
+      "concept": "Primitive Types & Reference Types: Symbol.toPrimitive & Object Coercion",
+      "category": "Coercion",
+      "difficulty": "Advanced",
+      "question": "When an object is coerced to a primitive (e.g. in arithmetic or template literals), which method has top priority in ECMAScript?",
+      "options": [
+        {
+          "id": "A",
+          "text": "valueOf()",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "toString()",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "[Symbol.toPrimitive](hint)",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "toJSON()",
+          "correct": false
+        }
+      ],
+      "explanation": "The ECMAScript ToPrimitive abstract operation checks for [Symbol.toPrimitive] first. If present, it calls it with hint ('number', 'string', or 'default'). If absent, it falls back to valueOf() and toString().",
+      "codeSnippet": "const item = {\n  price: 100,\n  [Symbol.toPrimitive](hint) {\n    return hint === 'number' ? this.price : '$' + this.price;\n  }\n};\nconsole.log(+item); // 100 (hint: 'number')\nconsole.log(`${item}`); // '$100' (hint: 'string')",
+      "pitfall": "Returning an object from [Symbol.toPrimitive] throws a TypeError; it must return a primitive value.",
+      "citation": "ECMAScript 2024 Specification §7.1.1 / MDN Web Docs: Symbol.toPrimitive"
+    },
+    {
+      "id": "mcq-05-001-03",
+      "concept": "Primitive Types & Reference Types: Abstract Equality vs Strict Equality Algorithm",
+      "category": "Type Coercion",
+      "difficulty": "Beginner",
+      "question": "What is the key difference between strict equality (`===`) and abstract equality (`==`) according to ECMA-262?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`===` coerces strings to numbers, whereas `==` compares raw pointers.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`===` returns false immediately if operand types differ; `==` applies recursive implicit coercion rules before comparing.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "`===` only works for object references.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "`==` throws a TypeError if types do not match.",
+          "correct": false
+        }
+      ],
+      "explanation": "The strict equality operator (===) checks Type(x) === Type(y) first without coercion. Abstract equality (==) coerces booleans and strings to numbers, and objects to primitives via ToPrimitive.",
+      "codeSnippet": "console.log(0 == ''); // true ('' coerced to 0)\nconsole.log(0 === ''); // false (number !== string)\nconsole.log(null == undefined); // true\nconsole.log(null === undefined); // false",
+      "pitfall": "Relying on abstract equality with truthy/falsy checks causes subtle bugs with 0, '', false, and empty arrays [].",
+      "citation": "ECMAScript 2024 Specification §7.2.14 / You Don't Know JS: Types & Grammar"
+    },
+    {
+      "id": "mcq-05-001-04",
+      "concept": "Primitive Types & Reference Types: Symbol.toPrimitive & Object Coercion",
+      "category": "Coercion",
+      "difficulty": "Advanced",
+      "question": "When an object is coerced to a primitive (e.g. in arithmetic or template literals), which method has top priority in ECMAScript?",
+      "options": [
+        {
+          "id": "A",
+          "text": "valueOf()",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "toString()",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "[Symbol.toPrimitive](hint)",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "toJSON()",
+          "correct": false
+        }
+      ],
+      "explanation": "The ECMAScript ToPrimitive abstract operation checks for [Symbol.toPrimitive] first. If present, it calls it with hint ('number', 'string', or 'default'). If absent, it falls back to valueOf() and toString().",
+      "codeSnippet": "const item = {\n  price: 100,\n  [Symbol.toPrimitive](hint) {\n    return hint === 'number' ? this.price : '$' + this.price;\n  }\n};\nconsole.log(+item); // 100 (hint: 'number')\nconsole.log(`${item}`); // '$100' (hint: 'string')",
+      "pitfall": "Returning an object from [Symbol.toPrimitive] throws a TypeError; it must return a primitive value.",
+      "citation": "ECMAScript 2024 Specification §7.1.1 / MDN Web Docs: Symbol.toPrimitive"
+    },
+    {
+      "id": "mcq-05-001-05",
+      "concept": "Primitive Types & Reference Types: Abstract Equality vs Strict Equality Algorithm",
+      "category": "Type Coercion",
+      "difficulty": "Beginner",
+      "question": "What is the key difference between strict equality (`===`) and abstract equality (`==`) according to ECMA-262?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`===` coerces strings to numbers, whereas `==` compares raw pointers.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`===` returns false immediately if operand types differ; `==` applies recursive implicit coercion rules before comparing.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "`===` only works for object references.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "`==` throws a TypeError if types do not match.",
+          "correct": false
+        }
+      ],
+      "explanation": "The strict equality operator (===) checks Type(x) === Type(y) first without coercion. Abstract equality (==) coerces booleans and strings to numbers, and objects to primitives via ToPrimitive.",
+      "codeSnippet": "console.log(0 == ''); // true ('' coerced to 0)\nconsole.log(0 === ''); // false (number !== string)\nconsole.log(null == undefined); // true\nconsole.log(null === undefined); // false",
+      "pitfall": "Relying on abstract equality with truthy/falsy checks causes subtle bugs with 0, '', false, and empty arrays [].",
+      "citation": "ECMAScript 2024 Specification §7.2.14 / You Don't Know JS: Types & Grammar"
+    },
+    {
+      "id": "mcq-05-001-06",
+      "concept": "Primitive Types & Reference Types: Symbol.toPrimitive & Object Coercion",
+      "category": "Coercion",
+      "difficulty": "Advanced",
+      "question": "When an object is coerced to a primitive (e.g. in arithmetic or template literals), which method has top priority in ECMAScript?",
+      "options": [
+        {
+          "id": "A",
+          "text": "valueOf()",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "toString()",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "[Symbol.toPrimitive](hint)",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "toJSON()",
+          "correct": false
+        }
+      ],
+      "explanation": "The ECMAScript ToPrimitive abstract operation checks for [Symbol.toPrimitive] first. If present, it calls it with hint ('number', 'string', or 'default'). If absent, it falls back to valueOf() and toString().",
+      "codeSnippet": "const item = {\n  price: 100,\n  [Symbol.toPrimitive](hint) {\n    return hint === 'number' ? this.price : '$' + this.price;\n  }\n};\nconsole.log(+item); // 100 (hint: 'number')\nconsole.log(`${item}`); // '$100' (hint: 'string')",
+      "pitfall": "Returning an object from [Symbol.toPrimitive] throws a TypeError; it must return a primitive value.",
+      "citation": "ECMAScript 2024 Specification §7.1.1 / MDN Web Docs: Symbol.toPrimitive"
+    },
+    {
+      "id": "mcq-05-001-07",
+      "concept": "Primitive Types & Reference Types: Abstract Equality vs Strict Equality Algorithm",
+      "category": "Type Coercion",
+      "difficulty": "Beginner",
+      "question": "What is the key difference between strict equality (`===`) and abstract equality (`==`) according to ECMA-262?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`===` coerces strings to numbers, whereas `==` compares raw pointers.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "`===` returns false immediately if operand types differ; `==` applies recursive implicit coercion rules before comparing.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "`===` only works for object references.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "`==` throws a TypeError if types do not match.",
+          "correct": false
+        }
+      ],
+      "explanation": "The strict equality operator (===) checks Type(x) === Type(y) first without coercion. Abstract equality (==) coerces booleans and strings to numbers, and objects to primitives via ToPrimitive.",
+      "codeSnippet": "console.log(0 == ''); // true ('' coerced to 0)\nconsole.log(0 === ''); // false (number !== string)\nconsole.log(null == undefined); // true\nconsole.log(null === undefined); // false",
+      "pitfall": "Relying on abstract equality with truthy/falsy checks causes subtle bugs with 0, '', false, and empty arrays [].",
+      "citation": "ECMAScript 2024 Specification §7.2.14 / You Don't Know JS: Types & Grammar"
+    },
+    {
+      "id": "mcq-05-001-08",
+      "concept": "Primitive Types & Reference Types: Symbol.toPrimitive & Object Coercion",
+      "category": "Coercion",
+      "difficulty": "Advanced",
+      "question": "When an object is coerced to a primitive (e.g. in arithmetic or template literals), which method has top priority in ECMAScript?",
+      "options": [
+        {
+          "id": "A",
+          "text": "valueOf()",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "toString()",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "[Symbol.toPrimitive](hint)",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "toJSON()",
+          "correct": false
+        }
+      ],
+      "explanation": "The ECMAScript ToPrimitive abstract operation checks for [Symbol.toPrimitive] first. If present, it calls it with hint ('number', 'string', or 'default'). If absent, it falls back to valueOf() and toString().",
+      "codeSnippet": "const item = {\n  price: 100,\n  [Symbol.toPrimitive](hint) {\n    return hint === 'number' ? this.price : '$' + this.price;\n  }\n};\nconsole.log(+item); // 100 (hint: 'number')\nconsole.log(`${item}`); // '$100' (hint: 'string')",
+      "pitfall": "Returning an object from [Symbol.toPrimitive] throws a TypeError; it must return a primitive value.",
+      "citation": "ECMAScript 2024 Specification §7.1.1 / MDN Web Docs: Symbol.toPrimitive"
+    }
+  ]
+}
