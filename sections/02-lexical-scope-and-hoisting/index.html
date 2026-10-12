@@ -8916,7 +8916,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Readability: Whitespace is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, lo
                       </p>
                     
 
@@ -8989,7 +8989,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Readability: Whitespace is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -9002,7 +9002,9 @@
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Readability: Whitespace operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Readability: Whitespace:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9016,10 +9018,16 @@
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Readability: Whitespace:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -9032,7 +9040,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Readability: Whitespace execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Readability: Whitespace execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9180,7 +9188,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Readability: Comments is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loop
                       </p>
                     
 
@@ -9253,7 +9261,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Readability: Comments is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -9266,7 +9274,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Readability: Comments operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Readability: Comments:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9280,10 +9290,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Readability: Comments:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -9296,7 +9312,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Readability: Comments execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Readability: Comments execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9444,7 +9460,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Regular expressions is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops,
                       </p>
                     
 
@@ -9517,7 +9533,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Regular expressions is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -9530,7 +9546,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Regular expressions operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Regular expressions:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9544,10 +9562,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Regular expressions:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -9560,7 +9584,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Regular expressions execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Regular expressions execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9708,7 +9732,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Simple comparisons is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, 
                       </p>
                     
 
@@ -9781,7 +9805,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Simple comparisons is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -9794,7 +9818,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Simple comparisons operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Simple comparisons:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9808,10 +9834,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Simple comparisons:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -9824,7 +9856,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Simple comparisons execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Simple comparisons execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9972,7 +10004,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Arithmetic operators is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops
                       </p>
                     
 
@@ -10045,7 +10077,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Arithmetic operators is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -10058,7 +10090,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Arithmetic operators operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Arithmetic operators:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10072,10 +10106,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Arithmetic operators:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -10088,7 +10128,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Arithmetic operators execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Arithmetic operators execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10236,7 +10276,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Logical operators is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, a
                       </p>
                     
 
@@ -10309,7 +10349,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Logical operators is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -10322,7 +10362,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Logical operators operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Logical operators:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10336,10 +10378,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Logical operators:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -10352,7 +10400,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Logical operators execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Logical operators execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10574,7 +10622,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Conditionals: If is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, an
                       </p>
                     
 
@@ -10647,7 +10695,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Conditionals: If is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -10660,7 +10708,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Conditionals: If operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Conditionals: If:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10674,10 +10724,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Conditionals: If:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -10690,7 +10746,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Conditionals: If execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Conditionals: If execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10838,7 +10894,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Conditionals: Switch is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops
                       </p>
                     
 
@@ -10911,7 +10967,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Conditionals: Switch is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -10924,7 +10980,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Conditionals: Switch operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Conditionals: Switch:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10938,10 +10996,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Conditionals: Switch:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -10954,7 +11018,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Conditionals: Switch execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Conditionals: Switch execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11102,7 +11166,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Terse ifs: One-liners is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loop
                       </p>
                     
 
@@ -11175,7 +11239,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Terse ifs: One-liners is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -11188,7 +11252,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Terse ifs: One-liners operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Terse ifs: One-liners:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11202,10 +11268,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Terse ifs: One-liners:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -11218,7 +11290,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Terse ifs: One-liners execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Terse ifs: One-liners execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11366,7 +11438,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Terse ifs: Ternaries is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops
                       </p>
                     
 
@@ -11439,7 +11511,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Terse ifs: Ternaries is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -11452,7 +11524,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Terse ifs: Ternaries operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Terse ifs: Ternaries:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11466,10 +11540,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Terse ifs: Ternaries:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -11482,7 +11562,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Terse ifs: Ternaries execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Terse ifs: Ternaries execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11630,7 +11710,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Type checking is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and f
                       </p>
                     
 
@@ -11703,7 +11783,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Type checking is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -11716,7 +11796,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Type checking operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Type checking:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11730,10 +11812,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Type checking:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -11746,7 +11834,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Type checking execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Type checking execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11894,7 +11982,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        For loops: Sequential is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loop
                       </p>
                     
 
@@ -11967,7 +12055,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            For loops: Sequential is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -11980,7 +12068,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            For loops: Sequential operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for For loops: Sequential:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11994,10 +12084,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for For loops: Sequential:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -12010,7 +12106,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during For loops: Sequential execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during For loops: Sequential execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -12232,7 +12328,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        For loops: Enumerative is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loo
                       </p>
                     
 
@@ -12305,7 +12401,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            For loops: Enumerative is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -12318,7 +12414,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            For loops: Enumerative operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for For loops: Enumerative:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12332,10 +12430,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for For loops: Enumerative:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -12348,7 +12452,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during For loops: Enumerative execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during For loops: Enumerative execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -12496,7 +12600,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Set and Map: Newer loopable data types is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control
                       </p>
                     
 
@@ -12569,7 +12673,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Set and Map: Newer loopable data types is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -12582,7 +12686,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Set and Map: Newer loopable data types operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Set and Map: Newer loopable data types:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12596,10 +12702,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Set and Map: Newer loopable data types:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -12612,7 +12724,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Set and Map: Newer loopable data types execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Set and Map: Newer loopable data types execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -12760,7 +12872,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        While loops is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and fun
                       </p>
                     
 
@@ -12833,7 +12945,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            While loops is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -12846,7 +12958,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            While loops operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for While loops:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12860,10 +12974,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for While loops:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -12876,7 +12996,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during While loops execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during While loops execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -13024,7 +13144,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Basic functions is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and
                       </p>
                     
 
@@ -13097,7 +13217,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Basic functions is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -13110,7 +13230,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Basic functions operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Basic functions:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -13124,10 +13246,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Basic functions:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -13140,7 +13268,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Basic functions execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic functions execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -13288,7 +13416,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        Arguments and parameters in functions is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control 
                       </p>
                     
 
@@ -13361,7 +13489,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            Arguments and parameters in functions is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -13374,7 +13502,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Arguments and parameters in functions operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Arguments and parameters in functions:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -13388,10 +13518,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Arguments and parameters in functions:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -13404,7 +13540,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Arguments and parameters in functions execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Arguments and parameters in functions execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -13552,7 +13688,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                        More on function arguments is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures,
                       </p>
                     
 
@@ -13625,7 +13761,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
+                            More on function arguments is a fundamental architectural concept in Lexical Scoping, Hoisting &amp; Environment Records. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.
                           </p>
                         </div>
                         
@@ -13638,7 +13774,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            More on function arguments operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for More on function arguments:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -13652,10 +13790,16 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for More on function arguments:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Lexical Environment &amp; Temporal Dead Zone
+export function demonstrateTDZ() {
+  const status = &quot;active&quot;;
+  
+  {
+    // TDZ for innerStatus begins here
+    // console.log(innerStatus); // ReferenceError: Cannot access &#39;innerStatus&#39; before initialization
+    const innerStatus = &quot;nested-&quot; + status;
+    return innerStatus;
+  }
 }</code></pre>
                         </div>
                         
@@ -13668,7 +13812,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during More on function arguments execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during More on function arguments execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         

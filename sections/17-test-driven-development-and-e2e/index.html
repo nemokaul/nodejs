@@ -8912,7 +8912,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Writing callback test suites with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -8985,7 +8985,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Writing callback test suites with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -8998,7 +8998,9 @@
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Writing callback test suites with Jest operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Writing callback test suites with Jest:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9012,10 +9014,17 @@
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Writing callback test suites with Jest:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9028,7 +9037,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Writing callback test suites with Jest execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing callback test suites with Jest execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9176,7 +9185,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Testing promises with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -9249,7 +9258,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Testing promises with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -9262,7 +9271,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Testing promises with Jest operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Testing promises with Jest:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9276,10 +9287,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Testing promises with Jest:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9292,7 +9310,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Testing promises with Jest execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing promises with Jest execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9440,7 +9458,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Challenge: Test async/await with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -9513,7 +9531,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Challenge: Test async/await with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -9526,7 +9544,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Challenge: Test async/await with Jest operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Challenge: Test async/await with Jest:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9540,10 +9560,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Challenge: Test async/await with Jest:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9556,7 +9583,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Challenge: Test async/await with Jest execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Test async/await with Jest execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9704,7 +9731,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Solution: Test async/await with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -9777,7 +9804,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Solution: Test async/await with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -9790,7 +9817,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Solution: Test async/await with Jest operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Solution: Test async/await with Jest:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9804,10 +9833,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Solution: Test async/await with Jest:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9820,7 +9856,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Solution: Test async/await with Jest execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Test async/await with Jest execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9968,7 +10004,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Replacing code with test doubles is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10041,7 +10077,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Replacing code with test doubles is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10054,7 +10090,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Replacing code with test doubles operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Replacing code with test doubles:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10068,10 +10106,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Replacing code with test doubles:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10084,7 +10129,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Replacing code with test doubles execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Replacing code with test doubles execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10302,7 +10347,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Mocking functions for test code is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10375,7 +10420,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Mocking functions for test code is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10388,7 +10433,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Mocking functions for test code operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Mocking functions for test code:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10402,10 +10449,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Mocking functions for test code:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10418,7 +10472,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Mocking functions for test code execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Mocking functions for test code execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10566,7 +10620,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Writing your first Jest mock is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10639,7 +10693,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Writing your first Jest mock is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10652,7 +10706,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Writing your first Jest mock operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Writing your first Jest mock:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10666,10 +10722,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Writing your first Jest mock:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10682,7 +10745,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Writing your first Jest mock execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing your first Jest mock execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10830,7 +10893,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Mock an entire module with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -10903,7 +10966,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Mock an entire module with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -10916,7 +10979,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Mock an entire module with Jest operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Mock an entire module with Jest:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10930,10 +10995,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Mock an entire module with Jest:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10946,7 +11018,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Mock an entire module with Jest execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Mock an entire module with Jest execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11094,7 +11166,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Mocking module dependencies is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -11167,7 +11239,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Mocking module dependencies is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -11180,7 +11252,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Mocking module dependencies operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Mocking module dependencies:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11194,10 +11268,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Mocking module dependencies:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -11210,7 +11291,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Mocking module dependencies execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Mocking module dependencies execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11358,7 +11439,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Spying to observe interactions is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -11431,7 +11512,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Spying to observe interactions is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -11444,7 +11525,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Spying to observe interactions operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Spying to observe interactions:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11458,10 +11541,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Spying to observe interactions:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -11474,7 +11564,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Spying to observe interactions execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Spying to observe interactions execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11692,7 +11782,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Challenge: Mock a successful reservation creation is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -11765,7 +11855,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Challenge: Mock a successful reservation creation is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -11778,7 +11868,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Challenge: Mock a successful reservation creation operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Challenge: Mock a successful reservation creation:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11792,10 +11884,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Challenge: Mock a successful reservation creation:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -11808,7 +11907,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Challenge: Mock a successful reservation creation execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Mock a successful reservation creation execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11956,7 +12055,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Solution: Mock a successful reservation creation is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12029,7 +12128,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Solution: Mock a successful reservation creation is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12042,7 +12141,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Solution: Mock a successful reservation creation operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Solution: Mock a successful reservation creation:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12056,10 +12157,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Solution: Mock a successful reservation creation:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -12072,7 +12180,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Solution: Mock a successful reservation creation execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Mock a successful reservation creation execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -12220,7 +12328,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Why code coverage matters is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12293,7 +12401,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Why code coverage matters is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12306,7 +12414,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Why code coverage matters operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Why code coverage matters:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12320,10 +12430,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Why code coverage matters:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -12336,7 +12453,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Why code coverage matters execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Why code coverage matters execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -12484,7 +12601,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Measuring code coverage with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12557,7 +12674,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Measuring code coverage with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12570,7 +12687,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Measuring code coverage with Jest operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Measuring code coverage with Jest:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12584,10 +12703,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Measuring code coverage with Jest:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -12600,7 +12726,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Measuring code coverage with Jest execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Measuring code coverage with Jest execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -12748,7 +12874,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                        Functional testing with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                       </p>
                     
 
@@ -12821,7 +12947,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
+                            Functional testing with Jest is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.
                           </p>
                         </div>
                         
@@ -12834,7 +12960,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Functional testing with Jest operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Functional testing with Jest:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12848,10 +12976,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Functional testing with Jest:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -12864,7 +12999,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Functional testing with Jest execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Functional testing with Jest execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         

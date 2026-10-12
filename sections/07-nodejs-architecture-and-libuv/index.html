@@ -8912,7 +8912,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Learning the Node.js basics is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applicat
                       </p>
                     
 
@@ -8985,7 +8985,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Learning the Node.js basics is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -8998,7 +8998,9 @@
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Learning the Node.js basics operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Learning the Node.js basics:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9012,10 +9014,27 @@
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Learning the Node.js basics:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -9028,7 +9047,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Learning the Node.js basics execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Learning the Node.js basics execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9176,7 +9195,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        What you should know is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications wi
                       </p>
                     
 
@@ -9249,7 +9268,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            What you should know is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -9262,7 +9281,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            What you should know operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for What you should know:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9276,10 +9297,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for What you should know:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -9292,7 +9330,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during What you should know execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9440,7 +9478,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Node.js history is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with No
                       </p>
                     
 
@@ -9513,7 +9551,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Node.js history is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -9526,7 +9564,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Node.js history operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Node.js history:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9540,10 +9580,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Node.js history:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -9556,7 +9613,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Node.js history execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Node.js history execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9704,7 +9761,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Installing Node.js is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with
                       </p>
                     
 
@@ -9777,7 +9834,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Installing Node.js is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -9790,7 +9847,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Installing Node.js operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Installing Node.js:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9804,10 +9863,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Installing Node.js:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -9820,7 +9896,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Installing Node.js execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Installing Node.js execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9968,7 +10044,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Using Visual Studio Code is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript application
                       </p>
                     
 
@@ -10041,7 +10117,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Using Visual Studio Code is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -10054,7 +10130,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Using Visual Studio Code operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Using Visual Studio Code:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10068,10 +10146,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Using Visual Studio Code:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -10084,7 +10179,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Using Visual Studio Code execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using Visual Studio Code execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10302,7 +10397,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Inspecting the global object is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applica
                       </p>
                     
 
@@ -10375,7 +10470,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Inspecting the global object is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -10388,7 +10483,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Inspecting the global object operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Inspecting the global object:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10402,10 +10499,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Inspecting the global object:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -10418,7 +10532,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Inspecting the global object execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Inspecting the global object execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10566,7 +10680,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Using the require function is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applicati
                       </p>
                     
 
@@ -10639,7 +10753,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Using the require function is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -10652,7 +10766,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Using the require function operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Using the require function:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10666,10 +10782,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Using the require function:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -10682,7 +10815,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Using the require function execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the require function execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10830,7 +10963,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Handling argument variables with process.argv is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own J
                       </p>
                     
 
@@ -10903,7 +11036,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Handling argument variables with process.argv is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -10916,7 +11049,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Handling argument variables with process.argv operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Handling argument variables with process.argv:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10930,10 +11065,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Handling argument variables with process.argv:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -10946,7 +11098,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Handling argument variables with process.argv execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Handling argument variables with process.argv execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11094,7 +11246,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Working with standard input is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applicat
                       </p>
                     
 
@@ -11167,7 +11319,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Working with standard input is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -11180,7 +11332,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Working with standard input operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Working with standard input:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11194,10 +11348,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Working with standard input:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -11210,7 +11381,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Working with standard input execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with standard input execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11358,7 +11529,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Using standard output is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications w
                       </p>
                     
 
@@ -11431,7 +11602,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Using standard output is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -11444,7 +11615,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Using standard output operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Using standard output:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11458,10 +11631,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Using standard output:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -11474,7 +11664,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Using standard output execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using standard output execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11692,7 +11882,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Creating a delay with setTimeout is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript app
                       </p>
                     
 
@@ -11765,7 +11955,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Creating a delay with setTimeout is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -11778,7 +11968,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Creating a delay with setTimeout operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Creating a delay with setTimeout:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11792,10 +11984,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Creating a delay with setTimeout:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -11808,7 +12017,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Creating a delay with setTimeout execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a delay with setTimeout execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11956,7 +12165,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Incorporating setInterval is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applicatio
                       </p>
                     
 
@@ -12029,7 +12238,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Incorporating setInterval is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -12042,7 +12251,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Incorporating setInterval operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Incorporating setInterval:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12056,10 +12267,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Incorporating setInterval:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -12072,7 +12300,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Incorporating setInterval execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Incorporating setInterval execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -12220,7 +12448,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Reporting progress with setInterval is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript 
                       </p>
                     
 
@@ -12293,7 +12521,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Reporting progress with setInterval is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -12306,7 +12534,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Reporting progress with setInterval operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Reporting progress with setInterval:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12320,10 +12550,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Reporting progress with setInterval:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -12336,7 +12583,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Reporting progress with setInterval execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Reporting progress with setInterval execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -12484,7 +12731,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Understanding core modules is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applicati
                       </p>
                     
 
@@ -12557,7 +12804,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Understanding core modules is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -12570,7 +12817,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Understanding core modules operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Understanding core modules:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12584,10 +12833,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Understanding core modules:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -12600,7 +12866,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Understanding core modules execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding core modules execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -12748,7 +13014,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                        Collecting information with readline is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript
                       </p>
                     
 
@@ -12821,7 +13087,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
+                            Collecting information with readline is a fundamental architectural concept in Node.js System Architecture, Libuv &amp; Thread Pool Internals. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.
                           </p>
                         </div>
                         
@@ -12834,7 +13100,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Collecting information with readline operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Collecting information with readline:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12848,10 +13116,27 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Collecting information with readline:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Event Loop Lag Monitor using Node.js Perf Hooks
+import { monitorEventLoopDelay } from &quot;perf_hooks&quot;;
+
+export function createLagMonitor(warningThresholdMs = 20) {
+  const histogram = monitorEventLoopDelay({ resolution: 10 });
+  histogram.enable();
+
+  return {
+    checkHealth() {
+      const p99LagMs = histogram.percentile(99) / 1e6;
+      const maxLagMs = histogram.max / 1e6;
+      return {
+        healthy: p99LagMs &lt; warningThresholdMs,
+        p99LagMs: Math.round(p99LagMs * 100) / 100,
+        maxLagMs: Math.round(maxLagMs * 100) / 100
+      };
+    },
+    reset() {
+      histogram.reset();
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -12864,7 +13149,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Collecting information with readline execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Collecting information with readline execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         

@@ -1699,13 +1699,17 @@ button * {
 .ch-pill-badge {
   display: inline-flex !important;
   align-items: center !important;
-  padding: 0.2rem 0.55rem !important;
+  gap: 0.35rem !important;
+  padding: 0.25rem 0.65rem !important;
   border-radius: 9999px !important;
   font-size: 0.75rem !important;
   font-weight: 500 !important;
   background-color: #f6f8fa !important;
   color: #1f2328 !important;
   border: 1px solid #d0d7de !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  text-decoration: none !important;
   transition: all 0.15s ease !important;
 }
 
@@ -1718,11 +1722,29 @@ button * {
 .ch-pill-badge:hover {
   border-color: #0969da !important;
   color: #0969da !important;
+  background-color: #ddf4ff !important;
+  transform: translateY(-1px) !important;
 }
 
 .dark .ch-pill-badge:hover {
   border-color: #58a6ff !important;
   color: #58a6ff !important;
+  background-color: rgba(56, 139, 253, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+.ch-pill-badge.is-active {
+  border-color: #0969da !important;
+  color: #0969da !important;
+  background-color: #ddf4ff !important;
+  box-shadow: 0 0 0 2px rgba(9, 105, 218, 0.3) !important;
+}
+
+.dark .ch-pill-badge.is-active {
+  border-color: #58a6ff !important;
+  color: #58a6ff !important;
+  background-color: rgba(56, 139, 253, 0.2) !important;
+  box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.35) !important;
 }
 
 /* 4. Takeaways */

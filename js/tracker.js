@@ -2213,14 +2213,24 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
         <div class="ch-box-mental-content">${sum.mental_model}</div>
       </div>
 
-      <!-- 3. Key Concepts Badges -->
+      <!-- 3. Key Concepts Badges (Clickable Chips) -->
       <div>
-        <div class="ch-box-badges-title">
-          <span>🏷️</span>
-          <span>Core Concepts & Technologies</span>
+        <div class="ch-box-badges-title" style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 0.35rem;">
+            <span>🏷️</span>
+            <span>Core Concepts &amp; Technologies</span>
+          </div>
+          <span style="font-size: 0.625rem; font-weight: normal; color: #656d76;">(Click any concept to jump to study notes below)</span>
         </div>
         <div class="ch-badge-list">
-          ${(targetChapter.keyConcepts || []).map(k => `<span class="ch-pill-badge">${k}</span>`).join("")}
+          ${(targetChapter.keyConcepts || []).map((k, idx) => {
+            const matchedVid = targetChapter.videos.find(v => v.title === k || v.title.toLowerCase() === k.toLowerCase()) || targetChapter.videos[idx];
+            const targetNoteId = matchedVid ? `modal-note-${matchedVid.id}` : "";
+            return `<button type="button" class="ch-pill-badge" data-concept-target="${targetNoteId}" title="Click to view detailed notes & code for '${escapeHtml(k)}'">
+              <span>🏷️</span>
+              <span>${escapeHtml(k)}</span>
+            </button>`;
+          }).join("")}
         </div>
       </div>
 
@@ -2239,11 +2249,111 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
       <div class="ch-box-pitfalls">
         <div class="ch-box-pitfalls-title">
           <span>⚠️</span>
-          <span>Common Production Pitfalls & Interview Gotchas</span>
+          <span>Common Production Pitfalls &amp; Interview Gotchas</span>
         </div>
         <ul class="ch-pitfalls-list">
           ${(sum.interview_pitfalls || []).map(p => `<li class="ch-pitfalls-item">${p}</li>`).join("")}
         </ul>
+      </div>
+
+      <!-- 6. Detailed Lesson Study Notes & Code Snippets -->
+      <div class="ch-notes-section">
+        <div class="ch-notes-section-title">
+          <svg style="width: 14px; height: 14px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+          <span>Detailed Lesson Study Notes, Code &amp; Mental Models (${targetChapter.videos.length} Lessons)</span>
+        </div>
+        <div class="ch-lessons-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
+          ${targetChapter.videos.map((v, i) => {
+            const def = v.notes?.definition || v.description || "";
+            const mental = v.notes?.mentalModel || v.notes?.mental_model || "";
+            const code = v.notes?.codeExample || v.notes?.code_example || "";
+            const pitfalls = v.notes?.pitfalls || "";
+            const refs = v.references || [];
+
+            return `
+              <details class="ch-lesson-card group/lcard" id="modal-note-${v.id}" open>
+                <summary class="ch-lesson-summary-bar">
+                  <div class="ch-lesson-summary-title">
+                    <span style="font-family: monospace; font-size: 0.75rem; color: #0969da; font-weight: 700;">#${i + 1}</span>
+                    <span style="font-weight: 700; font-size: 0.8125rem;">${escapeHtml(v.title)}</span>
+                    ${v.durationText ? `<span style="font-size: 0.625rem; font-family: monospace; padding: 0.125rem 0.375rem; border-radius: 0.25rem; border: 1px solid #d0d7de; color: #656d76;">${escapeHtml(v.durationText)}</span>` : ''}
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <button type="button" class="ch-btn-jump-lesson" data-jump-video-id="${v.id}" data-section-slug="${targetSection.slug}" title="Jump to this lesson card on the page">
+                      <span>📍</span>
+                      <span>Jump to Lesson on Page ↗</span>
+                    </button>
+                    <svg style="width: 14px; height: 14px; transition: transform 0.2s;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </div>
+                </summary>
+
+                <div class="ch-lesson-body">
+                  ${def ? `
+                    <div style="margin-bottom: 0.5rem;">
+                      <div class="ch-note-subbox-title" style="color: #0969da; font-weight: 700; font-size: 0.6875rem; text-transform: uppercase; margin-bottom: 0.25rem;">
+                        <span>📖</span>
+                        <span>Core Definition &amp; Architectural Role</span>
+                      </div>
+                      <p style="font-size: 0.75rem; line-height: 1.6; margin: 0;">${escapeHtml(def)}</p>
+                    </div>
+                  ` : ''}
+
+                  ${mental ? `
+                    <div class="ch-note-subbox" style="margin-bottom: 0.5rem; padding: 0.5rem 0.75rem; border-radius: 0.375rem; background-color: rgba(130, 80, 223, 0.05); border: 1px solid rgba(130, 80, 223, 0.2);">
+                      <div class="ch-note-subbox-title" style="color: #8250df; font-weight: 700; font-size: 0.6875rem; text-transform: uppercase; margin-bottom: 0.25rem;">
+                        <span>🧠</span>
+                        <span>Under-The-Hood Mental Model</span>
+                      </div>
+                      <p style="font-size: 0.75rem; line-height: 1.55; margin: 0; font-family: monospace; white-space: pre-line;">${escapeHtml(mental)}</p>
+                    </div>
+                  ` : ''}
+
+                  ${code ? `
+                    <div style="margin-bottom: 0.5rem;">
+                      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.25rem;">
+                        <div class="ch-note-subbox-title" style="color: #1a7f37; font-weight: 700; font-size: 0.6875rem; text-transform: uppercase; margin: 0;">
+                          <span>💻</span>
+                          <span>Production Code / CLI Example</span>
+                        </div>
+                        <button type="button" class="btn-copy-lesson-code" data-code="${encodeURIComponent(code)}" style="font-size: 0.6875rem; color: #0969da; cursor: pointer; background: transparent; border: 0; padding: 0; text-decoration: underline;">Copy Code</button>
+                      </div>
+                      <pre class="ch-note-code" style="margin: 0; padding: 0.5rem 0.75rem; border-radius: 0.375rem; background-color: #0d1117; color: #e6edf3; font-family: monospace; font-size: 0.71875rem; overflow-x: auto; border: 1px solid #30363d; white-space: pre;"><code>${escapeHtml(code)}</code></pre>
+                    </div>
+                  ` : ''}
+
+                  ${pitfalls ? `
+                    <div style="margin-bottom: 0.5rem; padding: 0.5rem 0.75rem; border-radius: 0.375rem; background-color: rgba(210, 153, 34, 0.08); border: 1px solid rgba(210, 153, 34, 0.25);">
+                      <div style="color: #9a6700; font-weight: 700; font-size: 0.6875rem; text-transform: uppercase; display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.25rem;">
+                        <span>⚠️</span>
+                        <span>Common Production Pitfall &amp; Gotcha</span>
+                      </div>
+                      <p style="font-size: 0.75rem; line-height: 1.55; margin: 0; color: #656d76;">${escapeHtml(pitfalls)}</p>
+                    </div>
+                  ` : ''}
+
+                  ${refs && refs.length > 0 ? `
+                    <div style="padding-top: 0.375rem; border-top: 1px solid rgba(120, 120, 120, 0.2);">
+                      <div style="font-size: 0.625rem; font-weight: 700; text-transform: uppercase; color: #656d76; margin-bottom: 0.25rem;">Official Documentation Anchor Links:</div>
+                      <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                        ${refs.map(r => `
+                          <a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer" style="font-size: 0.6875rem; color: #0969da; text-decoration: underline; display: inline-flex; align-items: center; gap: 0.25rem;">
+                            <span>↗</span>
+                            <span style="font-weight: 600;">${escapeHtml(r.label)}</span>
+                            ${r.description ? `<span style="color: #656d76; text-decoration: none;">— ${escapeHtml(r.description)}</span>` : ''}
+                          </a>
+                        `).join("")}
+                      </div>
+                    </div>
+                  ` : ''}
+                </div>
+              </details>
+            `;
+          }).join("")}
+        </div>
       </div>
     `;
 
@@ -2288,6 +2398,65 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
 
     if (e.target.closest("[data-close-summary-modal]") || (e.target.id === "chapter-summary-modal")) {
       closeChapterSummaryModal();
+      return;
+    }
+
+    // Click on concept pill badge -> scroll to detailed lesson notes in modal
+    const pillBtn = e.target.closest(".ch-pill-badge");
+    if (pillBtn) {
+      const targetNoteId = pillBtn.getAttribute("data-concept-target");
+      if (targetNoteId) {
+        const noteCard = document.getElementById(targetNoteId);
+        if (noteCard) {
+          if (noteCard.tagName === "DETAILS") noteCard.open = true;
+          noteCard.scrollIntoView({ behavior: "smooth", block: "center" });
+          noteCard.classList.remove("highlight-card");
+          void noteCard.offsetWidth;
+          noteCard.classList.add("highlight-card");
+          setTimeout(() => noteCard.classList.remove("highlight-card"), 2200);
+
+          document.querySelectorAll(".ch-pill-badge").forEach(b => b.classList.remove("is-active"));
+          pillBtn.classList.add("is-active");
+        }
+      }
+      return;
+    }
+
+    // Jump to lesson card on page
+    const jumpLessonBtn = e.target.closest(".ch-btn-jump-lesson");
+    if (jumpLessonBtn) {
+      const vidId = jumpLessonBtn.getAttribute("data-jump-video-id");
+      const secSlug = jumpLessonBtn.getAttribute("data-section-slug");
+      closeChapterSummaryModal();
+
+      const currentPath = window.location.pathname;
+      if (currentPath.includes(secSlug)) {
+        handleSidebarNavigation("video-" + vidId);
+        try { history.pushState(null, "", "#video-" + vidId); } catch(err) {}
+        const videoCard = document.getElementById("video-" + vidId);
+        if (videoCard) {
+          const details = videoCard.querySelector(".video-notes-details");
+          if (details) details.open = true;
+        }
+      } else {
+        const metaBase = document.querySelector('meta[name="base-url"]')?.getAttribute('content');
+        const base = metaBase ? (metaBase.endsWith('/') ? metaBase : metaBase + '/') : (window.location.pathname.startsWith('/nodejs') ? '/nodejs/' : '/');
+        window.location.href = `${base}sections/${secSlug}/#video-${vidId}`;
+      }
+      return;
+    }
+
+    // Copy code snippet in lesson note card
+    const copyLessonCodeBtn = e.target.closest(".btn-copy-lesson-code");
+    if (copyLessonCodeBtn) {
+      const codeText = decodeURIComponent(copyLessonCodeBtn.getAttribute("data-code"));
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(codeText).then(() => {
+          const orig = copyLessonCodeBtn.textContent;
+          copyLessonCodeBtn.textContent = "Copied ✓";
+          setTimeout(() => { copyLessonCodeBtn.textContent = orig; }, 1800);
+        });
+      }
       return;
     }
 

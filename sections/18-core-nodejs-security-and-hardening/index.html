@@ -8908,7 +8908,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                        Securing your Node.js projects is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnera
                       </p>
                     
 
@@ -8981,7 +8981,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Securing your Node.js projects is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -8994,7 +8994,9 @@
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Securing your Node.js projects operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Securing your Node.js projects:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9008,10 +9010,23 @@
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Securing your Node.js projects:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Object Merging Protecting Against Prototype Pollution
+export function safeDeepMerge(target, source) {
+  const result = Array.isArray(target) ? [...target] : { ...target };
+  
+  for (const key of Object.keys(source)) {
+    // Prevent Prototype Pollution vectors
+    if (key === &quot;__proto__&quot; || key === &quot;constructor&quot; || key === &quot;prototype&quot;) {
+      continue;
+    }
+    
+    if (source[key] &amp;&amp; typeof source[key] === &quot;object&quot; &amp;&amp; !Array.isArray(source[key])) {
+      result[key] = safeDeepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
 }</code></pre>
                         </div>
                         
@@ -9024,7 +9039,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Securing your Node.js projects execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing your Node.js projects execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9172,7 +9187,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                        What you should know is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                       </p>
                     
 
@@ -9245,7 +9260,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            What you should know is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -9258,7 +9273,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            What you should know operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for What you should know:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9272,10 +9289,23 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for What you should know:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Object Merging Protecting Against Prototype Pollution
+export function safeDeepMerge(target, source) {
+  const result = Array.isArray(target) ? [...target] : { ...target };
+  
+  for (const key of Object.keys(source)) {
+    // Prevent Prototype Pollution vectors
+    if (key === &quot;__proto__&quot; || key === &quot;constructor&quot; || key === &quot;prototype&quot;) {
+      continue;
+    }
+    
+    if (source[key] &amp;&amp; typeof source[key] === &quot;object&quot; &amp;&amp; !Array.isArray(source[key])) {
+      result[key] = safeDeepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
 }</code></pre>
                         </div>
                         
@@ -9288,7 +9318,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during What you should know execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9436,7 +9466,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                        Introduction to OWASP and other sources is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 1
                       </p>
                     
 
@@ -9509,7 +9539,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Introduction to OWASP and other sources is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -9522,7 +9552,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Introduction to OWASP and other sources operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Introduction to OWASP and other sources:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9536,10 +9568,23 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Introduction to OWASP and other sources:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Object Merging Protecting Against Prototype Pollution
+export function safeDeepMerge(target, source) {
+  const result = Array.isArray(target) ? [...target] : { ...target };
+  
+  for (const key of Object.keys(source)) {
+    // Prevent Prototype Pollution vectors
+    if (key === &quot;__proto__&quot; || key === &quot;constructor&quot; || key === &quot;prototype&quot;) {
+      continue;
+    }
+    
+    if (source[key] &amp;&amp; typeof source[key] === &quot;object&quot; &amp;&amp; !Array.isArray(source[key])) {
+      result[key] = safeDeepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
 }</code></pre>
                         </div>
                         
@@ -9552,7 +9597,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Introduction to OWASP and other sources execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP and other sources execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9700,7 +9745,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                        OWASP Top 10 in Node.js is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilitie
                       </p>
                     
 
@@ -9773,7 +9818,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            OWASP Top 10 in Node.js is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -9786,7 +9831,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            OWASP Top 10 in Node.js operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for OWASP Top 10 in Node.js:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9800,10 +9847,23 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for OWASP Top 10 in Node.js:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Object Merging Protecting Against Prototype Pollution
+export function safeDeepMerge(target, source) {
+  const result = Array.isArray(target) ? [...target] : { ...target };
+  
+  for (const key of Object.keys(source)) {
+    // Prevent Prototype Pollution vectors
+    if (key === &quot;__proto__&quot; || key === &quot;constructor&quot; || key === &quot;prototype&quot;) {
+      continue;
+    }
+    
+    if (source[key] &amp;&amp; typeof source[key] === &quot;object&quot; &amp;&amp; !Array.isArray(source[key])) {
+      result[key] = safeDeepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
 }</code></pre>
                         </div>
                         
@@ -9816,7 +9876,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during OWASP Top 10 in Node.js execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during OWASP Top 10 in Node.js execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10030,7 +10090,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                        Overview of broken access control is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vuln
                       </p>
                     
 
@@ -10103,7 +10163,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Overview of broken access control is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -10116,7 +10176,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Overview of broken access control operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Overview of broken access control:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10130,10 +10192,23 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Overview of broken access control:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Object Merging Protecting Against Prototype Pollution
+export function safeDeepMerge(target, source) {
+  const result = Array.isArray(target) ? [...target] : { ...target };
+  
+  for (const key of Object.keys(source)) {
+    // Prevent Prototype Pollution vectors
+    if (key === &quot;__proto__&quot; || key === &quot;constructor&quot; || key === &quot;prototype&quot;) {
+      continue;
+    }
+    
+    if (source[key] &amp;&amp; typeof source[key] === &quot;object&quot; &amp;&amp; !Array.isArray(source[key])) {
+      result[key] = safeDeepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
 }</code></pre>
                         </div>
                         
@@ -10146,7 +10221,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Overview of broken access control execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of broken access control execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10294,7 +10369,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                        Overview of cryptographic failures is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vul
                       </p>
                     
 
@@ -10367,7 +10442,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Overview of cryptographic failures is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -10380,7 +10455,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Overview of cryptographic failures operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Overview of cryptographic failures:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10394,10 +10471,23 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Overview of cryptographic failures:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Object Merging Protecting Against Prototype Pollution
+export function safeDeepMerge(target, source) {
+  const result = Array.isArray(target) ? [...target] : { ...target };
+  
+  for (const key of Object.keys(source)) {
+    // Prevent Prototype Pollution vectors
+    if (key === &quot;__proto__&quot; || key === &quot;constructor&quot; || key === &quot;prototype&quot;) {
+      continue;
+    }
+    
+    if (source[key] &amp;&amp; typeof source[key] === &quot;object&quot; &amp;&amp; !Array.isArray(source[key])) {
+      result[key] = safeDeepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
 }</code></pre>
                         </div>
                         
@@ -10410,7 +10500,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Overview of cryptographic failures execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of cryptographic failures execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10558,7 +10648,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                        Overview of injections is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities
                       </p>
                     
 
@@ -10631,7 +10721,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Overview of injections is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -10644,7 +10734,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Overview of injections operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Overview of injections:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10658,10 +10750,23 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Overview of injections:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Object Merging Protecting Against Prototype Pollution
+export function safeDeepMerge(target, source) {
+  const result = Array.isArray(target) ? [...target] : { ...target };
+  
+  for (const key of Object.keys(source)) {
+    // Prevent Prototype Pollution vectors
+    if (key === &quot;__proto__&quot; || key === &quot;constructor&quot; || key === &quot;prototype&quot;) {
+      continue;
+    }
+    
+    if (source[key] &amp;&amp; typeof source[key] === &quot;object&quot; &amp;&amp; !Array.isArray(source[key])) {
+      result[key] = safeDeepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
 }</code></pre>
                         </div>
                         
@@ -10674,7 +10779,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Overview of injections execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of injections execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10822,7 +10927,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                        Hands-on base template overview is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulner
                       </p>
                     
 
@@ -10895,7 +11000,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Hands-on base template overview is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -10908,7 +11013,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Hands-on base template overview operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Hands-on base template overview:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10922,10 +11029,23 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Hands-on base template overview:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Object Merging Protecting Against Prototype Pollution
+export function safeDeepMerge(target, source) {
+  const result = Array.isArray(target) ? [...target] : { ...target };
+  
+  for (const key of Object.keys(source)) {
+    // Prevent Prototype Pollution vectors
+    if (key === &quot;__proto__&quot; || key === &quot;constructor&quot; || key === &quot;prototype&quot;) {
+      continue;
+    }
+    
+    if (source[key] &amp;&amp; typeof source[key] === &quot;object&quot; &amp;&amp; !Array.isArray(source[key])) {
+      result[key] = safeDeepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
 }</code></pre>
                         </div>
                         
@@ -10938,7 +11058,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Hands-on base template overview execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Hands-on base template overview execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11152,7 +11272,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                        Maintain package dependencies is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerab
                       </p>
                     
 
@@ -11225,7 +11345,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Maintain package dependencies is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -11238,7 +11358,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Maintain package dependencies operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Maintain package dependencies:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11252,10 +11374,23 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Maintain package dependencies:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Object Merging Protecting Against Prototype Pollution
+export function safeDeepMerge(target, source) {
+  const result = Array.isArray(target) ? [...target] : { ...target };
+  
+  for (const key of Object.keys(source)) {
+    // Prevent Prototype Pollution vectors
+    if (key === &quot;__proto__&quot; || key === &quot;constructor&quot; || key === &quot;prototype&quot;) {
+      continue;
+    }
+    
+    if (source[key] &amp;&amp; typeof source[key] === &quot;object&quot; &amp;&amp; !Array.isArray(source[key])) {
+      result[key] = safeDeepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
 }</code></pre>
                         </div>
                         
@@ -11268,7 +11403,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Maintain package dependencies execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Maintain package dependencies execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11416,7 +11551,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                        Add 2-factor and read-only tokens with NPM is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP To
                       </p>
                     
 
@@ -11489,7 +11624,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Add 2-factor and read-only tokens with NPM is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -11502,7 +11637,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Add 2-factor and read-only tokens with NPM operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Add 2-factor and read-only tokens with NPM:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11516,10 +11653,23 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Add 2-factor and read-only tokens with NPM:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Object Merging Protecting Against Prototype Pollution
+export function safeDeepMerge(target, source) {
+  const result = Array.isArray(target) ? [...target] : { ...target };
+  
+  for (const key of Object.keys(source)) {
+    // Prevent Prototype Pollution vectors
+    if (key === &quot;__proto__&quot; || key === &quot;constructor&quot; || key === &quot;prototype&quot;) {
+      continue;
+    }
+    
+    if (source[key] &amp;&amp; typeof source[key] === &quot;object&quot; &amp;&amp; !Array.isArray(source[key])) {
+      result[key] = safeDeepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
 }</code></pre>
                         </div>
                         
@@ -11532,7 +11682,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Add 2-factor and read-only tokens with NPM execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Add 2-factor and read-only tokens with NPM execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11680,7 +11830,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                        Data handling with type and validation is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10
                       </p>
                     
 
@@ -11753,7 +11903,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Data handling with type and validation is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -11766,7 +11916,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Data handling with type and validation operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Data handling with type and validation:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11780,10 +11932,23 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Data handling with type and validation:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Object Merging Protecting Against Prototype Pollution
+export function safeDeepMerge(target, source) {
+  const result = Array.isArray(target) ? [...target] : { ...target };
+  
+  for (const key of Object.keys(source)) {
+    // Prevent Prototype Pollution vectors
+    if (key === &quot;__proto__&quot; || key === &quot;constructor&quot; || key === &quot;prototype&quot;) {
+      continue;
+    }
+    
+    if (source[key] &amp;&amp; typeof source[key] === &quot;object&quot; &amp;&amp; !Array.isArray(source[key])) {
+      result[key] = safeDeepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
 }</code></pre>
                         </div>
                         
@@ -11796,7 +11961,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Data handling with type and validation execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Data handling with type and validation execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11944,7 +12109,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                        Use prepared statements for SQL and NoSQL is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top
                       </p>
                     
 
@@ -12017,7 +12182,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
+                            Use prepared statements for SQL and NoSQL is a fundamental architectural concept in Core Node.js Security Hardening &amp; Runtime Defenses. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.
                           </p>
                         </div>
                         
@@ -12030,7 +12195,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Use prepared statements for SQL and NoSQL operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Use prepared statements for SQL and NoSQL:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12044,10 +12211,23 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Use prepared statements for SQL and NoSQL:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Defensive Object Merging Protecting Against Prototype Pollution
+export function safeDeepMerge(target, source) {
+  const result = Array.isArray(target) ? [...target] : { ...target };
+  
+  for (const key of Object.keys(source)) {
+    // Prevent Prototype Pollution vectors
+    if (key === &quot;__proto__&quot; || key === &quot;constructor&quot; || key === &quot;prototype&quot;) {
+      continue;
+    }
+    
+    if (source[key] &amp;&amp; typeof source[key] === &quot;object&quot; &amp;&amp; !Array.isArray(source[key])) {
+      result[key] = safeDeepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
 }</code></pre>
                         </div>
                         
@@ -12060,7 +12240,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Use prepared statements for SQL and NoSQL execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Use prepared statements for SQL and NoSQL execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         

@@ -8908,7 +8908,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                        Using closures in JavaScript is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what cl
                       </p>
                     
 
@@ -8981,7 +8981,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                            Using closures in JavaScript is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
                           </p>
                         </div>
                         
@@ -8994,7 +8994,9 @@
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Using closures in JavaScript operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Using closures in JavaScript:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9008,10 +9010,29 @@
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Using closures in JavaScript:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Factory Pattern with Secure Private State &amp; Memory Hygiene
+export function createTokenBucket(capacity, refillRatePerSec) {
+  // Encapsulated state on Heap Context
+  let tokens = capacity;
+  let lastRefill = Date.now();
+
+  return {
+    consume(tokensRequested = 1) {
+      const now = Date.now();
+      const elapsed = (now - lastRefill) / 1000;
+      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);
+      lastRefill = now;
+
+      if (tokens &gt;= tokensRequested) {
+        tokens -= tokensRequested;
+        return true;
+      }
+      return false;
+    },
+    getAvailableTokens() {
+      return Math.floor(tokens);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -9024,7 +9045,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Using closures in JavaScript execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using closures in JavaScript execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9172,7 +9193,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                        What you should know is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures l
                       </p>
                     
 
@@ -9245,7 +9266,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                            What you should know is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
                           </p>
                         </div>
                         
@@ -9258,7 +9279,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            What you should know operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for What you should know:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9272,10 +9295,29 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for What you should know:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Factory Pattern with Secure Private State &amp; Memory Hygiene
+export function createTokenBucket(capacity, refillRatePerSec) {
+  // Encapsulated state on Heap Context
+  let tokens = capacity;
+  let lastRefill = Date.now();
+
+  return {
+    consume(tokensRequested = 1) {
+      const now = Date.now();
+      const elapsed = (now - lastRefill) / 1000;
+      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);
+      lastRefill = now;
+
+      if (tokens &gt;= tokensRequested) {
+        tokens -= tokensRequested;
+        return true;
+      }
+      return false;
+    },
+    getAvailableTokens() {
+      return Math.floor(tokens);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -9288,7 +9330,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during What you should know execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9436,7 +9478,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                        Environment setup and exercise files is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover
                       </p>
                     
 
@@ -9509,7 +9551,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                            Environment setup and exercise files is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
                           </p>
                         </div>
                         
@@ -9522,7 +9564,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Environment setup and exercise files operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Environment setup and exercise files:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9536,10 +9580,29 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Environment setup and exercise files:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Factory Pattern with Secure Private State &amp; Memory Hygiene
+export function createTokenBucket(capacity, refillRatePerSec) {
+  // Encapsulated state on Heap Context
+  let tokens = capacity;
+  let lastRefill = Date.now();
+
+  return {
+    consume(tokensRequested = 1) {
+      const now = Date.now();
+      const elapsed = (now - lastRefill) / 1000;
+      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);
+      lastRefill = now;
+
+      if (tokens &gt;= tokensRequested) {
+        tokens -= tokensRequested;
+        return true;
+      }
+      return false;
+    },
+    getAvailableTokens() {
+      return Math.floor(tokens);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -9552,7 +9615,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Environment setup and exercise files execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Environment setup and exercise files execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9700,7 +9763,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                        Using CoderPad challenges is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closu
                       </p>
                     
 
@@ -9773,7 +9836,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                            Using CoderPad challenges is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
                           </p>
                         </div>
                         
@@ -9786,7 +9849,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Using CoderPad challenges operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Using CoderPad challenges:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9800,10 +9865,29 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Using CoderPad challenges:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Factory Pattern with Secure Private State &amp; Memory Hygiene
+export function createTokenBucket(capacity, refillRatePerSec) {
+  // Encapsulated state on Heap Context
+  let tokens = capacity;
+  let lastRefill = Date.now();
+
+  return {
+    consume(tokensRequested = 1) {
+      const now = Date.now();
+      const elapsed = (now - lastRefill) / 1000;
+      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);
+      lastRefill = now;
+
+      if (tokens &gt;= tokensRequested) {
+        tokens -= tokensRequested;
+        return true;
+      }
+      return false;
+    },
+    getAvailableTokens() {
+      return Math.floor(tokens);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -9816,7 +9900,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Using CoderPad challenges execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using CoderPad challenges execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10030,7 +10114,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                        Local and global scope is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures
                       </p>
                     
 
@@ -10103,7 +10187,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                            Local and global scope is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
                           </p>
                         </div>
                         
@@ -10116,7 +10200,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Local and global scope operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Local and global scope:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10130,10 +10216,29 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Local and global scope:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Factory Pattern with Secure Private State &amp; Memory Hygiene
+export function createTokenBucket(capacity, refillRatePerSec) {
+  // Encapsulated state on Heap Context
+  let tokens = capacity;
+  let lastRefill = Date.now();
+
+  return {
+    consume(tokensRequested = 1) {
+      const now = Date.now();
+      const elapsed = (now - lastRefill) / 1000;
+      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);
+      lastRefill = now;
+
+      if (tokens &gt;= tokensRequested) {
+        tokens -= tokensRequested;
+        return true;
+      }
+      return false;
+    },
+    getAvailableTokens() {
+      return Math.floor(tokens);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -10146,7 +10251,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Local and global scope execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Local and global scope execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10294,7 +10399,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                        Nesting functions is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look
                       </p>
                     
 
@@ -10367,7 +10472,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                            Nesting functions is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
                           </p>
                         </div>
                         
@@ -10380,7 +10485,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Nesting functions operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Nesting functions:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10394,10 +10501,29 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Nesting functions:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Factory Pattern with Secure Private State &amp; Memory Hygiene
+export function createTokenBucket(capacity, refillRatePerSec) {
+  // Encapsulated state on Heap Context
+  let tokens = capacity;
+  let lastRefill = Date.now();
+
+  return {
+    consume(tokensRequested = 1) {
+      const now = Date.now();
+      const elapsed = (now - lastRefill) / 1000;
+      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);
+      lastRefill = now;
+
+      if (tokens &gt;= tokensRequested) {
+        tokens -= tokensRequested;
+        return true;
+      }
+      return false;
+    },
+    getAvailableTokens() {
+      return Math.floor(tokens);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -10410,7 +10536,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Nesting functions execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Nesting functions execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10558,7 +10684,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                        Return a value from an inner function is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discove
                       </p>
                     
 
@@ -10631,7 +10757,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                            Return a value from an inner function is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
                           </p>
                         </div>
                         
@@ -10644,7 +10770,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Return a value from an inner function operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Return a value from an inner function:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10658,10 +10786,29 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Return a value from an inner function:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Factory Pattern with Secure Private State &amp; Memory Hygiene
+export function createTokenBucket(capacity, refillRatePerSec) {
+  // Encapsulated state on Heap Context
+  let tokens = capacity;
+  let lastRefill = Date.now();
+
+  return {
+    consume(tokensRequested = 1) {
+      const now = Date.now();
+      const elapsed = (now - lastRefill) / 1000;
+      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);
+      lastRefill = now;
+
+      if (tokens &gt;= tokensRequested) {
+        tokens -= tokensRequested;
+        return true;
+      }
+      return false;
+    },
+    getAvailableTokens() {
+      return Math.floor(tokens);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -10674,7 +10821,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Return a value from an inner function execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Return a value from an inner function execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10822,7 +10969,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                        Create parallel closures is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closur
                       </p>
                     
 
@@ -10895,7 +11042,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                            Create parallel closures is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
                           </p>
                         </div>
                         
@@ -10908,7 +11055,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Create parallel closures operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Create parallel closures:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10922,10 +11071,29 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Create parallel closures:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Factory Pattern with Secure Private State &amp; Memory Hygiene
+export function createTokenBucket(capacity, refillRatePerSec) {
+  // Encapsulated state on Heap Context
+  let tokens = capacity;
+  let lastRefill = Date.now();
+
+  return {
+    consume(tokensRequested = 1) {
+      const now = Date.now();
+      const elapsed = (now - lastRefill) / 1000;
+      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);
+      lastRefill = now;
+
+      if (tokens &gt;= tokensRequested) {
+        tokens -= tokensRequested;
+        return true;
+      }
+      return false;
+    },
+    getAvailableTokens() {
+      return Math.floor(tokens);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -10938,7 +11106,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Create parallel closures execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Create parallel closures execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11152,7 +11320,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                        Solution: Create a closure using a nested function is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closure
                       </p>
                     
 
@@ -11225,7 +11393,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                            Solution: Create a closure using a nested function is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
                           </p>
                         </div>
                         
@@ -11238,7 +11406,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Solution: Create a closure using a nested function operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Solution: Create a closure using a nested function:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11252,10 +11422,29 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Solution: Create a closure using a nested function:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Factory Pattern with Secure Private State &amp; Memory Hygiene
+export function createTokenBucket(capacity, refillRatePerSec) {
+  // Encapsulated state on Heap Context
+  let tokens = capacity;
+  let lastRefill = Date.now();
+
+  return {
+    consume(tokensRequested = 1) {
+      const now = Date.now();
+      const elapsed = (now - lastRefill) / 1000;
+      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);
+      lastRefill = now;
+
+      if (tokens &gt;= tokensRequested) {
+        tokens -= tokensRequested;
+        return true;
+      }
+      return false;
+    },
+    getAvailableTokens() {
+      return Math.floor(tokens);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -11268,7 +11457,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Solution: Create a closure using a nested function execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a closure using a nested function execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11416,7 +11605,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                        Implement the module pattern is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what cl
                       </p>
                     
 
@@ -11489,7 +11678,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                            Implement the module pattern is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
                           </p>
                         </div>
                         
@@ -11502,7 +11691,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Implement the module pattern operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Implement the module pattern:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11516,10 +11707,29 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Implement the module pattern:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Factory Pattern with Secure Private State &amp; Memory Hygiene
+export function createTokenBucket(capacity, refillRatePerSec) {
+  // Encapsulated state on Heap Context
+  let tokens = capacity;
+  let lastRefill = Date.now();
+
+  return {
+    consume(tokensRequested = 1) {
+      const now = Date.now();
+      const elapsed = (now - lastRefill) / 1000;
+      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);
+      lastRefill = now;
+
+      if (tokens &gt;= tokensRequested) {
+        tokens -= tokensRequested;
+        return true;
+      }
+      return false;
+    },
+    getAvailableTokens() {
+      return Math.floor(tokens);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -11532,7 +11742,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Implement the module pattern execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Implement the module pattern execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11680,7 +11890,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                        Avoid unintended closures is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closu
                       </p>
                     
 
@@ -11753,7 +11963,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                            Avoid unintended closures is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
                           </p>
                         </div>
                         
@@ -11766,7 +11976,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Avoid unintended closures operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Avoid unintended closures:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11780,10 +11992,29 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Avoid unintended closures:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Factory Pattern with Secure Private State &amp; Memory Hygiene
+export function createTokenBucket(capacity, refillRatePerSec) {
+  // Encapsulated state on Heap Context
+  let tokens = capacity;
+  let lastRefill = Date.now();
+
+  return {
+    consume(tokensRequested = 1) {
+      const now = Date.now();
+      const elapsed = (now - lastRefill) / 1000;
+      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);
+      lastRefill = now;
+
+      if (tokens &gt;= tokensRequested) {
+        tokens -= tokensRequested;
+        return true;
+      }
+      return false;
+    },
+    getAvailableTokens() {
+      return Math.floor(tokens);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -11796,7 +12027,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Avoid unintended closures execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Avoid unintended closures execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11944,7 +12175,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                        Use JS features in place of closures is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover
                       </p>
                     
 
@@ -12017,7 +12248,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
+                            Use JS features in place of closures is a fundamental architectural concept in Closures, Lexical Environments &amp; Memory Retention. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.
                           </p>
                         </div>
                         
@@ -12030,7 +12261,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Use JS features in place of closures operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Use JS features in place of closures:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12044,10 +12277,29 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Use JS features in place of closures:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Factory Pattern with Secure Private State &amp; Memory Hygiene
+export function createTokenBucket(capacity, refillRatePerSec) {
+  // Encapsulated state on Heap Context
+  let tokens = capacity;
+  let lastRefill = Date.now();
+
+  return {
+    consume(tokensRequested = 1) {
+      const now = Date.now();
+      const elapsed = (now - lastRefill) / 1000;
+      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);
+      lastRefill = now;
+
+      if (tokens &gt;= tokensRequested) {
+        tokens -= tokensRequested;
+        return true;
+      }
+      return false;
+    },
+    getAvailableTokens() {
+      return Math.floor(tokens);
+    }
+  };
 }</code></pre>
                         </div>
                         
@@ -12060,7 +12312,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Use JS features in place of closures execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Use JS features in place of closures execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         

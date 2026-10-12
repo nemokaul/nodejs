@@ -8908,7 +8908,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Parallel execution is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -8981,7 +8981,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Parallel execution is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -8994,7 +8994,9 @@
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Parallel execution operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Parallel execution:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9008,10 +9010,19 @@
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Parallel execution:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Production Stream Pipeline with Backpressure &amp; Error Propagation
+import { pipeline } from &quot;stream/promises&quot;;
+import { createReadStream, createWriteStream } from &quot;fs&quot;;
+import { createGzip } from &quot;zlib&quot;;
+
+export async function compressFile(sourcePath, destPath) {
+  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });
+  const gzip = createGzip({ level: 6 });
+  const writable = createWriteStream(destPath);
+
+  // pipeline handles full backpressure lifecycle and stream cleanup
+  await pipeline(readable, gzip, writable);
+  return { success: true, destPath };
 }</code></pre>
                         </div>
                         
@@ -9024,7 +9035,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Parallel execution execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9172,7 +9183,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Concurrent tasks is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -9245,7 +9256,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Concurrent tasks is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -9258,7 +9269,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Concurrent tasks operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Concurrent tasks:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9272,10 +9285,19 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Concurrent tasks:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Production Stream Pipeline with Backpressure &amp; Error Propagation
+import { pipeline } from &quot;stream/promises&quot;;
+import { createReadStream, createWriteStream } from &quot;fs&quot;;
+import { createGzip } from &quot;zlib&quot;;
+
+export async function compressFile(sourcePath, destPath) {
+  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });
+  const gzip = createGzip({ level: 6 });
+  const writable = createWriteStream(destPath);
+
+  // pipeline handles full backpressure lifecycle and stream cleanup
+  await pipeline(readable, gzip, writable);
+  return { success: true, destPath };
 }</code></pre>
                         </div>
                         
@@ -9288,7 +9310,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Concurrent tasks execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9436,7 +9458,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Logging concurrent tasks is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -9509,7 +9531,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Logging concurrent tasks is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -9522,7 +9544,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Logging concurrent tasks operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Logging concurrent tasks:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9536,10 +9560,19 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Logging concurrent tasks:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Production Stream Pipeline with Backpressure &amp; Error Propagation
+import { pipeline } from &quot;stream/promises&quot;;
+import { createReadStream, createWriteStream } from &quot;fs&quot;;
+import { createGzip } from &quot;zlib&quot;;
+
+export async function compressFile(sourcePath, destPath) {
+  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });
+  const gzip = createGzip({ level: 6 });
+  const writable = createWriteStream(destPath);
+
+  // pipeline handles full backpressure lifecycle and stream cleanup
+  await pipeline(readable, gzip, writable);
+  return { success: true, destPath };
 }</code></pre>
                         </div>
                         
@@ -9552,7 +9585,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Logging concurrent tasks execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9700,7 +9733,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Why streams? is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -9773,7 +9806,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Why streams? is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -9786,7 +9819,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Why streams? operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Why streams?:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9800,10 +9835,19 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Why streams?:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Production Stream Pipeline with Backpressure &amp; Error Propagation
+import { pipeline } from &quot;stream/promises&quot;;
+import { createReadStream, createWriteStream } from &quot;fs&quot;;
+import { createGzip } from &quot;zlib&quot;;
+
+export async function compressFile(sourcePath, destPath) {
+  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });
+  const gzip = createGzip({ level: 6 });
+  const writable = createWriteStream(destPath);
+
+  // pipeline handles full backpressure lifecycle and stream cleanup
+  await pipeline(readable, gzip, writable);
+  return { success: true, destPath };
 }</code></pre>
                         </div>
                         
@@ -9816,7 +9860,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Why streams? execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Why streams? execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10030,7 +10074,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Readable streams is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -10103,7 +10147,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Readable streams is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -10116,7 +10160,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Readable streams operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Readable streams:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10130,10 +10176,19 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Readable streams:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Production Stream Pipeline with Backpressure &amp; Error Propagation
+import { pipeline } from &quot;stream/promises&quot;;
+import { createReadStream, createWriteStream } from &quot;fs&quot;;
+import { createGzip } from &quot;zlib&quot;;
+
+export async function compressFile(sourcePath, destPath) {
+  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });
+  const gzip = createGzip({ level: 6 });
+  const writable = createWriteStream(destPath);
+
+  // pipeline handles full backpressure lifecycle and stream cleanup
+  await pipeline(readable, gzip, writable);
+  return { success: true, destPath };
 }</code></pre>
                         </div>
                         
@@ -10146,7 +10201,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Readable streams execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable streams execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10294,7 +10349,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Using readable streams is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -10367,7 +10422,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Using readable streams is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -10380,7 +10435,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Using readable streams operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Using readable streams:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10394,10 +10451,19 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Using readable streams:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Production Stream Pipeline with Backpressure &amp; Error Propagation
+import { pipeline } from &quot;stream/promises&quot;;
+import { createReadStream, createWriteStream } from &quot;fs&quot;;
+import { createGzip } from &quot;zlib&quot;;
+
+export async function compressFile(sourcePath, destPath) {
+  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });
+  const gzip = createGzip({ level: 6 });
+  const writable = createWriteStream(destPath);
+
+  // pipeline handles full backpressure lifecycle and stream cleanup
+  await pipeline(readable, gzip, writable);
+  return { success: true, destPath };
 }</code></pre>
                         </div>
                         
@@ -10410,7 +10476,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Using readable streams execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readable streams execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10558,7 +10624,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Writable streams is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -10631,7 +10697,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Writable streams is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -10644,7 +10710,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Writable streams operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Writable streams:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10658,10 +10726,19 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Writable streams:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Production Stream Pipeline with Backpressure &amp; Error Propagation
+import { pipeline } from &quot;stream/promises&quot;;
+import { createReadStream, createWriteStream } from &quot;fs&quot;;
+import { createGzip } from &quot;zlib&quot;;
+
+export async function compressFile(sourcePath, destPath) {
+  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });
+  const gzip = createGzip({ level: 6 });
+  const writable = createWriteStream(destPath);
+
+  // pipeline handles full backpressure lifecycle and stream cleanup
+  await pipeline(readable, gzip, writable);
+  return { success: true, destPath };
 }</code></pre>
                         </div>
                         
@@ -10674,7 +10751,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Writable streams execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Writable streams execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10822,7 +10899,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Backpressure is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -10895,7 +10972,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Backpressure is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -10908,7 +10985,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Backpressure operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Backpressure:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10922,10 +11001,19 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Backpressure:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Production Stream Pipeline with Backpressure &amp; Error Propagation
+import { pipeline } from &quot;stream/promises&quot;;
+import { createReadStream, createWriteStream } from &quot;fs&quot;;
+import { createGzip } from &quot;zlib&quot;;
+
+export async function compressFile(sourcePath, destPath) {
+  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });
+  const gzip = createGzip({ level: 6 });
+  const writable = createWriteStream(destPath);
+
+  // pipeline handles full backpressure lifecycle and stream cleanup
+  await pipeline(readable, gzip, writable);
+  return { success: true, destPath };
 }</code></pre>
                         </div>
                         
@@ -10938,7 +11026,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Backpressure execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Backpressure execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11152,7 +11240,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Piping streams is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -11225,7 +11313,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Piping streams is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -11238,7 +11326,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Piping streams operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Piping streams:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11252,10 +11342,19 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Piping streams:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Production Stream Pipeline with Backpressure &amp; Error Propagation
+import { pipeline } from &quot;stream/promises&quot;;
+import { createReadStream, createWriteStream } from &quot;fs&quot;;
+import { createGzip } from &quot;zlib&quot;;
+
+export async function compressFile(sourcePath, destPath) {
+  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });
+  const gzip = createGzip({ level: 6 });
+  const writable = createWriteStream(destPath);
+
+  // pipeline handles full backpressure lifecycle and stream cleanup
+  await pipeline(readable, gzip, writable);
+  return { success: true, destPath };
 }</code></pre>
                         </div>
                         
@@ -11268,7 +11367,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Piping streams execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Piping streams execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11416,7 +11515,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Duplex streams is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -11489,7 +11588,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Duplex streams is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -11502,7 +11601,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Duplex streams operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Duplex streams:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11516,10 +11617,19 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Duplex streams:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Production Stream Pipeline with Backpressure &amp; Error Propagation
+import { pipeline } from &quot;stream/promises&quot;;
+import { createReadStream, createWriteStream } from &quot;fs&quot;;
+import { createGzip } from &quot;zlib&quot;;
+
+export async function compressFile(sourcePath, destPath) {
+  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });
+  const gzip = createGzip({ level: 6 });
+  const writable = createWriteStream(destPath);
+
+  // pipeline handles full backpressure lifecycle and stream cleanup
+  await pipeline(readable, gzip, writable);
+  return { success: true, destPath };
 }</code></pre>
                         </div>
                         
@@ -11532,7 +11642,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Duplex streams execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Duplex streams execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11680,7 +11790,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Transform streams is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -11753,7 +11863,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Transform streams is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -11766,7 +11876,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Transform streams operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Transform streams:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11780,10 +11892,19 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Transform streams:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Production Stream Pipeline with Backpressure &amp; Error Propagation
+import { pipeline } from &quot;stream/promises&quot;;
+import { createReadStream, createWriteStream } from &quot;fs&quot;;
+import { createGzip } from &quot;zlib&quot;;
+
+export async function compressFile(sourcePath, destPath) {
+  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });
+  const gzip = createGzip({ level: 6 });
+  const writable = createWriteStream(destPath);
+
+  // pipeline handles full backpressure lifecycle and stream cleanup
+  await pipeline(readable, gzip, writable);
+  return { success: true, destPath };
 }</code></pre>
                         </div>
                         
@@ -11796,7 +11917,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Transform streams execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Transform streams execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11944,7 +12065,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Streaming to the browser is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -12017,7 +12138,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Streaming to the browser is a fundamental architectural concept in Streams, Buffers &amp; Backpressure Mechanics. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -12030,7 +12151,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Streaming to the browser operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Streaming to the browser:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12044,10 +12167,19 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Streaming to the browser:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Production Stream Pipeline with Backpressure &amp; Error Propagation
+import { pipeline } from &quot;stream/promises&quot;;
+import { createReadStream, createWriteStream } from &quot;fs&quot;;
+import { createGzip } from &quot;zlib&quot;;
+
+export async function compressFile(sourcePath, destPath) {
+  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });
+  const gzip = createGzip({ level: 6 });
+  const writable = createWriteStream(destPath);
+
+  // pipeline handles full backpressure lifecycle and stream cleanup
+  await pipeline(readable, gzip, writable);
+  return { success: true, destPath };
 }</code></pre>
                         </div>
                         
@@ -12060,7 +12192,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Streaming to the browser execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Streaming to the browser execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         

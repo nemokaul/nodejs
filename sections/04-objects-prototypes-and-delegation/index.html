@@ -8908,7 +8908,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Understanding prototypes in JavaScript is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript cod
                       </p>
                     
 
@@ -8981,7 +8981,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Understanding prototypes in JavaScript is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -8994,7 +8994,9 @@
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Understanding prototypes in JavaScript operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Understanding prototypes in JavaScript:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9008,10 +9010,17 @@
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Understanding prototypes in JavaScript:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9024,7 +9033,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Understanding prototypes in JavaScript execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding prototypes in JavaScript execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9172,7 +9181,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Exercise files and environment setup is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code 
                       </p>
                     
 
@@ -9245,7 +9254,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Exercise files and environment setup is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -9258,7 +9267,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Exercise files and environment setup operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Exercise files and environment setup:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9272,10 +9283,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Exercise files and environment setup:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9288,7 +9306,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Exercise files and environment setup execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Exercise files and environment setup execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9436,7 +9454,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Create object literals is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prot
                       </p>
                     
 
@@ -9509,7 +9527,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Create object literals is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -9522,7 +9540,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Create object literals operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Create object literals:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9536,10 +9556,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Create object literals:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9552,7 +9579,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Create object literals execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Create object literals execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9700,7 +9727,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Create objects with a constructor function is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript
                       </p>
                     
 
@@ -9773,7 +9800,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Create objects with a constructor function is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -9786,7 +9813,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Create objects with a constructor function operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Create objects with a constructor function:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9800,10 +9829,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Create objects with a constructor function:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9816,7 +9852,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Create objects with a constructor function execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Create objects with a constructor function execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10030,7 +10066,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Using CoderPad challenges is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the p
                       </p>
                     
 
@@ -10103,7 +10139,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Using CoderPad challenges is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -10116,7 +10152,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Using CoderPad challenges operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Using CoderPad challenges:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10130,10 +10168,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Using CoderPad challenges:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10146,7 +10191,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Using CoderPad challenges execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using CoderPad challenges execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10294,7 +10339,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Understand the prototype property is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code usi
                       </p>
                     
 
@@ -10367,7 +10412,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Understand the prototype property is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -10380,7 +10425,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Understand the prototype property operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Understand the prototype property:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10394,10 +10441,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Understand the prototype property:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10410,7 +10464,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Understand the prototype property execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Understand the prototype property execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10558,7 +10612,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Modify an object&#39;s prototype is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using th
                       </p>
                     
 
@@ -10631,7 +10685,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Modify an object&#39;s prototype is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -10644,7 +10698,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Modify an object&#39;s prototype operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Modify an object&#39;s prototype:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10658,10 +10714,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Modify an object&#39;s prototype:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10674,7 +10737,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Modify an object&#39;s prototype execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Modify an object&#39;s prototype execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10822,7 +10885,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Create a prototype chain is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the pr
                       </p>
                     
 
@@ -10895,7 +10958,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Create a prototype chain is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -10908,7 +10971,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Create a prototype chain operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Create a prototype chain:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10922,10 +10987,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Create a prototype chain:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10938,7 +11010,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Create a prototype chain execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Create a prototype chain execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11152,7 +11224,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Apply prototypal inheritance is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using th
                       </p>
                     
 
@@ -11225,7 +11297,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Apply prototypal inheritance is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -11238,7 +11310,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Apply prototypal inheritance operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Apply prototypal inheritance:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11252,10 +11326,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Apply prototypal inheritance:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -11268,7 +11349,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Apply prototypal inheritance execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Apply prototypal inheritance execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11416,7 +11497,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Understand ES6 classes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prot
                       </p>
                     
 
@@ -11489,7 +11570,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Understand ES6 classes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -11502,7 +11583,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Understand ES6 classes operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Understand ES6 classes:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11516,10 +11599,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Understand ES6 classes:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -11532,7 +11622,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Understand ES6 classes execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Understand ES6 classes execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11680,7 +11770,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Build prototypes using ES6 classes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code us
                       </p>
                     
 
@@ -11753,7 +11843,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Build prototypes using ES6 classes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -11766,7 +11856,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Build prototypes using ES6 classes operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Build prototypes using ES6 classes:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11780,10 +11872,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Build prototypes using ES6 classes:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -11796,7 +11895,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Build prototypes using ES6 classes execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Build prototypes using ES6 classes execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11944,7 +12043,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                        Next steps is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                       </p>
                     
 
@@ -12017,7 +12116,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
+                            Next steps is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.
                           </p>
                         </div>
                         
@@ -12030,7 +12129,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Next steps operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Next steps:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12044,10 +12145,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Next steps:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -12060,7 +12168,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Next steps execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         

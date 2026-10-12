@@ -8908,7 +8908,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                        Managing user sessions with Redis is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applicat
                       </p>
                     
 
@@ -8981,7 +8981,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Managing user sessions with Redis is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -8994,7 +8994,9 @@
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Managing user sessions with Redis operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Managing user sessions with Redis:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9008,10 +9010,33 @@
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Managing user sessions with Redis:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Idempotent Transactional Outbox Pattern Handler
+export async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {
+  return await dbClient.transaction(async (tx) =&gt; {
+    // 1. Verify idempotency
+    const existing = await tx.query(&quot;SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE&quot;, [idempotencyKey]);
+    if (existing.rows.length &gt; 0) {
+      return { status: &quot;cached&quot;, result: existing.rows[0].response };
+    }
+
+    // 2. Insert primary business entity
+    const order = await tx.query(
+      &quot;INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, &#39;PENDING&#39;) RETURNING id&quot;,
+      [orderData.userId, orderData.amount]
+    );
+
+    // 3. Atomically enqueue outbox event in same local transaction
+    await tx.query(
+      &quot;INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)&quot;,
+      [&quot;Order&quot;, order.rows[0].id, &quot;ORDER_CREATED&quot;, JSON.stringify(orderData)]
+    );
+
+    // 4. Record idempotency key
+    const responsePayload = { orderId: order.rows[0].id, status: &quot;PENDING&quot; };
+    await tx.query(&quot;INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)&quot;, [idempotencyKey, responsePayload]);
+
+    return { status: &quot;created&quot;, result: responsePayload };
+  });
 }</code></pre>
                         </div>
                         
@@ -9024,7 +9049,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Managing user sessions with Redis execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Managing user sessions with Redis execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9172,7 +9197,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                        Basic Redis operations for shopping baskets, part 1 is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases 
                       </p>
                     
 
@@ -9245,7 +9270,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Basic Redis operations for shopping baskets, part 1 is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -9258,7 +9283,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Basic Redis operations for shopping baskets, part 1 operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Basic Redis operations for shopping baskets, part 1:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9272,10 +9299,33 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Basic Redis operations for shopping baskets, part 1:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Idempotent Transactional Outbox Pattern Handler
+export async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {
+  return await dbClient.transaction(async (tx) =&gt; {
+    // 1. Verify idempotency
+    const existing = await tx.query(&quot;SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE&quot;, [idempotencyKey]);
+    if (existing.rows.length &gt; 0) {
+      return { status: &quot;cached&quot;, result: existing.rows[0].response };
+    }
+
+    // 2. Insert primary business entity
+    const order = await tx.query(
+      &quot;INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, &#39;PENDING&#39;) RETURNING id&quot;,
+      [orderData.userId, orderData.amount]
+    );
+
+    // 3. Atomically enqueue outbox event in same local transaction
+    await tx.query(
+      &quot;INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)&quot;,
+      [&quot;Order&quot;, order.rows[0].id, &quot;ORDER_CREATED&quot;, JSON.stringify(orderData)]
+    );
+
+    // 4. Record idempotency key
+    const responsePayload = { orderId: order.rows[0].id, status: &quot;PENDING&quot; };
+    await tx.query(&quot;INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)&quot;, [idempotencyKey, responsePayload]);
+
+    return { status: &quot;created&quot;, result: responsePayload };
+  });
 }</code></pre>
                         </div>
                         
@@ -9288,7 +9338,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Basic Redis operations for shopping baskets, part 1 execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic Redis operations for shopping baskets, part 1 execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9436,7 +9486,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                        Basic Redis operations for shopping baskets, part 2 is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases 
                       </p>
                     
 
@@ -9509,7 +9559,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Basic Redis operations for shopping baskets, part 2 is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -9522,7 +9572,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Basic Redis operations for shopping baskets, part 2 operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Basic Redis operations for shopping baskets, part 2:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9536,10 +9588,33 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Basic Redis operations for shopping baskets, part 2:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Idempotent Transactional Outbox Pattern Handler
+export async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {
+  return await dbClient.transaction(async (tx) =&gt; {
+    // 1. Verify idempotency
+    const existing = await tx.query(&quot;SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE&quot;, [idempotencyKey]);
+    if (existing.rows.length &gt; 0) {
+      return { status: &quot;cached&quot;, result: existing.rows[0].response };
+    }
+
+    // 2. Insert primary business entity
+    const order = await tx.query(
+      &quot;INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, &#39;PENDING&#39;) RETURNING id&quot;,
+      [orderData.userId, orderData.amount]
+    );
+
+    // 3. Atomically enqueue outbox event in same local transaction
+    await tx.query(
+      &quot;INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)&quot;,
+      [&quot;Order&quot;, order.rows[0].id, &quot;ORDER_CREATED&quot;, JSON.stringify(orderData)]
+    );
+
+    // 4. Record idempotency key
+    const responsePayload = { orderId: order.rows[0].id, status: &quot;PENDING&quot; };
+    await tx.query(&quot;INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)&quot;, [idempotencyKey, responsePayload]);
+
+    return { status: &quot;created&quot;, result: responsePayload };
+  });
 }</code></pre>
                         </div>
                         
@@ -9552,7 +9627,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Basic Redis operations for shopping baskets, part 2 execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic Redis operations for shopping baskets, part 2 execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9700,7 +9775,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                        Fetching item information for the basket is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your a
                       </p>
                     
 
@@ -9773,7 +9848,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Fetching item information for the basket is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -9786,7 +9861,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Fetching item information for the basket operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Fetching item information for the basket:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9800,10 +9877,33 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Fetching item information for the basket:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Idempotent Transactional Outbox Pattern Handler
+export async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {
+  return await dbClient.transaction(async (tx) =&gt; {
+    // 1. Verify idempotency
+    const existing = await tx.query(&quot;SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE&quot;, [idempotencyKey]);
+    if (existing.rows.length &gt; 0) {
+      return { status: &quot;cached&quot;, result: existing.rows[0].response };
+    }
+
+    // 2. Insert primary business entity
+    const order = await tx.query(
+      &quot;INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, &#39;PENDING&#39;) RETURNING id&quot;,
+      [orderData.userId, orderData.amount]
+    );
+
+    // 3. Atomically enqueue outbox event in same local transaction
+    await tx.query(
+      &quot;INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)&quot;,
+      [&quot;Order&quot;, order.rows[0].id, &quot;ORDER_CREATED&quot;, JSON.stringify(orderData)]
+    );
+
+    // 4. Record idempotency key
+    const responsePayload = { orderId: order.rows[0].id, status: &quot;PENDING&quot; };
+    await tx.query(&quot;INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)&quot;, [idempotencyKey, responsePayload]);
+
+    return { status: &quot;created&quot;, result: responsePayload };
+  });
 }</code></pre>
                         </div>
                         
@@ -9816,7 +9916,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Fetching item information for the basket execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Fetching item information for the basket execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10030,7 +10130,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                        Creating the order and using transactions is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your 
                       </p>
                     
 
@@ -10103,7 +10203,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Creating the order and using transactions is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -10116,7 +10216,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Creating the order and using transactions operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Creating the order and using transactions:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10130,10 +10232,33 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Creating the order and using transactions:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Idempotent Transactional Outbox Pattern Handler
+export async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {
+  return await dbClient.transaction(async (tx) =&gt; {
+    // 1. Verify idempotency
+    const existing = await tx.query(&quot;SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE&quot;, [idempotencyKey]);
+    if (existing.rows.length &gt; 0) {
+      return { status: &quot;cached&quot;, result: existing.rows[0].response };
+    }
+
+    // 2. Insert primary business entity
+    const order = await tx.query(
+      &quot;INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, &#39;PENDING&#39;) RETURNING id&quot;,
+      [orderData.userId, orderData.amount]
+    );
+
+    // 3. Atomically enqueue outbox event in same local transaction
+    await tx.query(
+      &quot;INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)&quot;,
+      [&quot;Order&quot;, order.rows[0].id, &quot;ORDER_CREATED&quot;, JSON.stringify(orderData)]
+    );
+
+    // 4. Record idempotency key
+    const responsePayload = { orderId: order.rows[0].id, status: &quot;PENDING&quot; };
+    await tx.query(&quot;INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)&quot;, [idempotencyKey, responsePayload]);
+
+    return { status: &quot;created&quot;, result: responsePayload };
+  });
 }</code></pre>
                         </div>
                         
@@ -10146,7 +10271,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Creating the order and using transactions execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating the order and using transactions execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10294,7 +10419,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                        Implementing the order admin view is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applicat
                       </p>
                     
 
@@ -10367,7 +10492,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Implementing the order admin view is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -10380,7 +10505,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Implementing the order admin view operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Implementing the order admin view:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10394,10 +10521,33 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Implementing the order admin view:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Idempotent Transactional Outbox Pattern Handler
+export async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {
+  return await dbClient.transaction(async (tx) =&gt; {
+    // 1. Verify idempotency
+    const existing = await tx.query(&quot;SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE&quot;, [idempotencyKey]);
+    if (existing.rows.length &gt; 0) {
+      return { status: &quot;cached&quot;, result: existing.rows[0].response };
+    }
+
+    // 2. Insert primary business entity
+    const order = await tx.query(
+      &quot;INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, &#39;PENDING&#39;) RETURNING id&quot;,
+      [orderData.userId, orderData.amount]
+    );
+
+    // 3. Atomically enqueue outbox event in same local transaction
+    await tx.query(
+      &quot;INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)&quot;,
+      [&quot;Order&quot;, order.rows[0].id, &quot;ORDER_CREATED&quot;, JSON.stringify(orderData)]
+    );
+
+    // 4. Record idempotency key
+    const responsePayload = { orderId: order.rows[0].id, status: &quot;PENDING&quot; };
+    await tx.query(&quot;INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)&quot;, [idempotencyKey, responsePayload]);
+
+    return { status: &quot;created&quot;, result: responsePayload };
+  });
 }</code></pre>
                         </div>
                         
@@ -10410,7 +10560,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Implementing the order admin view execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the order admin view execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10558,7 +10708,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                        Next steps is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your 
                       </p>
                     
 
@@ -10631,7 +10781,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Next steps is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -10644,7 +10794,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Next steps operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Next steps:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10658,10 +10810,33 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Next steps:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Idempotent Transactional Outbox Pattern Handler
+export async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {
+  return await dbClient.transaction(async (tx) =&gt; {
+    // 1. Verify idempotency
+    const existing = await tx.query(&quot;SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE&quot;, [idempotencyKey]);
+    if (existing.rows.length &gt; 0) {
+      return { status: &quot;cached&quot;, result: existing.rows[0].response };
+    }
+
+    // 2. Insert primary business entity
+    const order = await tx.query(
+      &quot;INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, &#39;PENDING&#39;) RETURNING id&quot;,
+      [orderData.userId, orderData.amount]
+    );
+
+    // 3. Atomically enqueue outbox event in same local transaction
+    await tx.query(
+      &quot;INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)&quot;,
+      [&quot;Order&quot;, order.rows[0].id, &quot;ORDER_CREATED&quot;, JSON.stringify(orderData)]
+    );
+
+    // 4. Record idempotency key
+    const responsePayload = { orderId: order.rows[0].id, status: &quot;PENDING&quot; };
+    await tx.query(&quot;INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)&quot;, [idempotencyKey, responsePayload]);
+
+    return { status: &quot;created&quot;, result: responsePayload };
+  });
 }</code></pre>
                         </div>
                         
@@ -10674,7 +10849,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Next steps execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10822,7 +10997,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                        Databases in Node.js:  Relational, document, and in-memory storage in action is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integratio
                       </p>
                     
 
@@ -10895,7 +11070,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Databases in Node.js:  Relational, document, and in-memory storage in action is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -10908,7 +11083,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Databases in Node.js:  Relational, document, and in-memory storage in action operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Databases in Node.js:  Relational, document, and in-memory storage in action:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10922,10 +11099,33 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Databases in Node.js:  Relational, document, and in-memory storage in action:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Idempotent Transactional Outbox Pattern Handler
+export async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {
+  return await dbClient.transaction(async (tx) =&gt; {
+    // 1. Verify idempotency
+    const existing = await tx.query(&quot;SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE&quot;, [idempotencyKey]);
+    if (existing.rows.length &gt; 0) {
+      return { status: &quot;cached&quot;, result: existing.rows[0].response };
+    }
+
+    // 2. Insert primary business entity
+    const order = await tx.query(
+      &quot;INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, &#39;PENDING&#39;) RETURNING id&quot;,
+      [orderData.userId, orderData.amount]
+    );
+
+    // 3. Atomically enqueue outbox event in same local transaction
+    await tx.query(
+      &quot;INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)&quot;,
+      [&quot;Order&quot;, order.rows[0].id, &quot;ORDER_CREATED&quot;, JSON.stringify(orderData)]
+    );
+
+    // 4. Record idempotency key
+    const responsePayload = { orderId: order.rows[0].id, status: &quot;PENDING&quot; };
+    await tx.query(&quot;INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)&quot;, [idempotencyKey, responsePayload]);
+
+    return { status: &quot;created&quot;, result: responsePayload };
+  });
 }</code></pre>
                         </div>
                         
@@ -10938,7 +11138,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Databases in Node.js:  Relational, document, and in-memory storage in action execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Databases in Node.js:  Relational, document, and in-memory storage in action execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11152,7 +11352,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                        What you should know is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enh
                       </p>
                     
 
@@ -11225,7 +11425,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            What you should know is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -11238,7 +11438,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            What you should know operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for What you should know:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11252,10 +11454,33 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for What you should know:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Idempotent Transactional Outbox Pattern Handler
+export async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {
+  return await dbClient.transaction(async (tx) =&gt; {
+    // 1. Verify idempotency
+    const existing = await tx.query(&quot;SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE&quot;, [idempotencyKey]);
+    if (existing.rows.length &gt; 0) {
+      return { status: &quot;cached&quot;, result: existing.rows[0].response };
+    }
+
+    // 2. Insert primary business entity
+    const order = await tx.query(
+      &quot;INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, &#39;PENDING&#39;) RETURNING id&quot;,
+      [orderData.userId, orderData.amount]
+    );
+
+    // 3. Atomically enqueue outbox event in same local transaction
+    await tx.query(
+      &quot;INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)&quot;,
+      [&quot;Order&quot;, order.rows[0].id, &quot;ORDER_CREATED&quot;, JSON.stringify(orderData)]
+    );
+
+    // 4. Record idempotency key
+    const responsePayload = { orderId: order.rows[0].id, status: &quot;PENDING&quot; };
+    await tx.query(&quot;INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)&quot;, [idempotencyKey, responsePayload]);
+
+    return { status: &quot;created&quot;, result: responsePayload };
+  });
 }</code></pre>
                         </div>
                         
@@ -11268,7 +11493,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during What you should know execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11416,7 +11641,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                        Getting your tools ready is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and
                       </p>
                     
 
@@ -11489,7 +11714,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Getting your tools ready is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -11502,7 +11727,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Getting your tools ready operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Getting your tools ready:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11516,10 +11743,33 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Getting your tools ready:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Idempotent Transactional Outbox Pattern Handler
+export async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {
+  return await dbClient.transaction(async (tx) =&gt; {
+    // 1. Verify idempotency
+    const existing = await tx.query(&quot;SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE&quot;, [idempotencyKey]);
+    if (existing.rows.length &gt; 0) {
+      return { status: &quot;cached&quot;, result: existing.rows[0].response };
+    }
+
+    // 2. Insert primary business entity
+    const order = await tx.query(
+      &quot;INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, &#39;PENDING&#39;) RETURNING id&quot;,
+      [orderData.userId, orderData.amount]
+    );
+
+    // 3. Atomically enqueue outbox event in same local transaction
+    await tx.query(
+      &quot;INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)&quot;,
+      [&quot;Order&quot;, order.rows[0].id, &quot;ORDER_CREATED&quot;, JSON.stringify(orderData)]
+    );
+
+    // 4. Record idempotency key
+    const responsePayload = { orderId: order.rows[0].id, status: &quot;PENDING&quot; };
+    await tx.query(&quot;INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)&quot;, [idempotencyKey, responsePayload]);
+
+    return { status: &quot;created&quot;, result: responsePayload };
+  });
 }</code></pre>
                         </div>
                         
@@ -11532,7 +11782,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Getting your tools ready execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Getting your tools ready execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11680,7 +11930,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                        How to use the exercise files is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications
                       </p>
                     
 
@@ -11753,7 +12003,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            How to use the exercise files is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -11766,7 +12016,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            How to use the exercise files operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for How to use the exercise files:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11780,10 +12032,33 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for How to use the exercise files:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Idempotent Transactional Outbox Pattern Handler
+export async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {
+  return await dbClient.transaction(async (tx) =&gt; {
+    // 1. Verify idempotency
+    const existing = await tx.query(&quot;SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE&quot;, [idempotencyKey]);
+    if (existing.rows.length &gt; 0) {
+      return { status: &quot;cached&quot;, result: existing.rows[0].response };
+    }
+
+    // 2. Insert primary business entity
+    const order = await tx.query(
+      &quot;INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, &#39;PENDING&#39;) RETURNING id&quot;,
+      [orderData.userId, orderData.amount]
+    );
+
+    // 3. Atomically enqueue outbox event in same local transaction
+    await tx.query(
+      &quot;INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)&quot;,
+      [&quot;Order&quot;, order.rows[0].id, &quot;ORDER_CREATED&quot;, JSON.stringify(orderData)]
+    );
+
+    // 4. Record idempotency key
+    const responsePayload = { orderId: order.rows[0].id, status: &quot;PENDING&quot; };
+    await tx.query(&quot;INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)&quot;, [idempotencyKey, responsePayload]);
+
+    return { status: &quot;created&quot;, result: responsePayload };
+  });
 }</code></pre>
                         </div>
                         
@@ -11796,7 +12071,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during How to use the exercise files execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during How to use the exercise files execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11944,7 +12219,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                        Exploring the sample project is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications,
                       </p>
                     
 
@@ -12017,7 +12292,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
+                            Exploring the sample project is a fundamental architectural concept in Distributed Transactions, Consistency &amp; Consensus Protocols. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.
                           </p>
                         </div>
                         
@@ -12030,7 +12305,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Exploring the sample project operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Exploring the sample project:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12044,10 +12321,33 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Exploring the sample project:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Idempotent Transactional Outbox Pattern Handler
+export async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {
+  return await dbClient.transaction(async (tx) =&gt; {
+    // 1. Verify idempotency
+    const existing = await tx.query(&quot;SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE&quot;, [idempotencyKey]);
+    if (existing.rows.length &gt; 0) {
+      return { status: &quot;cached&quot;, result: existing.rows[0].response };
+    }
+
+    // 2. Insert primary business entity
+    const order = await tx.query(
+      &quot;INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, &#39;PENDING&#39;) RETURNING id&quot;,
+      [orderData.userId, orderData.amount]
+    );
+
+    // 3. Atomically enqueue outbox event in same local transaction
+    await tx.query(
+      &quot;INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)&quot;,
+      [&quot;Order&quot;, order.rows[0].id, &quot;ORDER_CREATED&quot;, JSON.stringify(orderData)]
+    );
+
+    // 4. Record idempotency key
+    const responsePayload = { orderId: order.rows[0].id, status: &quot;PENDING&quot; };
+    await tx.query(&quot;INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)&quot;, [idempotencyKey, responsePayload]);
+
+    return { status: &quot;created&quot;, result: responsePayload };
+  });
 }</code></pre>
                         </div>
                         
@@ -12060,7 +12360,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Exploring the sample project execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring the sample project execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         

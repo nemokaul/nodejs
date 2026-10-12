@@ -8916,7 +8916,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Object methods is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, l
                       </p>
                     
 
@@ -8989,7 +8989,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Object methods is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -9002,7 +9002,9 @@
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Object methods operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Object methods:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9016,10 +9018,17 @@
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Object methods:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9032,7 +9041,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Object methods execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Object methods execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9180,7 +9189,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Practice: Build a new method is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals
                       </p>
                     
 
@@ -9253,7 +9262,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Practice: Build a new method is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -9266,7 +9275,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Practice: Build a new method operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Practice: Build a new method:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9280,10 +9291,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Practice: Build a new method:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9296,7 +9314,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Practice: Build a new method execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new method execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9444,7 +9462,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Classes: Object blueprints is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, 
                       </p>
                     
 
@@ -9517,7 +9535,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Classes: Object blueprints is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -9530,7 +9548,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Classes: Object blueprints operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Classes: Object blueprints:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9544,10 +9564,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Classes: Object blueprints:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9560,7 +9587,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Classes: Object blueprints execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Classes: Object blueprints execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9708,7 +9735,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Object constructors is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functio
                       </p>
                     
 
@@ -9781,7 +9808,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Object constructors is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -9794,7 +9821,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Object constructors operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Object constructors:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9808,10 +9837,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Object constructors:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9824,7 +9860,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Object constructors execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Object constructors execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9972,7 +10008,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Practice: Build a new object with a constructor is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data 
                       </p>
                     
 
@@ -10045,7 +10081,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Practice: Build a new object with a constructor is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -10058,7 +10094,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Practice: Build a new object with a constructor operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Practice: Build a new object with a constructor:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10072,10 +10110,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Practice: Build a new object with a constructor:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10088,7 +10133,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Practice: Build a new object with a constructor execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new object with a constructor execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10236,7 +10281,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Global objects is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, l
                       </p>
                     
 
@@ -10309,7 +10354,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Global objects is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -10322,7 +10367,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Global objects operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Global objects:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10336,10 +10383,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Global objects:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10352,7 +10406,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Global objects execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Global objects execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10574,7 +10628,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Challenge intro: Create a new object type is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types,
                       </p>
                     
 
@@ -10647,7 +10701,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Challenge intro: Create a new object type is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -10660,7 +10714,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Challenge intro: Create a new object type operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Challenge intro: Create a new object type:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10674,10 +10730,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Challenge intro: Create a new object type:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10690,7 +10753,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Challenge intro: Create a new object type execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a new object type execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10838,7 +10901,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Solution: Create a new object type is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, condit
                       </p>
                     
 
@@ -10911,7 +10974,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Solution: Create a new object type is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -10924,7 +10987,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Solution: Create a new object type operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Solution: Create a new object type:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10938,10 +11003,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Solution: Create a new object type:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10954,7 +11026,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Solution: Create a new object type execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a new object type execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11102,7 +11174,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Mix text and variables with template literals is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data ty
                       </p>
                     
 
@@ -11175,7 +11247,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Mix text and variables with template literals is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -11188,7 +11260,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Mix text and variables with template literals operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Mix text and variables with template literals:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11202,10 +11276,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Mix text and variables with template literals:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -11218,7 +11299,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Mix text and variables with template literals execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Mix text and variables with template literals execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11366,7 +11447,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Traditional string output is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, f
                       </p>
                     
 
@@ -11439,7 +11520,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Traditional string output is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -11452,7 +11533,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Traditional string output operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Traditional string output:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11466,10 +11549,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Traditional string output:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -11482,7 +11572,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Traditional string output execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Traditional string output execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11630,7 +11720,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Challenge intro: Create a template literal is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types
                       </p>
                     
 
@@ -11703,7 +11793,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Challenge intro: Create a template literal is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -11716,7 +11806,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Challenge intro: Create a template literal operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Challenge intro: Create a template literal:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11730,10 +11822,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Challenge intro: Create a template literal:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -11746,7 +11845,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Challenge intro: Create a template literal execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a template literal execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11894,7 +11993,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Solution: Create a template literal is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, condi
                       </p>
                     
 
@@ -11967,7 +12066,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Solution: Create a template literal is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -11980,7 +12079,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Solution: Create a template literal operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Solution: Create a template literal:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11994,10 +12095,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Solution: Create a template literal:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -12010,7 +12118,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Solution: Create a template literal execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a template literal execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -12232,7 +12340,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        DOM: The Document Object Model is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditiona
                       </p>
                     
 
@@ -12305,7 +12413,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            DOM: The Document Object Model is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -12318,7 +12426,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            DOM: The Document Object Model operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for DOM: The Document Object Model:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12332,10 +12442,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for DOM: The Document Object Model:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -12348,7 +12465,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during DOM: The Document Object Model execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during DOM: The Document Object Model execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -12496,7 +12613,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Access elements with querySelector methods is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types
                       </p>
                     
 
@@ -12569,7 +12686,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Access elements with querySelector methods is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -12582,7 +12699,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Access elements with querySelector methods operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Access elements with querySelector methods:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12596,10 +12715,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Access elements with querySelector methods:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -12612,7 +12738,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Access elements with querySelector methods execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements with querySelector methods execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -12760,7 +12886,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Access elements using older methods is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, condi
                       </p>
                     
 
@@ -12833,7 +12959,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Access elements using older methods is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -12846,7 +12972,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Access elements using older methods operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Access elements using older methods:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12860,10 +12988,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Access elements using older methods:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -12876,7 +13011,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Access elements using older methods execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements using older methods execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -13024,7 +13159,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Practice: Find an element is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, f
                       </p>
                     
 
@@ -13097,7 +13232,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Practice: Find an element is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -13110,7 +13245,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Practice: Find an element operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Practice: Find an element:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -13124,10 +13261,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Practice: Find an element:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -13140,7 +13284,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Practice: Find an element execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Find an element execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -13288,7 +13432,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Modifying element classes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, f
                       </p>
                     
 
@@ -13361,7 +13505,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Modifying element classes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -13374,7 +13518,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Modifying element classes operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Modifying element classes:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -13388,10 +13534,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Modifying element classes:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -13404,7 +13557,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Modifying element classes execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Modifying element classes execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -13552,7 +13705,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                        Attributes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops
                       </p>
                     
 
@@ -13625,7 +13778,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
+                            Attributes is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.
                           </p>
                         </div>
                         
@@ -13638,7 +13791,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Attributes operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Attributes:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -13652,10 +13807,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Attributes:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -13668,7 +13830,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Attributes execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Attributes execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         

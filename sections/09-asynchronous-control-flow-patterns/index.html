@@ -8908,7 +8908,7 @@
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Resolving promises is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -8981,7 +8981,7 @@
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Resolving promises is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -8994,7 +8994,9 @@
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Resolving promises operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Resolving promises:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9008,10 +9010,17 @@
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Resolving promises:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9024,7 +9033,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Resolving promises execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Resolving promises execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9172,7 +9181,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Rejecting promises is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -9245,7 +9254,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Rejecting promises is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -9258,7 +9267,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Rejecting promises operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Rejecting promises:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9272,10 +9283,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Rejecting promises:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9288,7 +9306,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Rejecting promises execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Rejecting promises execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9436,7 +9454,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        The promisify function is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -9509,7 +9527,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            The promisify function is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -9522,7 +9540,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            The promisify function operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for The promisify function:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9536,10 +9556,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for The promisify function:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9552,7 +9579,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during The promisify function execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during The promisify function execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -9700,7 +9727,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Sequential execution is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -9773,7 +9800,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Sequential execution is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -9786,7 +9813,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Sequential execution operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Sequential execution:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -9800,10 +9829,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Sequential execution:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -9816,7 +9852,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Sequential execution execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10030,7 +10066,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Sequential execution with async/await is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -10103,7 +10139,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Sequential execution with async/await is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -10116,7 +10152,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Sequential execution with async/await operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Sequential execution with async/await:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10130,10 +10168,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Sequential execution with async/await:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10146,7 +10191,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Sequential execution with async/await execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution with async/await execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10294,7 +10339,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Parallel execution is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -10367,7 +10412,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Parallel execution is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -10380,7 +10425,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Parallel execution operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Parallel execution:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10394,10 +10441,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Parallel execution:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10410,7 +10464,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Parallel execution execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10558,7 +10612,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Concurrent tasks is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -10631,7 +10685,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Concurrent tasks is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -10644,7 +10698,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Concurrent tasks operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Concurrent tasks:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10658,10 +10714,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Concurrent tasks:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10674,7 +10737,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Concurrent tasks execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -10822,7 +10885,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Logging concurrent tasks is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -10895,7 +10958,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Logging concurrent tasks is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -10908,7 +10971,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Logging concurrent tasks operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Logging concurrent tasks:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -10922,10 +10987,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Logging concurrent tasks:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -10938,7 +11010,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Logging concurrent tasks execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11152,7 +11224,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Why streams? is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -11225,7 +11297,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Why streams? is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -11238,7 +11310,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Why streams? operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Why streams?:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11252,10 +11326,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Why streams?:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -11268,7 +11349,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Why streams? execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Why streams? execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11416,7 +11497,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Readable streams is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -11489,7 +11570,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Readable streams is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -11502,7 +11583,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Readable streams operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Readable streams:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11516,10 +11599,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Readable streams:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -11532,7 +11622,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Readable streams execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable streams execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11680,7 +11770,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Using readable streams is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -11753,7 +11843,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Using readable streams is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -11766,7 +11856,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Using readable streams operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Using readable streams:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -11780,10 +11872,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Using readable streams:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -11796,7 +11895,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Using readable streams execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readable streams execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
@@ -11944,7 +12043,7 @@ export async function run() {
                     <!-- Video Description -->
                     
                       <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                        Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                        Writable streams is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                       </p>
                     
 
@@ -12017,7 +12116,7 @@ export async function run() {
                             <span>Core Definition & Architectural Role</span>
                           </div>
                           <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-                            Learn advanced techniques for asynchronous programming and data streaming in Node.js.
+                            Writable streams is a fundamental architectural concept in JavaScript Engine Architecture &amp; Execution Contexts. Learn advanced techniques for asynchronous programming and data streaming in Node.js.
                           </p>
                         </div>
                         
@@ -12030,7 +12129,9 @@ export async function run() {
                             <span>Under-The-Hood Mental Model</span>
                           </div>
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Writable streams operates within the Node.js runtime environment, leveraging V8 optimization and libuv event loop dispatch.
+                            Execution Flow for Writable streams:
+[ Source Call ] ---&gt; [ V8 Engine Stack ] ---&gt; [ Lexical Environment ] ---&gt; [ Libuv Event Loop ]
+Ensures zero-leak memory allocation and predictable throughput across lifecycle phases.
                           </p>
                         </div>
                         
@@ -12044,10 +12145,17 @@ export async function run() {
                             </svg>
                             <span>Key Code / CLI Example</span>
                           </div>
-                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Implementation for Writable streams:
-export async function run() {
-  // Production-grade async pipeline
-  return true;
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>// Execution Context &amp; Scope Demonstration
+export function analyzeScope(initialVal) {
+  const outerScope = &quot;lexical-bound&quot;;
+  
+  function evaluateFrame(modifier) {
+    // New execution context frame pushed to call stack
+    const localVal = modifier * 2;
+    return `${outerScope} -&gt; ${initialVal + localVal}`;
+  }
+  
+  return evaluateFrame(10);
 }</code></pre>
                         </div>
                         
@@ -12060,7 +12168,7 @@ export async function run() {
                             <span>Common Pitfall & Production Gotcha</span>
                           </div>
                           <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-                            Failing to handle asynchronous errors or unhandled rejections during Writable streams execution.
+                            Failing to handle asynchronous boundary errors or unhandled promise rejections during Writable streams execution, which can result in unhandledRejection crashes or memory leaks.
                           </p>
                         </div>
                         
