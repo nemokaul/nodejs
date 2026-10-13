@@ -2195,6 +2195,23 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
     return s;
   }
 
+  function getAssetUrl(relPath) {
+    if (!relPath) return "";
+    if (relPath.startsWith("http://") || relPath.startsWith("https://")) return relPath;
+    const cleanPath = relPath.startsWith("/") ? relPath.slice(1) : relPath;
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+      return "/" + cleanPath;
+    }
+    if (window.location.pathname.startsWith("/nodejs")) {
+      return "/nodejs/" + cleanPath;
+    }
+    const metaBase = document.querySelector('meta[name="base-url"]')?.getAttribute('content');
+    if (metaBase) {
+      return (metaBase.endsWith('/') ? metaBase : metaBase + '/') + cleanPath;
+    }
+    return "/" + cleanPath;
+  }
+
   function openChapterSummaryModal(chId) {
     const modal = document.getElementById("chapter-summary-modal");
     if (!modal || !window.COURSE_DATA) return;
@@ -2250,6 +2267,23 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
         </div>
         <div class="ch-box-mental-content">${escapeHtml(sum.mental_model)}</div>
       </div>
+
+      <!-- 2.5 Architectural Deep-Dive Diagram -->
+      ${sum.diagram ? `
+        <div class="ch-box-diagram" style="margin-bottom: 0.75rem; border-radius: 0.5rem; border: 1px solid rgba(9, 105, 218, 0.25); background: rgba(9, 105, 218, 0.03); overflow: hidden; flex-shrink: 0;">
+          <div style="padding: 0.4rem 0.65rem; background: rgba(9, 105, 218, 0.08); border-bottom: 1px solid rgba(9, 105, 218, 0.2); display: flex; align-items: center; justify-content: space-between;">
+            <div style="font-weight: 700; font-size: 0.6875rem; color: #0969da; text-transform: uppercase; display: flex; align-items: center; gap: 0.35rem;">
+              <span>📐</span>
+              <span>Architectural Deep-Dive Diagram</span>
+            </div>
+            <span style="font-size: 0.625rem; font-family: monospace; color: #656d76;">(Click image to expand)</span>
+          </div>
+          <div style="padding: 0.65rem; text-align: center; background: rgba(0, 0, 0, 0.02);">
+            <img src="${getAssetUrl(sum.diagram)}" alt="${escapeHtml(sum.diagram_alt || sum.diagramAlt || sum.diagram_caption || sum.diagramCaption || 'Architectural Diagram')}" style="max-height: 280px; max-width: 100%; border-radius: 0.375rem; border: 1px solid rgba(120, 120, 120, 0.2); cursor: zoom-in; box-shadow: 0 1px 3px rgba(0,0,0,0.1); background: #ffffff;" onclick="window.open(this.src, '_blank')"/>
+            ${(sum.diagram_caption || sum.diagramCaption) ? `<p style="margin: 0.5rem 0 0 0; font-size: 0.6875rem; color: #656d76; font-style: italic; line-height: 1.45;">${escapeHtml(sum.diagram_caption || sum.diagramCaption)}</p>` : ''}
+          </div>
+        </div>
+      ` : ''}
 
       <!-- 3. Key Concepts Badges (Clickable Chips) -->
       <div>
@@ -2370,6 +2404,22 @@ Please explain these Node.js / JavaScript concepts thoroughly, including archite
                         <span>Common Production Pitfall &amp; Gotcha</span>
                       </div>
                       <p style="font-size: 0.75rem; line-height: 1.55; margin: 0; color: #656d76;">${formatMarkdown(pitfalls)}</p>
+                    </div>
+                  ` : ''}
+
+                  ${(v.notes?.image) ? `
+                    <div style="margin-bottom: 0.5rem; border-radius: 0.375rem; border: 1px solid rgba(9, 105, 218, 0.2); background: rgba(9, 105, 218, 0.02); overflow: hidden;">
+                      <div style="padding: 0.25rem 0.5rem; background: rgba(9, 105, 218, 0.06); border-bottom: 1px solid rgba(9, 105, 218, 0.15); display: flex; align-items: center; justify-content: space-between;">
+                        <div style="font-weight: 700; font-size: 0.65rem; color: #0969da; text-transform: uppercase; display: flex; align-items: center; gap: 0.25rem;">
+                          <span>📐</span>
+                          <span>Lesson Architectural Diagram</span>
+                        </div>
+                        <span style="font-size: 0.59rem; font-family: monospace; color: #656d76;">(Click to expand)</span>
+                      </div>
+                      <div style="padding: 0.5rem; text-align: center;">
+                        <img src="${getAssetUrl(v.notes.image)}" alt="${escapeHtml(v.notes.image_alt || v.notes.imageAlt || v.notes.image_caption || v.notes.imageCaption || 'Diagram')}" style="max-height: 220px; max-width: 100%; border-radius: 0.25rem; border: 1px solid rgba(120, 120, 120, 0.2); cursor: zoom-in; background: #ffffff;" onclick="window.open(this.src, '_blank')"/>
+                        ${(v.notes.image_caption || v.notes.imageCaption) ? `<p style="margin: 0.35rem 0 0 0; font-size: 0.65rem; color: #656d76; font-style: italic; line-height: 1.4;">${escapeHtml(v.notes.image_caption || v.notes.imageCaption)}</p>` : ''}
+                      </div>
                     </div>
                   ` : ''}
 
