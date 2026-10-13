@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Database Systems Overview & Driver Connection Pooling** in depth, establishing core architectural patterns and runtime mechanics. It covers Databases in Node.js:  Relational, document, and in-memory storage in action, What you should know, Getting your tools ready, How to use the exercise files, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Node.js Request Handler ]\n           |\n[ Connection Pool (Min: 5, Max: 20) ] <--- Healthcheck & Reconnect Loop\n           | (Acquire Connection)\n[ Database Primary Instance ] <--- Transaction Timeout Enforcement\n\nExecution Lifecycle for Database Systems Overview & Driver Connection Pooling:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Database Systems Overview & Driver Connection Pooling relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Database Systems Overview & Driver Connection Pooling complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Database Systems Overview & Driver Connection Pooling complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/ddia/Image00000.gif",
+      diagram_caption = "Figure 22.1: Architectural map of modern data-intensive systems combining databases, caches, and stream processors (Designing Data-Intensive Applications).",
+      diagram_alt = "Map of Modern Data-Intensive Application Architecture"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Databases in Node.js:  Relational, document, and in-memory storage in action is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Databases in Node.js:  Relational, document, and in-memory storage in action:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Databases in Node.js:  Relational, document, and in-memory storage in action execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Databases in Node.js:  Relational, document, and in-memory storage in action execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+            image_alt = "AST Tokenization and Bytecode Generation"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "What you should know is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00000.gif",
+            image_caption = "Reliable, scalable, and maintainable distributed data systems.",
+            image_alt = "Distributed Data Systems Architecture"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Getting your tools ready is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Getting your tools ready:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Getting your tools ready execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Getting your tools ready execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00000.gif",
+            image_caption = "Reliable, scalable, and maintainable distributed data systems.",
+            image_alt = "Distributed Data Systems Architecture"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "How to use the exercise files is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for How to use the exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during How to use the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during How to use the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00000.gif",
+            image_caption = "Reliable, scalable, and maintainable distributed data systems.",
+            image_alt = "Distributed Data Systems Architecture"
           }
         },
         {
@@ -124,7 +139,10 @@ chapters = [
             definition = "Exploring the sample project is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Exploring the sample project:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring the sample project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring the sample project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00000.gif",
+            image_caption = "Reliable, scalable, and maintainable distributed data systems.",
+            image_alt = "Distributed Data Systems Architecture"
           }
         }
     ]
@@ -139,7 +157,10 @@ chapters = [
       executive_summary = "This chapter explores **Data Modeling, Schema Migrations & Reliability** in depth, establishing core architectural patterns and runtime mechanics. It covers Some basics about databases, Understanding relational databases, Understanding document databases, Selecting the ideal database for your Node.js project, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Node.js Request Handler ]\n           |\n[ Connection Pool (Min: 5, Max: 20) ] <--- Healthcheck & Reconnect Loop\n           | (Acquire Connection)\n[ Database Primary Instance ] <--- Transaction Timeout Enforcement\n\nExecution Lifecycle for Data Modeling, Schema Migrations & Reliability:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Data Modeling, Schema Migrations & Reliability relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Data Modeling, Schema Migrations & Reliability complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Data Modeling, Schema Migrations & Reliability complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/ddia/Image00002.gif",
+      diagram_caption = "Figure 22.2: Describing load: Service latency percentiles (p50, p95, p99, p99.9) and tail latency (Designing Data-Intensive Applications).",
+      diagram_alt = "Service Latency Percentiles and Tail Latency Distribution"
     },
     videos = [
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Some basics about databases is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Some basics about databases:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Some basics about databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Some basics about databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Understanding relational databases is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Understanding relational databases:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding relational databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding relational databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Understanding document databases is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Understanding document databases:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding document databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding document databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+            image_alt = "AST Tokenization and Bytecode Generation"
           }
         },
         {
@@ -219,7 +249,10 @@ chapters = [
             definition = "Selecting the ideal database for your Node.js project is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Selecting the ideal database for your Node.js project:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Selecting the ideal database for your Node.js project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Selecting the ideal database for your Node.js project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         },
         {
@@ -239,7 +272,10 @@ chapters = [
             definition = "Managing product data with MongoDB is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Managing product data with MongoDB:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Managing product data with MongoDB execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Managing product data with MongoDB execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00000.gif",
+            image_caption = "Reliable, scalable, and maintainable distributed data systems.",
+            image_alt = "Distributed Data Systems Architecture"
           }
         }
     ]
@@ -254,7 +290,10 @@ chapters = [
       executive_summary = "This chapter explores **Error Handling, Reconnection Loops & Resilient Reads** in depth, establishing core architectural patterns and runtime mechanics. It covers Setting up MongoDB with Docker, Exploring MongoDB with Compass, Introducing Mongoose, Setting up Mongoose and connecting it to MongoDB, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Node.js Request Handler ]\n           |\n[ Connection Pool (Min: 5, Max: 20) ] <--- Healthcheck & Reconnect Loop\n           | (Acquire Connection)\n[ Database Primary Instance ] <--- Transaction Timeout Enforcement\n\nExecution Lifecycle for Error Handling, Reconnection Loops & Resilient Reads:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Error Handling, Reconnection Loops & Resilient Reads relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Error Handling, Reconnection Loops & Resilient Reads complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Error Handling, Reconnection Loops & Resilient Reads complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/ddia/Image00003.gif",
+      diagram_caption = "Figure 22.3: Relational schema vs fan-out document caching for high-load systems (Designing Data-Intensive Applications).",
+      diagram_alt = "Relational Schema vs Fan-Out Document Architecture"
     },
     videos = [
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Setting up MongoDB with Docker is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Setting up MongoDB with Docker:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up MongoDB with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up MongoDB with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00000.gif",
+            image_caption = "Reliable, scalable, and maintainable distributed data systems.",
+            image_alt = "Distributed Data Systems Architecture"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "Exploring MongoDB with Compass is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Exploring MongoDB with Compass:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring MongoDB with Compass execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring MongoDB with Compass execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00000.gif",
+            image_caption = "Reliable, scalable, and maintainable distributed data systems.",
+            image_alt = "Distributed Data Systems Architecture"
           }
         },
         {
@@ -314,7 +359,10 @@ chapters = [
             definition = "Introducing Mongoose is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Introducing Mongoose:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introducing Mongoose execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introducing Mongoose execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00000.gif",
+            image_caption = "Reliable, scalable, and maintainable distributed data systems.",
+            image_alt = "Distributed Data Systems Architecture"
           }
         },
         {
@@ -334,7 +382,10 @@ chapters = [
             definition = "Setting up Mongoose and connecting it to MongoDB is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Setting up Mongoose and connecting it to MongoDB:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up Mongoose and connecting it to MongoDB execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up Mongoose and connecting it to MongoDB execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00000.gif",
+            image_caption = "Reliable, scalable, and maintainable distributed data systems.",
+            image_alt = "Distributed Data Systems Architecture"
           }
         },
         {
@@ -354,7 +405,10 @@ chapters = [
             definition = "Building a model for our products is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Building a model for our products:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Building a model for our products execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Building a model for our products execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00000.gif",
+            image_caption = "Reliable, scalable, and maintainable distributed data systems.",
+            image_alt = "Distributed Data Systems Architecture"
           }
         }
     ]

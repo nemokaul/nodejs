@@ -1,2 +1,4 @@
 public
 static/styles/main.css
+minify.exe
+build.cmake

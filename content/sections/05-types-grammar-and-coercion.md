@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Primitive Types & Reference Types** in depth, establishing core architectural patterns and runtime mechanics. It covers Object methods, Practice: Build a new method, Classes: Object blueprints, Object constructors, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Type Evaluation Branching:\n[ Operator === ] -> Strict Equality: Checks Type(x) === Type(y) first. No Coercion.\n[ Operator ==  ] -> Abstract Equality: Invokes [ToPrimitive] -> [ToNumber] -> Recursive Coercion.\n[ Object.is    ] -> SameValue: Differentiates NaN === NaN (true) and +0 === -0 (false).\n\nExecution Lifecycle for Primitive Types & Reference Types:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Primitive Types & Reference Types relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Primitive Types & Reference Types complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Primitive Types & Reference Types complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/mastering-nodejs/B21959_02_01.png",
+      diagram_caption = "Figure 5.1: Node.js runtime environment and V8 type primitives allocation (Mastering Node.js Web Development).",
+      diagram_alt = "Node.js V8 Runtime Primitives Allocation"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Object methods is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Object methods:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion and defensive type checking comparison flow.",
+            image_alt = "Type Coercion Comparison"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "Practice: Build a new method is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Practice: Build a new method:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new method execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new method execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion and defensive type checking comparison flow.",
+            image_alt = "Type Coercion Comparison"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Classes: Object blueprints is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Classes: Object blueprints:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Classes: Object blueprints execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Classes: Object blueprints execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file5.svg",
+            image_caption = "Prototypal object delegation and dynamic execution context binding.",
+            image_alt = "Prototypal Object Delegation"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "Object constructors is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Object constructors:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object constructors execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object constructors execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-scope-closures/file2.png",
+            image_caption = "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+            image_alt = "Temporal Dead Zone Scope Traversal"
           }
         },
         {
@@ -124,7 +139,10 @@ chapters = [
             definition = "Practice: Build a new object with a constructor is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Practice: Build a new object with a constructor:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new object with a constructor execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new object with a constructor execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-scope-closures/file2.png",
+            image_caption = "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+            image_alt = "Temporal Dead Zone Scope Traversal"
           }
         },
         {
@@ -144,7 +162,10 @@ chapters = [
             definition = "Global objects is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Global objects:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Global objects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Global objects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0101.png",
+            image_caption = "V8 memory allocation: Stack frames for execution context vs heap objects.",
+            image_alt = "V8 Stack and Heap Allocation"
           }
         }
     ]
@@ -159,7 +180,10 @@ chapters = [
       executive_summary = "This chapter explores **Implicit Coercion & Equality Comparison Rules** in depth, establishing core architectural patterns and runtime mechanics. It covers Challenge intro: Create a new object type, Solution: Create a new object type, Mix text and variables with template literals, Traditional string output, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Type Evaluation Branching:\n[ Operator === ] -> Strict Equality: Checks Type(x) === Type(y) first. No Coercion.\n[ Operator ==  ] -> Abstract Equality: Invokes [ToPrimitive] -> [ToNumber] -> Recursive Coercion.\n[ Object.is    ] -> SameValue: Differentiates NaN === NaN (true) and +0 === -0 (false).\n\nExecution Lifecycle for Implicit Coercion & Equality Comparison Rules:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Implicit Coercion & Equality Comparison Rules relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Implicit Coercion & Equality Comparison Rules complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Implicit Coercion & Equality Comparison Rules complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/ydkjs-get-started/file2.svg",
+      diagram_caption = "Figure 5.2: Type coercion and strict equality comparison phases (You Don't Know JS Yet: Get Started).",
+      diagram_alt = "Type Coercion and Equality Comparison Flow"
     },
     videos = [
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Challenge intro: Create a new object type is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Challenge intro: Create a new object type:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a new object type execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a new object type execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+            image_alt = "Type Coercion and Equality Comparison"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Solution: Create a new object type is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Solution: Create a new object type:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a new object type execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a new object type execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+            image_alt = "Type Coercion and Equality Comparison"
           }
         },
         {
@@ -219,7 +249,10 @@ chapters = [
             definition = "Mix text and variables with template literals is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Mix text and variables with template literals:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Mix text and variables with template literals execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Mix text and variables with template literals execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion and defensive type checking comparison flow.",
+            image_alt = "Type Coercion Comparison"
           }
         },
         {
@@ -239,7 +272,10 @@ chapters = [
             definition = "Traditional string output is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Traditional string output:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Traditional string output execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Traditional string output execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion and defensive type checking comparison flow.",
+            image_alt = "Type Coercion Comparison"
           }
         },
         {
@@ -259,7 +295,10 @@ chapters = [
             definition = "Challenge intro: Create a template literal is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Challenge intro: Create a template literal:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a template literal execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a template literal execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion and defensive type checking comparison flow.",
+            image_alt = "Type Coercion Comparison"
           }
         },
         {
@@ -279,7 +318,10 @@ chapters = [
             definition = "Solution: Create a template literal is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Solution: Create a template literal:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a template literal execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a template literal execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion and defensive type checking comparison flow.",
+            image_alt = "Type Coercion Comparison"
           }
         }
     ]
@@ -294,7 +336,10 @@ chapters = [
       executive_summary = "This chapter explores **Strict Mode Grammar & Defensive Type Checking** in depth, establishing core architectural patterns and runtime mechanics. It covers DOM: The Document Object Model, Access elements with querySelector methods, Access elements using older methods, Practice: Find an element, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Type Evaluation Branching:\n[ Operator === ] -> Strict Equality: Checks Type(x) === Type(y) first. No Coercion.\n[ Operator ==  ] -> Abstract Equality: Invokes [ToPrimitive] -> [ToNumber] -> Recursive Coercion.\n[ Object.is    ] -> SameValue: Differentiates NaN === NaN (true) and +0 === -0 (false).\n\nExecution Lifecycle for Strict Mode Grammar & Defensive Type Checking:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Strict Mode Grammar & Defensive Type Checking relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Strict Mode Grammar & Defensive Type Checking complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Strict Mode Grammar & Defensive Type Checking complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/mastering-nodejs/B21959_04_01.png",
+      diagram_caption = "Figure 5.3: Defensive type validation and schema boundaries (Mastering Node.js Web Development).",
+      diagram_alt = "Defensive Type Checking and Validation Schema"
     },
     videos = [
         {
@@ -314,7 +359,10 @@ chapters = [
             definition = "DOM: The Document Object Model is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for DOM: The Document Object Model:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during DOM: The Document Object Model execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during DOM: The Document Object Model execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+            image_alt = "AST Tokenization and Bytecode Generation"
           }
         },
         {
@@ -334,7 +382,10 @@ chapters = [
             definition = "Access elements with querySelector methods is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Access elements with querySelector methods:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements with querySelector methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements with querySelector methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         },
         {
@@ -354,7 +405,10 @@ chapters = [
             definition = "Access elements using older methods is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Access elements using older methods:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements using older methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements using older methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion and defensive type checking comparison flow.",
+            image_alt = "Type Coercion Comparison"
           }
         },
         {
@@ -374,7 +428,10 @@ chapters = [
             definition = "Practice: Find an element is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Practice: Find an element:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Find an element execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Find an element execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion and defensive type checking comparison flow.",
+            image_alt = "Type Coercion Comparison"
           }
         },
         {
@@ -394,7 +451,10 @@ chapters = [
             definition = "Modifying element classes is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Modifying element classes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Modifying element classes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Modifying element classes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file5.svg",
+            image_caption = "Prototypal object delegation and dynamic execution context binding.",
+            image_alt = "Prototypal Object Delegation"
           }
         },
         {
@@ -414,7 +474,10 @@ chapters = [
             definition = "Attributes is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Attributes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion and defensive type checking comparison flow.",
+            image_alt = "Type Coercion Comparison"
           }
         }
     ]

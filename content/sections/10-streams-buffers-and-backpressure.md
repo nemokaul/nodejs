@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Why Streams & Readable Stream Pipeline** in depth, establishing core architectural patterns and runtime mechanics. It covers Parallel execution, Concurrent tasks, Logging concurrent tasks, Why streams?, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Readable Stream ] ---> chunks ---> [ Transform Stream ] ---> [ Writable Stream ]\n         |                                                            |\n     pause() <============= Backpressure (drain event) ============= [ highWaterMark Full ]\n\nExecution Lifecycle for Why Streams & Readable Stream Pipeline:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Why Streams & Readable Stream Pipeline relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Why Streams & Readable Stream Pipeline complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Why Streams & Readable Stream Pipeline complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_06_03-01.png",
+      diagram_caption = "Figure 10.1: Spatial vs Temporal efficiency: Buffering vs Streaming memory footprint (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Buffering vs Streaming Memory Efficiency Comparison"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Parallel execution is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Parallel execution:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_05.png",
+            image_caption = "Concurrency-limited parallel task queue with bounded worker pool.",
+            image_alt = "Concurrency-Limited Parallel Task Queue"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "Concurrent tasks is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Concurrent tasks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_006.png",
+            image_caption = "Node.js stream backpressure flow control and pipeline piping.",
+            image_alt = "Stream Backpressure Flow Control"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Logging concurrent tasks is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Logging concurrent tasks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0401.png",
+            image_caption = "Centralized structured logging architecture with Elasticsearch, Logstash, and Kibana.",
+            image_alt = "ELK Centralized Logging Architecture"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "Why streams? is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Why streams?:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Why streams? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Why streams? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+            image_caption = "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+            image_alt = "Duplex and Transform Stream Buffer Architecture"
           }
         }
     ]
@@ -119,7 +134,10 @@ chapters = [
       executive_summary = "This chapter explores **Writable Streams & Backpressure Drain Mechanics** in depth, establishing core architectural patterns and runtime mechanics. It covers Readable streams, Using readable streams, Writable streams, Backpressure, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Readable Stream ] ---> chunks ---> [ Transform Stream ] ---> [ Writable Stream ]\n         |                                                            |\n     pause() <============= Backpressure (drain event) ============= [ highWaterMark Full ]\n\nExecution Lifecycle for Writable Streams & Backpressure Drain Mechanics:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Writable Streams & Backpressure Drain Mechanics relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Writable Streams & Backpressure Drain Mechanics complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Writable Streams & Backpressure Drain Mechanics complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+      diagram_caption = "Figure 10.2: Duplex stream and Transform stream internal read/write buffer mechanics (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Duplex and Transform Stream Internal Buffer Architecture"
     },
     videos = [
         {
@@ -139,7 +157,10 @@ chapters = [
             definition = "Readable streams is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Readable streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+            image_caption = "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+            image_alt = "Duplex and Transform Stream Buffer Architecture"
           }
         },
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Using readable streams is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Using readable streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+            image_caption = "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+            image_alt = "Duplex and Transform Stream Buffer Architecture"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Writable streams is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Writable streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+            image_caption = "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+            image_alt = "Duplex and Transform Stream Buffer Architecture"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Backpressure is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Backpressure:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Backpressure execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Backpressure execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_006.png",
+            image_caption = "Stream pipeline backpressure flow control: Preventing buffer bloat.",
+            image_alt = "Stream Pipeline Backpressure Flow Control"
           }
         }
     ]
@@ -214,7 +244,10 @@ chapters = [
       executive_summary = "This chapter explores **Piping, Duplex & Transform Stream Processing** in depth, establishing core architectural patterns and runtime mechanics. It covers Piping streams, Duplex streams, Transform streams, Streaming to the browser, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Readable Stream ] ---> chunks ---> [ Transform Stream ] ---> [ Writable Stream ]\n         |                                                            |\n     pause() <============= Backpressure (drain event) ============= [ highWaterMark Full ]\n\nExecution Lifecycle for Piping, Duplex & Transform Stream Processing:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Piping, Duplex & Transform Stream Processing relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Piping, Duplex & Transform Stream Processing complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Piping, Duplex & Transform Stream Processing complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_06_006.png",
+      diagram_caption = "Figure 10.3: Stream pipeline backpressure and flow control: Combining and piping streams (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Stream Pipeline Piping and Backpressure Flow Control"
     },
     videos = [
         {
@@ -234,7 +267,10 @@ chapters = [
             definition = "Piping streams is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Piping streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Piping streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Piping streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+            image_caption = "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+            image_alt = "Duplex and Transform Stream Buffer Architecture"
           }
         },
         {
@@ -254,7 +290,10 @@ chapters = [
             definition = "Duplex streams is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Duplex streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Duplex streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Duplex streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+            image_caption = "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+            image_alt = "Duplex and Transform Stream Buffer Architecture"
           }
         },
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Transform streams is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Transform streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Transform streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Transform streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+            image_caption = "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+            image_alt = "Duplex and Transform Stream Buffer Architecture"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "Streaming to the browser is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Streaming to the browser:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Streaming to the browser execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Streaming to the browser execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F08_DaCosta.png",
+            image_caption = "End-to-End (E2E) testing: Simulating end-user interactions against production builds.",
+            image_alt = "End-to-End Testing Workflow"
           }
         }
     ]

@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **JavaScript Language Foundations & Environment** in depth, establishing core architectural patterns and runtime mechanics. It covers JavaScript: First contact, Navigating the JS landscape, Tools for working with JavaScript, Linting and formatting, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Source Code ] -> [ Parser/AST ] -> [ Ignition Bytecode ] -> [ TurboFan Optimized JIT ]\n        |\n   [ Call Stack ] <--- (LIFO Execution Frames)\n        |\n   [ Memory Heap ] <--- (Objects, Closures, Buffers)\n\nExecution Lifecycle for JavaScript Language Foundations & Environment:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["JavaScript Language Foundations & Environment relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in JavaScript Language Foundations & Environment complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in JavaScript Language Foundations & Environment complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/ydkjs-get-started/file0.svg",
+      diagram_caption = "Figure 1.1: Interpreting and executing JavaScript in host engine environments (You Don't Know JS Yet: Get Started).",
+      diagram_alt = "JavaScript engine interpretation and script execution"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "JavaScript: First contact is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for JavaScript: First contact:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript: First contact execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript: First contact execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file0.svg",
+            image_caption = "Script interpretation and execution lifecycle in the JavaScript host environment.",
+            image_alt = "Script Interpretation Lifecycle"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "Navigating the JS landscape is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Navigating the JS landscape:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Navigating the JS landscape execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Navigating the JS landscape execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file0.svg",
+            image_caption = "Script interpretation and execution lifecycle in the JavaScript host environment.",
+            image_alt = "Script Interpretation Lifecycle"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Tools for working with JavaScript is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Tools for working with JavaScript:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Tools for working with JavaScript execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Tools for working with JavaScript execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "V8 JavaScript compilation, AST parsing, and bytecode execution pipeline.",
+            image_alt = "V8 Bytecode Execution Pipeline"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "Linting and formatting is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Linting and formatting:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Linting and formatting execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Linting and formatting execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "V8 JavaScript compilation, AST parsing, and bytecode execution pipeline.",
+            image_alt = "V8 Bytecode Execution Pipeline"
           }
         },
         {
@@ -124,7 +139,10 @@ chapters = [
             definition = "Get to know the browser console is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Get to know the browser console:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Get to know the browser console execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Get to know the browser console execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F08_DaCosta.png",
+            image_caption = "End-to-End (E2E) testing: Simulating end-user interactions against production builds.",
+            image_alt = "End-to-End Testing Workflow"
           }
         },
         {
@@ -144,7 +162,10 @@ chapters = [
             definition = "JavaScript language basics is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for JavaScript language basics:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript language basics execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript language basics execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "V8 JavaScript compilation, AST parsing, and bytecode execution pipeline.",
+            image_alt = "V8 Bytecode Execution Pipeline"
           }
         }
     ]
@@ -159,7 +180,10 @@ chapters = [
       executive_summary = "This chapter explores **Execution Context & Modern Script Loading** in depth, establishing core architectural patterns and runtime mechanics. It covers Learning JavaScript backward, JavaScript in an HTML document, JavaScript as an external file, Modern JavaScript loading, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Source Code ] -> [ Parser/AST ] -> [ Ignition Bytecode ] -> [ TurboFan Optimized JIT ]\n        |\n   [ Call Stack ] <--- (LIFO Execution Frames)\n        |\n   [ Memory Heap ] <--- (Objects, Closures, Buffers)\n\nExecution Lifecycle for Execution Context & Modern Script Loading:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Execution Context & Modern Script Loading relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Execution Context & Modern Script Loading complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Execution Context & Modern Script Loading complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/ydkjs-get-started/file1.svg",
+      diagram_caption = "Figure 1.2: Parsing, AST compilation, and bytecode execution pipeline (You Don't Know JS Yet: Get Started).",
+      diagram_alt = "V8 Engine compilation and execution pipeline"
     },
     videos = [
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Learning JavaScript backward is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Learning JavaScript backward:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Learning JavaScript backward execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Learning JavaScript backward execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+            image_alt = "AST Tokenization and Bytecode Generation"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "JavaScript in an HTML document is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for JavaScript in an HTML document:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript in an HTML document execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript in an HTML document execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+            image_alt = "AST Tokenization and Bytecode Generation"
           }
         },
         {
@@ -219,7 +249,10 @@ chapters = [
             definition = "JavaScript as an external file is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for JavaScript as an external file:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript as an external file execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript as an external file execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+            image_alt = "AST Tokenization and Bytecode Generation"
           }
         },
         {
@@ -239,7 +272,10 @@ chapters = [
             definition = "Modern JavaScript loading is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Modern JavaScript loading:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Modern JavaScript loading execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Modern JavaScript loading execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+            image_alt = "AST Tokenization and Bytecode Generation"
           }
         },
         {
@@ -259,7 +295,10 @@ chapters = [
             definition = "JavaScript modules is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for JavaScript modules:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript modules execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript modules execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+            image_caption = "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+            image_alt = "ESM Instantiation and Live Bindings Resolution"
           }
         },
         {
@@ -279,7 +318,10 @@ chapters = [
             definition = "Objects: A practical introduction is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Objects: A practical introduction:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Objects: A practical introduction execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Objects: A practical introduction execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0101.png",
+            image_caption = "V8 memory allocation: Stack frames for execution context vs heap objects.",
+            image_alt = "V8 Stack and Heap Allocation"
           }
         }
     ]
@@ -294,7 +336,10 @@ chapters = [
       executive_summary = "This chapter explores **Core Language Primitives & Operators** in depth, establishing core architectural patterns and runtime mechanics. It covers JavaScript objects: The code version, Object containers, Object properties, Accessing objects, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Source Code ] -> [ Parser/AST ] -> [ Ignition Bytecode ] -> [ TurboFan Optimized JIT ]\n        |\n   [ Call Stack ] <--- (LIFO Execution Frames)\n        |\n   [ Memory Heap ] <--- (Objects, Closures, Buffers)\n\nExecution Lifecycle for Core Language Primitives & Operators:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Core Language Primitives & Operators relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Core Language Primitives & Operators complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Core Language Primitives & Operators complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/distributed-systems/dsnj_0101.png",
+      diagram_caption = "Figure 1.3: V8 Call Stack execution frames and memory heap allocation (Distributed Systems with Node.js).",
+      diagram_alt = "V8 Execution Call Stack and Stack Frames"
     },
     videos = [
         {
@@ -314,7 +359,10 @@ chapters = [
             definition = "JavaScript objects: The code version is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for JavaScript objects: The code version:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript objects: The code version execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript objects: The code version execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0101.png",
+            image_caption = "V8 memory allocation: Stack frames for execution context vs heap objects.",
+            image_alt = "V8 Stack and Heap Allocation"
           }
         },
         {
@@ -334,7 +382,10 @@ chapters = [
             definition = "Object containers is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Object containers:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object containers execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object containers execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0101.png",
+            image_caption = "V8 memory allocation: Stack frames for execution context vs heap objects.",
+            image_alt = "V8 Stack and Heap Allocation"
           }
         },
         {
@@ -354,7 +405,10 @@ chapters = [
             definition = "Object properties is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Object properties:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object properties execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object properties execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "V8 JavaScript compilation, AST parsing, and bytecode execution pipeline.",
+            image_alt = "V8 Bytecode Execution Pipeline"
           }
         },
         {
@@ -374,7 +428,10 @@ chapters = [
             definition = "Accessing objects is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Accessing objects:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Accessing objects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Accessing objects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0101.png",
+            image_caption = "V8 memory allocation: Stack frames for execution context vs heap objects.",
+            image_alt = "V8 Stack and Heap Allocation"
           }
         },
         {
@@ -394,7 +451,10 @@ chapters = [
             definition = "Accessing object properties is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Accessing object properties:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Accessing object properties execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Accessing object properties execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "V8 JavaScript compilation, AST parsing, and bytecode execution pipeline.",
+            image_alt = "V8 Bytecode Execution Pipeline"
           }
         },
         {
@@ -414,7 +474,10 @@ chapters = [
             definition = "Practice: Build a new object is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
             mental_model = "Execution Flow for Practice: Build a new object:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new object execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new object execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "V8 JavaScript compilation, AST parsing, and bytecode execution pipeline.",
+            image_alt = "V8 Bytecode Execution Pipeline"
           }
         }
     ]

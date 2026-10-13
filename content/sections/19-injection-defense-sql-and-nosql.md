@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **SQL Injection Vectors & Parameterized Queries** in depth, establishing core architectural patterns and runtime mechanics. It covers Set proper HTTP headers with Helmet, Encrypt user data and session management, Use secure HTTPS protocol, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Untrusted User Input -> [ Input Sanitizer / Type Checker ]\n                              |\n[ Parameterized Statement / Prepared Query ] <--- DB Compiles AST First\n                              |\n[ Data Arguments Bound Safely as Literals ]\n\nExecution Lifecycle for SQL Injection Vectors & Parameterized Queries:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["SQL Injection Vectors & Parameterized Queries relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in SQL Injection Vectors & Parameterized Queries complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in SQL Injection Vectors & Parameterized Queries complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/secure-nodejs/parametrized.png",
+      diagram_caption = "Figure 19.1: Parameterized SQL queries preventing SQL Injection attack vectors (Secure Your Node.js Web Application).",
+      diagram_alt = "Parameterized Queries Mitigating SQL Injection"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Set proper HTTP headers with Helmet is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Set proper HTTP headers with Helmet:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Set proper HTTP headers with Helmet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Set proper HTTP headers with Helmet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify high-performance routing tree and JSON schema validation.",
+            image_alt = "Fastify Routing Tree and Schema Validation"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "Encrypt user data and session management is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Encrypt user data and session management:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Encrypt user data and session management execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Encrypt user data and session management execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/logging-in.png",
+            image_caption = "Secure authentication session exchange and credential verification.",
+            image_alt = "Secure Authentication Session Exchange"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Use secure HTTPS protocol is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Use secure HTTPS protocol:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use secure HTTPS protocol execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use secure HTTPS protocol execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify high-performance routing tree and JSON schema validation.",
+            image_alt = "Fastify Routing Tree and Schema Validation"
           }
         }
     ]
@@ -99,7 +111,10 @@ chapters = [
       executive_summary = "This chapter explores **NoSQL Injection & Object Query Sanitization** in depth, establishing core architectural patterns and runtime mechanics. It covers Rate limiting against DoS attacks, Use a library to prevent CSRF attacks, Use cookie attributes, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Untrusted User Input -> [ Input Sanitizer / Type Checker ]\n                              |\n[ Parameterized Statement / Prepared Query ] <--- DB Compiles AST First\n                              |\n[ Data Arguments Bound Safely as Literals ]\n\nExecution Lifecycle for NoSQL Injection & Object Query Sanitization:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["NoSQL Injection & Object Query Sanitization relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in NoSQL Injection & Object Query Sanitization complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in NoSQL Injection & Object Query Sanitization complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/secure-nodejs/multi-tenant-schema.png",
+      diagram_caption = "Figure 19.2: Multi-tenant schema isolation preventing cross-tenant data leakage (Secure Your Node.js Web Application).",
+      diagram_alt = "Multi-Tenant Database Schema Isolation"
     },
     videos = [
         {
@@ -119,7 +134,10 @@ chapters = [
             definition = "Rate limiting against DoS attacks is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Rate limiting against DoS attacks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rate limiting against DoS attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rate limiting against DoS attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "SQL and NoSQL injection mitigation via parameterized inputs.",
+            image_alt = "Parameterized Injection Defense"
           }
         },
         {
@@ -139,7 +157,10 @@ chapters = [
             definition = "Use a library to prevent CSRF attacks is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Use a library to prevent CSRF attacks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use a library to prevent CSRF attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use a library to prevent CSRF attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/csrf.png",
+            image_caption = "Cross-Site Request Forgery (CSRF) token validation and defense.",
+            image_alt = "CSRF Token Validation and Protection"
           }
         },
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Use cookie attributes is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Use cookie attributes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use cookie attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use cookie attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/logging-in.png",
+            image_caption = "Secure authentication session exchange and credential verification.",
+            image_alt = "Secure Authentication Session Exchange"
           }
         }
     ]
@@ -174,7 +198,10 @@ chapters = [
       executive_summary = "This chapter explores **OS Command Injection & Prototype Pollution Defense** in depth, establishing core architectural patterns and runtime mechanics. It covers Introduction to OWASP dependency check, Find vulnerabilities with Snyk, Penetration testing with Burp Suite, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Untrusted User Input -> [ Input Sanitizer / Type Checker ]\n                              |\n[ Parameterized Statement / Prepared Query ] <--- DB Compiles AST First\n                              |\n[ Data Arguments Bound Safely as Literals ]\n\nExecution Lifecycle for OS Command Injection & Prototype Pollution Defense:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["OS Command Injection & Prototype Pollution Defense relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in OS Command Injection & Prototype Pollution Defense complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in OS Command Injection & Prototype Pollution Defense complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/secure-nodejs/concurrency.png",
+      diagram_caption = "Figure 19.3: Asynchronous race condition mitigation and resource locking (Secure Your Node.js Web Application).",
+      diagram_alt = "Asynchronous Race Condition Resource Locking"
     },
     videos = [
         {
@@ -194,7 +221,10 @@ chapters = [
             definition = "Introduction to OWASP dependency check is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Introduction to OWASP dependency check:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP dependency check execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP dependency check execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "SQL and NoSQL injection mitigation via parameterized inputs.",
+            image_alt = "Parameterized Injection Defense"
           }
         },
         {
@@ -214,7 +244,10 @@ chapters = [
             definition = "Find vulnerabilities with Snyk is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Find vulnerabilities with Snyk:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Find vulnerabilities with Snyk execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Find vulnerabilities with Snyk execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "SQL and NoSQL injection mitigation via parameterized inputs.",
+            image_alt = "Parameterized Injection Defense"
           }
         },
         {
@@ -234,7 +267,10 @@ chapters = [
             definition = "Penetration testing with Burp Suite is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Penetration testing with Burp Suite:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Penetration testing with Burp Suite execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Penetration testing with Burp Suite execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F03_DaCosta.png",
+            image_caption = "Unit test isolation: Testing functions independently of external I/O.",
+            image_alt = "Unit Test Isolation"
           }
         }
     ]

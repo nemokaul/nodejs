@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Microservices Communication Paradigms & REST Contracts** in depth, establishing core architectural patterns and runtime mechanics. It covers Welcome, What you need to know, History of service-based architectures, The monolithic application, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Service A ] ---> [ Protobuf Binary Serialization ] ---> [ HTTP/2 Multiplexed Stream ]\n                                                                       |\n[ Service B ] <--- [ Protobuf Deserialization ] <----------------------+\n\nExecution Lifecycle for Microservices Communication Paradigms & REST Contracts:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Microservices Communication Paradigms & REST Contracts relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Microservices Communication Paradigms & REST Contracts complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Microservices Communication Paradigms & REST Contracts complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/distributed-systems/dsnj_0310.png",
+      diagram_caption = "Figure 27.1: Inter-service communication benchmarks: JSON over HTTP latency distribution (Distributed Systems with Node.js).",
+      diagram_alt = "JSON over HTTP Inter-Service Latency Benchmark"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Welcome is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for Welcome:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0312.png",
+            image_caption = "Binary RPC streaming with gRPC and Protocol Buffers.",
+            image_alt = "Binary RPC Streaming"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "What you need to know is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for What you need to know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you need to know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you need to know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0312.png",
+            image_caption = "Binary RPC streaming with gRPC and Protocol Buffers.",
+            image_alt = "Binary RPC Streaming"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "History of service-based architectures is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for History of service-based architectures:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during History of service-based architectures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during History of service-based architectures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Non-blocking I/O multiplexer and callback dispatch.",
+            image_alt = "The libuv Reactor Pattern Architecture"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "The monolithic application is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for The monolithic application:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The monolithic application execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The monolithic application execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0312.png",
+            image_caption = "Binary RPC streaming with gRPC and Protocol Buffers.",
+            image_alt = "Binary RPC Streaming"
           }
         },
         {
@@ -124,7 +139,10 @@ chapters = [
             definition = "Service-oriented architecture is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for Service-oriented architecture:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Service-oriented architecture execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Service-oriented architecture execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Non-blocking I/O multiplexer and callback dispatch.",
+            image_alt = "The libuv Reactor Pattern Architecture"
           }
         }
     ]
@@ -139,7 +157,10 @@ chapters = [
       executive_summary = "This chapter explores **Protocol Buffers, gRPC RPC Interfaces & HTTP/2** in depth, establishing core architectural patterns and runtime mechanics. It covers Microservices: The new kid on the block, Microservices: Solver of problems but not the silver bullet, Microservices and cloud native, The services, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Service A ] ---> [ Protobuf Binary Serialization ] ---> [ HTTP/2 Multiplexed Stream ]\n                                                                       |\n[ Service B ] <--- [ Protobuf Deserialization ] <----------------------+\n\nExecution Lifecycle for Protocol Buffers, gRPC RPC Interfaces & HTTP/2:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Protocol Buffers, gRPC RPC Interfaces & HTTP/2 relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Protocol Buffers, gRPC RPC Interfaces & HTTP/2 complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Protocol Buffers, gRPC RPC Interfaces & HTTP/2 complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/distributed-systems/dsnj_0312.png",
+      diagram_caption = "Figure 27.2: High-performance binary streaming RPC with gRPC and Protocol Buffers (Distributed Systems with Node.js).",
+      diagram_alt = "gRPC and Protocol Buffers Binary Streaming RPC"
     },
     videos = [
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Microservices: The new kid on the block is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for Microservices: The new kid on the block:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Microservices: The new kid on the block execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Microservices: The new kid on the block execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0303.png",
+            image_caption = "HAProxy load balancing requests across upstream Node.js microservices.",
+            image_alt = "HAProxy Reverse Proxy Load Balancing"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Microservices: Solver of problems but not the silver bullet is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for Microservices: Solver of problems but not the silver bullet:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Microservices: Solver of problems but not the silver bullet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Microservices: Solver of problems but not the silver bullet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-scope-closures/file2.png",
+            image_caption = "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+            image_alt = "Temporal Dead Zone Scope Traversal"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Microservices and cloud native is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for Microservices and cloud native:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Microservices and cloud native execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Microservices and cloud native execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0303.png",
+            image_caption = "HAProxy load balancing requests across upstream Node.js microservices.",
+            image_alt = "HAProxy Reverse Proxy Load Balancing"
           }
         },
         {
@@ -219,7 +249,10 @@ chapters = [
             definition = "The services is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for The services:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0312.png",
+            image_caption = "Binary RPC streaming with gRPC and Protocol Buffers.",
+            image_alt = "Binary RPC Streaming"
           }
         },
         {
@@ -239,7 +272,10 @@ chapters = [
             definition = "The communication dance is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for The communication dance:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The communication dance execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The communication dance execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0312.png",
+            image_caption = "Binary RPC streaming with gRPC and Protocol Buffers.",
+            image_alt = "Binary RPC Streaming"
           }
         }
     ]
@@ -254,7 +290,10 @@ chapters = [
       executive_summary = "This chapter explores **Service Meshes, API Gateways & Serialization Efficiency** in depth, establishing core architectural patterns and runtime mechanics. It covers Distribution and scale, The dangers of latency and gridlock, Bounded context, Data domains as a service boundary, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Service A ] ---> [ Protobuf Binary Serialization ] ---> [ HTTP/2 Multiplexed Stream ]\n                                                                       |\n[ Service B ] <--- [ Protobuf Deserialization ] <----------------------+\n\nExecution Lifecycle for Service Meshes, API Gateways & Serialization Efficiency:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Service Meshes, API Gateways & Serialization Efficiency relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Service Meshes, API Gateways & Serialization Efficiency complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Service Meshes, API Gateways & Serialization Efficiency complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/distributed-systems/dsnj_0805.png",
+      diagram_caption = "Figure 27.3: Resilient inter-service communication: HTTP retry logic and exponential backoff (Distributed Systems with Node.js).",
+      diagram_alt = "Resilient Inter-Service Communication and Exponential Backoff"
     },
     videos = [
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Distribution and scale is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for Distribution and scale:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Distribution and scale execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Distribution and scale execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0312.png",
+            image_caption = "Binary RPC streaming with gRPC and Protocol Buffers.",
+            image_alt = "Binary RPC Streaming"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "The dangers of latency and gridlock is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for The dangers of latency and gridlock:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The dangers of latency and gridlock execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The dangers of latency and gridlock execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00002.gif",
+            image_caption = "Service latency distribution and tail latency measurement (p95, p99, p99.9).",
+            image_alt = "Latency Distribution and Tail Latency Percentiles"
           }
         },
         {
@@ -314,7 +359,10 @@ chapters = [
             definition = "Bounded context is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for Bounded context:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Bounded context execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Bounded context execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0312.png",
+            image_caption = "Binary RPC streaming with gRPC and Protocol Buffers.",
+            image_alt = "Binary RPC Streaming"
           }
         },
         {
@@ -334,7 +382,10 @@ chapters = [
             definition = "Data domains as a service boundary is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for Data domains as a service boundary:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Data domains as a service boundary execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Data domains as a service boundary execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0312.png",
+            image_caption = "Binary RPC streaming with gRPC and Protocol Buffers.",
+            image_alt = "Binary RPC Streaming"
           }
         },
         {
@@ -354,7 +405,10 @@ chapters = [
             definition = "No ACID, only BASE is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
             mental_model = "Execution Flow for No ACID, only BASE:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during No ACID, only BASE execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during No ACID, only BASE execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00053.gif",
+            image_caption = "Snapshot isolation and Multi-Version Concurrency Control (MVCC).",
+            image_alt = "Snapshot Isolation and MVCC Mechanics"
           }
         }
     ]

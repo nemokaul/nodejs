@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Node.js Runtime Architecture & Globals** in depth, establishing core architectural patterns and runtime mechanics. It covers Learning the Node.js basics, What you should know, Node.js history, Installing Node.js, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ JavaScript Application Layer ]\n            | (V8 Call Stack)\n[ Node.js Core C++ Bindings & Node-API ]\n            |\n[ Libuv Event Loop Engine ]\n    |-- Non-Blocking I/O (epoll / kqueue / IOCP)\n    |-- Thread Pool (fs, crypto, zlib, dns.lookup)\n\nExecution Lifecycle for Node.js Runtime Architecture & Globals:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Node.js Runtime Architecture & Globals relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Node.js Runtime Architecture & Globals complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Node.js Runtime Architecture & Globals complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_01_001.png",
+      diagram_caption = "Figure 7.1: Multi-threaded connection concurrency model vs single-threaded event loop (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Multi-threaded vs Single-threaded Concurrency Model"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Learning the Node.js basics is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Learning the Node.js basics:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Learning the Node.js basics execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Learning the Node.js basics execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Demultiplexing event I/O.",
+            image_alt = "libuv Reactor Pattern Demultiplexing"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "What you should know is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Demultiplexing event I/O.",
+            image_alt = "libuv Reactor Pattern Demultiplexing"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Node.js history is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Node.js history:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Node.js history execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Node.js history execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Demultiplexing event I/O.",
+            image_alt = "libuv Reactor Pattern Demultiplexing"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "Installing Node.js is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Installing Node.js:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Installing Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Installing Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Demultiplexing event I/O.",
+            image_alt = "libuv Reactor Pattern Demultiplexing"
           }
         },
         {
@@ -124,7 +139,10 @@ chapters = [
             definition = "Using Visual Studio Code is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Using Visual Studio Code:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using Visual Studio Code execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using Visual Studio Code execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Demultiplexing event I/O.",
+            image_alt = "libuv Reactor Pattern Demultiplexing"
           }
         }
     ]
@@ -139,7 +157,10 @@ chapters = [
       executive_summary = "This chapter explores **Process Object, CLI Arguments & Standard I/O** in depth, establishing core architectural patterns and runtime mechanics. It covers Inspecting the global object, Using the require function, Handling argument variables with process.argv, Working with standard input, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ JavaScript Application Layer ]\n            | (V8 Call Stack)\n[ Node.js Core C++ Bindings & Node-API ]\n            |\n[ Libuv Event Loop Engine ]\n    |-- Non-Blocking I/O (epoll / kqueue / IOCP)\n    |-- Thread Pool (fs, crypto, zlib, dns.lookup)\n\nExecution Lifecycle for Process Object, CLI Arguments & Standard I/O:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Process Object, CLI Arguments & Standard I/O relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Process Object, CLI Arguments & Standard I/O complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Process Object, CLI Arguments & Standard I/O complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+      diagram_caption = "Figure 7.2: The libuv Reactor Pattern: Non-blocking I/O multiplexer and event demultiplexer (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "The libuv Reactor Pattern Architecture"
     },
     videos = [
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Inspecting the global object is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Inspecting the global object:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Inspecting the global object execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Inspecting the global object execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Demultiplexing event I/O.",
+            image_alt = "libuv Reactor Pattern Demultiplexing"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Using the require function is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Using the require function:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the require function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the require function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+            image_caption = "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+            image_alt = "ESM Instantiation and Live Bindings Resolution"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Handling argument variables with process.argv is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Handling argument variables with process.argv:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Handling argument variables with process.argv execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Handling argument variables with process.argv execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/security-layers.png",
+            image_caption = "Defense-in-depth security layers across runtime, application, and network.",
+            image_alt = "Defense-in-Depth Security Layers"
           }
         },
         {
@@ -219,7 +249,10 @@ chapters = [
             definition = "Working with standard input is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Working with standard input:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with standard input execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with standard input execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Demultiplexing event I/O.",
+            image_alt = "libuv Reactor Pattern Demultiplexing"
           }
         },
         {
@@ -239,7 +272,10 @@ chapters = [
             definition = "Using standard output is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Using standard output:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using standard output execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using standard output execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Demultiplexing event I/O.",
+            image_alt = "libuv Reactor Pattern Demultiplexing"
           }
         }
     ]
@@ -254,7 +290,10 @@ chapters = [
       executive_summary = "This chapter explores **Timers, Delays & Asynchronous Scheduling** in depth, establishing core architectural patterns and runtime mechanics. It covers Creating a delay with setTimeout, Incorporating setInterval, Reporting progress with setInterval, Understanding core modules, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ JavaScript Application Layer ]\n            | (V8 Call Stack)\n[ Node.js Core C++ Bindings & Node-API ]\n            |\n[ Libuv Event Loop Engine ]\n    |-- Non-Blocking I/O (epoll / kqueue / IOCP)\n    |-- Thread Pool (fs, crypto, zlib, dns.lookup)\n\nExecution Lifecycle for Timers, Delays & Asynchronous Scheduling:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Timers, Delays & Asynchronous Scheduling relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Timers, Delays & Asynchronous Scheduling complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Timers, Delays & Asynchronous Scheduling complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_01_004.png",
+      diagram_caption = "Figure 7.3: Node.js Internal Architecture: V8 engine, libuv, Core C++ bindings, and Node.js standard library (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Node.js Internal Architecture Stack"
     },
     videos = [
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Creating a delay with setTimeout is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Creating a delay with setTimeout:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a delay with setTimeout execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a delay with setTimeout execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Demultiplexing event I/O.",
+            image_alt = "libuv Reactor Pattern Demultiplexing"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "Incorporating setInterval is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Incorporating setInterval:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Incorporating setInterval execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Incorporating setInterval execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Demultiplexing event I/O.",
+            image_alt = "libuv Reactor Pattern Demultiplexing"
           }
         },
         {
@@ -314,7 +359,10 @@ chapters = [
             definition = "Reporting progress with setInterval is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Reporting progress with setInterval:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Reporting progress with setInterval execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Reporting progress with setInterval execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Demultiplexing event I/O.",
+            image_alt = "libuv Reactor Pattern Demultiplexing"
           }
         },
         {
@@ -334,7 +382,10 @@ chapters = [
             definition = "Understanding core modules is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Understanding core modules:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding core modules execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding core modules execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+            image_caption = "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+            image_alt = "ESM Instantiation and Live Bindings Resolution"
           }
         },
         {
@@ -354,7 +405,10 @@ chapters = [
             definition = "Collecting information with readline is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
             mental_model = "Execution Flow for Collecting information with readline:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Collecting information with readline execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Collecting information with readline execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            image_caption = "The libuv Reactor Pattern: Demultiplexing event I/O.",
+            image_alt = "libuv Reactor Pattern Demultiplexing"
           }
         }
     ]

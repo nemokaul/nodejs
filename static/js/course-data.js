@@ -53,7 +53,10 @@ window.COURSE_DATA = {
               "Assuming operations in JavaScript Language Foundations & Environment complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ydkjs-get-started/file0.svg",
+            "diagramCaption": "Figure 1.1: Interpreting and executing JavaScript in host engine environments (You Don't Know JS Yet: Get Started).",
+            "diagramAlt": "JavaScript engine interpretation and script execution"
           },
           "videos": [
             {
@@ -81,7 +84,10 @@ window.COURSE_DATA = {
                 "definition": "JavaScript: First contact is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for JavaScript: First contact:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript: First contact execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript: First contact execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file0.svg",
+                "imageCaption": "Script interpretation and execution lifecycle in the JavaScript host environment.",
+                "imageAlt": "Script Interpretation Lifecycle"
               }
             },
             {
@@ -109,7 +115,10 @@ window.COURSE_DATA = {
                 "definition": "Navigating the JS landscape is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Navigating the JS landscape:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Navigating the JS landscape execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Navigating the JS landscape execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file0.svg",
+                "imageCaption": "Script interpretation and execution lifecycle in the JavaScript host environment.",
+                "imageAlt": "Script Interpretation Lifecycle"
               }
             },
             {
@@ -137,7 +146,10 @@ window.COURSE_DATA = {
                 "definition": "Tools for working with JavaScript is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Tools for working with JavaScript:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Tools for working with JavaScript execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Tools for working with JavaScript execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "V8 JavaScript compilation, AST parsing, and bytecode execution pipeline.",
+                "imageAlt": "V8 Bytecode Execution Pipeline"
               }
             },
             {
@@ -165,7 +177,10 @@ window.COURSE_DATA = {
                 "definition": "Linting and formatting is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Linting and formatting:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Linting and formatting execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Linting and formatting execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "V8 JavaScript compilation, AST parsing, and bytecode execution pipeline.",
+                "imageAlt": "V8 Bytecode Execution Pipeline"
               }
             },
             {
@@ -193,7 +208,10 @@ window.COURSE_DATA = {
                 "definition": "Get to know the browser console is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Get to know the browser console:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Get to know the browser console execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Get to know the browser console execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F08_DaCosta.png",
+                "imageCaption": "End-to-End (E2E) testing: Simulating end-user interactions against production builds.",
+                "imageAlt": "End-to-End Testing Workflow"
               }
             },
             {
@@ -221,7 +239,10 @@ window.COURSE_DATA = {
                 "definition": "JavaScript language basics is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for JavaScript language basics:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript language basics execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript language basics execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "V8 JavaScript compilation, AST parsing, and bytecode execution pipeline.",
+                "imageAlt": "V8 Bytecode Execution Pipeline"
               }
             }
           ]
@@ -252,7 +273,10 @@ window.COURSE_DATA = {
               "Assuming operations in Execution Context & Modern Script Loading complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ydkjs-get-started/file1.svg",
+            "diagramCaption": "Figure 1.2: Parsing, AST compilation, and bytecode execution pipeline (You Don't Know JS Yet: Get Started).",
+            "diagramAlt": "V8 Engine compilation and execution pipeline"
           },
           "videos": [
             {
@@ -280,7 +304,10 @@ window.COURSE_DATA = {
                 "definition": "Learning JavaScript backward is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Learning JavaScript backward:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Learning JavaScript backward execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Learning JavaScript backward execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+                "imageAlt": "AST Tokenization and Bytecode Generation"
               }
             },
             {
@@ -308,7 +335,10 @@ window.COURSE_DATA = {
                 "definition": "JavaScript in an HTML document is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for JavaScript in an HTML document:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript in an HTML document execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript in an HTML document execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+                "imageAlt": "AST Tokenization and Bytecode Generation"
               }
             },
             {
@@ -336,7 +366,10 @@ window.COURSE_DATA = {
                 "definition": "JavaScript as an external file is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for JavaScript as an external file:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript as an external file execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript as an external file execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+                "imageAlt": "AST Tokenization and Bytecode Generation"
               }
             },
             {
@@ -364,7 +397,10 @@ window.COURSE_DATA = {
                 "definition": "Modern JavaScript loading is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Modern JavaScript loading:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Modern JavaScript loading execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Modern JavaScript loading execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+                "imageAlt": "AST Tokenization and Bytecode Generation"
               }
             },
             {
@@ -392,7 +428,10 @@ window.COURSE_DATA = {
                 "definition": "JavaScript modules is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for JavaScript modules:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript modules execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript modules execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+                "imageAlt": "ESM Instantiation and Live Bindings Resolution"
               }
             },
             {
@@ -420,7 +459,10 @@ window.COURSE_DATA = {
                 "definition": "Objects: A practical introduction is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Objects: A practical introduction:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Objects: A practical introduction execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Objects: A practical introduction execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0101.png",
+                "imageCaption": "V8 memory allocation: Stack frames for execution context vs heap objects.",
+                "imageAlt": "V8 Stack and Heap Allocation"
               }
             }
           ]
@@ -451,7 +493,10 @@ window.COURSE_DATA = {
               "Assuming operations in Core Language Primitives & Operators complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/distributed-systems/dsnj_0101.png",
+            "diagramCaption": "Figure 1.3: V8 Call Stack execution frames and memory heap allocation (Distributed Systems with Node.js).",
+            "diagramAlt": "V8 Execution Call Stack and Stack Frames"
           },
           "videos": [
             {
@@ -479,7 +524,10 @@ window.COURSE_DATA = {
                 "definition": "JavaScript objects: The code version is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for JavaScript objects: The code version:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript objects: The code version execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during JavaScript objects: The code version execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0101.png",
+                "imageCaption": "V8 memory allocation: Stack frames for execution context vs heap objects.",
+                "imageAlt": "V8 Stack and Heap Allocation"
               }
             },
             {
@@ -507,7 +555,10 @@ window.COURSE_DATA = {
                 "definition": "Object containers is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Object containers:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object containers execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object containers execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0101.png",
+                "imageCaption": "V8 memory allocation: Stack frames for execution context vs heap objects.",
+                "imageAlt": "V8 Stack and Heap Allocation"
               }
             },
             {
@@ -535,7 +586,10 @@ window.COURSE_DATA = {
                 "definition": "Object properties is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Object properties:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object properties execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object properties execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "V8 JavaScript compilation, AST parsing, and bytecode execution pipeline.",
+                "imageAlt": "V8 Bytecode Execution Pipeline"
               }
             },
             {
@@ -563,7 +617,10 @@ window.COURSE_DATA = {
                 "definition": "Accessing objects is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Accessing objects:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Accessing objects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Accessing objects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0101.png",
+                "imageCaption": "V8 memory allocation: Stack frames for execution context vs heap objects.",
+                "imageAlt": "V8 Stack and Heap Allocation"
               }
             },
             {
@@ -591,7 +648,10 @@ window.COURSE_DATA = {
                 "definition": "Accessing object properties is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Accessing object properties:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Accessing object properties execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Accessing object properties execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "V8 JavaScript compilation, AST parsing, and bytecode execution pipeline.",
+                "imageAlt": "V8 Bytecode Execution Pipeline"
               }
             },
             {
@@ -619,7 +679,10 @@ window.COURSE_DATA = {
                 "definition": "Practice: Build a new object is a core architectural concept in **JavaScript Engine Architecture & Execution Contexts**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Practice: Build a new object:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Execution Context & Scope Demonstration\nexport function analyzeScope(initialVal) {\n  const outerScope = \"lexical-bound\";\n  \n  function evaluateFrame(modifier) {\n    // New execution context frame pushed to call stack\n    const localVal = modifier * 2;\n    return `${outerScope} -> ${initialVal + localVal}`;\n  }\n  \n  return evaluateFrame(10);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new object execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new object execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "V8 JavaScript compilation, AST parsing, and bytecode execution pipeline.",
+                "imageAlt": "V8 Bytecode Execution Pipeline"
               }
             }
           ]
@@ -669,7 +732,10 @@ window.COURSE_DATA = {
               "Assuming operations in Scope Hierarchy & Global Context complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ydkjs-scope-closures/file0.png",
+            "diagramCaption": "Figure 2.1: Lexical compilation vs runtime identifier resolution (You Don't Know JS Yet: Scope & Closures).",
+            "diagramAlt": "Lexical Scope Compilation and Identifier Resolution"
           },
           "videos": [
             {
@@ -697,7 +763,10 @@ window.COURSE_DATA = {
                 "definition": "Readability: Whitespace is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Readability: Whitespace:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readability: Whitespace execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readability: Whitespace execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             },
             {
@@ -725,7 +794,10 @@ window.COURSE_DATA = {
                 "definition": "Readability: Comments is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Readability: Comments:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readability: Comments execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readability: Comments execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             },
             {
@@ -753,7 +825,10 @@ window.COURSE_DATA = {
                 "definition": "Regular expressions is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Regular expressions:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Regular expressions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Regular expressions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify high-performance routing tree and JSON schema validation.",
+                "imageAlt": "Fastify Routing Tree and Schema Validation"
               }
             },
             {
@@ -781,7 +856,10 @@ window.COURSE_DATA = {
                 "definition": "Simple comparisons is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Simple comparisons:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Simple comparisons execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Simple comparisons execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+                "imageAlt": "Type Coercion and Equality Comparison"
               }
             },
             {
@@ -809,7 +887,10 @@ window.COURSE_DATA = {
                 "definition": "Arithmetic operators is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Arithmetic operators:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Arithmetic operators execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Arithmetic operators execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             },
             {
@@ -837,7 +918,10 @@ window.COURSE_DATA = {
                 "definition": "Logical operators is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Logical operators:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logical operators execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logical operators execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             }
           ]
@@ -868,7 +952,10 @@ window.COURSE_DATA = {
               "Assuming operations in Variable Declarations: var, let, and const complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ydkjs-scope-closures/file1.png",
+            "diagramCaption": "Figure 2.2: Lexical scope nested bubbles across global, module, and block boundaries (You Don't Know JS Yet: Scope & Closures).",
+            "diagramAlt": "Nested Scope Bubbles in JavaScript"
           },
           "videos": [
             {
@@ -896,7 +983,10 @@ window.COURSE_DATA = {
                 "definition": "Conditionals: If is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Conditionals: If:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Conditionals: If execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Conditionals: If execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             },
             {
@@ -924,7 +1014,10 @@ window.COURSE_DATA = {
                 "definition": "Conditionals: Switch is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Conditionals: Switch:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Conditionals: Switch execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Conditionals: Switch execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             },
             {
@@ -952,7 +1045,10 @@ window.COURSE_DATA = {
                 "definition": "Terse ifs: One-liners is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Terse ifs: One-liners:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Terse ifs: One-liners execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Terse ifs: One-liners execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             },
             {
@@ -980,7 +1076,10 @@ window.COURSE_DATA = {
                 "definition": "Terse ifs: Ternaries is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Terse ifs: Ternaries:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Terse ifs: Ternaries execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Terse ifs: Ternaries execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             },
             {
@@ -1008,7 +1107,10 @@ window.COURSE_DATA = {
                 "definition": "Type checking is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Type checking:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Type checking execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Type checking execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+                "imageAlt": "Type Coercion and Equality Comparison"
               }
             },
             {
@@ -1036,7 +1138,10 @@ window.COURSE_DATA = {
                 "definition": "For loops: Sequential is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for For loops: Sequential:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during For loops: Sequential execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during For loops: Sequential execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             }
           ]
@@ -1067,7 +1172,10 @@ window.COURSE_DATA = {
               "Assuming operations in Hoisting & The Temporal Dead Zone (TDZ) complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ydkjs-scope-closures/file2.png",
+            "diagramCaption": "Figure 2.3: Scope Building metaphor for identifier resolution and Temporal Dead Zone (TDZ) protection (You Don't Know JS Yet: Scope & Closures).",
+            "diagramAlt": "Scope Building Identifier Traversal"
           },
           "videos": [
             {
@@ -1095,7 +1203,10 @@ window.COURSE_DATA = {
                 "definition": "For loops: Enumerative is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for For loops: Enumerative:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during For loops: Enumerative execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during For loops: Enumerative execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             },
             {
@@ -1123,7 +1234,10 @@ window.COURSE_DATA = {
                 "definition": "Set and Map: Newer loopable data types is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Set and Map: Newer loopable data types:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Set and Map: Newer loopable data types execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Set and Map: Newer loopable data types execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+                "imageAlt": "Type Coercion and Equality Comparison"
               }
             },
             {
@@ -1151,7 +1265,10 @@ window.COURSE_DATA = {
                 "definition": "While loops is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for While loops:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during While loops execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during While loops execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             },
             {
@@ -1179,7 +1296,10 @@ window.COURSE_DATA = {
                 "definition": "Basic functions is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Basic functions:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic functions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic functions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             },
             {
@@ -1207,7 +1327,10 @@ window.COURSE_DATA = {
                 "definition": "Arguments and parameters in functions is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for Arguments and parameters in functions:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Arguments and parameters in functions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Arguments and parameters in functions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             },
             {
@@ -1235,7 +1358,10 @@ window.COURSE_DATA = {
                 "definition": "More on function arguments is a core architectural concept in **Lexical Scoping, Hoisting & Environment Records**. Gain a conversant understanding of JavaScript, including variables, types, objects, arrays, operators, control structures, loops, and functions.",
                 "mentalModel": "Execution Flow for More on function arguments:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Lexical Environment & Temporal Dead Zone\nexport function demonstrateTDZ() {\n  const status = \"active\";\n  \n  {\n    // TDZ for innerStatus begins here\n    // console.log(innerStatus); // ReferenceError: Cannot access 'innerStatus' before initialization\n    const innerStatus = \"nested-\" + status;\n    return innerStatus;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during More on function arguments execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during More on function arguments execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical scope bubble resolution across execution contexts.",
+                "imageAlt": "Lexical Scope Bubble Resolution"
               }
             }
           ]
@@ -1283,7 +1409,10 @@ window.COURSE_DATA = {
               "Assuming operations in Lexical Scoping & Nested Functions complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ydkjs-scope-closures/file3.png",
+            "diagramCaption": "Figure 3.1: Function instances linked to lexical scopes via closure references (You Don't Know JS Yet: Scope & Closures).",
+            "diagramAlt": "Closure References Linked to Lexical Scopes"
           },
           "videos": [
             {
@@ -1311,7 +1440,10 @@ window.COURSE_DATA = {
                 "definition": "Using closures in JavaScript is a core architectural concept in **Closures, Lexical Environments & Memory Retention**. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.",
                 "mentalModel": "Execution Flow for Using closures in JavaScript:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Factory Pattern with Secure Private State & Memory Hygiene\nexport function createTokenBucket(capacity, refillRatePerSec) {\n  // Encapsulated state on Heap Context\n  let tokens = capacity;\n  let lastRefill = Date.now();\n\n  return {\n    consume(tokensRequested = 1) {\n      const now = Date.now();\n      const elapsed = (now - lastRefill) / 1000;\n      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);\n      lastRefill = now;\n\n      if (tokens >= tokensRequested) {\n        tokens -= tokensRequested;\n        return true;\n      }\n      return false;\n    },\n    getAvailableTokens() {\n      return Math.floor(tokens);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using closures in JavaScript execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using closures in JavaScript execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file3.png",
+                "imageCaption": "Function instances preserving lexical environment references via closure.",
+                "imageAlt": "Function Instances Preserving Lexical Closure"
               }
             },
             {
@@ -1339,7 +1471,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **Closures, Lexical Environments & Memory Retention**. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Factory Pattern with Secure Private State & Memory Hygiene\nexport function createTokenBucket(capacity, refillRatePerSec) {\n  // Encapsulated state on Heap Context\n  let tokens = capacity;\n  let lastRefill = Date.now();\n\n  return {\n    consume(tokensRequested = 1) {\n      const now = Date.now();\n      const elapsed = (now - lastRefill) / 1000;\n      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);\n      lastRefill = now;\n\n      if (tokens >= tokensRequested) {\n        tokens -= tokensRequested;\n        return true;\n      }\n      return false;\n    },\n    getAvailableTokens() {\n      return Math.floor(tokens);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file3.png",
+                "imageCaption": "Closure reference retention across asynchronous function invocations.",
+                "imageAlt": "Closure Reference Retention"
               }
             },
             {
@@ -1367,7 +1502,10 @@ window.COURSE_DATA = {
                 "definition": "Environment setup and exercise files is a core architectural concept in **Closures, Lexical Environments & Memory Retention**. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.",
                 "mentalModel": "Execution Flow for Environment setup and exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Factory Pattern with Secure Private State & Memory Hygiene\nexport function createTokenBucket(capacity, refillRatePerSec) {\n  // Encapsulated state on Heap Context\n  let tokens = capacity;\n  let lastRefill = Date.now();\n\n  return {\n    consume(tokensRequested = 1) {\n      const now = Date.now();\n      const elapsed = (now - lastRefill) / 1000;\n      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);\n      lastRefill = now;\n\n      if (tokens >= tokensRequested) {\n        tokens -= tokensRequested;\n        return true;\n      }\n      return false;\n    },\n    getAvailableTokens() {\n      return Math.floor(tokens);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Environment setup and exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Environment setup and exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file0.svg",
+                "imageCaption": "Script interpretation and execution lifecycle in the JavaScript host environment.",
+                "imageAlt": "Script Interpretation Lifecycle"
               }
             },
             {
@@ -1395,7 +1533,10 @@ window.COURSE_DATA = {
                 "definition": "Using CoderPad challenges is a core architectural concept in **Closures, Lexical Environments & Memory Retention**. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.",
                 "mentalModel": "Execution Flow for Using CoderPad challenges:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Factory Pattern with Secure Private State & Memory Hygiene\nexport function createTokenBucket(capacity, refillRatePerSec) {\n  // Encapsulated state on Heap Context\n  let tokens = capacity;\n  let lastRefill = Date.now();\n\n  return {\n    consume(tokensRequested = 1) {\n      const now = Date.now();\n      const elapsed = (now - lastRefill) / 1000;\n      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);\n      lastRefill = now;\n\n      if (tokens >= tokensRequested) {\n        tokens -= tokensRequested;\n        return true;\n      }\n      return false;\n    },\n    getAvailableTokens() {\n      return Math.floor(tokens);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using CoderPad challenges execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using CoderPad challenges execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file3.png",
+                "imageCaption": "Closure reference retention across asynchronous function invocations.",
+                "imageAlt": "Closure Reference Retention"
               }
             }
           ]
@@ -1424,7 +1565,10 @@ window.COURSE_DATA = {
               "Assuming operations in Closure Mechanics & Parallel Closures complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ydkjs-scope-closures/file4.png",
+            "diagramCaption": "Figure 3.2: Closure memory retention across independent execution frames (You Don't Know JS Yet: Scope & Closures).",
+            "diagramAlt": "Closure Memory Retention Across Execution Contexts"
           },
           "videos": [
             {
@@ -1452,7 +1596,10 @@ window.COURSE_DATA = {
                 "definition": "Local and global scope is a core architectural concept in **Closures, Lexical Environments & Memory Retention**. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.",
                 "mentalModel": "Execution Flow for Local and global scope:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Factory Pattern with Secure Private State & Memory Hygiene\nexport function createTokenBucket(capacity, refillRatePerSec) {\n  // Encapsulated state on Heap Context\n  let tokens = capacity;\n  let lastRefill = Date.now();\n\n  return {\n    consume(tokensRequested = 1) {\n      const now = Date.now();\n      const elapsed = (now - lastRefill) / 1000;\n      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);\n      lastRefill = now;\n\n      if (tokens >= tokensRequested) {\n        tokens -= tokensRequested;\n        return true;\n      }\n      return false;\n    },\n    getAvailableTokens() {\n      return Math.floor(tokens);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Local and global scope execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Local and global scope execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file1.png",
+                "imageCaption": "Lexical Scope nested environments and identifier binding boundaries.",
+                "imageAlt": "Lexical Scope Nested Environments"
               }
             },
             {
@@ -1480,7 +1627,10 @@ window.COURSE_DATA = {
                 "definition": "Nesting functions is a core architectural concept in **Closures, Lexical Environments & Memory Retention**. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.",
                 "mentalModel": "Execution Flow for Nesting functions:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Factory Pattern with Secure Private State & Memory Hygiene\nexport function createTokenBucket(capacity, refillRatePerSec) {\n  // Encapsulated state on Heap Context\n  let tokens = capacity;\n  let lastRefill = Date.now();\n\n  return {\n    consume(tokensRequested = 1) {\n      const now = Date.now();\n      const elapsed = (now - lastRefill) / 1000;\n      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);\n      lastRefill = now;\n\n      if (tokens >= tokensRequested) {\n        tokens -= tokensRequested;\n        return true;\n      }\n      return false;\n    },\n    getAvailableTokens() {\n      return Math.floor(tokens);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Nesting functions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Nesting functions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file3.png",
+                "imageCaption": "Function instances preserving lexical environment references via closure.",
+                "imageAlt": "Function Instances Preserving Lexical Closure"
               }
             },
             {
@@ -1508,7 +1658,10 @@ window.COURSE_DATA = {
                 "definition": "Return a value from an inner function is a core architectural concept in **Closures, Lexical Environments & Memory Retention**. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.",
                 "mentalModel": "Execution Flow for Return a value from an inner function:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Factory Pattern with Secure Private State & Memory Hygiene\nexport function createTokenBucket(capacity, refillRatePerSec) {\n  // Encapsulated state on Heap Context\n  let tokens = capacity;\n  let lastRefill = Date.now();\n\n  return {\n    consume(tokensRequested = 1) {\n      const now = Date.now();\n      const elapsed = (now - lastRefill) / 1000;\n      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);\n      lastRefill = now;\n\n      if (tokens >= tokensRequested) {\n        tokens -= tokensRequested;\n        return true;\n      }\n      return false;\n    },\n    getAvailableTokens() {\n      return Math.floor(tokens);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Return a value from an inner function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Return a value from an inner function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file3.png",
+                "imageCaption": "Closure reference retention across asynchronous function invocations.",
+                "imageAlt": "Closure Reference Retention"
               }
             },
             {
@@ -1536,7 +1689,10 @@ window.COURSE_DATA = {
                 "definition": "Create parallel closures is a core architectural concept in **Closures, Lexical Environments & Memory Retention**. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.",
                 "mentalModel": "Execution Flow for Create parallel closures:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Factory Pattern with Secure Private State & Memory Hygiene\nexport function createTokenBucket(capacity, refillRatePerSec) {\n  // Encapsulated state on Heap Context\n  let tokens = capacity;\n  let lastRefill = Date.now();\n\n  return {\n    consume(tokensRequested = 1) {\n      const now = Date.now();\n      const elapsed = (now - lastRefill) / 1000;\n      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);\n      lastRefill = now;\n\n      if (tokens >= tokensRequested) {\n        tokens -= tokensRequested;\n        return true;\n      }\n      return false;\n    },\n    getAvailableTokens() {\n      return Math.floor(tokens);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Create parallel closures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Create parallel closures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file3.png",
+                "imageCaption": "Function instances preserving lexical environment references via closure.",
+                "imageAlt": "Function Instances Preserving Lexical Closure"
               }
             }
           ]
@@ -1565,7 +1721,10 @@ window.COURSE_DATA = {
               "Assuming operations in Module Pattern & Preventing Memory Leaks complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_07_1.png",
+            "diagramCaption": "Figure 3.3: Module dependency graph and encapsulation boundary (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Module Pattern Encapsulation and Dependency Boundary"
           },
           "videos": [
             {
@@ -1593,7 +1752,10 @@ window.COURSE_DATA = {
                 "definition": "Solution: Create a closure using a nested function is a core architectural concept in **Closures, Lexical Environments & Memory Retention**. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.",
                 "mentalModel": "Execution Flow for Solution: Create a closure using a nested function:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Factory Pattern with Secure Private State & Memory Hygiene\nexport function createTokenBucket(capacity, refillRatePerSec) {\n  // Encapsulated state on Heap Context\n  let tokens = capacity;\n  let lastRefill = Date.now();\n\n  return {\n    consume(tokensRequested = 1) {\n      const now = Date.now();\n      const elapsed = (now - lastRefill) / 1000;\n      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);\n      lastRefill = now;\n\n      if (tokens >= tokensRequested) {\n        tokens -= tokensRequested;\n        return true;\n      }\n      return false;\n    },\n    getAvailableTokens() {\n      return Math.floor(tokens);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a closure using a nested function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a closure using a nested function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file3.png",
+                "imageCaption": "Function instances preserving lexical environment references via closure.",
+                "imageAlt": "Function Instances Preserving Lexical Closure"
               }
             },
             {
@@ -1621,7 +1783,10 @@ window.COURSE_DATA = {
                 "definition": "Implement the module pattern is a core architectural concept in **Closures, Lexical Environments & Memory Retention**. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.",
                 "mentalModel": "Execution Flow for Implement the module pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Factory Pattern with Secure Private State & Memory Hygiene\nexport function createTokenBucket(capacity, refillRatePerSec) {\n  // Encapsulated state on Heap Context\n  let tokens = capacity;\n  let lastRefill = Date.now();\n\n  return {\n    consume(tokensRequested = 1) {\n      const now = Date.now();\n      const elapsed = (now - lastRefill) / 1000;\n      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);\n      lastRefill = now;\n\n      if (tokens >= tokensRequested) {\n        tokens -= tokensRequested;\n        return true;\n      }\n      return false;\n    },\n    getAvailableTokens() {\n      return Math.floor(tokens);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implement the module pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implement the module pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+                "imageAlt": "ESM Instantiation and Live Bindings Resolution"
               }
             },
             {
@@ -1649,7 +1814,10 @@ window.COURSE_DATA = {
                 "definition": "Avoid unintended closures is a core architectural concept in **Closures, Lexical Environments & Memory Retention**. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.",
                 "mentalModel": "Execution Flow for Avoid unintended closures:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Factory Pattern with Secure Private State & Memory Hygiene\nexport function createTokenBucket(capacity, refillRatePerSec) {\n  // Encapsulated state on Heap Context\n  let tokens = capacity;\n  let lastRefill = Date.now();\n\n  return {\n    consume(tokensRequested = 1) {\n      const now = Date.now();\n      const elapsed = (now - lastRefill) / 1000;\n      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);\n      lastRefill = now;\n\n      if (tokens >= tokensRequested) {\n        tokens -= tokensRequested;\n        return true;\n      }\n      return false;\n    },\n    getAvailableTokens() {\n      return Math.floor(tokens);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Avoid unintended closures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Avoid unintended closures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file3.png",
+                "imageCaption": "Function instances preserving lexical environment references via closure.",
+                "imageAlt": "Function Instances Preserving Lexical Closure"
               }
             },
             {
@@ -1677,7 +1845,10 @@ window.COURSE_DATA = {
                 "definition": "Use JS features in place of closures is a core architectural concept in **Closures, Lexical Environments & Memory Retention**. Learn what closures are and how to use them in JavaScript. Review the building blocks of closures and discover what closures look like in code.",
                 "mentalModel": "Execution Flow for Use JS features in place of closures:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Factory Pattern with Secure Private State & Memory Hygiene\nexport function createTokenBucket(capacity, refillRatePerSec) {\n  // Encapsulated state on Heap Context\n  let tokens = capacity;\n  let lastRefill = Date.now();\n\n  return {\n    consume(tokensRequested = 1) {\n      const now = Date.now();\n      const elapsed = (now - lastRefill) / 1000;\n      tokens = Math.min(capacity, tokens + elapsed * refillRatePerSec);\n      lastRefill = now;\n\n      if (tokens >= tokensRequested) {\n        tokens -= tokensRequested;\n        return true;\n      }\n      return false;\n    },\n    getAvailableTokens() {\n      return Math.floor(tokens);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use JS features in place of closures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use JS features in place of closures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file3.png",
+                "imageCaption": "Function instances preserving lexical environment references via closure.",
+                "imageAlt": "Function Instances Preserving Lexical Closure"
               }
             }
           ]
@@ -1725,7 +1896,10 @@ window.COURSE_DATA = {
               "Assuming operations in Object Literals & Constructor Functions complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ydkjs-get-started/file3.svg",
+            "diagramCaption": "Figure 4.1: Prototype chain linkage and [[Prototype]] lookup traversal (You Don't Know JS Yet: Get Started).",
+            "diagramAlt": "Prototype Chain Linkage and Lookup Traversal"
           },
           "videos": [
             {
@@ -1753,7 +1927,10 @@ window.COURSE_DATA = {
                 "definition": "Understanding prototypes in JavaScript is a core architectural concept in **Objects, Prototypes & Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.",
                 "mentalModel": "Execution Flow for Understanding prototypes in JavaScript:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Clean Prototype Delegation & Dictionary Map\nexport function createSecureRegistry() {\n  // Pure dictionary object without Object.prototype properties\n  const registry = Object.create(null);\n\n  return {\n    register(key, handler) {\n      if (typeof key !== \"string\" || !handler) throw new TypeError(\"Invalid key or handler\");\n      registry[key] = handler;\n    },\n    dispatch(key, ...args) {\n      const fn = registry[key];\n      if (typeof fn === \"function\") return fn(...args);\n      throw new Error(`Unregistered handler: ${key}`);\n    },\n    has(key) {\n      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding prototypes in JavaScript execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding prototypes in JavaScript execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file3.svg",
+                "imageCaption": "Object [[Prototype]] chain delegation and property lookup traversal.",
+                "imageAlt": "Object Prototype Chain Delegation"
               }
             },
             {
@@ -1781,7 +1958,10 @@ window.COURSE_DATA = {
                 "definition": "Exercise files and environment setup is a core architectural concept in **Objects, Prototypes & Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.",
                 "mentalModel": "Execution Flow for Exercise files and environment setup:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Clean Prototype Delegation & Dictionary Map\nexport function createSecureRegistry() {\n  // Pure dictionary object without Object.prototype properties\n  const registry = Object.create(null);\n\n  return {\n    register(key, handler) {\n      if (typeof key !== \"string\" || !handler) throw new TypeError(\"Invalid key or handler\");\n      registry[key] = handler;\n    },\n    dispatch(key, ...args) {\n      const fn = registry[key];\n      if (typeof fn === \"function\") return fn(...args);\n      throw new Error(`Unregistered handler: ${key}`);\n    },\n    has(key) {\n      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exercise files and environment setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exercise files and environment setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file0.svg",
+                "imageCaption": "Script interpretation and execution lifecycle in the JavaScript host environment.",
+                "imageAlt": "Script Interpretation Lifecycle"
               }
             },
             {
@@ -1809,7 +1989,10 @@ window.COURSE_DATA = {
                 "definition": "Create object literals is a core architectural concept in **Objects, Prototypes & Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.",
                 "mentalModel": "Execution Flow for Create object literals:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Clean Prototype Delegation & Dictionary Map\nexport function createSecureRegistry() {\n  // Pure dictionary object without Object.prototype properties\n  const registry = Object.create(null);\n\n  return {\n    register(key, handler) {\n      if (typeof key !== \"string\" || !handler) throw new TypeError(\"Invalid key or handler\");\n      registry[key] = handler;\n    },\n    dispatch(key, ...args) {\n      const fn = registry[key];\n      if (typeof fn === \"function\") return fn(...args);\n      throw new Error(`Unregistered handler: ${key}`);\n    },\n    has(key) {\n      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Create object literals execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Create object literals execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file4.svg",
+                "imageCaption": "Prototypal delegation and property lookup traversal.",
+                "imageAlt": "Prototypal Property Lookup"
               }
             },
             {
@@ -1837,7 +2020,10 @@ window.COURSE_DATA = {
                 "definition": "Create objects with a constructor function is a core architectural concept in **Objects, Prototypes & Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.",
                 "mentalModel": "Execution Flow for Create objects with a constructor function:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Clean Prototype Delegation & Dictionary Map\nexport function createSecureRegistry() {\n  // Pure dictionary object without Object.prototype properties\n  const registry = Object.create(null);\n\n  return {\n    register(key, handler) {\n      if (typeof key !== \"string\" || !handler) throw new TypeError(\"Invalid key or handler\");\n      registry[key] = handler;\n    },\n    dispatch(key, ...args) {\n      const fn = registry[key];\n      if (typeof fn === \"function\") return fn(...args);\n      throw new Error(`Unregistered handler: ${key}`);\n    },\n    has(key) {\n      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Create objects with a constructor function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Create objects with a constructor function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0101.png",
+                "imageCaption": "V8 memory allocation: Stack frames for execution context vs heap objects.",
+                "imageAlt": "V8 Stack and Heap Allocation"
               }
             }
           ]
@@ -1866,7 +2052,10 @@ window.COURSE_DATA = {
               "Assuming operations in Prototype Property & Prototype Chain complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ydkjs-get-started/file4.svg",
+            "diagramCaption": "Figure 4.2: Prototype property shadowing and delegation mechanics (You Don't Know JS Yet: Get Started).",
+            "diagramAlt": "Property Shadowing and Prototypal Delegation"
           },
           "videos": [
             {
@@ -1894,7 +2083,10 @@ window.COURSE_DATA = {
                 "definition": "Using CoderPad challenges is a core architectural concept in **Objects, Prototypes & Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.",
                 "mentalModel": "Execution Flow for Using CoderPad challenges:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Clean Prototype Delegation & Dictionary Map\nexport function createSecureRegistry() {\n  // Pure dictionary object without Object.prototype properties\n  const registry = Object.create(null);\n\n  return {\n    register(key, handler) {\n      if (typeof key !== \"string\" || !handler) throw new TypeError(\"Invalid key or handler\");\n      registry[key] = handler;\n    },\n    dispatch(key, ...args) {\n      const fn = registry[key];\n      if (typeof fn === \"function\") return fn(...args);\n      throw new Error(`Unregistered handler: ${key}`);\n    },\n    has(key) {\n      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using CoderPad challenges execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using CoderPad challenges execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file4.svg",
+                "imageCaption": "Prototypal delegation and property lookup traversal.",
+                "imageAlt": "Prototypal Property Lookup"
               }
             },
             {
@@ -1922,7 +2114,10 @@ window.COURSE_DATA = {
                 "definition": "Understand the prototype property is a core architectural concept in **Objects, Prototypes & Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.",
                 "mentalModel": "Execution Flow for Understand the prototype property:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Clean Prototype Delegation & Dictionary Map\nexport function createSecureRegistry() {\n  // Pure dictionary object without Object.prototype properties\n  const registry = Object.create(null);\n\n  return {\n    register(key, handler) {\n      if (typeof key !== \"string\" || !handler) throw new TypeError(\"Invalid key or handler\");\n      registry[key] = handler;\n    },\n    dispatch(key, ...args) {\n      const fn = registry[key];\n      if (typeof fn === \"function\") return fn(...args);\n      throw new Error(`Unregistered handler: ${key}`);\n    },\n    has(key) {\n      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understand the prototype property execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understand the prototype property execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file3.svg",
+                "imageCaption": "Object [[Prototype]] chain delegation and property lookup traversal.",
+                "imageAlt": "Object Prototype Chain Delegation"
               }
             },
             {
@@ -1950,7 +2145,10 @@ window.COURSE_DATA = {
                 "definition": "Modify an object's prototype is a core architectural concept in **Objects, Prototypes & Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.",
                 "mentalModel": "Execution Flow for Modify an object's prototype:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Clean Prototype Delegation & Dictionary Map\nexport function createSecureRegistry() {\n  // Pure dictionary object without Object.prototype properties\n  const registry = Object.create(null);\n\n  return {\n    register(key, handler) {\n      if (typeof key !== \"string\" || !handler) throw new TypeError(\"Invalid key or handler\");\n      registry[key] = handler;\n    },\n    dispatch(key, ...args) {\n      const fn = registry[key];\n      if (typeof fn === \"function\") return fn(...args);\n      throw new Error(`Unregistered handler: ${key}`);\n    },\n    has(key) {\n      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Modify an object's prototype execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Modify an object's prototype execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+                "imageAlt": "Type Coercion and Equality Comparison"
               }
             },
             {
@@ -1978,7 +2176,10 @@ window.COURSE_DATA = {
                 "definition": "Create a prototype chain is a core architectural concept in **Objects, Prototypes & Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.",
                 "mentalModel": "Execution Flow for Create a prototype chain:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Clean Prototype Delegation & Dictionary Map\nexport function createSecureRegistry() {\n  // Pure dictionary object without Object.prototype properties\n  const registry = Object.create(null);\n\n  return {\n    register(key, handler) {\n      if (typeof key !== \"string\" || !handler) throw new TypeError(\"Invalid key or handler\");\n      registry[key] = handler;\n    },\n    dispatch(key, ...args) {\n      const fn = registry[key];\n      if (typeof fn === \"function\") return fn(...args);\n      throw new Error(`Unregistered handler: ${key}`);\n    },\n    has(key) {\n      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Create a prototype chain execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Create a prototype chain execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file3.svg",
+                "imageCaption": "Object [[Prototype]] chain delegation and property lookup traversal.",
+                "imageAlt": "Object Prototype Chain Delegation"
               }
             }
           ]
@@ -2007,7 +2208,10 @@ window.COURSE_DATA = {
               "Assuming operations in Prototypal Inheritance & ES6 Class Delegation complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ydkjs-get-started/file5.svg",
+            "diagramCaption": "Figure 4.3: Object prototype delegation and dynamic this context binding (You Don't Know JS Yet: Get Started).",
+            "diagramAlt": "Object Prototype Delegation and this Context"
           },
           "videos": [
             {
@@ -2035,7 +2239,10 @@ window.COURSE_DATA = {
                 "definition": "Apply prototypal inheritance is a core architectural concept in **Objects, Prototypes & Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.",
                 "mentalModel": "Execution Flow for Apply prototypal inheritance:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Clean Prototype Delegation & Dictionary Map\nexport function createSecureRegistry() {\n  // Pure dictionary object without Object.prototype properties\n  const registry = Object.create(null);\n\n  return {\n    register(key, handler) {\n      if (typeof key !== \"string\" || !handler) throw new TypeError(\"Invalid key or handler\");\n      registry[key] = handler;\n    },\n    dispatch(key, ...args) {\n      const fn = registry[key];\n      if (typeof fn === \"function\") return fn(...args);\n      throw new Error(`Unregistered handler: ${key}`);\n    },\n    has(key) {\n      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Apply prototypal inheritance execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Apply prototypal inheritance execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file5.svg",
+                "imageCaption": "Prototypal object delegation and dynamic execution context binding.",
+                "imageAlt": "Prototypal Object Delegation"
               }
             },
             {
@@ -2063,7 +2270,10 @@ window.COURSE_DATA = {
                 "definition": "Understand ES6 classes is a core architectural concept in **Objects, Prototypes & Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.",
                 "mentalModel": "Execution Flow for Understand ES6 classes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Clean Prototype Delegation & Dictionary Map\nexport function createSecureRegistry() {\n  // Pure dictionary object without Object.prototype properties\n  const registry = Object.create(null);\n\n  return {\n    register(key, handler) {\n      if (typeof key !== \"string\" || !handler) throw new TypeError(\"Invalid key or handler\");\n      registry[key] = handler;\n    },\n    dispatch(key, ...args) {\n      const fn = registry[key];\n      if (typeof fn === \"function\") return fn(...args);\n      throw new Error(`Unregistered handler: ${key}`);\n    },\n    has(key) {\n      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understand ES6 classes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understand ES6 classes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file5.svg",
+                "imageCaption": "Prototypal object delegation and dynamic execution context binding.",
+                "imageAlt": "Prototypal Object Delegation"
               }
             },
             {
@@ -2091,7 +2301,10 @@ window.COURSE_DATA = {
                 "definition": "Build prototypes using ES6 classes is a core architectural concept in **Objects, Prototypes & Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.",
                 "mentalModel": "Execution Flow for Build prototypes using ES6 classes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Clean Prototype Delegation & Dictionary Map\nexport function createSecureRegistry() {\n  // Pure dictionary object without Object.prototype properties\n  const registry = Object.create(null);\n\n  return {\n    register(key, handler) {\n      if (typeof key !== \"string\" || !handler) throw new TypeError(\"Invalid key or handler\");\n      registry[key] = handler;\n    },\n    dispatch(key, ...args) {\n      const fn = registry[key];\n      if (typeof fn === \"function\") return fn(...args);\n      throw new Error(`Unregistered handler: ${key}`);\n    },\n    has(key) {\n      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Build prototypes using ES6 classes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Build prototypes using ES6 classes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file5.svg",
+                "imageCaption": "Prototypal object delegation and dynamic execution context binding.",
+                "imageAlt": "Prototypal Object Delegation"
               }
             },
             {
@@ -2119,7 +2332,10 @@ window.COURSE_DATA = {
                 "definition": "Next steps is a core architectural concept in **Objects, Prototypes & Prototypal Delegation**. Get an introduction to JavaScript prototypal inheritance. Learn how to write more efficient JavaScript code using the prototype chain.",
                 "mentalModel": "Execution Flow for Next steps:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Clean Prototype Delegation & Dictionary Map\nexport function createSecureRegistry() {\n  // Pure dictionary object without Object.prototype properties\n  const registry = Object.create(null);\n\n  return {\n    register(key, handler) {\n      if (typeof key !== \"string\" || !handler) throw new TypeError(\"Invalid key or handler\");\n      registry[key] = handler;\n    },\n    dispatch(key, ...args) {\n      const fn = registry[key];\n      if (typeof fn === \"function\") return fn(...args);\n      throw new Error(`Unregistered handler: ${key}`);\n    },\n    has(key) {\n      return Object.prototype.hasOwnProperty.call(registry, key) || (key in registry);\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file4.svg",
+                "imageCaption": "Prototypal delegation and property lookup traversal.",
+                "imageAlt": "Prototypal Property Lookup"
               }
             }
           ]
@@ -2169,7 +2385,10 @@ window.COURSE_DATA = {
               "Assuming operations in Primitive Types & Reference Types complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/mastering-nodejs/B21959_02_01.png",
+            "diagramCaption": "Figure 5.1: Node.js runtime environment and V8 type primitives allocation (Mastering Node.js Web Development).",
+            "diagramAlt": "Node.js V8 Runtime Primitives Allocation"
           },
           "videos": [
             {
@@ -2197,7 +2416,10 @@ window.COURSE_DATA = {
                 "definition": "Object methods is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Object methods:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion and defensive type checking comparison flow.",
+                "imageAlt": "Type Coercion Comparison"
               }
             },
             {
@@ -2225,7 +2447,10 @@ window.COURSE_DATA = {
                 "definition": "Practice: Build a new method is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Practice: Build a new method:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new method execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new method execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion and defensive type checking comparison flow.",
+                "imageAlt": "Type Coercion Comparison"
               }
             },
             {
@@ -2253,7 +2478,10 @@ window.COURSE_DATA = {
                 "definition": "Classes: Object blueprints is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Classes: Object blueprints:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Classes: Object blueprints execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Classes: Object blueprints execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file5.svg",
+                "imageCaption": "Prototypal object delegation and dynamic execution context binding.",
+                "imageAlt": "Prototypal Object Delegation"
               }
             },
             {
@@ -2281,7 +2509,10 @@ window.COURSE_DATA = {
                 "definition": "Object constructors is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Object constructors:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object constructors execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Object constructors execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file2.png",
+                "imageCaption": "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+                "imageAlt": "Temporal Dead Zone Scope Traversal"
               }
             },
             {
@@ -2309,7 +2540,10 @@ window.COURSE_DATA = {
                 "definition": "Practice: Build a new object with a constructor is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Practice: Build a new object with a constructor:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new object with a constructor execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Build a new object with a constructor execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file2.png",
+                "imageCaption": "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+                "imageAlt": "Temporal Dead Zone Scope Traversal"
               }
             },
             {
@@ -2337,7 +2571,10 @@ window.COURSE_DATA = {
                 "definition": "Global objects is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Global objects:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Global objects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Global objects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0101.png",
+                "imageCaption": "V8 memory allocation: Stack frames for execution context vs heap objects.",
+                "imageAlt": "V8 Stack and Heap Allocation"
               }
             }
           ]
@@ -2368,7 +2605,10 @@ window.COURSE_DATA = {
               "Assuming operations in Implicit Coercion & Equality Comparison Rules complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ydkjs-get-started/file2.svg",
+            "diagramCaption": "Figure 5.2: Type coercion and strict equality comparison phases (You Don't Know JS Yet: Get Started).",
+            "diagramAlt": "Type Coercion and Equality Comparison Flow"
           },
           "videos": [
             {
@@ -2396,7 +2636,10 @@ window.COURSE_DATA = {
                 "definition": "Challenge intro: Create a new object type is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Challenge intro: Create a new object type:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a new object type execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a new object type execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+                "imageAlt": "Type Coercion and Equality Comparison"
               }
             },
             {
@@ -2424,7 +2667,10 @@ window.COURSE_DATA = {
                 "definition": "Solution: Create a new object type is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Solution: Create a new object type:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a new object type execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a new object type execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+                "imageAlt": "Type Coercion and Equality Comparison"
               }
             },
             {
@@ -2452,7 +2698,10 @@ window.COURSE_DATA = {
                 "definition": "Mix text and variables with template literals is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Mix text and variables with template literals:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Mix text and variables with template literals execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Mix text and variables with template literals execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion and defensive type checking comparison flow.",
+                "imageAlt": "Type Coercion Comparison"
               }
             },
             {
@@ -2480,7 +2729,10 @@ window.COURSE_DATA = {
                 "definition": "Traditional string output is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Traditional string output:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Traditional string output execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Traditional string output execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion and defensive type checking comparison flow.",
+                "imageAlt": "Type Coercion Comparison"
               }
             },
             {
@@ -2508,7 +2760,10 @@ window.COURSE_DATA = {
                 "definition": "Challenge intro: Create a template literal is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Challenge intro: Create a template literal:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a template literal execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge intro: Create a template literal execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion and defensive type checking comparison flow.",
+                "imageAlt": "Type Coercion Comparison"
               }
             },
             {
@@ -2536,7 +2791,10 @@ window.COURSE_DATA = {
                 "definition": "Solution: Create a template literal is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Solution: Create a template literal:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a template literal execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a template literal execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion and defensive type checking comparison flow.",
+                "imageAlt": "Type Coercion Comparison"
               }
             }
           ]
@@ -2567,7 +2825,10 @@ window.COURSE_DATA = {
               "Assuming operations in Strict Mode Grammar & Defensive Type Checking complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/mastering-nodejs/B21959_04_01.png",
+            "diagramCaption": "Figure 5.3: Defensive type validation and schema boundaries (Mastering Node.js Web Development).",
+            "diagramAlt": "Defensive Type Checking and Validation Schema"
           },
           "videos": [
             {
@@ -2595,7 +2856,10 @@ window.COURSE_DATA = {
                 "definition": "DOM: The Document Object Model is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for DOM: The Document Object Model:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during DOM: The Document Object Model execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during DOM: The Document Object Model execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+                "imageAlt": "AST Tokenization and Bytecode Generation"
               }
             },
             {
@@ -2623,7 +2887,10 @@ window.COURSE_DATA = {
                 "definition": "Access elements with querySelector methods is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Access elements with querySelector methods:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements with querySelector methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements with querySelector methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -2651,7 +2918,10 @@ window.COURSE_DATA = {
                 "definition": "Access elements using older methods is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Access elements using older methods:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements using older methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Access elements using older methods execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion and defensive type checking comparison flow.",
+                "imageAlt": "Type Coercion Comparison"
               }
             },
             {
@@ -2679,7 +2949,10 @@ window.COURSE_DATA = {
                 "definition": "Practice: Find an element is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Practice: Find an element:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Find an element execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Practice: Find an element execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion and defensive type checking comparison flow.",
+                "imageAlt": "Type Coercion Comparison"
               }
             },
             {
@@ -2707,7 +2980,10 @@ window.COURSE_DATA = {
                 "definition": "Modifying element classes is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Modifying element classes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Modifying element classes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Modifying element classes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file5.svg",
+                "imageCaption": "Prototypal object delegation and dynamic execution context binding.",
+                "imageAlt": "Prototypal Object Delegation"
               }
             },
             {
@@ -2735,7 +3011,10 @@ window.COURSE_DATA = {
                 "definition": "Attributes is a core architectural concept in **Types, Grammar, Coercion & Equality Comparison Rules**. Get hands-on experience scripting in JavaScript. Learn how to work with objects, variables, data types, conditionals, functions, loops, the DOM, and more.",
                 "mentalModel": "Execution Flow for Attributes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Type Validation & Safe Coercion Helpers\nexport function parseConfigPort(rawPort, defaultPort = 3000) {\n  if (rawPort === null || rawPort === undefined) return defaultPort;\n  \n  const portNum = Number(rawPort);\n  if (!Number.isInteger(portNum) || portNum < 1 || portNum > 65535) {\n    throw new RangeError(`Invalid TCP port configuration: \"${rawPort}\"`);\n  }\n  return portNum;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion and defensive type checking comparison flow.",
+                "imageAlt": "Type Coercion Comparison"
               }
             }
           ]
@@ -2783,7 +3062,10 @@ window.COURSE_DATA = {
               "Assuming operations in The Callback Pattern & Event Loop Architecture complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/distributed-systems/dsnj_0102.png",
+            "diagramCaption": "Figure 6.1: Sequential vs Parallel asynchronous I/O scheduling in Node.js (Distributed Systems with Node.js).",
+            "diagramAlt": "Sequential vs Parallel Asynchronous I/O Execution"
           },
           "videos": [
             {
@@ -2811,7 +3093,10 @@ window.COURSE_DATA = {
                 "definition": "Welcome is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Welcome:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0102.png",
+                "imageCaption": "Sequential vs Parallel asynchronous execution flow in Node.js.",
+                "imageAlt": "Asynchronous Execution Flow"
               }
             },
             {
@@ -2839,7 +3124,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0102.png",
+                "imageCaption": "Sequential vs Parallel asynchronous execution flow in Node.js.",
+                "imageAlt": "Asynchronous Execution Flow"
               }
             },
             {
@@ -2867,7 +3155,10 @@ window.COURSE_DATA = {
                 "definition": "Using the exercise files is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Using the exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0102.png",
+                "imageCaption": "Sequential vs Parallel asynchronous execution flow in Node.js.",
+                "imageAlt": "Asynchronous Execution Flow"
               }
             },
             {
@@ -2895,7 +3186,10 @@ window.COURSE_DATA = {
                 "definition": "Callback pattern is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Callback pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Callback pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Callback pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             }
           ]
@@ -2924,7 +3218,10 @@ window.COURSE_DATA = {
               "Assuming operations in Promises: Resolving, Rejecting & Promisify complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/distributed-systems/dsnj_0104.png",
+            "diagramCaption": "Figure 6.2: The Five Phases of the Node.js Event Loop: Timers, Pending, Poll, Check, Close (Distributed Systems with Node.js).",
+            "diagramAlt": "The Five Phases of the Node.js Event Loop"
           },
           "videos": [
             {
@@ -2952,7 +3249,10 @@ window.COURSE_DATA = {
                 "definition": "Resolving promises is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Resolving promises:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Resolving promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Resolving promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             },
             {
@@ -2980,7 +3280,10 @@ window.COURSE_DATA = {
                 "definition": "Rejecting promises is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Rejecting promises:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rejecting promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rejecting promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             },
             {
@@ -3008,7 +3311,10 @@ window.COURSE_DATA = {
                 "definition": "The promisify function is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for The promisify function:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The promisify function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The promisify function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0102.png",
+                "imageCaption": "Sequential vs Parallel asynchronous execution flow in Node.js.",
+                "imageAlt": "Asynchronous Execution Flow"
               }
             },
             {
@@ -3036,7 +3342,10 @@ window.COURSE_DATA = {
                 "definition": "Sequential execution is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Sequential execution:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             }
           ]
@@ -3065,7 +3374,10 @@ window.COURSE_DATA = {
               "Assuming operations in Async/Await & Sequential vs Parallel Flow complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_03_01.png",
+            "diagramCaption": "Figure 6.3: Asynchronous function invocation and callback queue dispatch (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Asynchronous Callback Dispatch and Execution Flow"
           },
           "videos": [
             {
@@ -3093,7 +3405,10 @@ window.COURSE_DATA = {
                 "definition": "Sequential execution with async/await is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Sequential execution with async/await:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution with async/await execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution with async/await execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             },
             {
@@ -3121,7 +3436,10 @@ window.COURSE_DATA = {
                 "definition": "Parallel execution is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Parallel execution:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_05.png",
+                "imageCaption": "Concurrency-limited parallel task queue with bounded worker pool.",
+                "imageAlt": "Concurrency-Limited Parallel Task Queue"
               }
             },
             {
@@ -3149,7 +3467,10 @@ window.COURSE_DATA = {
                 "definition": "Concurrent tasks is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Concurrent tasks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0102.png",
+                "imageCaption": "Sequential vs Parallel asynchronous execution flow in Node.js.",
+                "imageAlt": "Asynchronous Execution Flow"
               }
             },
             {
@@ -3177,7 +3498,10 @@ window.COURSE_DATA = {
                 "definition": "Logging concurrent tasks is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Logging concurrent tasks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0401.png",
+                "imageCaption": "Centralized structured logging architecture with Elasticsearch, Logstash, and Kibana.",
+                "imageAlt": "ELK Centralized Logging Architecture"
               }
             }
           ]
@@ -3226,7 +3550,10 @@ window.COURSE_DATA = {
               "Assuming operations in Node.js Runtime Architecture & Globals complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_01_001.png",
+            "diagramCaption": "Figure 7.1: Multi-threaded connection concurrency model vs single-threaded event loop (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Multi-threaded vs Single-threaded Concurrency Model"
           },
           "videos": [
             {
@@ -3254,7 +3581,10 @@ window.COURSE_DATA = {
                 "definition": "Learning the Node.js basics is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Learning the Node.js basics:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Learning the Node.js basics execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Learning the Node.js basics execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Demultiplexing event I/O.",
+                "imageAlt": "libuv Reactor Pattern Demultiplexing"
               }
             },
             {
@@ -3282,7 +3612,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Demultiplexing event I/O.",
+                "imageAlt": "libuv Reactor Pattern Demultiplexing"
               }
             },
             {
@@ -3310,7 +3643,10 @@ window.COURSE_DATA = {
                 "definition": "Node.js history is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Node.js history:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Node.js history execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Node.js history execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Demultiplexing event I/O.",
+                "imageAlt": "libuv Reactor Pattern Demultiplexing"
               }
             },
             {
@@ -3338,7 +3674,10 @@ window.COURSE_DATA = {
                 "definition": "Installing Node.js is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Installing Node.js:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Installing Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Installing Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Demultiplexing event I/O.",
+                "imageAlt": "libuv Reactor Pattern Demultiplexing"
               }
             },
             {
@@ -3366,7 +3705,10 @@ window.COURSE_DATA = {
                 "definition": "Using Visual Studio Code is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Using Visual Studio Code:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using Visual Studio Code execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using Visual Studio Code execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Demultiplexing event I/O.",
+                "imageAlt": "libuv Reactor Pattern Demultiplexing"
               }
             }
           ]
@@ -3396,7 +3738,10 @@ window.COURSE_DATA = {
               "Assuming operations in Process Object, CLI Arguments & Standard I/O complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+            "diagramCaption": "Figure 7.2: The libuv Reactor Pattern: Non-blocking I/O multiplexer and event demultiplexer (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "The libuv Reactor Pattern Architecture"
           },
           "videos": [
             {
@@ -3424,7 +3769,10 @@ window.COURSE_DATA = {
                 "definition": "Inspecting the global object is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Inspecting the global object:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Inspecting the global object execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Inspecting the global object execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Demultiplexing event I/O.",
+                "imageAlt": "libuv Reactor Pattern Demultiplexing"
               }
             },
             {
@@ -3452,7 +3800,10 @@ window.COURSE_DATA = {
                 "definition": "Using the require function is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Using the require function:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the require function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the require function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+                "imageAlt": "ESM Instantiation and Live Bindings Resolution"
               }
             },
             {
@@ -3480,7 +3831,10 @@ window.COURSE_DATA = {
                 "definition": "Handling argument variables with process.argv is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Handling argument variables with process.argv:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Handling argument variables with process.argv execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Handling argument variables with process.argv execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/security-layers.png",
+                "imageCaption": "Defense-in-depth security layers across runtime, application, and network.",
+                "imageAlt": "Defense-in-Depth Security Layers"
               }
             },
             {
@@ -3508,7 +3862,10 @@ window.COURSE_DATA = {
                 "definition": "Working with standard input is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Working with standard input:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with standard input execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with standard input execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Demultiplexing event I/O.",
+                "imageAlt": "libuv Reactor Pattern Demultiplexing"
               }
             },
             {
@@ -3536,7 +3893,10 @@ window.COURSE_DATA = {
                 "definition": "Using standard output is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Using standard output:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using standard output execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using standard output execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Demultiplexing event I/O.",
+                "imageAlt": "libuv Reactor Pattern Demultiplexing"
               }
             }
           ]
@@ -3566,7 +3926,10 @@ window.COURSE_DATA = {
               "Assuming operations in Timers, Delays & Asynchronous Scheduling complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_01_004.png",
+            "diagramCaption": "Figure 7.3: Node.js Internal Architecture: V8 engine, libuv, Core C++ bindings, and Node.js standard library (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Node.js Internal Architecture Stack"
           },
           "videos": [
             {
@@ -3594,7 +3957,10 @@ window.COURSE_DATA = {
                 "definition": "Creating a delay with setTimeout is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Creating a delay with setTimeout:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a delay with setTimeout execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a delay with setTimeout execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Demultiplexing event I/O.",
+                "imageAlt": "libuv Reactor Pattern Demultiplexing"
               }
             },
             {
@@ -3622,7 +3988,10 @@ window.COURSE_DATA = {
                 "definition": "Incorporating setInterval is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Incorporating setInterval:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Incorporating setInterval execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Incorporating setInterval execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Demultiplexing event I/O.",
+                "imageAlt": "libuv Reactor Pattern Demultiplexing"
               }
             },
             {
@@ -3650,7 +4019,10 @@ window.COURSE_DATA = {
                 "definition": "Reporting progress with setInterval is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Reporting progress with setInterval:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Reporting progress with setInterval execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Reporting progress with setInterval execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Demultiplexing event I/O.",
+                "imageAlt": "libuv Reactor Pattern Demultiplexing"
               }
             },
             {
@@ -3678,7 +4050,10 @@ window.COURSE_DATA = {
                 "definition": "Understanding core modules is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Understanding core modules:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding core modules execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding core modules execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+                "imageAlt": "ESM Instantiation and Live Bindings Resolution"
               }
             },
             {
@@ -3706,7 +4081,10 @@ window.COURSE_DATA = {
                 "definition": "Collecting information with readline is a core architectural concept in **Node.js System Architecture, Libuv & Thread Pool Internals**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Collecting information with readline:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Event Loop Lag Monitor using Node.js Perf Hooks\nimport { monitorEventLoopDelay } from \"perf_hooks\";\n\nexport function createLagMonitor(warningThresholdMs = 20) {\n  const histogram = monitorEventLoopDelay({ resolution: 10 });\n  histogram.enable();\n\n  return {\n    checkHealth() {\n      const p99LagMs = histogram.percentile(99) / 1e6;\n      const maxLagMs = histogram.max / 1e6;\n      return {\n        healthy: p99LagMs < warningThresholdMs,\n        p99LagMs: Math.round(p99LagMs * 100) / 100,\n        maxLagMs: Math.round(maxLagMs * 100) / 100\n      };\n    },\n    reset() {\n      histogram.reset();\n    }\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Collecting information with readline execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Collecting information with readline execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Demultiplexing event I/O.",
+                "imageAlt": "libuv Reactor Pattern Demultiplexing"
               }
             }
           ]
@@ -3754,7 +4132,10 @@ window.COURSE_DATA = {
               "Assuming operations in Core Modules & Standard Library Loading complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_02_001.png",
+            "diagramCaption": "Figure 8.1: Modular dependency graph and dependency resolution tree (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Modular Dependency Graph Resolution Tree"
           },
           "videos": [
             {
@@ -3782,7 +4163,10 @@ window.COURSE_DATA = {
                 "definition": "Using readline is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules & Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Using readline:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Modern ESM Utility with Path Reconstruction & Conditional Loading\nimport { fileURLToPath } from \"node:url\";\nimport { dirname, join } from \"node:path\";\nimport { readFile } from \"node:fs/promises\";\n\nconst __filename = fileURLToPath(import.meta.url);\nconst __dirname = dirname(__filename);\n\nexport async function loadModuleConfig(configName = \"config.json\") {\n  const targetPath = join(__dirname, configName);\n  const raw = await readFile(targetPath, \"utf-8\");\n  return JSON.parse(raw);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readline execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readline execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ESM module instantiation and circular dependency resolution.",
+                "imageAlt": "ESM Instantiation"
               }
             },
             {
@@ -3810,7 +4194,10 @@ window.COURSE_DATA = {
                 "definition": "Exporting custom modules is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules & Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Exporting custom modules:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Modern ESM Utility with Path Reconstruction & Conditional Loading\nimport { fileURLToPath } from \"node:url\";\nimport { dirname, join } from \"node:path\";\nimport { readFile } from \"node:fs/promises\";\n\nconst __filename = fileURLToPath(import.meta.url);\nconst __dirname = dirname(__filename);\n\nexport async function loadModuleConfig(configName = \"config.json\") {\n  const targetPath = join(__dirname, configName);\n  const raw = await readFile(targetPath, \"utf-8\");\n  return JSON.parse(raw);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exporting custom modules execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exporting custom modules execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+                "imageAlt": "ESM Instantiation and Live Bindings Resolution"
               }
             },
             {
@@ -3838,7 +4225,10 @@ window.COURSE_DATA = {
                 "definition": "Creating a module is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules & Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Creating a module:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Modern ESM Utility with Path Reconstruction & Conditional Loading\nimport { fileURLToPath } from \"node:url\";\nimport { dirname, join } from \"node:path\";\nimport { readFile } from \"node:fs/promises\";\n\nconst __filename = fileURLToPath(import.meta.url);\nconst __dirname = dirname(__filename);\n\nexport async function loadModuleConfig(configName = \"config.json\") {\n  const targetPath = join(__dirname, configName);\n  const raw = await readFile(targetPath, \"utf-8\");\n  return JSON.parse(raw);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a module execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a module execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+                "imageAlt": "ESM Instantiation and Live Bindings Resolution"
               }
             },
             {
@@ -3866,7 +4256,10 @@ window.COURSE_DATA = {
                 "definition": "Custom events with the EventEmitter is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules & Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Custom events with the EventEmitter:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Modern ESM Utility with Path Reconstruction & Conditional Loading\nimport { fileURLToPath } from \"node:url\";\nimport { dirname, join } from \"node:path\";\nimport { readFile } from \"node:fs/promises\";\n\nconst __filename = fileURLToPath(import.meta.url);\nconst __dirname = dirname(__filename);\n\nexport async function loadModuleConfig(configName = \"config.json\") {\n  const targetPath = join(__dirname, configName);\n  const raw = await readFile(targetPath, \"utf-8\");\n  return JSON.parse(raw);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Custom events with the EventEmitter execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Custom events with the EventEmitter execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_03_02.png",
+                "imageCaption": "Observer Pattern: Event emitter dispatching events to registered listeners.",
+                "imageAlt": "Observer Pattern and EventEmitter Dispatch"
               }
             }
           ]
@@ -3895,7 +4288,10 @@ window.COURSE_DATA = {
               "Assuming operations in Custom Modules: module.exports & CommonJS complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_02_002.png",
+            "diagramCaption": "Figure 8.2: Circular dependency graph in CommonJS and ESM module systems (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Circular Dependency Resolution in Module Systems"
           },
           "videos": [
             {
@@ -3923,7 +4319,10 @@ window.COURSE_DATA = {
                 "definition": "Consuming a module with EventEmitter is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules & Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Consuming a module with EventEmitter:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Modern ESM Utility with Path Reconstruction & Conditional Loading\nimport { fileURLToPath } from \"node:url\";\nimport { dirname, join } from \"node:path\";\nimport { readFile } from \"node:fs/promises\";\n\nconst __filename = fileURLToPath(import.meta.url);\nconst __dirname = dirname(__filename);\n\nexport async function loadModuleConfig(configName = \"config.json\") {\n  const targetPath = join(__dirname, configName);\n  const raw = await readFile(targetPath, \"utf-8\");\n  return JSON.parse(raw);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Consuming a module with EventEmitter execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Consuming a module with EventEmitter execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+                "imageAlt": "ESM Instantiation and Live Bindings Resolution"
               }
             },
             {
@@ -3951,7 +4350,10 @@ window.COURSE_DATA = {
                 "definition": "Listing directory files is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules & Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Listing directory files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Modern ESM Utility with Path Reconstruction & Conditional Loading\nimport { fileURLToPath } from \"node:url\";\nimport { dirname, join } from \"node:path\";\nimport { readFile } from \"node:fs/promises\";\n\nconst __filename = fileURLToPath(import.meta.url);\nconst __dirname = dirname(__filename);\n\nexport async function loadModuleConfig(configName = \"config.json\") {\n  const targetPath = join(__dirname, configName);\n  const raw = await readFile(targetPath, \"utf-8\");\n  return JSON.parse(raw);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Listing directory files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Listing directory files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ESM module instantiation and circular dependency resolution.",
+                "imageAlt": "ESM Instantiation"
               }
             },
             {
@@ -3979,7 +4381,10 @@ window.COURSE_DATA = {
                 "definition": "Reading files is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules & Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Reading files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Modern ESM Utility with Path Reconstruction & Conditional Loading\nimport { fileURLToPath } from \"node:url\";\nimport { dirname, join } from \"node:path\";\nimport { readFile } from \"node:fs/promises\";\n\nconst __filename = fileURLToPath(import.meta.url);\nconst __dirname = dirname(__filename);\n\nexport async function loadModuleConfig(configName = \"config.json\") {\n  const targetPath = join(__dirname, configName);\n  const raw = await readFile(targetPath, \"utf-8\");\n  return JSON.parse(raw);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Reading files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Reading files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ESM module instantiation and circular dependency resolution.",
+                "imageAlt": "ESM Instantiation"
               }
             },
             {
@@ -4007,7 +4412,10 @@ window.COURSE_DATA = {
                 "definition": "Writing and appending files is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules & Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Writing and appending files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Modern ESM Utility with Path Reconstruction & Conditional Loading\nimport { fileURLToPath } from \"node:url\";\nimport { dirname, join } from \"node:path\";\nimport { readFile } from \"node:fs/promises\";\n\nconst __filename = fileURLToPath(import.meta.url);\nconst __dirname = dirname(__filename);\n\nexport async function loadModuleConfig(configName = \"config.json\") {\n  const targetPath = join(__dirname, configName);\n  const raw = await readFile(targetPath, \"utf-8\");\n  return JSON.parse(raw);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing and appending files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing and appending files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ESM module instantiation and circular dependency resolution.",
+                "imageAlt": "ESM Instantiation"
               }
             }
           ]
@@ -4036,7 +4444,10 @@ window.COURSE_DATA = {
               "Assuming operations in Package Management, Module Isolation & ESM Interop complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+            "diagramCaption": "Figure 8.3: ECMAScript Modules (ESM) 3-phase loading: Construction, Instantiation, Evaluation (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "ESM 3-Phase Loading Instantiation Pipeline"
           },
           "videos": [
             {
@@ -4064,7 +4475,10 @@ window.COURSE_DATA = {
                 "definition": "Creating directories is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules & Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Creating directories:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Modern ESM Utility with Path Reconstruction & Conditional Loading\nimport { fileURLToPath } from \"node:url\";\nimport { dirname, join } from \"node:path\";\nimport { readFile } from \"node:fs/promises\";\n\nconst __filename = fileURLToPath(import.meta.url);\nconst __dirname = dirname(__filename);\n\nexport async function loadModuleConfig(configName = \"config.json\") {\n  const targetPath = join(__dirname, configName);\n  const raw = await readFile(targetPath, \"utf-8\");\n  return JSON.parse(raw);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating directories execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating directories execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ESM module instantiation and circular dependency resolution.",
+                "imageAlt": "ESM Instantiation"
               }
             },
             {
@@ -4092,7 +4506,10 @@ window.COURSE_DATA = {
                 "definition": "Renaming and removing files is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules & Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Renaming and removing files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Modern ESM Utility with Path Reconstruction & Conditional Loading\nimport { fileURLToPath } from \"node:url\";\nimport { dirname, join } from \"node:path\";\nimport { readFile } from \"node:fs/promises\";\n\nconst __filename = fileURLToPath(import.meta.url);\nconst __dirname = dirname(__filename);\n\nexport async function loadModuleConfig(configName = \"config.json\") {\n  const targetPath = join(__dirname, configName);\n  const raw = await readFile(targetPath, \"utf-8\");\n  return JSON.parse(raw);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Renaming and removing files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Renaming and removing files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ESM module instantiation and circular dependency resolution.",
+                "imageAlt": "ESM Instantiation"
               }
             },
             {
@@ -4120,7 +4537,10 @@ window.COURSE_DATA = {
                 "definition": "Renaming and removing directories is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules & Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Renaming and removing directories:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Modern ESM Utility with Path Reconstruction & Conditional Loading\nimport { fileURLToPath } from \"node:url\";\nimport { dirname, join } from \"node:path\";\nimport { readFile } from \"node:fs/promises\";\n\nconst __filename = fileURLToPath(import.meta.url);\nconst __dirname = dirname(__filename);\n\nexport async function loadModuleConfig(configName = \"config.json\") {\n  const targetPath = join(__dirname, configName);\n  const raw = await readFile(targetPath, \"utf-8\");\n  return JSON.parse(raw);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Renaming and removing directories execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Renaming and removing directories execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ESM module instantiation and circular dependency resolution.",
+                "imageAlt": "ESM Instantiation"
               }
             },
             {
@@ -4148,7 +4568,10 @@ window.COURSE_DATA = {
                 "definition": "Readable file streams is a core architectural concept in **Module Systems: CommonJS, ECMAScript Modules & Dual Packaging**. Learn the essentials of Node.js. Discover what you need to know to start creating your own JavaScript applications with Node.js.",
                 "mentalModel": "Execution Flow for Readable file streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Modern ESM Utility with Path Reconstruction & Conditional Loading\nimport { fileURLToPath } from \"node:url\";\nimport { dirname, join } from \"node:path\";\nimport { readFile } from \"node:fs/promises\";\n\nconst __filename = fileURLToPath(import.meta.url);\nconst __dirname = dirname(__filename);\n\nexport async function loadModuleConfig(configName = \"config.json\") {\n  const targetPath = join(__dirname, configName);\n  const raw = await readFile(targetPath, \"utf-8\");\n  return JSON.parse(raw);\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable file streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable file streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+                "imageCaption": "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+                "imageAlt": "Duplex and Transform Stream Buffer Architecture"
               }
             }
           ]
@@ -4196,7 +4619,10 @@ window.COURSE_DATA = {
               "Assuming operations in Sequential Asynchronous Flow Control complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+            "diagramCaption": "Figure 9.1: Sequential asynchronous execution pipeline with error propagation (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Sequential Asynchronous Control Flow Pipeline"
           },
           "videos": [
             {
@@ -4224,7 +4650,10 @@ window.COURSE_DATA = {
                 "definition": "Resolving promises is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Resolving promises:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Resolving promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Resolving promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             },
             {
@@ -4252,7 +4681,10 @@ window.COURSE_DATA = {
                 "definition": "Rejecting promises is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Rejecting promises:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rejecting promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rejecting promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             },
             {
@@ -4280,7 +4712,10 @@ window.COURSE_DATA = {
                 "definition": "The promisify function is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for The promisify function:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The promisify function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The promisify function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_02.png",
+                "imageCaption": "Parallel asynchronous task control flow with bounded concurrency.",
+                "imageAlt": "Parallel Asynchronous Control Flow"
               }
             },
             {
@@ -4308,7 +4743,10 @@ window.COURSE_DATA = {
                 "definition": "Sequential execution is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Sequential execution:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             }
           ]
@@ -4337,7 +4775,10 @@ window.COURSE_DATA = {
               "Assuming operations in Parallel Execution & Resource Limiting complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_04_02.png",
+            "diagramCaption": "Figure 9.2: Parallel asynchronous execution flow with concurrent task aggregation (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Parallel Asynchronous Task Aggregation"
           },
           "videos": [
             {
@@ -4365,7 +4806,10 @@ window.COURSE_DATA = {
                 "definition": "Sequential execution with async/await is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Sequential execution with async/await:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution with async/await execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution with async/await execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             },
             {
@@ -4393,7 +4837,10 @@ window.COURSE_DATA = {
                 "definition": "Parallel execution is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Parallel execution:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_05.png",
+                "imageCaption": "Concurrency-limited parallel task queue with bounded worker pool.",
+                "imageAlt": "Concurrency-Limited Parallel Task Queue"
               }
             },
             {
@@ -4421,7 +4868,10 @@ window.COURSE_DATA = {
                 "definition": "Concurrent tasks is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Concurrent tasks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_02.png",
+                "imageCaption": "Parallel asynchronous task control flow with bounded concurrency.",
+                "imageAlt": "Parallel Asynchronous Control Flow"
               }
             },
             {
@@ -4449,7 +4899,10 @@ window.COURSE_DATA = {
                 "definition": "Logging concurrent tasks is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Logging concurrent tasks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0401.png",
+                "imageCaption": "Centralized structured logging architecture with Elasticsearch, Logstash, and Kibana.",
+                "imageAlt": "ELK Centralized Logging Architecture"
               }
             }
           ]
@@ -4478,7 +4931,10 @@ window.COURSE_DATA = {
               "Assuming operations in Concurrent Tasks & Failure Resilience complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_04_05.png",
+            "diagramCaption": "Figure 9.3: Concurrency-limited asynchronous execution queue with bounded task pool (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Concurrency-Limited Task Pool Execution"
           },
           "videos": [
             {
@@ -4506,7 +4962,10 @@ window.COURSE_DATA = {
                 "definition": "Why streams? is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Why streams?:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Why streams? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Why streams? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+                "imageCaption": "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+                "imageAlt": "Duplex and Transform Stream Buffer Architecture"
               }
             },
             {
@@ -4534,7 +4993,10 @@ window.COURSE_DATA = {
                 "definition": "Readable streams is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Readable streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+                "imageCaption": "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+                "imageAlt": "Duplex and Transform Stream Buffer Architecture"
               }
             },
             {
@@ -4562,7 +5024,10 @@ window.COURSE_DATA = {
                 "definition": "Using readable streams is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Using readable streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+                "imageCaption": "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+                "imageAlt": "Duplex and Transform Stream Buffer Architecture"
               }
             },
             {
@@ -4590,7 +5055,10 @@ window.COURSE_DATA = {
                 "definition": "Writable streams is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Writable streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+                "imageCaption": "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+                "imageAlt": "Duplex and Transform Stream Buffer Architecture"
               }
             }
           ]
@@ -4638,7 +5106,10 @@ window.COURSE_DATA = {
               "Assuming operations in Why Streams & Readable Stream Pipeline complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_06_03-01.png",
+            "diagramCaption": "Figure 10.1: Spatial vs Temporal efficiency: Buffering vs Streaming memory footprint (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Buffering vs Streaming Memory Efficiency Comparison"
           },
           "videos": [
             {
@@ -4666,7 +5137,10 @@ window.COURSE_DATA = {
                 "definition": "Parallel execution is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Parallel execution:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_05.png",
+                "imageCaption": "Concurrency-limited parallel task queue with bounded worker pool.",
+                "imageAlt": "Concurrency-Limited Parallel Task Queue"
               }
             },
             {
@@ -4694,7 +5168,10 @@ window.COURSE_DATA = {
                 "definition": "Concurrent tasks is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Concurrent tasks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_006.png",
+                "imageCaption": "Node.js stream backpressure flow control and pipeline piping.",
+                "imageAlt": "Stream Backpressure Flow Control"
               }
             },
             {
@@ -4722,7 +5199,10 @@ window.COURSE_DATA = {
                 "definition": "Logging concurrent tasks is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Logging concurrent tasks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0401.png",
+                "imageCaption": "Centralized structured logging architecture with Elasticsearch, Logstash, and Kibana.",
+                "imageAlt": "ELK Centralized Logging Architecture"
               }
             },
             {
@@ -4750,7 +5230,10 @@ window.COURSE_DATA = {
                 "definition": "Why streams? is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Why streams?:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Why streams? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Why streams? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+                "imageCaption": "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+                "imageAlt": "Duplex and Transform Stream Buffer Architecture"
               }
             }
           ]
@@ -4779,7 +5262,10 @@ window.COURSE_DATA = {
               "Assuming operations in Writable Streams & Backpressure Drain Mechanics complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+            "diagramCaption": "Figure 10.2: Duplex stream and Transform stream internal read/write buffer mechanics (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Duplex and Transform Stream Internal Buffer Architecture"
           },
           "videos": [
             {
@@ -4807,7 +5293,10 @@ window.COURSE_DATA = {
                 "definition": "Readable streams is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Readable streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+                "imageCaption": "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+                "imageAlt": "Duplex and Transform Stream Buffer Architecture"
               }
             },
             {
@@ -4835,7 +5324,10 @@ window.COURSE_DATA = {
                 "definition": "Using readable streams is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Using readable streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+                "imageCaption": "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+                "imageAlt": "Duplex and Transform Stream Buffer Architecture"
               }
             },
             {
@@ -4863,7 +5355,10 @@ window.COURSE_DATA = {
                 "definition": "Writable streams is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Writable streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+                "imageCaption": "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+                "imageAlt": "Duplex and Transform Stream Buffer Architecture"
               }
             },
             {
@@ -4891,7 +5386,10 @@ window.COURSE_DATA = {
                 "definition": "Backpressure is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Backpressure:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Backpressure execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Backpressure execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_006.png",
+                "imageCaption": "Stream pipeline backpressure flow control: Preventing buffer bloat.",
+                "imageAlt": "Stream Pipeline Backpressure Flow Control"
               }
             }
           ]
@@ -4920,7 +5418,10 @@ window.COURSE_DATA = {
               "Assuming operations in Piping, Duplex & Transform Stream Processing complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_06_006.png",
+            "diagramCaption": "Figure 10.3: Stream pipeline backpressure and flow control: Combining and piping streams (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Stream Pipeline Piping and Backpressure Flow Control"
           },
           "videos": [
             {
@@ -4948,7 +5449,10 @@ window.COURSE_DATA = {
                 "definition": "Piping streams is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Piping streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Piping streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Piping streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+                "imageCaption": "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+                "imageAlt": "Duplex and Transform Stream Buffer Architecture"
               }
             },
             {
@@ -4976,7 +5480,10 @@ window.COURSE_DATA = {
                 "definition": "Duplex streams is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Duplex streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Duplex streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Duplex streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+                "imageCaption": "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+                "imageAlt": "Duplex and Transform Stream Buffer Architecture"
               }
             },
             {
@@ -5004,7 +5511,10 @@ window.COURSE_DATA = {
                 "definition": "Transform streams is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Transform streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Transform streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Transform streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+                "imageCaption": "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+                "imageAlt": "Duplex and Transform Stream Buffer Architecture"
               }
             },
             {
@@ -5032,7 +5542,10 @@ window.COURSE_DATA = {
                 "definition": "Streaming to the browser is a core architectural concept in **Streams, Buffers & Backpressure Mechanics**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
                 "mentalModel": "Execution Flow for Streaming to the browser:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Stream Pipeline with Backpressure & Error Propagation\nimport { pipeline } from \"stream/promises\";\nimport { createReadStream, createWriteStream } from \"fs\";\nimport { createGzip } from \"zlib\";\n\nexport async function compressFile(sourcePath, destPath) {\n  const readable = createReadStream(sourcePath, { highWaterMark: 64 * 1024 });\n  const gzip = createGzip({ level: 6 });\n  const writable = createWriteStream(destPath);\n\n  // pipeline handles full backpressure lifecycle and stream cleanup\n  await pipeline(readable, gzip, writable);\n  return { success: true, destPath };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Streaming to the browser execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Streaming to the browser execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F08_DaCosta.png",
+                "imageCaption": "End-to-End (E2E) testing: Simulating end-user interactions against production builds.",
+                "imageAlt": "End-to-End Testing Workflow"
               }
             }
           ]
@@ -5082,7 +5595,10 @@ window.COURSE_DATA = {
               "Assuming operations in Singleton, Prototype & Factory Patterns complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_07_2.png",
+            "diagramCaption": "Figure 11.1: Dependency Injection and Factory Pattern instantiation schematic (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Dependency Injection and Factory Pattern Architecture"
           },
           "videos": [
             {
@@ -5110,7 +5626,10 @@ window.COURSE_DATA = {
                 "definition": "Welcome is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Welcome:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+                "imageCaption": "Proxy and structural design patterns in Node.js.",
+                "imageAlt": "Proxy Structural Design Pattern"
               }
             },
             {
@@ -5138,7 +5657,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+                "imageCaption": "Proxy and structural design patterns in Node.js.",
+                "imageAlt": "Proxy Structural Design Pattern"
               }
             },
             {
@@ -5166,7 +5688,10 @@ window.COURSE_DATA = {
                 "definition": "Using the exercise files is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Using the exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+                "imageCaption": "Proxy and structural design patterns in Node.js.",
+                "imageAlt": "Proxy Structural Design Pattern"
               }
             },
             {
@@ -5194,7 +5719,10 @@ window.COURSE_DATA = {
                 "definition": "What are design patterns? is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for What are design patterns?:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What are design patterns? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What are design patterns? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+                "imageCaption": "Proxy and structural design patterns in Node.js.",
+                "imageAlt": "Proxy Structural Design Pattern"
               }
             },
             {
@@ -5222,7 +5750,10 @@ window.COURSE_DATA = {
                 "definition": "Gang of Four: Design patterns is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Gang of Four: Design patterns:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Gang of Four: Design patterns execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Gang of Four: Design patterns execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+                "imageCaption": "Proxy and structural design patterns in Node.js.",
+                "imageAlt": "Proxy Structural Design Pattern"
               }
             },
             {
@@ -5250,7 +5781,10 @@ window.COURSE_DATA = {
                 "definition": "Anti-patterns is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Anti-patterns:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Anti-patterns execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Anti-patterns execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+                "imageCaption": "Proxy and structural design patterns in Node.js.",
+                "imageAlt": "Proxy Structural Design Pattern"
               }
             }
           ]
@@ -5281,7 +5815,10 @@ window.COURSE_DATA = {
               "Assuming operations in Builder & Adapter Patterns for Node.js Services complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            "diagramCaption": "Figure 11.2: Proxy Pattern architecture: Intercepting operations with V8 Proxy & Reflect (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Proxy Pattern Operation Interception Architecture"
           },
           "videos": [
             {
@@ -5309,7 +5846,10 @@ window.COURSE_DATA = {
                 "definition": "The singleton problem is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The singleton problem:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The singleton problem execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The singleton problem execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file2.png",
+                "imageCaption": "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+                "imageAlt": "Temporal Dead Zone Scope Traversal"
               }
             },
             {
@@ -5337,7 +5877,10 @@ window.COURSE_DATA = {
                 "definition": "The Singletons pattern is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The Singletons pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Singletons pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Singletons pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file2.png",
+                "imageCaption": "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+                "imageAlt": "Temporal Dead Zone Scope Traversal"
               }
             },
             {
@@ -5365,7 +5908,10 @@ window.COURSE_DATA = {
                 "definition": "Singletons in Node is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Singletons in Node:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Singletons in Node execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Singletons in Node execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file2.png",
+                "imageCaption": "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+                "imageAlt": "Temporal Dead Zone Scope Traversal"
               }
             },
             {
@@ -5393,7 +5939,10 @@ window.COURSE_DATA = {
                 "definition": "The Prototype pattern is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The Prototype pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Prototype pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Prototype pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+                "imageAlt": "Type Coercion and Equality Comparison"
               }
             },
             {
@@ -5421,7 +5970,10 @@ window.COURSE_DATA = {
                 "definition": "The prototype clone method is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The prototype clone method:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The prototype clone method execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The prototype clone method execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+                "imageAlt": "Type Coercion and Equality Comparison"
               }
             },
             {
@@ -5449,7 +6001,10 @@ window.COURSE_DATA = {
                 "definition": "The Factory pattern is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The Factory pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Factory pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Factory pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_07_2.png",
+                "imageCaption": "Factory Pattern and Dependency Injection wire-up schematic.",
+                "imageAlt": "Factory Pattern and Dependency Injection"
               }
             }
           ]
@@ -5480,7 +6035,10 @@ window.COURSE_DATA = {
               "Assuming operations in Proxy, Composite & Decorator Patterns complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_08_2.png",
+            "diagramCaption": "Figure 11.3: Decorator and Adapter Pattern structural object augmentation (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Decorator and Adapter Pattern Object Augmentation"
           },
           "videos": [
             {
@@ -5508,7 +6066,10 @@ window.COURSE_DATA = {
                 "definition": "The Builder pattern is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The Builder pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Builder pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Builder pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_07_2.png",
+                "imageCaption": "Factory Pattern and Dependency Injection wire-up schematic.",
+                "imageAlt": "Factory Pattern and Dependency Injection"
               }
             },
             {
@@ -5536,7 +6097,10 @@ window.COURSE_DATA = {
                 "definition": "Implementing a builder is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Implementing a builder:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing a builder execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing a builder execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_07_2.png",
+                "imageCaption": "Factory Pattern and Dependency Injection wire-up schematic.",
+                "imageAlt": "Factory Pattern and Dependency Injection"
               }
             },
             {
@@ -5564,7 +6128,10 @@ window.COURSE_DATA = {
                 "definition": "The Adapter pattern is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The Adapter pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Adapter pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Adapter pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+                "imageCaption": "Proxy Pattern operation virtualization and method interception.",
+                "imageAlt": "Proxy Pattern Operation Virtualization"
               }
             },
             {
@@ -5592,7 +6159,10 @@ window.COURSE_DATA = {
                 "definition": "Implementing an adapter is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Implementing an adapter:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing an adapter execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing an adapter execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+                "imageCaption": "Proxy Pattern operation virtualization and method interception.",
+                "imageAlt": "Proxy Pattern Operation Virtualization"
               }
             },
             {
@@ -5620,7 +6190,10 @@ window.COURSE_DATA = {
                 "definition": "The Proxy pattern is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The Proxy pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Proxy pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Proxy pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+                "imageCaption": "Proxy Pattern operation virtualization and method interception.",
+                "imageAlt": "Proxy Pattern Operation Virtualization"
               }
             },
             {
@@ -5648,7 +6221,10 @@ window.COURSE_DATA = {
                 "definition": "Implementing a proxy is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Implementing a proxy:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing a proxy execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing a proxy execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+                "imageCaption": "Proxy Pattern operation virtualization and method interception.",
+                "imageAlt": "Proxy Pattern Operation Virtualization"
               }
             }
           ]
@@ -5696,7 +6272,10 @@ window.COURSE_DATA = {
               "Assuming operations in Chain of Responsibility & Command Patterns complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_03_02.png",
+            "diagramCaption": "Figure 12.1: Observer Pattern and EventEmitter publish-subscribe dispatch (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Observer Pattern and EventEmitter Dispatch Architecture"
           },
           "videos": [
             {
@@ -5724,7 +6303,10 @@ window.COURSE_DATA = {
                 "definition": "The Composite pattern is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The Composite pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Composite pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Composite pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+                "imageCaption": "Middleware Pattern and behavioral interceptor chains.",
+                "imageAlt": "Middleware Pattern Interceptor Chains"
               }
             },
             {
@@ -5752,7 +6334,10 @@ window.COURSE_DATA = {
                 "definition": "Implementing composites is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Implementing composites:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing composites execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing composites execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+                "imageCaption": "Middleware Pattern and behavioral interceptor chains.",
+                "imageAlt": "Middleware Pattern Interceptor Chains"
               }
             },
             {
@@ -5780,7 +6365,10 @@ window.COURSE_DATA = {
                 "definition": "The Decorator pattern is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The Decorator pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Decorator pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Decorator pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+                "imageCaption": "Proxy Pattern operation virtualization and method interception.",
+                "imageAlt": "Proxy Pattern Operation Virtualization"
               }
             },
             {
@@ -5808,7 +6396,10 @@ window.COURSE_DATA = {
                 "definition": "Implementing decorators is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Implementing decorators:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing decorators execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing decorators execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+                "imageCaption": "Proxy Pattern operation virtualization and method interception.",
+                "imageAlt": "Proxy Pattern Operation Virtualization"
               }
             }
           ]
@@ -5837,7 +6428,10 @@ window.COURSE_DATA = {
               "Assuming operations in Iterator & Observer Patterns in Event Loops complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_09_1.png",
+            "diagramCaption": "Figure 12.2: Strategy and State Pattern behavioral decision execution (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Strategy and State Behavioral Pattern Structure"
           },
           "videos": [
             {
@@ -5865,7 +6459,10 @@ window.COURSE_DATA = {
                 "definition": "Chain of responsibility is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Chain of responsibility:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Chain of responsibility execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Chain of responsibility execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+                "imageCaption": "Middleware Pattern and behavioral interceptor chains.",
+                "imageAlt": "Middleware Pattern Interceptor Chains"
               }
             },
             {
@@ -5893,7 +6490,10 @@ window.COURSE_DATA = {
                 "definition": "Implementing the storage class is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Implementing the storage class:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the storage class execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the storage class execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file5.svg",
+                "imageCaption": "Prototypal object delegation and dynamic execution context binding.",
+                "imageAlt": "Prototypal Object Delegation"
               }
             },
             {
@@ -5921,7 +6521,10 @@ window.COURSE_DATA = {
                 "definition": "The Command pattern is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The Command pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Command pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Command pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+                "imageCaption": "Middleware Pattern: Chain of Responsibility processing pipeline.",
+                "imageAlt": "Middleware Pattern Processing Pipeline"
               }
             },
             {
@@ -5949,7 +6552,10 @@ window.COURSE_DATA = {
                 "definition": "Implementing commands is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Implementing commands:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing commands execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing commands execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+                "imageCaption": "Middleware Pattern: Chain of Responsibility processing pipeline.",
+                "imageAlt": "Middleware Pattern Processing Pipeline"
               }
             }
           ]
@@ -5978,7 +6584,10 @@ window.COURSE_DATA = {
               "Assuming operations in Strategy Pattern & Pluggable Middleware Pipelines complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+            "diagramCaption": "Figure 12.3: Middleware Pattern and Interceptor Pipeline (Chain of Responsibility) (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Middleware Pattern Chain of Responsibility Pipeline"
           },
           "videos": [
             {
@@ -6006,7 +6615,10 @@ window.COURSE_DATA = {
                 "definition": "Improving the conductor is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Improving the conductor:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Improving the conductor execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Improving the conductor execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+                "imageCaption": "Middleware Pattern and behavioral interceptor chains.",
+                "imageAlt": "Middleware Pattern Interceptor Chains"
               }
             },
             {
@@ -6034,7 +6646,10 @@ window.COURSE_DATA = {
                 "definition": "The Iterator pattern is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The Iterator pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Iterator pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Iterator pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+                "imageCaption": "Middleware Pattern and behavioral interceptor chains.",
+                "imageAlt": "Middleware Pattern Interceptor Chains"
               }
             },
             {
@@ -6062,7 +6677,10 @@ window.COURSE_DATA = {
                 "definition": "Implementing iterators is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for Implementing iterators:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing iterators execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing iterators execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+                "imageCaption": "Middleware Pattern and behavioral interceptor chains.",
+                "imageAlt": "Middleware Pattern Interceptor Chains"
               }
             },
             {
@@ -6090,7 +6708,10 @@ window.COURSE_DATA = {
                 "definition": "The Observer pattern is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
                 "mentalModel": "Execution Flow for The Observer pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Observer pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Observer pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_03_02.png",
+                "imageCaption": "Observer Pattern: Event emitter dispatching events to registered listeners.",
+                "imageAlt": "Observer Pattern and EventEmitter Dispatch"
               }
             }
           ]
@@ -6139,7 +6760,10 @@ window.COURSE_DATA = {
               "Assuming operations in HTTP Routing, Endpoints & Tooling complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/mastering-nodejs/B21959_05_01.png",
+            "diagramCaption": "Figure 13.1: Fastify & Express HTTP request parsing, routing tree, and response pipeline (Mastering Node.js Web Development).",
+            "diagramAlt": "HTTP Server Request Parsing and Routing Pipeline"
           },
           "videos": [
             {
@@ -6167,7 +6791,10 @@ window.COURSE_DATA = {
                 "definition": "RESTful APIs with Node and Express is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for RESTful APIs with Node and Express:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during RESTful APIs with Node and Express execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during RESTful APIs with Node and Express execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify high-performance routing tree and JSON schema validation.",
+                "imageAlt": "Fastify Routing Tree and Schema Validation"
               }
             },
             {
@@ -6195,7 +6822,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify schema validation and high-throughput routing.",
+                "imageAlt": "Fastify Schema Validation Routing"
               }
             },
             {
@@ -6223,7 +6853,10 @@ window.COURSE_DATA = {
                 "definition": "Introduction to APIs and the libraries is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for Introduction to APIs and the libraries:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to APIs and the libraries execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to APIs and the libraries execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify schema validation and high-throughput routing.",
+                "imageAlt": "Fastify Schema Validation Routing"
               }
             },
             {
@@ -6251,7 +6884,10 @@ window.COURSE_DATA = {
                 "definition": "Introduction to Postman is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for Introduction to Postman:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to Postman execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to Postman execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify schema validation and high-throughput routing.",
+                "imageAlt": "Fastify Schema Validation Routing"
               }
             },
             {
@@ -6279,7 +6915,10 @@ window.COURSE_DATA = {
                 "definition": "Install Node and Express is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for Install Node and Express:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Install Node and Express execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Install Node and Express execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify high-performance routing tree and JSON schema validation.",
+                "imageAlt": "Fastify Routing Tree and Schema Validation"
               }
             }
           ]
@@ -6309,7 +6948,10 @@ window.COURSE_DATA = {
               "Assuming operations in Middleware Pipeline & Schema Validation complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/mastering-nodejs/B21959_07_01.png",
+            "diagramCaption": "Figure 13.2: High-throughput JSON serialization and schema validation in Fastify (Mastering Node.js Web Development).",
+            "diagramAlt": "Fastify Schema Validation and Serialization Pipeline"
           },
           "videos": [
             {
@@ -6337,7 +6979,10 @@ window.COURSE_DATA = {
                 "definition": "Install Mongo is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for Install Mongo:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Install Mongo execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Install Mongo execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify schema validation and high-throughput routing.",
+                "imageAlt": "Fastify Schema Validation Routing"
               }
             },
             {
@@ -6365,7 +7010,10 @@ window.COURSE_DATA = {
                 "definition": "Basic Babel setup is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for Basic Babel setup:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic Babel setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic Babel setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify schema validation and high-throughput routing.",
+                "imageAlt": "Fastify Schema Validation Routing"
               }
             },
             {
@@ -6393,7 +7041,10 @@ window.COURSE_DATA = {
                 "definition": "RESTful APIs refresher is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for RESTful APIs refresher:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during RESTful APIs refresher execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during RESTful APIs refresher execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0312.png",
+                "imageCaption": "High-throughput binary streaming RPC using gRPC and Protocol Buffers.",
+                "imageAlt": "gRPC and Protocol Buffers Streaming RPC"
               }
             },
             {
@@ -6421,7 +7072,10 @@ window.COURSE_DATA = {
                 "definition": "Initial server setup is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for Initial server setup:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Initial server setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Initial server setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify schema validation and high-throughput routing.",
+                "imageAlt": "Fastify Schema Validation Routing"
               }
             },
             {
@@ -6449,7 +7103,10 @@ window.COURSE_DATA = {
                 "definition": "Initial server files and folders is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for Initial server files and folders:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Initial server files and folders execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Initial server files and folders execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify schema validation and high-throughput routing.",
+                "imageAlt": "Fastify Schema Validation Routing"
               }
             }
           ]
@@ -6479,7 +7136,10 @@ window.COURSE_DATA = {
               "Assuming operations in Database Integration & High-Performance Endpoints complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_12_006.png",
+            "diagramCaption": "Figure 13.3: Production web service architecture: Reverse proxy, TLS termination, and Node.js service (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Production Web Service Architecture with Reverse Proxy"
           },
           "videos": [
             {
@@ -6507,7 +7167,10 @@ window.COURSE_DATA = {
                 "definition": "Basic routing endpoints is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for Basic routing endpoints:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic routing endpoints execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic routing endpoints execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify high-performance routing tree and JSON schema validation.",
+                "imageAlt": "Fastify Routing Tree and Schema Validation"
               }
             },
             {
@@ -6535,7 +7198,10 @@ window.COURSE_DATA = {
                 "definition": "Basics of middleware and uses is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for Basics of middleware and uses:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basics of middleware and uses execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basics of middleware and uses execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+                "imageCaption": "Middleware Pattern: Chain of Responsibility processing pipeline.",
+                "imageAlt": "Middleware Pattern Processing Pipeline"
               }
             },
             {
@@ -6563,7 +7229,10 @@ window.COURSE_DATA = {
                 "definition": "MongoDB basics refresher is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for MongoDB basics refresher:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during MongoDB basics refresher execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during MongoDB basics refresher execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify schema validation and high-throughput routing.",
+                "imageAlt": "Fastify Schema Validation Routing"
               }
             },
             {
@@ -6591,7 +7260,10 @@ window.COURSE_DATA = {
                 "definition": "Database setup is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for Database setup:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Database setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Database setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -6619,7 +7291,10 @@ window.COURSE_DATA = {
                 "definition": "Schema setup is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
                 "mentalModel": "Execution Flow for Schema setup:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Schema setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Schema setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify schema validation and high-throughput routing.",
+                "imageAlt": "Fastify Schema Validation Routing"
               }
             }
           ]
@@ -6668,7 +7343,10 @@ window.COURSE_DATA = {
               "Assuming operations in Child Process Execution: Exec, Spawn & Fork complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_12_002.png",
+            "diagramCaption": "Figure 14.1: Node.js Cluster module and multi-core Worker Process distribution (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Cluster Module Multi-Core Worker Architecture"
           },
           "videos": [
             {
@@ -6696,7 +7374,10 @@ window.COURSE_DATA = {
                 "definition": "Scaling applications with Node.js is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Scaling applications with Node.js:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling applications with Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling applications with Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+                "imageCaption": "Worker thread concurrency and asynchronous task queue distribution.",
+                "imageAlt": "Task Queue Distribution"
               }
             },
             {
@@ -6724,7 +7405,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+                "imageCaption": "Worker thread concurrency and asynchronous task queue distribution.",
+                "imageAlt": "Task Queue Distribution"
               }
             },
             {
@@ -6752,7 +7436,10 @@ window.COURSE_DATA = {
                 "definition": "Using the exercise files is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Using the exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+                "imageCaption": "Worker thread concurrency and asynchronous task queue distribution.",
+                "imageAlt": "Task Queue Distribution"
               }
             },
             {
@@ -6780,7 +7467,10 @@ window.COURSE_DATA = {
                 "definition": "The scale cube is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for The scale cube:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The scale cube execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The scale cube execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+                "imageCaption": "Worker thread concurrency and asynchronous task queue distribution.",
+                "imageAlt": "Task Queue Distribution"
               }
             },
             {
@@ -6808,7 +7498,10 @@ window.COURSE_DATA = {
                 "definition": "Scaling the x-axis is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Scaling the x-axis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the x-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the x-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+                "imageCaption": "Worker thread concurrency and asynchronous task queue distribution.",
+                "imageAlt": "Task Queue Distribution"
               }
             }
           ]
@@ -6838,7 +7531,10 @@ window.COURSE_DATA = {
               "Assuming operations in Cluster Module & TCP Load Distribution complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+            "diagramCaption": "Figure 14.2: Asynchronous message queue architecture and distributed work buffering (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Asynchronous Message Queue Architecture"
           },
           "videos": [
             {
@@ -6866,7 +7562,10 @@ window.COURSE_DATA = {
                 "definition": "Forking processes is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Forking processes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Forking processes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Forking processes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/security-layers.png",
+                "imageCaption": "Defense-in-depth security layers across runtime, application, and network.",
+                "imageAlt": "Defense-in-Depth Security Layers"
               }
             },
             {
@@ -6894,7 +7593,10 @@ window.COURSE_DATA = {
                 "definition": "Using a cluster module is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Using a cluster module:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using a cluster module execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using a cluster module execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+                "imageAlt": "ESM Instantiation and Live Bindings Resolution"
               }
             },
             {
@@ -6922,7 +7624,10 @@ window.COURSE_DATA = {
                 "definition": "Architecting zero downtime is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Architecting zero downtime:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Architecting zero downtime execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Architecting zero downtime execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+                "imageCaption": "Worker thread concurrency and asynchronous task queue distribution.",
+                "imageAlt": "Task Queue Distribution"
               }
             },
             {
@@ -6950,7 +7655,10 @@ window.COURSE_DATA = {
                 "definition": "Working with clusters with PM2 is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Working with clusters with PM2:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with clusters with PM2 execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with clusters with PM2 execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_12_002.png",
+                "imageCaption": "Cluster module master/worker multi-core process IPC distribution.",
+                "imageAlt": "Cluster Module IPC Distribution"
               }
             },
             {
@@ -6978,7 +7686,10 @@ window.COURSE_DATA = {
                 "definition": "Working with databases is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Working with databases:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             }
           ]
@@ -7008,7 +7719,10 @@ window.COURSE_DATA = {
               "Assuming operations in Worker Threads & Shared Memory Architecture complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+            "diagramCaption": "Figure 14.3: Publish/Subscribe messaging pattern with fan-out topic exchange (Node.js Design Patterns 4th Ed).",
+            "diagramAlt": "Publish/Subscribe Messaging Architecture"
           },
           "videos": [
             {
@@ -7036,7 +7750,10 @@ window.COURSE_DATA = {
                 "definition": "Incorporating a database is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Incorporating a database:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Incorporating a database execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Incorporating a database execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -7064,7 +7781,10 @@ window.COURSE_DATA = {
                 "definition": "Scaling the z-axis is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Scaling the z-axis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the z-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the z-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+                "imageCaption": "Worker thread concurrency and asynchronous task queue distribution.",
+                "imageAlt": "Task Queue Distribution"
               }
             },
             {
@@ -7092,7 +7812,10 @@ window.COURSE_DATA = {
                 "definition": "Setting up horizontal partitioning is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Setting up horizontal partitioning:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up horizontal partitioning execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up horizontal partitioning execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00047.gif",
+                "imageCaption": "Database partitioning: Routing requests across partitioned data nodes.",
+                "imageAlt": "Database Partitioning and Request Routing"
               }
             },
             {
@@ -7120,7 +7843,10 @@ window.COURSE_DATA = {
                 "definition": "Scaling the y-axis is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Scaling the y-axis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the y-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the y-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+                "imageCaption": "Worker thread concurrency and asynchronous task queue distribution.",
+                "imageAlt": "Task Queue Distribution"
               }
             },
             {
@@ -7148,7 +7874,10 @@ window.COURSE_DATA = {
                 "definition": "Decomposing services is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Decomposing services:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Decomposing services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Decomposing services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+                "imageCaption": "Worker thread concurrency and asynchronous task queue distribution.",
+                "imageAlt": "Task Queue Distribution"
               }
             }
           ]
@@ -7197,7 +7926,10 @@ window.COURSE_DATA = {
               "Assuming operations in Testing Pyramid Fundamentals & Test Runners complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            "diagramCaption": "Figure 15.1: The Testing Pyramid: Balancing Unit, Integration, and E2E test coverage (Testing JavaScript Applications).",
+            "diagramAlt": "The Testing Pyramid Test Distribution Model"
           },
           "videos": [
             {
@@ -7225,7 +7957,10 @@ window.COURSE_DATA = {
                 "definition": "Cleaning your codebase is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Cleaning your codebase:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Cleaning your codebase execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Cleaning your codebase execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+                "imageCaption": "The automated testing pyramid: Balancing confidence and cost.",
+                "imageAlt": "Automated Testing Pyramid"
               }
             },
             {
@@ -7253,7 +7988,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+                "imageCaption": "The automated testing pyramid: Balancing confidence and cost.",
+                "imageAlt": "Automated Testing Pyramid"
               }
             },
             {
@@ -7281,7 +8019,10 @@ window.COURSE_DATA = {
                 "definition": "Preparing for Node.js development is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Preparing for Node.js development:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Preparing for Node.js development execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Preparing for Node.js development execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+                "imageCaption": "The automated testing pyramid: Balancing confidence and cost.",
+                "imageAlt": "Automated Testing Pyramid"
               }
             },
             {
@@ -7309,7 +8050,10 @@ window.COURSE_DATA = {
                 "definition": "Exercise files is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+                "imageCaption": "The automated testing pyramid: Balancing confidence and cost.",
+                "imageAlt": "Automated Testing Pyramid"
               }
             },
             {
@@ -7337,7 +8081,10 @@ window.COURSE_DATA = {
                 "definition": "Demo setup and tour is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Demo setup and tour:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Demo setup and tour execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Demo setup and tour execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+                "imageCaption": "The automated testing pyramid: Balancing confidence and cost.",
+                "imageAlt": "Automated Testing Pyramid"
               }
             }
           ]
@@ -7367,7 +8114,10 @@ window.COURSE_DATA = {
               "Assuming operations in Assertions, Test Structure & Asynchronous Tests complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/testing-js/CH02_F03_DaCosta.png",
+            "diagramCaption": "Figure 15.2: Unit test isolation boundaries and fast feedback execution (Testing JavaScript Applications).",
+            "diagramAlt": "Unit Test Isolation Boundaries and Execution"
           },
           "videos": [
             {
@@ -7395,7 +8145,10 @@ window.COURSE_DATA = {
                 "definition": "What is code quality? is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for What is code quality?:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What is code quality? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What is code quality? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+                "imageCaption": "The automated testing pyramid: Balancing confidence and cost.",
+                "imageAlt": "Automated Testing Pyramid"
               }
             },
             {
@@ -7423,7 +8176,10 @@ window.COURSE_DATA = {
                 "definition": "Coding conventions and standards is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Coding conventions and standards:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Coding conventions and standards execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Coding conventions and standards execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+                "imageCaption": "The automated testing pyramid: Balancing confidence and cost.",
+                "imageAlt": "Automated Testing Pyramid"
               }
             },
             {
@@ -7451,7 +8207,10 @@ window.COURSE_DATA = {
                 "definition": "Creating and enforcing coding standards is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Creating and enforcing coding standards:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating and enforcing coding standards execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating and enforcing coding standards execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+                "imageCaption": "The automated testing pyramid: Balancing confidence and cost.",
+                "imageAlt": "Automated Testing Pyramid"
               }
             },
             {
@@ -7479,7 +8238,10 @@ window.COURSE_DATA = {
                 "definition": "Unit, integration, and functional testing is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Unit, integration, and functional testing:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Unit, integration, and functional testing execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Unit, integration, and functional testing execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F03_DaCosta.png",
+                "imageCaption": "Unit test isolation: Testing functions independently of external I/O.",
+                "imageAlt": "Unit Test Isolation"
               }
             },
             {
@@ -7507,7 +8269,10 @@ window.COURSE_DATA = {
                 "definition": "Testing frameworks is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Testing frameworks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing frameworks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing frameworks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+                "imageCaption": "The automated testing pyramid: Balancing confidence and cost.",
+                "imageAlt": "Automated Testing Pyramid"
               }
             }
           ]
@@ -7537,7 +8302,10 @@ window.COURSE_DATA = {
               "Assuming operations in Test Suites, Lifecycle Hooks & Configuration complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/testing-js/CH03_F01_DaCosta.png",
+            "diagramCaption": "Figure 15.3: Jest test runner execution lifecycle, matchers, and assertion reporting (Testing JavaScript Applications).",
+            "diagramAlt": "Jest Test Suite Runner Architecture"
           },
           "videos": [
             {
@@ -7565,7 +8333,10 @@ window.COURSE_DATA = {
                 "definition": "TDD and BDD test specifications is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for TDD and BDD test specifications:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during TDD and BDD test specifications execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during TDD and BDD test specifications execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH09_F01_DaCosta.png",
+                "imageCaption": "Test-Driven Development (TDD) cycle: Red -> Green -> Refactor.",
+                "imageAlt": "Test-Driven Development TDD Workflow"
               }
             },
             {
@@ -7593,7 +8364,10 @@ window.COURSE_DATA = {
                 "definition": "Assertions for correctness is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Assertions for correctness:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Assertions for correctness execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Assertions for correctness execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F03_DaCosta.png",
+                "imageCaption": "Unit test isolation: Testing functions independently of external I/O.",
+                "imageAlt": "Unit Test Isolation"
               }
             },
             {
@@ -7621,7 +8395,10 @@ window.COURSE_DATA = {
                 "definition": "Challenge: Organize your tests is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Challenge: Organize your tests:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Organize your tests execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Organize your tests execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+                "imageCaption": "The automated testing pyramid: Balancing confidence and cost.",
+                "imageAlt": "Automated Testing Pyramid"
               }
             },
             {
@@ -7649,7 +8426,10 @@ window.COURSE_DATA = {
                 "definition": "Solution: Organize your tests is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Solution: Organize your tests:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Organize your tests execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Organize your tests execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+                "imageCaption": "The automated testing pyramid: Balancing confidence and cost.",
+                "imageAlt": "Automated Testing Pyramid"
               }
             },
             {
@@ -7677,7 +8457,10 @@ window.COURSE_DATA = {
                 "definition": "Standardizing with EditorConfig is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Standardizing with EditorConfig:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Standardizing with EditorConfig execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Standardizing with EditorConfig execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F01_DaCosta.png",
+                "imageCaption": "The automated testing pyramid: Balancing confidence and cost.",
+                "imageAlt": "Automated Testing Pyramid"
               }
             }
           ]
@@ -7726,7 +8509,10 @@ window.COURSE_DATA = {
               "Assuming operations in Mocking Functions, Spies & Stubbing Dependencies complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/testing-js/CH02_F06_DaCosta.png",
+            "diagramCaption": "Figure 16.1: Backend integration testing across HTTP handlers, databases, and services (Testing JavaScript Applications).",
+            "diagramAlt": "Backend Integration Testing Across Services"
           },
           "videos": [
             {
@@ -7754,7 +8540,10 @@ window.COURSE_DATA = {
                 "definition": "Adding EditorConfig to a project and IDE is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Adding EditorConfig to a project and IDE:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Adding EditorConfig to a project and IDE execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Adding EditorConfig to a project and IDE execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Test doubles isolation: Mocks, stubs, and spies in backend testing.",
+                "imageAlt": "Test Doubles in Backend Testing"
               }
             },
             {
@@ -7782,7 +8571,10 @@ window.COURSE_DATA = {
                 "definition": "Comparing JavaScript linters is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Comparing JavaScript linters:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Comparing JavaScript linters execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Comparing JavaScript linters execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Test doubles isolation: Mocks, stubs, and spies in backend testing.",
+                "imageAlt": "Test Doubles in Backend Testing"
               }
             },
             {
@@ -7810,7 +8602,10 @@ window.COURSE_DATA = {
                 "definition": "Installing ESLint is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Installing ESLint:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Installing ESLint execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Installing ESLint execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Test doubles isolation: Mocks, stubs, and spies in backend testing.",
+                "imageAlt": "Test Doubles in Backend Testing"
               }
             },
             {
@@ -7838,7 +8633,10 @@ window.COURSE_DATA = {
                 "definition": "Configuring ESLint is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Configuring ESLint:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Configuring ESLint execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Configuring ESLint execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Test doubles isolation: Mocks, stubs, and spies in backend testing.",
+                "imageAlt": "Test Doubles in Backend Testing"
               }
             },
             {
@@ -7866,7 +8664,10 @@ window.COURSE_DATA = {
                 "definition": "Extending an ESLint shareable config is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Extending an ESLint shareable config:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Extending an ESLint shareable config execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Extending an ESLint shareable config execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Test doubles isolation: Mocks, stubs, and spies in backend testing.",
+                "imageAlt": "Test Doubles in Backend Testing"
               }
             }
           ]
@@ -7896,7 +8697,10 @@ window.COURSE_DATA = {
               "Assuming operations in Integration Testing: Database & Network Boundaries complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+            "diagramCaption": "Figure 16.2: Test Doubles classification: Dummies, Stubs, Spies, Mocks, and Fakes (Testing JavaScript Applications).",
+            "diagramAlt": "Test Doubles Classification in Automated Testing"
           },
           "videos": [
             {
@@ -7924,7 +8728,10 @@ window.COURSE_DATA = {
                 "definition": "Linting your codebase is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Linting your codebase:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Linting your codebase execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Linting your codebase execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Test doubles isolation: Mocks, stubs, and spies in backend testing.",
+                "imageAlt": "Test Doubles in Backend Testing"
               }
             },
             {
@@ -7952,7 +8759,10 @@ window.COURSE_DATA = {
                 "definition": "Fixing code in VSC with ESLint is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Fixing code in VSC with ESLint:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Fixing code in VSC with ESLint execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Fixing code in VSC with ESLint execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Test doubles isolation: Mocks, stubs, and spies in backend testing.",
+                "imageAlt": "Test Doubles in Backend Testing"
               }
             },
             {
@@ -7980,7 +8790,10 @@ window.COURSE_DATA = {
                 "definition": "Challenge: Create a shareable ESLint config is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Challenge: Create a shareable ESLint config:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Create a shareable ESLint config execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Create a shareable ESLint config execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Test doubles isolation: Mocks, stubs, and spies in backend testing.",
+                "imageAlt": "Test Doubles in Backend Testing"
               }
             },
             {
@@ -8008,7 +8821,10 @@ window.COURSE_DATA = {
                 "definition": "Solution: Create a shareable ESLint config is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Solution: Create a shareable ESLint config:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a shareable ESLint config execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Create a shareable ESLint config execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Test doubles isolation: Mocks, stubs, and spies in backend testing.",
+                "imageAlt": "Test Doubles in Backend Testing"
               }
             },
             {
@@ -8036,7 +8852,10 @@ window.COURSE_DATA = {
                 "definition": "Survey of Node.js testing frameworks is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Survey of Node.js testing frameworks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Survey of Node.js testing frameworks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Survey of Node.js testing frameworks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Test doubles isolation: Mocks, stubs, and spies in backend testing.",
+                "imageAlt": "Test Doubles in Backend Testing"
               }
             }
           ]
@@ -8066,7 +8885,10 @@ window.COURSE_DATA = {
               "Assuming operations in Testing Stream Pipelines & Event Emitters complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/testing-js/CH05_F01_DaCosta.png",
+            "diagramCaption": "Figure 16.3: Mocking external HTTP endpoints and database transactions (Testing JavaScript Applications).",
+            "diagramAlt": "Mocking External HTTP Endpoints and Database State"
           },
           "videos": [
             {
@@ -8094,7 +8916,10 @@ window.COURSE_DATA = {
                 "definition": "Install Jest in a Node.js project is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Install Jest in a Node.js project:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Install Jest in a Node.js project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Install Jest in a Node.js project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F03_DaCosta.png",
+                "imageCaption": "Unit test isolation: Testing functions independently of external I/O.",
+                "imageAlt": "Unit Test Isolation"
               }
             },
             {
@@ -8122,7 +8947,10 @@ window.COURSE_DATA = {
                 "definition": "What and where to unit test? is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for What and where to unit test?:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What and where to unit test? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What and where to unit test? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F03_DaCosta.png",
+                "imageCaption": "Unit test isolation: Testing functions independently of external I/O.",
+                "imageAlt": "Unit Test Isolation"
               }
             },
             {
@@ -8150,7 +8978,10 @@ window.COURSE_DATA = {
                 "definition": "Writing your first Jest unit test is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Writing your first Jest unit test:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing your first Jest unit test execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing your first Jest unit test execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F03_DaCosta.png",
+                "imageCaption": "Unit test isolation: Testing functions independently of external I/O.",
+                "imageAlt": "Unit Test Isolation"
               }
             },
             {
@@ -8178,7 +9009,10 @@ window.COURSE_DATA = {
                 "definition": "Running a test suite with Jest is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Running a test suite with Jest:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Running a test suite with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Running a test suite with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F03_DaCosta.png",
+                "imageCaption": "Unit test isolation: Testing functions independently of external I/O.",
+                "imageAlt": "Unit Test Isolation"
               }
             },
             {
@@ -8206,7 +9040,10 @@ window.COURSE_DATA = {
                 "definition": "Testing asynchronous callbacks with Jest is a core architectural concept in **Backend Unit Testing, Mocking & Integration Test Boundaries**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Testing asynchronous callbacks with Jest:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Mocking Network Boundaries and Timers with Node.js Native Test Runner\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\n\ntest(\"UserService with Mocked Payment Gateway\", async (t) => {\n  const mockCharge = t.mock.fn(async (userId, amount) => {\n    return { success: true, txnId: \"txn_test_123\" };\n  });\n\n  const paymentService = { charge: mockCharge };\n  const result = await paymentService.charge(\"user_1\", 5000);\n\n  assert.equal(result.success, true);\n  assert.equal(mockCharge.mock.callCount(), 1);\n  assert.deepEqual(mockCharge.mock.calls[0].arguments, [\"user_1\", 5000]);\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing asynchronous callbacks with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing asynchronous callbacks with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             }
           ]
@@ -8255,7 +9092,10 @@ window.COURSE_DATA = {
               "Assuming operations in TDD Red-Green-Refactor Cycle in Practice complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/testing-js/CH09_F01_DaCosta.png",
+            "diagramCaption": "Figure 17.1: Test-Driven Development (TDD) cycle: Red -> Green -> Refactor (Testing JavaScript Applications).",
+            "diagramAlt": "Test-Driven Development TDD Cycle"
           },
           "videos": [
             {
@@ -8283,7 +9123,10 @@ window.COURSE_DATA = {
                 "definition": "Writing callback test suites with Jest is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Writing callback test suites with Jest:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing callback test suites with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing callback test suites with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             },
             {
@@ -8311,7 +9154,10 @@ window.COURSE_DATA = {
                 "definition": "Testing promises with Jest is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Testing promises with Jest:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing promises with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing promises with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             },
             {
@@ -8339,7 +9185,10 @@ window.COURSE_DATA = {
                 "definition": "Challenge: Test async/await with Jest is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Challenge: Test async/await with Jest:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Test async/await with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Test async/await with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             },
             {
@@ -8367,7 +9216,10 @@ window.COURSE_DATA = {
                 "definition": "Solution: Test async/await with Jest is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Solution: Test async/await with Jest:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Test async/await with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Test async/await with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+                "imageCaption": "Sequential asynchronous execution flow and structured error propagation.",
+                "imageAlt": "Sequential Asynchronous Flow with Error Propagation"
               }
             },
             {
@@ -8395,7 +9247,10 @@ window.COURSE_DATA = {
                 "definition": "Replacing code with test doubles is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Replacing code with test doubles:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Replacing code with test doubles execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Replacing code with test doubles execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Classification of Test Doubles: Dummy, Stub, Spy, Mock, and Fake.",
+                "imageAlt": "Classification of Test Doubles"
               }
             }
           ]
@@ -8425,7 +9280,10 @@ window.COURSE_DATA = {
               "Assuming operations in End-to-End HTTP Service Testing with Supertest complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/testing-js/CH02_F08_DaCosta.png",
+            "diagramCaption": "Figure 17.2: End-to-End testing architecture: Driving realistic user workflows (Testing JavaScript Applications).",
+            "diagramAlt": "End-to-End Testing Architecture"
           },
           "videos": [
             {
@@ -8453,7 +9311,10 @@ window.COURSE_DATA = {
                 "definition": "Mocking functions for test code is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Mocking functions for test code:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Mocking functions for test code execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Mocking functions for test code execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Classification of Test Doubles: Dummy, Stub, Spy, Mock, and Fake.",
+                "imageAlt": "Classification of Test Doubles"
               }
             },
             {
@@ -8481,7 +9342,10 @@ window.COURSE_DATA = {
                 "definition": "Writing your first Jest mock is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Writing your first Jest mock:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing your first Jest mock execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writing your first Jest mock execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F03_DaCosta.png",
+                "imageCaption": "Unit test isolation: Testing functions independently of external I/O.",
+                "imageAlt": "Unit Test Isolation"
               }
             },
             {
@@ -8509,7 +9373,10 @@ window.COURSE_DATA = {
                 "definition": "Mock an entire module with Jest is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Mock an entire module with Jest:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Mock an entire module with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Mock an entire module with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+                "imageAlt": "ESM Instantiation and Live Bindings Resolution"
               }
             },
             {
@@ -8537,7 +9404,10 @@ window.COURSE_DATA = {
                 "definition": "Mocking module dependencies is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Mocking module dependencies:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Mocking module dependencies execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Mocking module dependencies execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+                "imageAlt": "ESM Instantiation and Live Bindings Resolution"
               }
             },
             {
@@ -8565,7 +9435,10 @@ window.COURSE_DATA = {
                 "definition": "Spying to observe interactions is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Spying to observe interactions:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Spying to observe interactions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Spying to observe interactions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Classification of Test Doubles: Dummy, Stub, Spy, Mock, and Fake.",
+                "imageAlt": "Classification of Test Doubles"
               }
             }
           ]
@@ -8595,7 +9468,10 @@ window.COURSE_DATA = {
               "Assuming operations in Code Coverage Analysis & Quality Gate Enforcement complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/testing-js/CH12_F01_DaCosta.png",
+            "diagramCaption": "Figure 17.3: Continuous Integration test pipeline and code coverage gating (Testing JavaScript Applications).",
+            "diagramAlt": "Continuous Integration Test Pipeline and Coverage"
           },
           "videos": [
             {
@@ -8623,7 +9499,10 @@ window.COURSE_DATA = {
                 "definition": "Challenge: Mock a successful reservation creation is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Challenge: Mock a successful reservation creation:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Mock a successful reservation creation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Mock a successful reservation creation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Classification of Test Doubles: Dummy, Stub, Spy, Mock, and Fake.",
+                "imageAlt": "Classification of Test Doubles"
               }
             },
             {
@@ -8651,7 +9530,10 @@ window.COURSE_DATA = {
                 "definition": "Solution: Mock a successful reservation creation is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Solution: Mock a successful reservation creation:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Mock a successful reservation creation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Mock a successful reservation creation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH04_F01_DaCosta.png",
+                "imageCaption": "Classification of Test Doubles: Dummy, Stub, Spy, Mock, and Fake.",
+                "imageAlt": "Classification of Test Doubles"
               }
             },
             {
@@ -8679,7 +9561,10 @@ window.COURSE_DATA = {
                 "definition": "Why code coverage matters is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Why code coverage matters:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Why code coverage matters execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Why code coverage matters execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH09_F01_DaCosta.png",
+                "imageCaption": "Test-Driven Development (TDD) Red-Green-Refactor feedback cycle.",
+                "imageAlt": "TDD Feedback Cycle"
               }
             },
             {
@@ -8707,7 +9592,10 @@ window.COURSE_DATA = {
                 "definition": "Measuring code coverage with Jest is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Measuring code coverage with Jest:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Measuring code coverage with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Measuring code coverage with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F03_DaCosta.png",
+                "imageCaption": "Unit test isolation: Testing functions independently of external I/O.",
+                "imageAlt": "Unit Test Isolation"
               }
             },
             {
@@ -8735,7 +9623,10 @@ window.COURSE_DATA = {
                 "definition": "Functional testing with Jest is a core architectural concept in **Test-Driven Development (TDD) & End-to-End API Verification**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
                 "mentalModel": "Execution Flow for Functional testing with Jest:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// End-to-End HTTP Service Verification with Supertest Pattern\nimport test from \"node:test\";\nimport assert from \"node:assert/strict\";\nimport http from \"node:http\";\n\nconst server = http.createServer((req, res) => {\n  if (req.url === \"/api/health\" && req.method === \"GET\") {\n    res.writeHead(200, { \"Content-Type\": \"application/json\" });\n    res.end(JSON.stringify({ status: \"healthy\", uptime: process.uptime() }));\n  } else {\n    res.writeHead(404);\n    res.end();\n  }\n});\n\ntest(\"GET /api/health returns 200 with healthy status\", async (t) => {\n  await new Promise(resolve => server.listen(0, resolve));\n  const port = server.address().port;\n\n  try {\n    const res = await fetch(`http://localhost:${port}/api/health`);\n    assert.equal(res.status, 200);\n    const body = await res.json();\n    assert.equal(body.status, \"healthy\");\n  } finally {\n    await new Promise(resolve => server.close(resolve));\n  }\n});",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Functional testing with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Functional testing with Jest execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F03_DaCosta.png",
+                "imageCaption": "Unit test isolation: Testing functions independently of external I/O.",
+                "imageAlt": "Unit Test Isolation"
               }
             }
           ]
@@ -8783,7 +9674,10 @@ window.COURSE_DATA = {
               "Assuming operations in Security Threat Modeling & Core Defense Fundamentals complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/secure-nodejs/security-layers.png",
+            "diagramCaption": "Figure 18.1: Defense-in-depth architectural security layers for Node.js servers (Secure Your Node.js Web Application).",
+            "diagramAlt": "Defense-in-Depth Security Layers for Node.js"
           },
           "videos": [
             {
@@ -8811,7 +9705,10 @@ window.COURSE_DATA = {
                 "definition": "Securing your Node.js projects is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Securing your Node.js projects:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing your Node.js projects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing your Node.js projects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/security-layers.png",
+                "imageCaption": "Multi-layered defense in depth security architecture for Node.js.",
+                "imageAlt": "Defense in Depth Security"
               }
             },
             {
@@ -8839,7 +9736,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/security-layers.png",
+                "imageCaption": "Multi-layered defense in depth security architecture for Node.js.",
+                "imageAlt": "Defense in Depth Security"
               }
             },
             {
@@ -8867,7 +9767,10 @@ window.COURSE_DATA = {
                 "definition": "Introduction to OWASP and other sources is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Introduction to OWASP and other sources:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP and other sources execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP and other sources execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/security-layers.png",
+                "imageCaption": "Multi-layered defense in depth security architecture for Node.js.",
+                "imageAlt": "Defense in Depth Security"
               }
             },
             {
@@ -8895,7 +9798,10 @@ window.COURSE_DATA = {
                 "definition": "OWASP Top 10 in Node.js is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for OWASP Top 10 in Node.js:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during OWASP Top 10 in Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during OWASP Top 10 in Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/security-layers.png",
+                "imageCaption": "Multi-layered defense in depth security architecture for Node.js.",
+                "imageAlt": "Defense in Depth Security"
               }
             }
           ]
@@ -8924,7 +9830,10 @@ window.COURSE_DATA = {
               "Assuming operations in Hardening HTTP Headers with Helmet & Secure Cookies complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/secure-nodejs/node-process.png",
+            "diagramCaption": "Figure 18.2: Node.js process privilege model and OS-level sandboxing (Secure Your Node.js Web Application).",
+            "diagramAlt": "Node.js Process Sandboxing and Isolation Model"
           },
           "videos": [
             {
@@ -8952,7 +9861,10 @@ window.COURSE_DATA = {
                 "definition": "Overview of broken access control is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Overview of broken access control:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of broken access control execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of broken access control execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file0.svg",
+                "imageCaption": "Script interpretation and execution lifecycle in the JavaScript host environment.",
+                "imageAlt": "Script Interpretation Lifecycle"
               }
             },
             {
@@ -8980,7 +9892,10 @@ window.COURSE_DATA = {
                 "definition": "Overview of cryptographic failures is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Overview of cryptographic failures:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of cryptographic failures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of cryptographic failures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file0.svg",
+                "imageCaption": "Script interpretation and execution lifecycle in the JavaScript host environment.",
+                "imageAlt": "Script Interpretation Lifecycle"
               }
             },
             {
@@ -9008,7 +9923,10 @@ window.COURSE_DATA = {
                 "definition": "Overview of injections is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Overview of injections:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of injections execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of injections execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file0.svg",
+                "imageCaption": "Script interpretation and execution lifecycle in the JavaScript host environment.",
+                "imageAlt": "Script Interpretation Lifecycle"
               }
             },
             {
@@ -9036,7 +9954,10 @@ window.COURSE_DATA = {
                 "definition": "Hands-on base template overview is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Hands-on base template overview:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Hands-on base template overview execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Hands-on base template overview execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file0.svg",
+                "imageCaption": "Script interpretation and execution lifecycle in the JavaScript host environment.",
+                "imageAlt": "Script Interpretation Lifecycle"
               }
             }
           ]
@@ -9065,7 +9986,10 @@ window.COURSE_DATA = {
               "Assuming operations in Dependency Vulnerability Audits & Least Privilege complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/secure-nodejs/hsts.png",
+            "diagramCaption": "Figure 18.3: TLS termination and HTTP Strict Transport Security (HSTS) enforcement (Secure Your Node.js Web Application).",
+            "diagramAlt": "HSTS and TLS Security Enforcement Flow"
           },
           "videos": [
             {
@@ -9093,7 +10017,10 @@ window.COURSE_DATA = {
                 "definition": "Maintain package dependencies is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Maintain package dependencies:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Maintain package dependencies execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Maintain package dependencies execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/security-layers.png",
+                "imageCaption": "Multi-layered defense in depth security architecture for Node.js.",
+                "imageAlt": "Defense in Depth Security"
               }
             },
             {
@@ -9121,7 +10048,10 @@ window.COURSE_DATA = {
                 "definition": "Add 2-factor and read-only tokens with NPM is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Add 2-factor and read-only tokens with NPM:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Add 2-factor and read-only tokens with NPM execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Add 2-factor and read-only tokens with NPM execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/logging-in.png",
+                "imageCaption": "Secure authentication session exchange and credential verification.",
+                "imageAlt": "Secure Authentication Session Exchange"
               }
             },
             {
@@ -9149,7 +10079,10 @@ window.COURSE_DATA = {
                 "definition": "Data handling with type and validation is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Data handling with type and validation:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Data handling with type and validation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Data handling with type and validation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+                "imageAlt": "Type Coercion and Equality Comparison"
               }
             },
             {
@@ -9177,7 +10110,10 @@ window.COURSE_DATA = {
                 "definition": "Use prepared statements for SQL and NoSQL is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Use prepared statements for SQL and NoSQL:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use prepared statements for SQL and NoSQL execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use prepared statements for SQL and NoSQL execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+                "imageCaption": "Middleware Pattern: Chain of Responsibility processing pipeline.",
+                "imageAlt": "Middleware Pattern Processing Pipeline"
               }
             }
           ]
@@ -9224,7 +10160,10 @@ window.COURSE_DATA = {
               "Assuming operations in SQL Injection Vectors & Parameterized Queries complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/secure-nodejs/parametrized.png",
+            "diagramCaption": "Figure 19.1: Parameterized SQL queries preventing SQL Injection attack vectors (Secure Your Node.js Web Application).",
+            "diagramAlt": "Parameterized Queries Mitigating SQL Injection"
           },
           "videos": [
             {
@@ -9252,7 +10191,10 @@ window.COURSE_DATA = {
                 "definition": "Set proper HTTP headers with Helmet is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Set proper HTTP headers with Helmet:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Set proper HTTP headers with Helmet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Set proper HTTP headers with Helmet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify high-performance routing tree and JSON schema validation.",
+                "imageAlt": "Fastify Routing Tree and Schema Validation"
               }
             },
             {
@@ -9280,7 +10222,10 @@ window.COURSE_DATA = {
                 "definition": "Encrypt user data and session management is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Encrypt user data and session management:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Encrypt user data and session management execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Encrypt user data and session management execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/logging-in.png",
+                "imageCaption": "Secure authentication session exchange and credential verification.",
+                "imageAlt": "Secure Authentication Session Exchange"
               }
             },
             {
@@ -9308,7 +10253,10 @@ window.COURSE_DATA = {
                 "definition": "Use secure HTTPS protocol is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Use secure HTTPS protocol:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use secure HTTPS protocol execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use secure HTTPS protocol execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify high-performance routing tree and JSON schema validation.",
+                "imageAlt": "Fastify Routing Tree and Schema Validation"
               }
             }
           ]
@@ -9336,7 +10284,10 @@ window.COURSE_DATA = {
               "Assuming operations in NoSQL Injection & Object Query Sanitization complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/secure-nodejs/multi-tenant-schema.png",
+            "diagramCaption": "Figure 19.2: Multi-tenant schema isolation preventing cross-tenant data leakage (Secure Your Node.js Web Application).",
+            "diagramAlt": "Multi-Tenant Database Schema Isolation"
           },
           "videos": [
             {
@@ -9364,7 +10315,10 @@ window.COURSE_DATA = {
                 "definition": "Rate limiting against DoS attacks is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Rate limiting against DoS attacks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rate limiting against DoS attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rate limiting against DoS attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "SQL and NoSQL injection mitigation via parameterized inputs.",
+                "imageAlt": "Parameterized Injection Defense"
               }
             },
             {
@@ -9392,7 +10346,10 @@ window.COURSE_DATA = {
                 "definition": "Use a library to prevent CSRF attacks is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Use a library to prevent CSRF attacks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use a library to prevent CSRF attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use a library to prevent CSRF attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/csrf.png",
+                "imageCaption": "Cross-Site Request Forgery (CSRF) token validation and defense.",
+                "imageAlt": "CSRF Token Validation and Protection"
               }
             },
             {
@@ -9420,7 +10377,10 @@ window.COURSE_DATA = {
                 "definition": "Use cookie attributes is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Use cookie attributes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use cookie attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use cookie attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/logging-in.png",
+                "imageCaption": "Secure authentication session exchange and credential verification.",
+                "imageAlt": "Secure Authentication Session Exchange"
               }
             }
           ]
@@ -9448,7 +10408,10 @@ window.COURSE_DATA = {
               "Assuming operations in OS Command Injection & Prototype Pollution Defense complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/secure-nodejs/concurrency.png",
+            "diagramCaption": "Figure 19.3: Asynchronous race condition mitigation and resource locking (Secure Your Node.js Web Application).",
+            "diagramAlt": "Asynchronous Race Condition Resource Locking"
           },
           "videos": [
             {
@@ -9476,7 +10439,10 @@ window.COURSE_DATA = {
                 "definition": "Introduction to OWASP dependency check is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Introduction to OWASP dependency check:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP dependency check execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP dependency check execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "SQL and NoSQL injection mitigation via parameterized inputs.",
+                "imageAlt": "Parameterized Injection Defense"
               }
             },
             {
@@ -9504,7 +10470,10 @@ window.COURSE_DATA = {
                 "definition": "Find vulnerabilities with Snyk is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Find vulnerabilities with Snyk:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Find vulnerabilities with Snyk execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Find vulnerabilities with Snyk execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "SQL and NoSQL injection mitigation via parameterized inputs.",
+                "imageAlt": "Parameterized Injection Defense"
               }
             },
             {
@@ -9532,7 +10501,10 @@ window.COURSE_DATA = {
                 "definition": "Penetration testing with Burp Suite is a core architectural concept in **Injection Attacks Defense: SQL, NoSQL & OS Command**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Penetration testing with Burp Suite:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure Parameterized Database Query Execution\nexport async function findUserSecure(dbPool, emailInput) {\n  if (typeof emailInput !== \"string\") {\n    throw new TypeError(\"Email must be a valid string\");\n  }\n\n  // Prepared statement: query template compiled by DB; input bound as literal value\n  const query = \"SELECT id, username, email, created_at FROM users WHERE email = $1 LIMIT 1\";\n  const { rows } = await dbPool.query(query, [emailInput.toLowerCase().trim()]);\n  return rows[0] || null;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Penetration testing with Burp Suite execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Penetration testing with Burp Suite execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F03_DaCosta.png",
+                "imageCaption": "Unit test isolation: Testing functions independently of external I/O.",
+                "imageAlt": "Unit Test Isolation"
               }
             }
           ]
@@ -9580,7 +10552,10 @@ window.COURSE_DATA = {
               "Assuming operations in Password Hashing with Argon2 & Salt Rounds complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/secure-nodejs/logging-in.png",
+            "diagramCaption": "Figure 20.1: Secure user authentication, password hashing, and session initialization (Secure Your Node.js Web Application).",
+            "diagramAlt": "User Authentication and Session Initialization Flow"
           },
           "videos": [
             {
@@ -9608,7 +10583,10 @@ window.COURSE_DATA = {
                 "definition": "Overview of broken access control is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Overview of broken access control:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of broken access control execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of broken access control execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file0.svg",
+                "imageCaption": "Script interpretation and execution lifecycle in the JavaScript host environment.",
+                "imageAlt": "Script Interpretation Lifecycle"
               }
             },
             {
@@ -9636,7 +10614,10 @@ window.COURSE_DATA = {
                 "definition": "Overview of cryptographic failures is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Overview of cryptographic failures:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of cryptographic failures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of cryptographic failures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file0.svg",
+                "imageCaption": "Script interpretation and execution lifecycle in the JavaScript host environment.",
+                "imageAlt": "Script Interpretation Lifecycle"
               }
             },
             {
@@ -9664,7 +10645,10 @@ window.COURSE_DATA = {
                 "definition": "Overview of injections is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Overview of injections:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of injections execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of injections execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file0.svg",
+                "imageCaption": "Script interpretation and execution lifecycle in the JavaScript host environment.",
+                "imageAlt": "Script Interpretation Lifecycle"
               }
             },
             {
@@ -9692,7 +10676,10 @@ window.COURSE_DATA = {
                 "definition": "Hands-on base template overview is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Hands-on base template overview:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Hands-on base template overview execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Hands-on base template overview execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file0.svg",
+                "imageCaption": "Script interpretation and execution lifecycle in the JavaScript host environment.",
+                "imageAlt": "Script Interpretation Lifecycle"
               }
             }
           ]
@@ -9721,7 +10708,10 @@ window.COURSE_DATA = {
               "Assuming operations in JSON Web Tokens (JWT): Signing & Refresh Rotation complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/secure-nodejs/ACLs.png",
+            "diagramCaption": "Figure 20.2: Access Control Lists (ACL) and Role-Based Access Control (RBAC) validation (Secure Your Node.js Web Application).",
+            "diagramAlt": "Role-Based Access Control and ACL Validation"
           },
           "videos": [
             {
@@ -9749,7 +10739,10 @@ window.COURSE_DATA = {
                 "definition": "Maintain package dependencies is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Maintain package dependencies:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Maintain package dependencies execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Maintain package dependencies execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/logging-in.png",
+                "imageCaption": "Secure session management and JWT authentication lifecycle.",
+                "imageAlt": "Secure Session and JWT Lifecycle"
               }
             },
             {
@@ -9777,7 +10770,10 @@ window.COURSE_DATA = {
                 "definition": "Add 2-factor and read-only tokens with NPM is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Add 2-factor and read-only tokens with NPM:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Add 2-factor and read-only tokens with NPM execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Add 2-factor and read-only tokens with NPM execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/logging-in.png",
+                "imageCaption": "Secure authentication session exchange and credential verification.",
+                "imageAlt": "Secure Authentication Session Exchange"
               }
             },
             {
@@ -9805,7 +10801,10 @@ window.COURSE_DATA = {
                 "definition": "Data handling with type and validation is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Data handling with type and validation:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Data handling with type and validation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Data handling with type and validation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file2.svg",
+                "imageCaption": "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+                "imageAlt": "Type Coercion and Equality Comparison"
               }
             },
             {
@@ -9833,7 +10832,10 @@ window.COURSE_DATA = {
                 "definition": "Use prepared statements for SQL and NoSQL is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Use prepared statements for SQL and NoSQL:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use prepared statements for SQL and NoSQL execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use prepared statements for SQL and NoSQL execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+                "imageCaption": "Middleware Pattern: Chain of Responsibility processing pipeline.",
+                "imageAlt": "Middleware Pattern Processing Pipeline"
               }
             }
           ]
@@ -9862,7 +10864,10 @@ window.COURSE_DATA = {
               "Assuming operations in Session Hijacking, Revocation & RBAC Authorization complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/mastering-nodejs/B21959_11_01.png",
+            "diagramCaption": "Figure 20.3: Stateless JWT vs stateful session cookie architecture and token rotation (Mastering Node.js Web Development).",
+            "diagramAlt": "Stateless JWT and Stateful Session Cookie Architecture"
           },
           "videos": [
             {
@@ -9890,7 +10895,10 @@ window.COURSE_DATA = {
                 "definition": "Set proper HTTP headers with Helmet is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Set proper HTTP headers with Helmet:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Set proper HTTP headers with Helmet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Set proper HTTP headers with Helmet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify high-performance routing tree and JSON schema validation.",
+                "imageAlt": "Fastify Routing Tree and Schema Validation"
               }
             },
             {
@@ -9918,7 +10926,10 @@ window.COURSE_DATA = {
                 "definition": "Encrypt user data and session management is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Encrypt user data and session management:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Encrypt user data and session management execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Encrypt user data and session management execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/logging-in.png",
+                "imageCaption": "Secure authentication session exchange and credential verification.",
+                "imageAlt": "Secure Authentication Session Exchange"
               }
             },
             {
@@ -9946,7 +10957,10 @@ window.COURSE_DATA = {
                 "definition": "Use secure HTTPS protocol is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Use secure HTTPS protocol:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use secure HTTPS protocol execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use secure HTTPS protocol execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/mastering-nodejs/B21959_07_01.png",
+                "imageCaption": "Fastify high-performance routing tree and JSON schema validation.",
+                "imageAlt": "Fastify Routing Tree and Schema Validation"
               }
             },
             {
@@ -9974,7 +10988,10 @@ window.COURSE_DATA = {
                 "definition": "Rate limiting against DoS attacks is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Rate limiting against DoS attacks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rate limiting against DoS attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rate limiting against DoS attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/logging-in.png",
+                "imageCaption": "Secure session management and JWT authentication lifecycle.",
+                "imageAlt": "Secure Session and JWT Lifecycle"
               }
             }
           ]
@@ -10021,7 +11038,10 @@ window.COURSE_DATA = {
               "Assuming operations in Cross-Site Scripting (XSS) & Content Security Policy complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/secure-nodejs/reflectedxss.png",
+            "diagramCaption": "Figure 21.1: Reflected Cross-Site Scripting (XSS) attack vector and sanitization boundary (Secure Your Node.js Web Application).",
+            "diagramAlt": "Reflected Cross-Site Scripting XSS Attack Pathway"
           },
           "videos": [
             {
@@ -10049,7 +11069,10 @@ window.COURSE_DATA = {
                 "definition": "Use a library to prevent CSRF attacks is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Use a library to prevent CSRF attacks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use a library to prevent CSRF attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use a library to prevent CSRF attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/csrf.png",
+                "imageCaption": "Cross-Site Request Forgery (CSRF) token validation and defense.",
+                "imageAlt": "CSRF Token Validation and Protection"
               }
             },
             {
@@ -10077,7 +11100,10 @@ window.COURSE_DATA = {
                 "definition": "Use cookie attributes is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Use cookie attributes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use cookie attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use cookie attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/logging-in.png",
+                "imageCaption": "Secure authentication session exchange and credential verification.",
+                "imageAlt": "Secure Authentication Session Exchange"
               }
             },
             {
@@ -10105,7 +11131,10 @@ window.COURSE_DATA = {
                 "definition": "Introduction to OWASP dependency check is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Introduction to OWASP dependency check:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP dependency check execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP dependency check execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/csrf.png",
+                "imageCaption": "XSS, CSRF, and ReDoS input sanitization and defense.",
+                "imageAlt": "XSS and CSRF Defense"
               }
             }
           ]
@@ -10133,7 +11162,10 @@ window.COURSE_DATA = {
               "Assuming operations in Cross-Site Request Forgery (CSRF) & SameSite Defenses complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/secure-nodejs/csrf.png",
+            "diagramCaption": "Figure 21.2: Cross-Site Request Forgery (CSRF) token validation and SameSite cookie defense (Secure Your Node.js Web Application).",
+            "diagramAlt": "Cross-Site Request Forgery CSRF Token Defense Flow"
           },
           "videos": [
             {
@@ -10161,7 +11193,10 @@ window.COURSE_DATA = {
                 "definition": "Find vulnerabilities with Snyk is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Find vulnerabilities with Snyk:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Find vulnerabilities with Snyk execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Find vulnerabilities with Snyk execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/csrf.png",
+                "imageCaption": "XSS, CSRF, and ReDoS input sanitization and defense.",
+                "imageAlt": "XSS and CSRF Defense"
               }
             },
             {
@@ -10189,7 +11224,10 @@ window.COURSE_DATA = {
                 "definition": "Penetration testing with Burp Suite is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Penetration testing with Burp Suite:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Penetration testing with Burp Suite execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Penetration testing with Burp Suite execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/testing-js/CH02_F03_DaCosta.png",
+                "imageCaption": "Unit test isolation: Testing functions independently of external I/O.",
+                "imageAlt": "Unit Test Isolation"
               }
             },
             {
@@ -10217,7 +11255,10 @@ window.COURSE_DATA = {
                 "definition": "Next steps is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Next steps:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/csrf.png",
+                "imageCaption": "XSS, CSRF, and ReDoS input sanitization and defense.",
+                "imageAlt": "XSS and CSRF Defense"
               }
             }
           ]
@@ -10245,7 +11286,10 @@ window.COURSE_DATA = {
               "Assuming operations in Regular Expression Denial of Service (ReDoS) Defense complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/secure-nodejs/ddos-today.png",
+            "diagramCaption": "Figure 21.3: Denial-of-Service and ReDoS catastrophic backtracking defense (Secure Your Node.js Web Application).",
+            "diagramAlt": "Denial of Service and ReDoS Backtracking Defense"
           },
           "videos": [
             {
@@ -10273,7 +11317,10 @@ window.COURSE_DATA = {
                 "definition": "Securing your Node.js projects is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Securing your Node.js projects:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing your Node.js projects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing your Node.js projects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/csrf.png",
+                "imageCaption": "XSS, CSRF, and ReDoS input sanitization and defense.",
+                "imageAlt": "XSS and CSRF Defense"
               }
             },
             {
@@ -10301,7 +11348,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/csrf.png",
+                "imageCaption": "XSS, CSRF, and ReDoS input sanitization and defense.",
+                "imageAlt": "XSS and CSRF Defense"
               }
             },
             {
@@ -10329,7 +11379,10 @@ window.COURSE_DATA = {
                 "definition": "Introduction to OWASP and other sources is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
                 "mentalModel": "Execution Flow for Introduction to OWASP and other sources:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP and other sources execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP and other sources execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/csrf.png",
+                "imageCaption": "XSS, CSRF, and ReDoS input sanitization and defense.",
+                "imageAlt": "XSS and CSRF Defense"
               }
             }
           ]
@@ -10378,7 +11431,10 @@ window.COURSE_DATA = {
               "Assuming operations in Database Systems Overview & Driver Connection Pooling complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ddia/Image00000.gif",
+            "diagramCaption": "Figure 22.1: Architectural map of modern data-intensive systems combining databases, caches, and stream processors (Designing Data-Intensive Applications).",
+            "diagramAlt": "Map of Modern Data-Intensive Application Architecture"
           },
           "videos": [
             {
@@ -10406,7 +11462,10 @@ window.COURSE_DATA = {
                 "definition": "Databases in Node.js:  Relational, document, and in-memory storage in action is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Databases in Node.js:  Relational, document, and in-memory storage in action:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Databases in Node.js:  Relational, document, and in-memory storage in action execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Databases in Node.js:  Relational, document, and in-memory storage in action execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+                "imageAlt": "AST Tokenization and Bytecode Generation"
               }
             },
             {
@@ -10434,7 +11493,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00000.gif",
+                "imageCaption": "Reliable, scalable, and maintainable distributed data systems.",
+                "imageAlt": "Distributed Data Systems Architecture"
               }
             },
             {
@@ -10462,7 +11524,10 @@ window.COURSE_DATA = {
                 "definition": "Getting your tools ready is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Getting your tools ready:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Getting your tools ready execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Getting your tools ready execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00000.gif",
+                "imageCaption": "Reliable, scalable, and maintainable distributed data systems.",
+                "imageAlt": "Distributed Data Systems Architecture"
               }
             },
             {
@@ -10490,7 +11555,10 @@ window.COURSE_DATA = {
                 "definition": "How to use the exercise files is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for How to use the exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during How to use the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during How to use the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00000.gif",
+                "imageCaption": "Reliable, scalable, and maintainable distributed data systems.",
+                "imageAlt": "Distributed Data Systems Architecture"
               }
             },
             {
@@ -10518,7 +11586,10 @@ window.COURSE_DATA = {
                 "definition": "Exploring the sample project is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Exploring the sample project:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring the sample project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring the sample project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00000.gif",
+                "imageCaption": "Reliable, scalable, and maintainable distributed data systems.",
+                "imageAlt": "Distributed Data Systems Architecture"
               }
             }
           ]
@@ -10548,7 +11619,10 @@ window.COURSE_DATA = {
               "Assuming operations in Data Modeling, Schema Migrations & Reliability complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ddia/Image00002.gif",
+            "diagramCaption": "Figure 22.2: Describing load: Service latency percentiles (p50, p95, p99, p99.9) and tail latency (Designing Data-Intensive Applications).",
+            "diagramAlt": "Service Latency Percentiles and Tail Latency Distribution"
           },
           "videos": [
             {
@@ -10576,7 +11650,10 @@ window.COURSE_DATA = {
                 "definition": "Some basics about databases is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Some basics about databases:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Some basics about databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Some basics about databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -10604,7 +11681,10 @@ window.COURSE_DATA = {
                 "definition": "Understanding relational databases is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Understanding relational databases:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding relational databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding relational databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -10632,7 +11712,10 @@ window.COURSE_DATA = {
                 "definition": "Understanding document databases is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Understanding document databases:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding document databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Understanding document databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+                "imageAlt": "AST Tokenization and Bytecode Generation"
               }
             },
             {
@@ -10660,7 +11743,10 @@ window.COURSE_DATA = {
                 "definition": "Selecting the ideal database for your Node.js project is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Selecting the ideal database for your Node.js project:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Selecting the ideal database for your Node.js project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Selecting the ideal database for your Node.js project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -10688,7 +11774,10 @@ window.COURSE_DATA = {
                 "definition": "Managing product data with MongoDB is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Managing product data with MongoDB:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Managing product data with MongoDB execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Managing product data with MongoDB execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00000.gif",
+                "imageCaption": "Reliable, scalable, and maintainable distributed data systems.",
+                "imageAlt": "Distributed Data Systems Architecture"
               }
             }
           ]
@@ -10718,7 +11807,10 @@ window.COURSE_DATA = {
               "Assuming operations in Error Handling, Reconnection Loops & Resilient Reads complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ddia/Image00003.gif",
+            "diagramCaption": "Figure 22.3: Relational schema vs fan-out document caching for high-load systems (Designing Data-Intensive Applications).",
+            "diagramAlt": "Relational Schema vs Fan-Out Document Architecture"
           },
           "videos": [
             {
@@ -10746,7 +11838,10 @@ window.COURSE_DATA = {
                 "definition": "Setting up MongoDB with Docker is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Setting up MongoDB with Docker:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up MongoDB with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up MongoDB with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00000.gif",
+                "imageCaption": "Reliable, scalable, and maintainable distributed data systems.",
+                "imageAlt": "Distributed Data Systems Architecture"
               }
             },
             {
@@ -10774,7 +11869,10 @@ window.COURSE_DATA = {
                 "definition": "Exploring MongoDB with Compass is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Exploring MongoDB with Compass:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring MongoDB with Compass execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring MongoDB with Compass execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00000.gif",
+                "imageCaption": "Reliable, scalable, and maintainable distributed data systems.",
+                "imageAlt": "Distributed Data Systems Architecture"
               }
             },
             {
@@ -10802,7 +11900,10 @@ window.COURSE_DATA = {
                 "definition": "Introducing Mongoose is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Introducing Mongoose:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introducing Mongoose execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introducing Mongoose execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00000.gif",
+                "imageCaption": "Reliable, scalable, and maintainable distributed data systems.",
+                "imageAlt": "Distributed Data Systems Architecture"
               }
             },
             {
@@ -10830,7 +11931,10 @@ window.COURSE_DATA = {
                 "definition": "Setting up Mongoose and connecting it to MongoDB is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Setting up Mongoose and connecting it to MongoDB:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up Mongoose and connecting it to MongoDB execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up Mongoose and connecting it to MongoDB execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00000.gif",
+                "imageCaption": "Reliable, scalable, and maintainable distributed data systems.",
+                "imageAlt": "Distributed Data Systems Architecture"
               }
             },
             {
@@ -10858,7 +11962,10 @@ window.COURSE_DATA = {
                 "definition": "Building a model for our products is a core architectural concept in **Reliable & Maintainable Data Systems Architecture**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Building a model for our products:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Resilient Database Connection Pool Client Acquisition Pattern\nexport async function withPooledConnection(pool, handler) {\n  const client = await pool.connect();\n  try {\n    return await handler(client);\n  } finally {\n    // Guaranteed release back to pool even if handler throws\n    client.release();\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Building a model for our products execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Building a model for our products execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00000.gif",
+                "imageCaption": "Reliable, scalable, and maintainable distributed data systems.",
+                "imageAlt": "Distributed Data Systems Architecture"
               }
             }
           ]
@@ -10906,7 +12013,10 @@ window.COURSE_DATA = {
               "Assuming operations in B-Tree vs LSM-Tree Indexes & Query Execution Plans complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ddia/Image00020.gif",
+            "diagramCaption": "Figure 23.1: Log-Structured storage engine: Append-only write log and segment compaction (Designing Data-Intensive Applications).",
+            "diagramAlt": "Log-Structured Storage Engine and Segment Compaction"
           },
           "videos": [
             {
@@ -10934,7 +12044,10 @@ window.COURSE_DATA = {
                 "definition": "Integrating the model into our application is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Integrating the model into our application:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Integrating the model into our application execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Integrating the model into our application execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00025.gif",
+                "imageCaption": "Storage engines: B-Trees and LSM-Tree storage structures.",
+                "imageAlt": "Storage Engines Architecture"
               }
             },
             {
@@ -10962,7 +12075,10 @@ window.COURSE_DATA = {
                 "definition": "Populating MongoDB with sample data is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Populating MongoDB with sample data:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Populating MongoDB with sample data execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Populating MongoDB with sample data execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00025.gif",
+                "imageCaption": "Storage engines: B-Trees and LSM-Tree storage structures.",
+                "imageAlt": "Storage Engines Architecture"
               }
             },
             {
@@ -10990,7 +12106,10 @@ window.COURSE_DATA = {
                 "definition": "Querying items with Mongoose is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Querying items with Mongoose:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Querying items with Mongoose execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Querying items with Mongoose execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -11018,7 +12137,10 @@ window.COURSE_DATA = {
                 "definition": "Filtering items by tag is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Filtering items by tag:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Filtering items by tag execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Filtering items by tag execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00025.gif",
+                "imageCaption": "Storage engines: B-Trees and LSM-Tree storage structures.",
+                "imageAlt": "Storage Engines Architecture"
               }
             }
           ]
@@ -11047,7 +12169,10 @@ window.COURSE_DATA = {
               "Assuming operations in In-Memory Caching with Redis & ioredis Integration complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ddia/Image00023.gif",
+            "diagramCaption": "Figure 23.2: Log-Structured Merge-Trees (LSM-Tree) and Sorted String Tables (SSTables) (Designing Data-Intensive Applications).",
+            "diagramAlt": "LSM-Tree and SSTables Storage Engine Mechanics"
           },
           "videos": [
             {
@@ -11075,7 +12200,10 @@ window.COURSE_DATA = {
                 "definition": "Item administration: Listing and loading is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Item administration: Listing and loading:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Item administration: Listing and loading execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Item administration: Listing and loading execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+                "imageAlt": "AST Tokenization and Bytecode Generation"
               }
             },
             {
@@ -11103,7 +12231,10 @@ window.COURSE_DATA = {
                 "definition": "Item administration: Create, update, and delete is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Item administration: Create, update, and delete:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Item administration: Create, update, and delete execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Item administration: Create, update, and delete execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file2.png",
+                "imageCaption": "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+                "imageAlt": "Temporal Dead Zone Scope Traversal"
               }
             },
             {
@@ -11131,7 +12262,10 @@ window.COURSE_DATA = {
                 "definition": "Optimizing queries with indexes is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Optimizing queries with indexes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Optimizing queries with indexes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Optimizing queries with indexes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00025.gif",
+                "imageCaption": "B-Tree page structure: Tree traversal, page splits, and Write-Ahead Log (WAL).",
+                "imageAlt": "B-Tree Page Structure and Page Splits"
               }
             },
             {
@@ -11159,7 +12293,10 @@ window.COURSE_DATA = {
                 "definition": "Performing text search in MongoDB is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Performing text search in MongoDB:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Performing text search in MongoDB execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Performing text search in MongoDB execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00025.gif",
+                "imageCaption": "Storage engines: B-Trees and LSM-Tree storage structures.",
+                "imageAlt": "Storage Engines Architecture"
               }
             }
           ]
@@ -11188,7 +12325,10 @@ window.COURSE_DATA = {
               "Assuming operations in Cache Invalidation, TTL Expiry & Eviction Policies complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ddia/Image00025.gif",
+            "diagramCaption": "Figure 23.3: B-Tree index structure: Fixed-size page splits and Write-Ahead Log (WAL) durability (Designing Data-Intensive Applications).",
+            "diagramAlt": "B-Tree Index Structure and Page Split Mechanics"
           },
           "videos": [
             {
@@ -11216,7 +12356,10 @@ window.COURSE_DATA = {
                 "definition": "Using MySQL for our users and orders is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Using MySQL for our users and orders:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using MySQL for our users and orders execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using MySQL for our users and orders execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -11244,7 +12387,10 @@ window.COURSE_DATA = {
                 "definition": "Setting up MySQL with Docker is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Setting up MySQL with Docker:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up MySQL with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up MySQL with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -11272,7 +12418,10 @@ window.COURSE_DATA = {
                 "definition": "Exploring MySQL with MySQL Workbench is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Exploring MySQL with MySQL Workbench:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring MySQL with MySQL Workbench execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring MySQL with MySQL Workbench execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -11300,7 +12449,10 @@ window.COURSE_DATA = {
                 "definition": "Introducing Sequelize is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Introducing Sequelize:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introducing Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introducing Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00025.gif",
+                "imageCaption": "Storage engines: B-Trees and LSM-Tree storage structures.",
+                "imageAlt": "Storage Engines Architecture"
               }
             }
           ]
@@ -11348,7 +12500,10 @@ window.COURSE_DATA = {
               "Assuming operations in Primary-Replica Replication & Failover Handling complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ddia/Image00041.gif",
+            "diagramCaption": "Figure 24.1: Single-Leader Replication: Synchronous vs asynchronous follower updates and replication lag (Designing Data-Intensive Applications).",
+            "diagramAlt": "Single-Leader Replication Architecture and Replication Lag"
           },
           "videos": [
             {
@@ -11376,7 +12531,10 @@ window.COURSE_DATA = {
                 "definition": "Setting up the database connection is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Setting up the database connection:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up the database connection execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up the database connection execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -11404,7 +12562,10 @@ window.COURSE_DATA = {
                 "definition": "Designing the database structure is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Designing the database structure:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Designing the database structure execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Designing the database structure execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -11432,7 +12593,10 @@ window.COURSE_DATA = {
                 "definition": "Creating a user model for Sequelize is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Creating a user model for Sequelize:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a user model for Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a user model for Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00041.gif",
+                "imageCaption": "Distributed replication and data partition rebalancing.",
+                "imageAlt": "Replication and Partition Rebalancing"
               }
             },
             {
@@ -11460,7 +12624,10 @@ window.COURSE_DATA = {
                 "definition": "Creating the order models for Sequelize is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Creating the order models for Sequelize:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating the order models for Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating the order models for Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00041.gif",
+                "imageCaption": "Distributed replication and data partition rebalancing.",
+                "imageAlt": "Replication and Partition Rebalancing"
               }
             }
           ]
@@ -11489,7 +12656,10 @@ window.COURSE_DATA = {
               "Assuming operations in Replication Lag, Read Scaling & Eventual Consistency complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ddia/Image00043.gif",
+            "diagramCaption": "Figure 24.2: Multi-Leader Replication across geographically distributed data centers and conflict resolution (Designing Data-Intensive Applications).",
+            "diagramAlt": "Multi-Leader Replication Across Data Centers"
           },
           "videos": [
             {
@@ -11517,7 +12687,10 @@ window.COURSE_DATA = {
                 "definition": "Loading and syncing the models is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Loading and syncing the models:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Loading and syncing the models execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Loading and syncing the models execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+                "imageAlt": "AST Tokenization and Bytecode Generation"
               }
             },
             {
@@ -11545,7 +12718,10 @@ window.COURSE_DATA = {
                 "definition": "Creating, updating and deleting users with Sequelize is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Creating, updating and deleting users with Sequelize:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating, updating and deleting users with Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating, updating and deleting users with Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file2.png",
+                "imageCaption": "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+                "imageAlt": "Temporal Dead Zone Scope Traversal"
               }
             },
             {
@@ -11573,7 +12749,10 @@ window.COURSE_DATA = {
                 "definition": "Securing credentials with password hashing is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Securing credentials with password hashing:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing credentials with password hashing execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing credentials with password hashing execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00041.gif",
+                "imageCaption": "Distributed replication and data partition rebalancing.",
+                "imageAlt": "Replication and Partition Rebalancing"
               }
             },
             {
@@ -11601,7 +12780,10 @@ window.COURSE_DATA = {
                 "definition": "Implementing the user login is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Implementing the user login:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the user login execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the user login execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/logging-in.png",
+                "imageCaption": "Secure authentication session exchange and credential verification.",
+                "imageAlt": "Secure Authentication Session Exchange"
               }
             }
           ]
@@ -11630,7 +12812,10 @@ window.COURSE_DATA = {
               "Assuming operations in Horizontal Partitioning, Sharding & Consistent Hashing complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ddia/Image00045.gif",
+            "diagramCaption": "Figure 24.3: Leaderless Replication: Quorum reads and writes (W + R > N) for high availability (Designing Data-Intensive Applications).",
+            "diagramAlt": "Leaderless Replication and Quorum Consistency"
           },
           "videos": [
             {
@@ -11658,7 +12843,10 @@ window.COURSE_DATA = {
                 "definition": "Fast and flexible basket and session management with Redis is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Fast and flexible basket and session management with Redis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Fast and flexible basket and session management with Redis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Fast and flexible basket and session management with Redis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+                "imageCaption": "Publish/Subscribe message exchange pattern with message broker.",
+                "imageAlt": "Publish/Subscribe Message Exchange Pattern"
               }
             },
             {
@@ -11686,7 +12874,10 @@ window.COURSE_DATA = {
                 "definition": "Setting up Redis with Docker is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Setting up Redis with Docker:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up Redis with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up Redis with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+                "imageCaption": "Publish/Subscribe message exchange pattern with message broker.",
+                "imageAlt": "Publish/Subscribe Message Exchange Pattern"
               }
             },
             {
@@ -11714,7 +12905,10 @@ window.COURSE_DATA = {
                 "definition": "Exploring Redis with Redis Insight is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Exploring Redis with Redis Insight:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring Redis with Redis Insight execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring Redis with Redis Insight execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+                "imageCaption": "Publish/Subscribe message exchange pattern with message broker.",
+                "imageAlt": "Publish/Subscribe Message Exchange Pattern"
               }
             },
             {
@@ -11742,7 +12936,10 @@ window.COURSE_DATA = {
                 "definition": "Connecting our application to Redis is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Connecting our application to Redis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Connecting our application to Redis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Connecting our application to Redis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+                "imageCaption": "Publish/Subscribe message exchange pattern with message broker.",
+                "imageAlt": "Publish/Subscribe Message Exchange Pattern"
               }
             }
           ]
@@ -11790,7 +12987,10 @@ window.COURSE_DATA = {
               "Assuming operations in ACID Transactions & Isolation Levels in PostgreSQL complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ddia/Image00051.gif",
+            "diagramCaption": "Figure 25.1: ACID transaction boundaries and dirty read isolation levels (Designing Data-Intensive Applications).",
+            "diagramAlt": "ACID Transaction Boundaries and Isolation Levels"
           },
           "videos": [
             {
@@ -11818,7 +13018,10 @@ window.COURSE_DATA = {
                 "definition": "Managing user sessions with Redis is a core architectural concept in **Distributed Transactions, Consistency & Consensus Protocols**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Managing user sessions with Redis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Idempotent Transactional Outbox Pattern Handler\nexport async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {\n  return await dbClient.transaction(async (tx) => {\n    // 1. Verify idempotency\n    const existing = await tx.query(\"SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE\", [idempotencyKey]);\n    if (existing.rows.length > 0) {\n      return { status: \"cached\", result: existing.rows[0].response };\n    }\n\n    // 2. Insert primary business entity\n    const order = await tx.query(\n      \"INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, 'PENDING') RETURNING id\",\n      [orderData.userId, orderData.amount]\n    );\n\n    // 3. Atomically enqueue outbox event in same local transaction\n    await tx.query(\n      \"INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)\",\n      [\"Order\", order.rows[0].id, \"ORDER_CREATED\", JSON.stringify(orderData)]\n    );\n\n    // 4. Record idempotency key\n    const responsePayload = { orderId: order.rows[0].id, status: \"PENDING\" };\n    await tx.query(\"INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)\", [idempotencyKey, responsePayload]);\n\n    return { status: \"created\", result: responsePayload };\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Managing user sessions with Redis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Managing user sessions with Redis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+                "imageCaption": "Publish/Subscribe message exchange pattern with message broker.",
+                "imageAlt": "Publish/Subscribe Message Exchange Pattern"
               }
             },
             {
@@ -11846,7 +13049,10 @@ window.COURSE_DATA = {
                 "definition": "Basic Redis operations for shopping baskets, part 1 is a core architectural concept in **Distributed Transactions, Consistency & Consensus Protocols**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Basic Redis operations for shopping baskets, part 1:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Idempotent Transactional Outbox Pattern Handler\nexport async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {\n  return await dbClient.transaction(async (tx) => {\n    // 1. Verify idempotency\n    const existing = await tx.query(\"SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE\", [idempotencyKey]);\n    if (existing.rows.length > 0) {\n      return { status: \"cached\", result: existing.rows[0].response };\n    }\n\n    // 2. Insert primary business entity\n    const order = await tx.query(\n      \"INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, 'PENDING') RETURNING id\",\n      [orderData.userId, orderData.amount]\n    );\n\n    // 3. Atomically enqueue outbox event in same local transaction\n    await tx.query(\n      \"INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)\",\n      [\"Order\", order.rows[0].id, \"ORDER_CREATED\", JSON.stringify(orderData)]\n    );\n\n    // 4. Record idempotency key\n    const responsePayload = { orderId: order.rows[0].id, status: \"PENDING\" };\n    await tx.query(\"INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)\", [idempotencyKey, responsePayload]);\n\n    return { status: \"created\", result: responsePayload };\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic Redis operations for shopping baskets, part 1 execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic Redis operations for shopping baskets, part 1 execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+                "imageCaption": "Publish/Subscribe message exchange pattern with message broker.",
+                "imageAlt": "Publish/Subscribe Message Exchange Pattern"
               }
             },
             {
@@ -11874,7 +13080,10 @@ window.COURSE_DATA = {
                 "definition": "Basic Redis operations for shopping baskets, part 2 is a core architectural concept in **Distributed Transactions, Consistency & Consensus Protocols**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Basic Redis operations for shopping baskets, part 2:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Idempotent Transactional Outbox Pattern Handler\nexport async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {\n  return await dbClient.transaction(async (tx) => {\n    // 1. Verify idempotency\n    const existing = await tx.query(\"SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE\", [idempotencyKey]);\n    if (existing.rows.length > 0) {\n      return { status: \"cached\", result: existing.rows[0].response };\n    }\n\n    // 2. Insert primary business entity\n    const order = await tx.query(\n      \"INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, 'PENDING') RETURNING id\",\n      [orderData.userId, orderData.amount]\n    );\n\n    // 3. Atomically enqueue outbox event in same local transaction\n    await tx.query(\n      \"INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)\",\n      [\"Order\", order.rows[0].id, \"ORDER_CREATED\", JSON.stringify(orderData)]\n    );\n\n    // 4. Record idempotency key\n    const responsePayload = { orderId: order.rows[0].id, status: \"PENDING\" };\n    await tx.query(\"INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)\", [idempotencyKey, responsePayload]);\n\n    return { status: \"created\", result: responsePayload };\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic Redis operations for shopping baskets, part 2 execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic Redis operations for shopping baskets, part 2 execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+                "imageCaption": "Publish/Subscribe message exchange pattern with message broker.",
+                "imageAlt": "Publish/Subscribe Message Exchange Pattern"
               }
             },
             {
@@ -11902,7 +13111,10 @@ window.COURSE_DATA = {
                 "definition": "Fetching item information for the basket is a core architectural concept in **Distributed Transactions, Consistency & Consensus Protocols**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Fetching item information for the basket:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Idempotent Transactional Outbox Pattern Handler\nexport async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {\n  return await dbClient.transaction(async (tx) => {\n    // 1. Verify idempotency\n    const existing = await tx.query(\"SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE\", [idempotencyKey]);\n    if (existing.rows.length > 0) {\n      return { status: \"cached\", result: existing.rows[0].response };\n    }\n\n    // 2. Insert primary business entity\n    const order = await tx.query(\n      \"INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, 'PENDING') RETURNING id\",\n      [orderData.userId, orderData.amount]\n    );\n\n    // 3. Atomically enqueue outbox event in same local transaction\n    await tx.query(\n      \"INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)\",\n      [\"Order\", order.rows[0].id, \"ORDER_CREATED\", JSON.stringify(orderData)]\n    );\n\n    // 4. Record idempotency key\n    const responsePayload = { orderId: order.rows[0].id, status: \"PENDING\" };\n    await tx.query(\"INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)\", [idempotencyKey, responsePayload]);\n\n    return { status: \"created\", result: responsePayload };\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Fetching item information for the basket execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Fetching item information for the basket execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00053.gif",
+                "imageCaption": "ACID transactions, isolation levels, and distributed consensus.",
+                "imageAlt": "ACID Transactions and Consensus"
               }
             }
           ]
@@ -11931,7 +13143,10 @@ window.COURSE_DATA = {
               "Assuming operations in Concurrency Anomalies & Optimistic Locking complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ddia/Image00053.gif",
+            "diagramCaption": "Figure 25.2: Snapshot Isolation and Multi-Version Concurrency Control (MVCC) (Designing Data-Intensive Applications).",
+            "diagramAlt": "Snapshot Isolation and Multi-Version Concurrency Control"
           },
           "videos": [
             {
@@ -11959,7 +13174,10 @@ window.COURSE_DATA = {
                 "definition": "Creating the order and using transactions is a core architectural concept in **Distributed Transactions, Consistency & Consensus Protocols**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Creating the order and using transactions:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Idempotent Transactional Outbox Pattern Handler\nexport async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {\n  return await dbClient.transaction(async (tx) => {\n    // 1. Verify idempotency\n    const existing = await tx.query(\"SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE\", [idempotencyKey]);\n    if (existing.rows.length > 0) {\n      return { status: \"cached\", result: existing.rows[0].response };\n    }\n\n    // 2. Insert primary business entity\n    const order = await tx.query(\n      \"INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, 'PENDING') RETURNING id\",\n      [orderData.userId, orderData.amount]\n    );\n\n    // 3. Atomically enqueue outbox event in same local transaction\n    await tx.query(\n      \"INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)\",\n      [\"Order\", order.rows[0].id, \"ORDER_CREATED\", JSON.stringify(orderData)]\n    );\n\n    // 4. Record idempotency key\n    const responsePayload = { orderId: order.rows[0].id, status: \"PENDING\" };\n    await tx.query(\"INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)\", [idempotencyKey, responsePayload]);\n\n    return { status: \"created\", result: responsePayload };\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating the order and using transactions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating the order and using transactions execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00053.gif",
+                "imageCaption": "Snapshot isolation and Multi-Version Concurrency Control (MVCC).",
+                "imageAlt": "Snapshot Isolation and MVCC Mechanics"
               }
             },
             {
@@ -11987,7 +13205,10 @@ window.COURSE_DATA = {
                 "definition": "Implementing the order admin view is a core architectural concept in **Distributed Transactions, Consistency & Consensus Protocols**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Implementing the order admin view:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Idempotent Transactional Outbox Pattern Handler\nexport async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {\n  return await dbClient.transaction(async (tx) => {\n    // 1. Verify idempotency\n    const existing = await tx.query(\"SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE\", [idempotencyKey]);\n    if (existing.rows.length > 0) {\n      return { status: \"cached\", result: existing.rows[0].response };\n    }\n\n    // 2. Insert primary business entity\n    const order = await tx.query(\n      \"INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, 'PENDING') RETURNING id\",\n      [orderData.userId, orderData.amount]\n    );\n\n    // 3. Atomically enqueue outbox event in same local transaction\n    await tx.query(\n      \"INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)\",\n      [\"Order\", order.rows[0].id, \"ORDER_CREATED\", JSON.stringify(orderData)]\n    );\n\n    // 4. Record idempotency key\n    const responsePayload = { orderId: order.rows[0].id, status: \"PENDING\" };\n    await tx.query(\"INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)\", [idempotencyKey, responsePayload]);\n\n    return { status: \"created\", result: responsePayload };\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the order admin view execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the order admin view execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00053.gif",
+                "imageCaption": "ACID transactions, isolation levels, and distributed consensus.",
+                "imageAlt": "ACID Transactions and Consensus"
               }
             },
             {
@@ -12015,7 +13236,10 @@ window.COURSE_DATA = {
                 "definition": "Next steps is a core architectural concept in **Distributed Transactions, Consistency & Consensus Protocols**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Next steps:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Idempotent Transactional Outbox Pattern Handler\nexport async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {\n  return await dbClient.transaction(async (tx) => {\n    // 1. Verify idempotency\n    const existing = await tx.query(\"SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE\", [idempotencyKey]);\n    if (existing.rows.length > 0) {\n      return { status: \"cached\", result: existing.rows[0].response };\n    }\n\n    // 2. Insert primary business entity\n    const order = await tx.query(\n      \"INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, 'PENDING') RETURNING id\",\n      [orderData.userId, orderData.amount]\n    );\n\n    // 3. Atomically enqueue outbox event in same local transaction\n    await tx.query(\n      \"INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)\",\n      [\"Order\", order.rows[0].id, \"ORDER_CREATED\", JSON.stringify(orderData)]\n    );\n\n    // 4. Record idempotency key\n    const responsePayload = { orderId: order.rows[0].id, status: \"PENDING\" };\n    await tx.query(\"INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)\", [idempotencyKey, responsePayload]);\n\n    return { status: \"created\", result: responsePayload };\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00053.gif",
+                "imageCaption": "ACID transactions, isolation levels, and distributed consensus.",
+                "imageAlt": "ACID Transactions and Consensus"
               }
             },
             {
@@ -12043,7 +13267,10 @@ window.COURSE_DATA = {
                 "definition": "Databases in Node.js:  Relational, document, and in-memory storage in action is a core architectural concept in **Distributed Transactions, Consistency & Consensus Protocols**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Databases in Node.js:  Relational, document, and in-memory storage in action:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Idempotent Transactional Outbox Pattern Handler\nexport async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {\n  return await dbClient.transaction(async (tx) => {\n    // 1. Verify idempotency\n    const existing = await tx.query(\"SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE\", [idempotencyKey]);\n    if (existing.rows.length > 0) {\n      return { status: \"cached\", result: existing.rows[0].response };\n    }\n\n    // 2. Insert primary business entity\n    const order = await tx.query(\n      \"INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, 'PENDING') RETURNING id\",\n      [orderData.userId, orderData.amount]\n    );\n\n    // 3. Atomically enqueue outbox event in same local transaction\n    await tx.query(\n      \"INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)\",\n      [\"Order\", order.rows[0].id, \"ORDER_CREATED\", JSON.stringify(orderData)]\n    );\n\n    // 4. Record idempotency key\n    const responsePayload = { orderId: order.rows[0].id, status: \"PENDING\" };\n    await tx.query(\"INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)\", [idempotencyKey, responsePayload]);\n\n    return { status: \"created\", result: responsePayload };\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Databases in Node.js:  Relational, document, and in-memory storage in action execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Databases in Node.js:  Relational, document, and in-memory storage in action execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-get-started/file1.svg",
+                "imageCaption": "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+                "imageAlt": "AST Tokenization and Bytecode Generation"
               }
             }
           ]
@@ -12072,7 +13299,10 @@ window.COURSE_DATA = {
               "Assuming operations in Distributed Sagas, Compensations & Idempotency complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/ddia/Image00055.gif",
+            "diagramCaption": "Figure 25.3: Distributed consensus and Two-Phase Commit (2PC) coordinator protocol (Designing Data-Intensive Applications).",
+            "diagramAlt": "Distributed Consensus and Two-Phase Commit Protocol"
           },
           "videos": [
             {
@@ -12100,7 +13330,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **Distributed Transactions, Consistency & Consensus Protocols**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Idempotent Transactional Outbox Pattern Handler\nexport async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {\n  return await dbClient.transaction(async (tx) => {\n    // 1. Verify idempotency\n    const existing = await tx.query(\"SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE\", [idempotencyKey]);\n    if (existing.rows.length > 0) {\n      return { status: \"cached\", result: existing.rows[0].response };\n    }\n\n    // 2. Insert primary business entity\n    const order = await tx.query(\n      \"INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, 'PENDING') RETURNING id\",\n      [orderData.userId, orderData.amount]\n    );\n\n    // 3. Atomically enqueue outbox event in same local transaction\n    await tx.query(\n      \"INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)\",\n      [\"Order\", order.rows[0].id, \"ORDER_CREATED\", JSON.stringify(orderData)]\n    );\n\n    // 4. Record idempotency key\n    const responsePayload = { orderId: order.rows[0].id, status: \"PENDING\" };\n    await tx.query(\"INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)\", [idempotencyKey, responsePayload]);\n\n    return { status: \"created\", result: responsePayload };\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00053.gif",
+                "imageCaption": "ACID transactions, isolation levels, and distributed consensus.",
+                "imageAlt": "ACID Transactions and Consensus"
               }
             },
             {
@@ -12128,7 +13361,10 @@ window.COURSE_DATA = {
                 "definition": "Getting your tools ready is a core architectural concept in **Distributed Transactions, Consistency & Consensus Protocols**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Getting your tools ready:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Idempotent Transactional Outbox Pattern Handler\nexport async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {\n  return await dbClient.transaction(async (tx) => {\n    // 1. Verify idempotency\n    const existing = await tx.query(\"SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE\", [idempotencyKey]);\n    if (existing.rows.length > 0) {\n      return { status: \"cached\", result: existing.rows[0].response };\n    }\n\n    // 2. Insert primary business entity\n    const order = await tx.query(\n      \"INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, 'PENDING') RETURNING id\",\n      [orderData.userId, orderData.amount]\n    );\n\n    // 3. Atomically enqueue outbox event in same local transaction\n    await tx.query(\n      \"INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)\",\n      [\"Order\", order.rows[0].id, \"ORDER_CREATED\", JSON.stringify(orderData)]\n    );\n\n    // 4. Record idempotency key\n    const responsePayload = { orderId: order.rows[0].id, status: \"PENDING\" };\n    await tx.query(\"INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)\", [idempotencyKey, responsePayload]);\n\n    return { status: \"created\", result: responsePayload };\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Getting your tools ready execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Getting your tools ready execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00053.gif",
+                "imageCaption": "ACID transactions, isolation levels, and distributed consensus.",
+                "imageAlt": "ACID Transactions and Consensus"
               }
             },
             {
@@ -12156,7 +13392,10 @@ window.COURSE_DATA = {
                 "definition": "How to use the exercise files is a core architectural concept in **Distributed Transactions, Consistency & Consensus Protocols**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for How to use the exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Idempotent Transactional Outbox Pattern Handler\nexport async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {\n  return await dbClient.transaction(async (tx) => {\n    // 1. Verify idempotency\n    const existing = await tx.query(\"SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE\", [idempotencyKey]);\n    if (existing.rows.length > 0) {\n      return { status: \"cached\", result: existing.rows[0].response };\n    }\n\n    // 2. Insert primary business entity\n    const order = await tx.query(\n      \"INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, 'PENDING') RETURNING id\",\n      [orderData.userId, orderData.amount]\n    );\n\n    // 3. Atomically enqueue outbox event in same local transaction\n    await tx.query(\n      \"INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)\",\n      [\"Order\", order.rows[0].id, \"ORDER_CREATED\", JSON.stringify(orderData)]\n    );\n\n    // 4. Record idempotency key\n    const responsePayload = { orderId: order.rows[0].id, status: \"PENDING\" };\n    await tx.query(\"INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)\", [idempotencyKey, responsePayload]);\n\n    return { status: \"created\", result: responsePayload };\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during How to use the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during How to use the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00053.gif",
+                "imageCaption": "ACID transactions, isolation levels, and distributed consensus.",
+                "imageAlt": "ACID Transactions and Consensus"
               }
             },
             {
@@ -12184,7 +13423,10 @@ window.COURSE_DATA = {
                 "definition": "Exploring the sample project is a core architectural concept in **Distributed Transactions, Consistency & Consensus Protocols**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
                 "mentalModel": "Execution Flow for Exploring the sample project:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Idempotent Transactional Outbox Pattern Handler\nexport async function executeOrderWithOutbox(dbClient, orderData, idempotencyKey) {\n  return await dbClient.transaction(async (tx) => {\n    // 1. Verify idempotency\n    const existing = await tx.query(\"SELECT * FROM idempotency_keys WHERE key = $1 FOR UPDATE\", [idempotencyKey]);\n    if (existing.rows.length > 0) {\n      return { status: \"cached\", result: existing.rows[0].response };\n    }\n\n    // 2. Insert primary business entity\n    const order = await tx.query(\n      \"INSERT INTO orders (user_id, amount, status) VALUES ($1, $2, 'PENDING') RETURNING id\",\n      [orderData.userId, orderData.amount]\n    );\n\n    // 3. Atomically enqueue outbox event in same local transaction\n    await tx.query(\n      \"INSERT INTO outbox_events (aggregate_type, aggregate_id, event_type, payload) VALUES ($1, $2, $3, $4)\",\n      [\"Order\", order.rows[0].id, \"ORDER_CREATED\", JSON.stringify(orderData)]\n    );\n\n    // 4. Record idempotency key\n    const responsePayload = { orderId: order.rows[0].id, status: \"PENDING\" };\n    await tx.query(\"INSERT INTO idempotency_keys (key, response) VALUES ($1, $2)\", [idempotencyKey, responsePayload]);\n\n    return { status: \"created\", result: responsePayload };\n  });\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring the sample project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring the sample project execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00053.gif",
+                "imageCaption": "ACID transactions, isolation levels, and distributed consensus.",
+                "imageAlt": "ACID Transactions and Consensus"
               }
             }
           ]
@@ -12232,7 +13474,10 @@ window.COURSE_DATA = {
               "Assuming operations in Stateless Node.js Services & Horizontal Scaling complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/distributed-systems/dsnj_0302.png",
+            "diagramCaption": "Figure 26.1: Edge ingress routing, reverse proxies, and Node.js microservice upstream services (Distributed Systems with Node.js).",
+            "diagramAlt": "Edge Ingress Routing and Reverse Proxy Architecture"
           },
           "videos": [
             {
@@ -12260,7 +13505,10 @@ window.COURSE_DATA = {
                 "definition": "Scaling applications with Node.js is a core architectural concept in **Distributed Services, Reverse Proxies & Load Balancing**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Scaling applications with Node.js:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Graceful Shutdown Handler for Load-Balanced Node.js Services\nexport function setupGracefulShutdown(server, dbPool, timeoutMs = 10000) {\n  function shutdown(signal) {\n    console.log(`Received ${signal}. Initiating graceful shutdown...`);\n    server.close(async () => {\n      console.log(\"HTTP server closed. Draining database connection pool...\");\n      try {\n        await dbPool.end();\n        console.log(\"Database pool drained cleanly. Exiting.\");\n        process.exit(0);\n      } catch (err) {\n        console.error(\"Error during pool drain:\", err);\n        process.exit(1);\n      }\n    });\n\n    // Force exit if drain exceeds timeout\n    setTimeout(() => {\n      console.error(\"Graceful shutdown timeout exceeded. Forcefully terminating.\");\n      process.exit(1);\n    }, timeoutMs).unref();\n  }\n\n  process.on(\"SIGTERM\", () => shutdown(\"SIGTERM\"));\n  process.on(\"SIGINT\", () => shutdown(\"SIGINT\"));\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling applications with Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling applications with Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0303.png",
+                "imageCaption": "Distributed Node.js microservices and HAProxy reverse proxies.",
+                "imageAlt": "Distributed Microservices Architecture"
               }
             },
             {
@@ -12288,7 +13536,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **Distributed Services, Reverse Proxies & Load Balancing**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Graceful Shutdown Handler for Load-Balanced Node.js Services\nexport function setupGracefulShutdown(server, dbPool, timeoutMs = 10000) {\n  function shutdown(signal) {\n    console.log(`Received ${signal}. Initiating graceful shutdown...`);\n    server.close(async () => {\n      console.log(\"HTTP server closed. Draining database connection pool...\");\n      try {\n        await dbPool.end();\n        console.log(\"Database pool drained cleanly. Exiting.\");\n        process.exit(0);\n      } catch (err) {\n        console.error(\"Error during pool drain:\", err);\n        process.exit(1);\n      }\n    });\n\n    // Force exit if drain exceeds timeout\n    setTimeout(() => {\n      console.error(\"Graceful shutdown timeout exceeded. Forcefully terminating.\");\n      process.exit(1);\n    }, timeoutMs).unref();\n  }\n\n  process.on(\"SIGTERM\", () => shutdown(\"SIGTERM\"));\n  process.on(\"SIGINT\", () => shutdown(\"SIGINT\"));\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0303.png",
+                "imageCaption": "Distributed Node.js microservices and HAProxy reverse proxies.",
+                "imageAlt": "Distributed Microservices Architecture"
               }
             },
             {
@@ -12316,7 +13567,10 @@ window.COURSE_DATA = {
                 "definition": "Using the exercise files is a core architectural concept in **Distributed Services, Reverse Proxies & Load Balancing**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Using the exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Graceful Shutdown Handler for Load-Balanced Node.js Services\nexport function setupGracefulShutdown(server, dbPool, timeoutMs = 10000) {\n  function shutdown(signal) {\n    console.log(`Received ${signal}. Initiating graceful shutdown...`);\n    server.close(async () => {\n      console.log(\"HTTP server closed. Draining database connection pool...\");\n      try {\n        await dbPool.end();\n        console.log(\"Database pool drained cleanly. Exiting.\");\n        process.exit(0);\n      } catch (err) {\n        console.error(\"Error during pool drain:\", err);\n        process.exit(1);\n      }\n    });\n\n    // Force exit if drain exceeds timeout\n    setTimeout(() => {\n      console.error(\"Graceful shutdown timeout exceeded. Forcefully terminating.\");\n      process.exit(1);\n    }, timeoutMs).unref();\n  }\n\n  process.on(\"SIGTERM\", () => shutdown(\"SIGTERM\"));\n  process.on(\"SIGINT\", () => shutdown(\"SIGINT\"));\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0303.png",
+                "imageCaption": "Distributed Node.js microservices and HAProxy reverse proxies.",
+                "imageAlt": "Distributed Microservices Architecture"
               }
             },
             {
@@ -12344,7 +13598,10 @@ window.COURSE_DATA = {
                 "definition": "The scale cube is a core architectural concept in **Distributed Services, Reverse Proxies & Load Balancing**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for The scale cube:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Graceful Shutdown Handler for Load-Balanced Node.js Services\nexport function setupGracefulShutdown(server, dbPool, timeoutMs = 10000) {\n  function shutdown(signal) {\n    console.log(`Received ${signal}. Initiating graceful shutdown...`);\n    server.close(async () => {\n      console.log(\"HTTP server closed. Draining database connection pool...\");\n      try {\n        await dbPool.end();\n        console.log(\"Database pool drained cleanly. Exiting.\");\n        process.exit(0);\n      } catch (err) {\n        console.error(\"Error during pool drain:\", err);\n        process.exit(1);\n      }\n    });\n\n    // Force exit if drain exceeds timeout\n    setTimeout(() => {\n      console.error(\"Graceful shutdown timeout exceeded. Forcefully terminating.\");\n      process.exit(1);\n    }, timeoutMs).unref();\n  }\n\n  process.on(\"SIGTERM\", () => shutdown(\"SIGTERM\"));\n  process.on(\"SIGINT\", () => shutdown(\"SIGINT\"));\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The scale cube execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The scale cube execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0303.png",
+                "imageCaption": "Distributed Node.js microservices and HAProxy reverse proxies.",
+                "imageAlt": "Distributed Microservices Architecture"
               }
             }
           ]
@@ -12373,7 +13630,10 @@ window.COURSE_DATA = {
               "Assuming operations in Reverse Proxies, Load Balancers & Zero-Downtime Deployments complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/distributed-systems/dsnj_0303.png",
+            "diagramCaption": "Figure 26.2: High-availability load balancing with HAProxy and active health checks (Distributed Systems with Node.js).",
+            "diagramAlt": "High-Availability Load Balancing with HAProxy"
           },
           "videos": [
             {
@@ -12401,7 +13661,10 @@ window.COURSE_DATA = {
                 "definition": "Scaling the x-axis is a core architectural concept in **Distributed Services, Reverse Proxies & Load Balancing**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Scaling the x-axis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Graceful Shutdown Handler for Load-Balanced Node.js Services\nexport function setupGracefulShutdown(server, dbPool, timeoutMs = 10000) {\n  function shutdown(signal) {\n    console.log(`Received ${signal}. Initiating graceful shutdown...`);\n    server.close(async () => {\n      console.log(\"HTTP server closed. Draining database connection pool...\");\n      try {\n        await dbPool.end();\n        console.log(\"Database pool drained cleanly. Exiting.\");\n        process.exit(0);\n      } catch (err) {\n        console.error(\"Error during pool drain:\", err);\n        process.exit(1);\n      }\n    });\n\n    // Force exit if drain exceeds timeout\n    setTimeout(() => {\n      console.error(\"Graceful shutdown timeout exceeded. Forcefully terminating.\");\n      process.exit(1);\n    }, timeoutMs).unref();\n  }\n\n  process.on(\"SIGTERM\", () => shutdown(\"SIGTERM\"));\n  process.on(\"SIGINT\", () => shutdown(\"SIGINT\"));\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the x-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the x-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0303.png",
+                "imageCaption": "Distributed Node.js microservices and HAProxy reverse proxies.",
+                "imageAlt": "Distributed Microservices Architecture"
               }
             },
             {
@@ -12429,7 +13692,10 @@ window.COURSE_DATA = {
                 "definition": "Forking processes is a core architectural concept in **Distributed Services, Reverse Proxies & Load Balancing**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Forking processes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Graceful Shutdown Handler for Load-Balanced Node.js Services\nexport function setupGracefulShutdown(server, dbPool, timeoutMs = 10000) {\n  function shutdown(signal) {\n    console.log(`Received ${signal}. Initiating graceful shutdown...`);\n    server.close(async () => {\n      console.log(\"HTTP server closed. Draining database connection pool...\");\n      try {\n        await dbPool.end();\n        console.log(\"Database pool drained cleanly. Exiting.\");\n        process.exit(0);\n      } catch (err) {\n        console.error(\"Error during pool drain:\", err);\n        process.exit(1);\n      }\n    });\n\n    // Force exit if drain exceeds timeout\n    setTimeout(() => {\n      console.error(\"Graceful shutdown timeout exceeded. Forcefully terminating.\");\n      process.exit(1);\n    }, timeoutMs).unref();\n  }\n\n  process.on(\"SIGTERM\", () => shutdown(\"SIGTERM\"));\n  process.on(\"SIGINT\", () => shutdown(\"SIGINT\"));\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Forking processes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Forking processes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/security-layers.png",
+                "imageCaption": "Defense-in-depth security layers across runtime, application, and network.",
+                "imageAlt": "Defense-in-Depth Security Layers"
               }
             },
             {
@@ -12457,7 +13723,10 @@ window.COURSE_DATA = {
                 "definition": "Using a cluster module is a core architectural concept in **Distributed Services, Reverse Proxies & Load Balancing**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Using a cluster module:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Graceful Shutdown Handler for Load-Balanced Node.js Services\nexport function setupGracefulShutdown(server, dbPool, timeoutMs = 10000) {\n  function shutdown(signal) {\n    console.log(`Received ${signal}. Initiating graceful shutdown...`);\n    server.close(async () => {\n      console.log(\"HTTP server closed. Draining database connection pool...\");\n      try {\n        await dbPool.end();\n        console.log(\"Database pool drained cleanly. Exiting.\");\n        process.exit(0);\n      } catch (err) {\n        console.error(\"Error during pool drain:\", err);\n        process.exit(1);\n      }\n    });\n\n    // Force exit if drain exceeds timeout\n    setTimeout(() => {\n      console.error(\"Graceful shutdown timeout exceeded. Forcefully terminating.\");\n      process.exit(1);\n    }, timeoutMs).unref();\n  }\n\n  process.on(\"SIGTERM\", () => shutdown(\"SIGTERM\"));\n  process.on(\"SIGINT\", () => shutdown(\"SIGINT\"));\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using a cluster module execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using a cluster module execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+                "imageCaption": "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+                "imageAlt": "ESM Instantiation and Live Bindings Resolution"
               }
             },
             {
@@ -12485,7 +13754,10 @@ window.COURSE_DATA = {
                 "definition": "Architecting zero downtime is a core architectural concept in **Distributed Services, Reverse Proxies & Load Balancing**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Architecting zero downtime:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Graceful Shutdown Handler for Load-Balanced Node.js Services\nexport function setupGracefulShutdown(server, dbPool, timeoutMs = 10000) {\n  function shutdown(signal) {\n    console.log(`Received ${signal}. Initiating graceful shutdown...`);\n    server.close(async () => {\n      console.log(\"HTTP server closed. Draining database connection pool...\");\n      try {\n        await dbPool.end();\n        console.log(\"Database pool drained cleanly. Exiting.\");\n        process.exit(0);\n      } catch (err) {\n        console.error(\"Error during pool drain:\", err);\n        process.exit(1);\n      }\n    });\n\n    // Force exit if drain exceeds timeout\n    setTimeout(() => {\n      console.error(\"Graceful shutdown timeout exceeded. Forcefully terminating.\");\n      process.exit(1);\n    }, timeoutMs).unref();\n  }\n\n  process.on(\"SIGTERM\", () => shutdown(\"SIGTERM\"));\n  process.on(\"SIGINT\", () => shutdown(\"SIGINT\"));\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Architecting zero downtime execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Architecting zero downtime execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0303.png",
+                "imageCaption": "Distributed Node.js microservices and HAProxy reverse proxies.",
+                "imageAlt": "Distributed Microservices Architecture"
               }
             }
           ]
@@ -12514,7 +13786,10 @@ window.COURSE_DATA = {
               "Assuming operations in Circuit Breakers, Bulkheads & Graceful Degradation complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/distributed-systems/dsnj_0701.png",
+            "diagramCaption": "Figure 26.3: Containerized Node.js orchestration with Kubernetes Master, Nodes, and Pods (Distributed Systems with Node.js).",
+            "diagramAlt": "Containerized Node.js Orchestration with Kubernetes"
           },
           "videos": [
             {
@@ -12542,7 +13817,10 @@ window.COURSE_DATA = {
                 "definition": "Working with clusters with PM2 is a core architectural concept in **Distributed Services, Reverse Proxies & Load Balancing**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Working with clusters with PM2:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Graceful Shutdown Handler for Load-Balanced Node.js Services\nexport function setupGracefulShutdown(server, dbPool, timeoutMs = 10000) {\n  function shutdown(signal) {\n    console.log(`Received ${signal}. Initiating graceful shutdown...`);\n    server.close(async () => {\n      console.log(\"HTTP server closed. Draining database connection pool...\");\n      try {\n        await dbPool.end();\n        console.log(\"Database pool drained cleanly. Exiting.\");\n        process.exit(0);\n      } catch (err) {\n        console.error(\"Error during pool drain:\", err);\n        process.exit(1);\n      }\n    });\n\n    // Force exit if drain exceeds timeout\n    setTimeout(() => {\n      console.error(\"Graceful shutdown timeout exceeded. Forcefully terminating.\");\n      process.exit(1);\n    }, timeoutMs).unref();\n  }\n\n  process.on(\"SIGTERM\", () => shutdown(\"SIGTERM\"));\n  process.on(\"SIGINT\", () => shutdown(\"SIGINT\"));\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with clusters with PM2 execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with clusters with PM2 execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_12_002.png",
+                "imageCaption": "Cluster module master/worker multi-core process IPC distribution.",
+                "imageAlt": "Cluster Module IPC Distribution"
               }
             },
             {
@@ -12570,7 +13848,10 @@ window.COURSE_DATA = {
                 "definition": "Working with databases is a core architectural concept in **Distributed Services, Reverse Proxies & Load Balancing**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Working with databases:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Graceful Shutdown Handler for Load-Balanced Node.js Services\nexport function setupGracefulShutdown(server, dbPool, timeoutMs = 10000) {\n  function shutdown(signal) {\n    console.log(`Received ${signal}. Initiating graceful shutdown...`);\n    server.close(async () => {\n      console.log(\"HTTP server closed. Draining database connection pool...\");\n      try {\n        await dbPool.end();\n        console.log(\"Database pool drained cleanly. Exiting.\");\n        process.exit(0);\n      } catch (err) {\n        console.error(\"Error during pool drain:\", err);\n        process.exit(1);\n      }\n    });\n\n    // Force exit if drain exceeds timeout\n    setTimeout(() => {\n      console.error(\"Graceful shutdown timeout exceeded. Forcefully terminating.\");\n      process.exit(1);\n    }, timeoutMs).unref();\n  }\n\n  process.on(\"SIGTERM\", () => shutdown(\"SIGTERM\"));\n  process.on(\"SIGINT\", () => shutdown(\"SIGINT\"));\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -12598,7 +13879,10 @@ window.COURSE_DATA = {
                 "definition": "Incorporating a database is a core architectural concept in **Distributed Services, Reverse Proxies & Load Balancing**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Incorporating a database:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Graceful Shutdown Handler for Load-Balanced Node.js Services\nexport function setupGracefulShutdown(server, dbPool, timeoutMs = 10000) {\n  function shutdown(signal) {\n    console.log(`Received ${signal}. Initiating graceful shutdown...`);\n    server.close(async () => {\n      console.log(\"HTTP server closed. Draining database connection pool...\");\n      try {\n        await dbPool.end();\n        console.log(\"Database pool drained cleanly. Exiting.\");\n        process.exit(0);\n      } catch (err) {\n        console.error(\"Error during pool drain:\", err);\n        process.exit(1);\n      }\n    });\n\n    // Force exit if drain exceeds timeout\n    setTimeout(() => {\n      console.error(\"Graceful shutdown timeout exceeded. Forcefully terminating.\");\n      process.exit(1);\n    }, timeoutMs).unref();\n  }\n\n  process.on(\"SIGTERM\", () => shutdown(\"SIGTERM\"));\n  process.on(\"SIGINT\", () => shutdown(\"SIGINT\"));\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Incorporating a database execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Incorporating a database execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/secure-nodejs/parametrized.png",
+                "imageCaption": "Parameterized query compilation preventing SQL injection attacks.",
+                "imageAlt": "Parameterized Queries Mitigating SQL Injection"
               }
             },
             {
@@ -12626,7 +13910,10 @@ window.COURSE_DATA = {
                 "definition": "Scaling the z-axis is a core architectural concept in **Distributed Services, Reverse Proxies & Load Balancing**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Scaling the z-axis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Production Graceful Shutdown Handler for Load-Balanced Node.js Services\nexport function setupGracefulShutdown(server, dbPool, timeoutMs = 10000) {\n  function shutdown(signal) {\n    console.log(`Received ${signal}. Initiating graceful shutdown...`);\n    server.close(async () => {\n      console.log(\"HTTP server closed. Draining database connection pool...\");\n      try {\n        await dbPool.end();\n        console.log(\"Database pool drained cleanly. Exiting.\");\n        process.exit(0);\n      } catch (err) {\n        console.error(\"Error during pool drain:\", err);\n        process.exit(1);\n      }\n    });\n\n    // Force exit if drain exceeds timeout\n    setTimeout(() => {\n      console.error(\"Graceful shutdown timeout exceeded. Forcefully terminating.\");\n      process.exit(1);\n    }, timeoutMs).unref();\n  }\n\n  process.on(\"SIGTERM\", () => shutdown(\"SIGTERM\"));\n  process.on(\"SIGINT\", () => shutdown(\"SIGINT\"));\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the z-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the z-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0303.png",
+                "imageCaption": "Distributed Node.js microservices and HAProxy reverse proxies.",
+                "imageAlt": "Distributed Microservices Architecture"
               }
             }
           ]
@@ -12675,7 +13962,10 @@ window.COURSE_DATA = {
               "Assuming operations in Microservices Communication Paradigms & REST Contracts complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/distributed-systems/dsnj_0310.png",
+            "diagramCaption": "Figure 27.1: Inter-service communication benchmarks: JSON over HTTP latency distribution (Distributed Systems with Node.js).",
+            "diagramAlt": "JSON over HTTP Inter-Service Latency Benchmark"
           },
           "videos": [
             {
@@ -12703,7 +13993,10 @@ window.COURSE_DATA = {
                 "definition": "Welcome is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for Welcome:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0312.png",
+                "imageCaption": "Binary RPC streaming with gRPC and Protocol Buffers.",
+                "imageAlt": "Binary RPC Streaming"
               }
             },
             {
@@ -12731,7 +14024,10 @@ window.COURSE_DATA = {
                 "definition": "What you need to know is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for What you need to know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you need to know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you need to know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0312.png",
+                "imageCaption": "Binary RPC streaming with gRPC and Protocol Buffers.",
+                "imageAlt": "Binary RPC Streaming"
               }
             },
             {
@@ -12759,7 +14055,10 @@ window.COURSE_DATA = {
                 "definition": "History of service-based architectures is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for History of service-based architectures:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during History of service-based architectures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during History of service-based architectures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Non-blocking I/O multiplexer and callback dispatch.",
+                "imageAlt": "The libuv Reactor Pattern Architecture"
               }
             },
             {
@@ -12787,7 +14086,10 @@ window.COURSE_DATA = {
                 "definition": "The monolithic application is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for The monolithic application:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The monolithic application execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The monolithic application execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0312.png",
+                "imageCaption": "Binary RPC streaming with gRPC and Protocol Buffers.",
+                "imageAlt": "Binary RPC Streaming"
               }
             },
             {
@@ -12815,7 +14117,10 @@ window.COURSE_DATA = {
                 "definition": "Service-oriented architecture is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for Service-oriented architecture:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Service-oriented architecture execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Service-oriented architecture execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/nodejs-design-patterns/B18437_01_003.png",
+                "imageCaption": "The libuv Reactor Pattern: Non-blocking I/O multiplexer and callback dispatch.",
+                "imageAlt": "The libuv Reactor Pattern Architecture"
               }
             }
           ]
@@ -12845,7 +14150,10 @@ window.COURSE_DATA = {
               "Assuming operations in Protocol Buffers, gRPC RPC Interfaces & HTTP/2 complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/distributed-systems/dsnj_0312.png",
+            "diagramCaption": "Figure 27.2: High-performance binary streaming RPC with gRPC and Protocol Buffers (Distributed Systems with Node.js).",
+            "diagramAlt": "gRPC and Protocol Buffers Binary Streaming RPC"
           },
           "videos": [
             {
@@ -12873,7 +14181,10 @@ window.COURSE_DATA = {
                 "definition": "Microservices: The new kid on the block is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for Microservices: The new kid on the block:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Microservices: The new kid on the block execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Microservices: The new kid on the block execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0303.png",
+                "imageCaption": "HAProxy load balancing requests across upstream Node.js microservices.",
+                "imageAlt": "HAProxy Reverse Proxy Load Balancing"
               }
             },
             {
@@ -12901,7 +14212,10 @@ window.COURSE_DATA = {
                 "definition": "Microservices: Solver of problems but not the silver bullet is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for Microservices: Solver of problems but not the silver bullet:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Microservices: Solver of problems but not the silver bullet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Microservices: Solver of problems but not the silver bullet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ydkjs-scope-closures/file2.png",
+                "imageCaption": "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+                "imageAlt": "Temporal Dead Zone Scope Traversal"
               }
             },
             {
@@ -12929,7 +14243,10 @@ window.COURSE_DATA = {
                 "definition": "Microservices and cloud native is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for Microservices and cloud native:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Microservices and cloud native execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Microservices and cloud native execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0303.png",
+                "imageCaption": "HAProxy load balancing requests across upstream Node.js microservices.",
+                "imageAlt": "HAProxy Reverse Proxy Load Balancing"
               }
             },
             {
@@ -12957,7 +14274,10 @@ window.COURSE_DATA = {
                 "definition": "The services is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for The services:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0312.png",
+                "imageCaption": "Binary RPC streaming with gRPC and Protocol Buffers.",
+                "imageAlt": "Binary RPC Streaming"
               }
             },
             {
@@ -12985,7 +14305,10 @@ window.COURSE_DATA = {
                 "definition": "The communication dance is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for The communication dance:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The communication dance execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The communication dance execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0312.png",
+                "imageCaption": "Binary RPC streaming with gRPC and Protocol Buffers.",
+                "imageAlt": "Binary RPC Streaming"
               }
             }
           ]
@@ -13015,7 +14338,10 @@ window.COURSE_DATA = {
               "Assuming operations in Service Meshes, API Gateways & Serialization Efficiency complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/distributed-systems/dsnj_0805.png",
+            "diagramCaption": "Figure 27.3: Resilient inter-service communication: HTTP retry logic and exponential backoff (Distributed Systems with Node.js).",
+            "diagramAlt": "Resilient Inter-Service Communication and Exponential Backoff"
           },
           "videos": [
             {
@@ -13043,7 +14369,10 @@ window.COURSE_DATA = {
                 "definition": "Distribution and scale is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for Distribution and scale:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Distribution and scale execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Distribution and scale execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0312.png",
+                "imageCaption": "Binary RPC streaming with gRPC and Protocol Buffers.",
+                "imageAlt": "Binary RPC Streaming"
               }
             },
             {
@@ -13071,7 +14400,10 @@ window.COURSE_DATA = {
                 "definition": "The dangers of latency and gridlock is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for The dangers of latency and gridlock:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The dangers of latency and gridlock execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The dangers of latency and gridlock execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00002.gif",
+                "imageCaption": "Service latency distribution and tail latency measurement (p95, p99, p99.9).",
+                "imageAlt": "Latency Distribution and Tail Latency Percentiles"
               }
             },
             {
@@ -13099,7 +14431,10 @@ window.COURSE_DATA = {
                 "definition": "Bounded context is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for Bounded context:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Bounded context execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Bounded context execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0312.png",
+                "imageCaption": "Binary RPC streaming with gRPC and Protocol Buffers.",
+                "imageAlt": "Binary RPC Streaming"
               }
             },
             {
@@ -13127,7 +14462,10 @@ window.COURSE_DATA = {
                 "definition": "Data domains as a service boundary is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for Data domains as a service boundary:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Data domains as a service boundary execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Data domains as a service boundary execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0312.png",
+                "imageCaption": "Binary RPC streaming with gRPC and Protocol Buffers.",
+                "imageAlt": "Binary RPC Streaming"
               }
             },
             {
@@ -13155,7 +14493,10 @@ window.COURSE_DATA = {
                 "definition": "No ACID, only BASE is a core architectural concept in **Inter-Service Communication: gRPC, Protocol Buffers & REST**. Explore the basic concepts of microservices. Get the foundational knowledge you need to determine if this architectural model is the right fit for you and your team.",
                 "mentalModel": "Execution Flow for No ACID, only BASE:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Protocol Buffers Service Contract Definition (Reference)\n// syntax = \"proto3\";\n// package userservice;\n// service UserService {\n//   rpc GetUser (UserRequest) returns (UserResponse);\n// }\n// message UserRequest { string user_id = 1; }\n// message UserResponse { string user_id = 1; string name = 2; string email = 3; }\n\nexport function createGrpcMetadata(correlationId) {\n  // Creating gRPC Metadata for tracing context propagation\n  return {\n    \"x-correlation-id\": correlationId,\n    \"x-client-timestamp\": Date.now().toString()\n  };\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during No ACID, only BASE execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during No ACID, only BASE execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00053.gif",
+                "imageCaption": "Snapshot isolation and Multi-Version Concurrency Control (MVCC).",
+                "imageAlt": "Snapshot Isolation and MVCC Mechanics"
               }
             }
           ]
@@ -13203,7 +14544,10 @@ window.COURSE_DATA = {
               "Assuming operations in Structured Logging, Tracing & Correlation IDs complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/distributed-systems/dsnj_0401.png",
+            "diagramCaption": "Figure 28.1: Centralized structured logging architecture: Elasticsearch, Logstash, and Kibana (ELK Stack) (Distributed Systems with Node.js).",
+            "diagramAlt": "Centralized Structured Logging ELK Architecture"
           },
           "videos": [
             {
@@ -13236,7 +14580,10 @@ window.COURSE_DATA = {
                 "definition": "Setting up horizontal partitioning is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Setting up horizontal partitioning:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up horizontal partitioning execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up horizontal partitioning execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/ddia/Image00047.gif",
+                "imageCaption": "Database partitioning: Routing requests across partitioned data nodes.",
+                "imageAlt": "Database Partitioning and Request Routing"
               }
             },
             {
@@ -13269,7 +14616,10 @@ window.COURSE_DATA = {
                 "definition": "Scaling the y-axis is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Scaling the y-axis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the y-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the y-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0404.png",
+                "imageCaption": "Full-stack observability: Metrics, structured logging, and tracing.",
+                "imageAlt": "Full-Stack Observability Pipeline"
               }
             },
             {
@@ -13302,7 +14652,10 @@ window.COURSE_DATA = {
                 "definition": "Decomposing services is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Decomposing services:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Decomposing services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Decomposing services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0404.png",
+                "imageCaption": "Full-stack observability: Metrics, structured logging, and tracing.",
+                "imageAlt": "Full-Stack Observability Pipeline"
               }
             },
             {
@@ -13335,7 +14688,10 @@ window.COURSE_DATA = {
                 "definition": "Service orchestration is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Service orchestration:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Service orchestration execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Service orchestration execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0404.png",
+                "imageCaption": "Full-stack observability: Metrics, structured logging, and tracing.",
+                "imageAlt": "Full-Stack Observability Pipeline"
               }
             }
           ]
@@ -13364,7 +14720,10 @@ window.COURSE_DATA = {
               "Assuming operations in Event Loop Lag Monitoring & Heap Profiling complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/distributed-systems/dsnj_0404.png",
+            "diagramCaption": "Figure 28.2: Real-time operational metrics pipeline: StatsD, Graphite, and Grafana (Distributed Systems with Node.js).",
+            "diagramAlt": "Operational Metrics Pipeline with StatsD and Grafana"
           },
           "videos": [
             {
@@ -13397,7 +14756,10 @@ window.COURSE_DATA = {
                 "definition": "Create an orchestration is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Create an orchestration:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Create an orchestration execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Create an orchestration execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0404.png",
+                "imageCaption": "Full-stack observability: Metrics, structured logging, and tracing.",
+                "imageAlt": "Full-Stack Observability Pipeline"
               }
             },
             {
@@ -13430,7 +14792,10 @@ window.COURSE_DATA = {
                 "definition": "Test the orchestration layer is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Test the orchestration layer:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Test the orchestration layer execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Test the orchestration layer execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0404.png",
+                "imageCaption": "Full-stack observability: Metrics, structured logging, and tracing.",
+                "imageAlt": "Full-Stack Observability Pipeline"
               }
             },
             {
@@ -13463,7 +14828,10 @@ window.COURSE_DATA = {
                 "definition": "Next steps is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Next steps:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0404.png",
+                "imageCaption": "Full-stack observability: Metrics, structured logging, and tracing.",
+                "imageAlt": "Full-Stack Observability Pipeline"
               }
             },
             {
@@ -13496,7 +14864,10 @@ window.COURSE_DATA = {
                 "definition": "Scaling applications with Node.js is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Scaling applications with Node.js:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling applications with Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling applications with Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0404.png",
+                "imageCaption": "Full-stack observability: Metrics, structured logging, and tracing.",
+                "imageAlt": "Full-Stack Observability Pipeline"
               }
             }
           ]
@@ -13525,7 +14896,10 @@ window.COURSE_DATA = {
               "Assuming operations in Health Checks, Graceful Shutdown & Production Triage complete instantaneously without measuring event loop blocking and CPU consumption.",
               "Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.",
               "Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."
-            ]
+            ],
+            "diagram": "imgs/books/distributed-systems/dsnj_0409.png",
+            "diagramCaption": "Figure 28.3: Distributed request tracing and timeline span analysis with Zipkin & OpenTelemetry (Distributed Systems with Node.js).",
+            "diagramAlt": "Distributed Request Tracing Timeline Analysis"
           },
           "videos": [
             {
@@ -13558,7 +14932,10 @@ window.COURSE_DATA = {
                 "definition": "What you should know is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0404.png",
+                "imageCaption": "Full-stack observability: Metrics, structured logging, and tracing.",
+                "imageAlt": "Full-Stack Observability Pipeline"
               }
             },
             {
@@ -13591,7 +14968,10 @@ window.COURSE_DATA = {
                 "definition": "Using the exercise files is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Using the exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0404.png",
+                "imageCaption": "Full-stack observability: Metrics, structured logging, and tracing.",
+                "imageAlt": "Full-Stack Observability Pipeline"
               }
             },
             {
@@ -13624,7 +15004,10 @@ window.COURSE_DATA = {
                 "definition": "The scale cube is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for The scale cube:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The scale cube execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during The scale cube execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0404.png",
+                "imageCaption": "Full-stack observability: Metrics, structured logging, and tracing.",
+                "imageAlt": "Full-Stack Observability Pipeline"
               }
             },
             {
@@ -13657,7 +15040,10 @@ window.COURSE_DATA = {
                 "definition": "Scaling the x-axis is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
                 "mentalModel": "Execution Flow for Scaling the x-axis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
                 "codeExample": "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the x-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+                "pitfalls": "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the x-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+                "image": "imgs/books/distributed-systems/dsnj_0404.png",
+                "imageCaption": "Full-stack observability: Metrics, structured logging, and tracing.",
+                "imageAlt": "Full-Stack Observability Pipeline"
               }
             }
           ]

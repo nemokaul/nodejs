@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Password Hashing with Argon2 & Salt Rounds** in depth, establishing core architectural patterns and runtime mechanics. It covers Overview of broken access control, Overview of cryptographic failures, Overview of injections, Hands-on base template overview, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ User Login Request ] ---> [ Argon2id Password Verification ]\n                                     |\n               (Issues Short-Lived Access Token + Refresh Token)\n                                     |\n[ Incoming API Request (Bearer JWT) ] -> [ Verify Signature & Redis Blacklist ]\n\nExecution Lifecycle for Password Hashing with Argon2 & Salt Rounds:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Password Hashing with Argon2 & Salt Rounds relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Password Hashing with Argon2 & Salt Rounds complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Password Hashing with Argon2 & Salt Rounds complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/secure-nodejs/logging-in.png",
+      diagram_caption = "Figure 20.1: Secure user authentication, password hashing, and session initialization (Secure Your Node.js Web Application).",
+      diagram_alt = "User Authentication and Session Initialization Flow"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Overview of broken access control is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Overview of broken access control:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of broken access control execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of broken access control execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file0.svg",
+            image_caption = "Script interpretation and execution lifecycle in the JavaScript host environment.",
+            image_alt = "Script Interpretation Lifecycle"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "Overview of cryptographic failures is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Overview of cryptographic failures:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of cryptographic failures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of cryptographic failures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file0.svg",
+            image_caption = "Script interpretation and execution lifecycle in the JavaScript host environment.",
+            image_alt = "Script Interpretation Lifecycle"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Overview of injections is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Overview of injections:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of injections execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of injections execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file0.svg",
+            image_caption = "Script interpretation and execution lifecycle in the JavaScript host environment.",
+            image_alt = "Script Interpretation Lifecycle"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "Hands-on base template overview is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Hands-on base template overview:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Hands-on base template overview execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Hands-on base template overview execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file0.svg",
+            image_caption = "Script interpretation and execution lifecycle in the JavaScript host environment.",
+            image_alt = "Script Interpretation Lifecycle"
           }
         }
     ]
@@ -119,7 +134,10 @@ chapters = [
       executive_summary = "This chapter explores **JSON Web Tokens (JWT): Signing & Refresh Rotation** in depth, establishing core architectural patterns and runtime mechanics. It covers Maintain package dependencies, Add 2-factor and read-only tokens with NPM, Data handling with type and validation, Use prepared statements for SQL and NoSQL, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ User Login Request ] ---> [ Argon2id Password Verification ]\n                                     |\n               (Issues Short-Lived Access Token + Refresh Token)\n                                     |\n[ Incoming API Request (Bearer JWT) ] -> [ Verify Signature & Redis Blacklist ]\n\nExecution Lifecycle for JSON Web Tokens (JWT): Signing & Refresh Rotation:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["JSON Web Tokens (JWT): Signing & Refresh Rotation relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in JSON Web Tokens (JWT): Signing & Refresh Rotation complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in JSON Web Tokens (JWT): Signing & Refresh Rotation complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/secure-nodejs/ACLs.png",
+      diagram_caption = "Figure 20.2: Access Control Lists (ACL) and Role-Based Access Control (RBAC) validation (Secure Your Node.js Web Application).",
+      diagram_alt = "Role-Based Access Control and ACL Validation"
     },
     videos = [
         {
@@ -139,7 +157,10 @@ chapters = [
             definition = "Maintain package dependencies is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Maintain package dependencies:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Maintain package dependencies execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Maintain package dependencies execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/logging-in.png",
+            image_caption = "Secure session management and JWT authentication lifecycle.",
+            image_alt = "Secure Session and JWT Lifecycle"
           }
         },
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Add 2-factor and read-only tokens with NPM is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Add 2-factor and read-only tokens with NPM:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Add 2-factor and read-only tokens with NPM execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Add 2-factor and read-only tokens with NPM execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/logging-in.png",
+            image_caption = "Secure authentication session exchange and credential verification.",
+            image_alt = "Secure Authentication Session Exchange"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Data handling with type and validation is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Data handling with type and validation:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Data handling with type and validation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Data handling with type and validation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+            image_alt = "Type Coercion and Equality Comparison"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Use prepared statements for SQL and NoSQL is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Use prepared statements for SQL and NoSQL:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use prepared statements for SQL and NoSQL execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use prepared statements for SQL and NoSQL execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+            image_caption = "Middleware Pattern: Chain of Responsibility processing pipeline.",
+            image_alt = "Middleware Pattern Processing Pipeline"
           }
         }
     ]
@@ -214,7 +244,10 @@ chapters = [
       executive_summary = "This chapter explores **Session Hijacking, Revocation & RBAC Authorization** in depth, establishing core architectural patterns and runtime mechanics. It covers Set proper HTTP headers with Helmet, Encrypt user data and session management, Use secure HTTPS protocol, Rate limiting against DoS attacks, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ User Login Request ] ---> [ Argon2id Password Verification ]\n                                     |\n               (Issues Short-Lived Access Token + Refresh Token)\n                                     |\n[ Incoming API Request (Bearer JWT) ] -> [ Verify Signature & Redis Blacklist ]\n\nExecution Lifecycle for Session Hijacking, Revocation & RBAC Authorization:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Session Hijacking, Revocation & RBAC Authorization relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Session Hijacking, Revocation & RBAC Authorization complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Session Hijacking, Revocation & RBAC Authorization complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/mastering-nodejs/B21959_11_01.png",
+      diagram_caption = "Figure 20.3: Stateless JWT vs stateful session cookie architecture and token rotation (Mastering Node.js Web Development).",
+      diagram_alt = "Stateless JWT and Stateful Session Cookie Architecture"
     },
     videos = [
         {
@@ -234,7 +267,10 @@ chapters = [
             definition = "Set proper HTTP headers with Helmet is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Set proper HTTP headers with Helmet:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Set proper HTTP headers with Helmet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Set proper HTTP headers with Helmet execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify high-performance routing tree and JSON schema validation.",
+            image_alt = "Fastify Routing Tree and Schema Validation"
           }
         },
         {
@@ -254,7 +290,10 @@ chapters = [
             definition = "Encrypt user data and session management is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Encrypt user data and session management:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Encrypt user data and session management execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Encrypt user data and session management execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/logging-in.png",
+            image_caption = "Secure authentication session exchange and credential verification.",
+            image_alt = "Secure Authentication Session Exchange"
           }
         },
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Use secure HTTPS protocol is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Use secure HTTPS protocol:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use secure HTTPS protocol execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use secure HTTPS protocol execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify high-performance routing tree and JSON schema validation.",
+            image_alt = "Fastify Routing Tree and Schema Validation"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "Rate limiting against DoS attacks is a core architectural concept in **Authentication, JWT Security & Session Revocation**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Rate limiting against DoS attacks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Secure JWT Verification Enforcing Strict Algorithm and Issuer\nimport jwt from \"jsonwebtoken\";\n\nexport function verifyAccessToken(token, secretKey, expectedIssuer) {\n  return new Promise((resolve, reject) => {\n    jwt.verify(\n      token,\n      secretKey,\n      {\n        algorithms: [\"HS256\"], // Prohibit algorithm confusion (e.g., 'none', 'RS256')\n        issuer: expectedIssuer,\n        clockTolerance: 5 // 5 seconds clock drift\n      },\n      (err, decoded) => {\n        if (err) return reject(new Error(`Token verification failed: ${err.message}`));\n        resolve(decoded);\n      }\n    );\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rate limiting against DoS attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rate limiting against DoS attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/logging-in.png",
+            image_caption = "Secure session management and JWT authentication lifecycle.",
+            image_alt = "Secure Session and JWT Lifecycle"
           }
         }
     ]

@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Singleton, Prototype & Factory Patterns** in depth, establishing core architectural patterns and runtime mechanics. It covers Welcome, What you should know, Using the exercise files, What are design patterns?, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Client Request ]\n       |\n[ Proxy Interceptor (Reflect API) ] ---> (Access Control / Cache Hit)\n       |\n[ Real Service Instance ] <--- (Factory / Builder Composition)\n\nExecution Lifecycle for Singleton, Prototype & Factory Patterns:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Singleton, Prototype & Factory Patterns relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Singleton, Prototype & Factory Patterns complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Singleton, Prototype & Factory Patterns complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_07_2.png",
+      diagram_caption = "Figure 11.1: Dependency Injection and Factory Pattern instantiation schematic (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Dependency Injection and Factory Pattern Architecture"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Welcome is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Welcome:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            image_caption = "Proxy and structural design patterns in Node.js.",
+            image_alt = "Proxy Structural Design Pattern"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "What you should know is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            image_caption = "Proxy and structural design patterns in Node.js.",
+            image_alt = "Proxy Structural Design Pattern"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Using the exercise files is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Using the exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            image_caption = "Proxy and structural design patterns in Node.js.",
+            image_alt = "Proxy Structural Design Pattern"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "What are design patterns? is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for What are design patterns?:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What are design patterns? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What are design patterns? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            image_caption = "Proxy and structural design patterns in Node.js.",
+            image_alt = "Proxy Structural Design Pattern"
           }
         },
         {
@@ -124,7 +139,10 @@ chapters = [
             definition = "Gang of Four: Design patterns is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Gang of Four: Design patterns:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Gang of Four: Design patterns execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Gang of Four: Design patterns execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            image_caption = "Proxy and structural design patterns in Node.js.",
+            image_alt = "Proxy Structural Design Pattern"
           }
         },
         {
@@ -144,7 +162,10 @@ chapters = [
             definition = "Anti-patterns is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Anti-patterns:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Anti-patterns execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Anti-patterns execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            image_caption = "Proxy and structural design patterns in Node.js.",
+            image_alt = "Proxy Structural Design Pattern"
           }
         }
     ]
@@ -159,7 +180,10 @@ chapters = [
       executive_summary = "This chapter explores **Builder & Adapter Patterns for Node.js Services** in depth, establishing core architectural patterns and runtime mechanics. It covers The singleton problem, The Singletons pattern, Singletons in Node, The Prototype pattern, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Client Request ]\n       |\n[ Proxy Interceptor (Reflect API) ] ---> (Access Control / Cache Hit)\n       |\n[ Real Service Instance ] <--- (Factory / Builder Composition)\n\nExecution Lifecycle for Builder & Adapter Patterns for Node.js Services:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Builder & Adapter Patterns for Node.js Services relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Builder & Adapter Patterns for Node.js Services complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Builder & Adapter Patterns for Node.js Services complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+      diagram_caption = "Figure 11.2: Proxy Pattern architecture: Intercepting operations with V8 Proxy & Reflect (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Proxy Pattern Operation Interception Architecture"
     },
     videos = [
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "The singleton problem is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The singleton problem:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The singleton problem execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The singleton problem execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-scope-closures/file2.png",
+            image_caption = "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+            image_alt = "Temporal Dead Zone Scope Traversal"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "The Singletons pattern is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The Singletons pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Singletons pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Singletons pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-scope-closures/file2.png",
+            image_caption = "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+            image_alt = "Temporal Dead Zone Scope Traversal"
           }
         },
         {
@@ -219,7 +249,10 @@ chapters = [
             definition = "Singletons in Node is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Singletons in Node:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Singletons in Node execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Singletons in Node execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-scope-closures/file2.png",
+            image_caption = "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+            image_alt = "Temporal Dead Zone Scope Traversal"
           }
         },
         {
@@ -239,7 +272,10 @@ chapters = [
             definition = "The Prototype pattern is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The Prototype pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Prototype pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Prototype pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+            image_alt = "Type Coercion and Equality Comparison"
           }
         },
         {
@@ -259,7 +295,10 @@ chapters = [
             definition = "The prototype clone method is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The prototype clone method:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The prototype clone method execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The prototype clone method execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+            image_alt = "Type Coercion and Equality Comparison"
           }
         },
         {
@@ -279,7 +318,10 @@ chapters = [
             definition = "The Factory pattern is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The Factory pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Factory pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Factory pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_07_2.png",
+            image_caption = "Factory Pattern and Dependency Injection wire-up schematic.",
+            image_alt = "Factory Pattern and Dependency Injection"
           }
         }
     ]
@@ -294,7 +336,10 @@ chapters = [
       executive_summary = "This chapter explores **Proxy, Composite & Decorator Patterns** in depth, establishing core architectural patterns and runtime mechanics. It covers The Builder pattern, Implementing a builder, The Adapter pattern, Implementing an adapter, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Client Request ]\n       |\n[ Proxy Interceptor (Reflect API) ] ---> (Access Control / Cache Hit)\n       |\n[ Real Service Instance ] <--- (Factory / Builder Composition)\n\nExecution Lifecycle for Proxy, Composite & Decorator Patterns:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Proxy, Composite & Decorator Patterns relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Proxy, Composite & Decorator Patterns complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Proxy, Composite & Decorator Patterns complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_08_2.png",
+      diagram_caption = "Figure 11.3: Decorator and Adapter Pattern structural object augmentation (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Decorator and Adapter Pattern Object Augmentation"
     },
     videos = [
         {
@@ -314,7 +359,10 @@ chapters = [
             definition = "The Builder pattern is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The Builder pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Builder pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Builder pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_07_2.png",
+            image_caption = "Factory Pattern and Dependency Injection wire-up schematic.",
+            image_alt = "Factory Pattern and Dependency Injection"
           }
         },
         {
@@ -334,7 +382,10 @@ chapters = [
             definition = "Implementing a builder is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Implementing a builder:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing a builder execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing a builder execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_07_2.png",
+            image_caption = "Factory Pattern and Dependency Injection wire-up schematic.",
+            image_alt = "Factory Pattern and Dependency Injection"
           }
         },
         {
@@ -354,7 +405,10 @@ chapters = [
             definition = "The Adapter pattern is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The Adapter pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Adapter pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Adapter pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            image_caption = "Proxy Pattern operation virtualization and method interception.",
+            image_alt = "Proxy Pattern Operation Virtualization"
           }
         },
         {
@@ -374,7 +428,10 @@ chapters = [
             definition = "Implementing an adapter is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Implementing an adapter:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing an adapter execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing an adapter execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            image_caption = "Proxy Pattern operation virtualization and method interception.",
+            image_alt = "Proxy Pattern Operation Virtualization"
           }
         },
         {
@@ -394,7 +451,10 @@ chapters = [
             definition = "The Proxy pattern is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The Proxy pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Proxy pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Proxy pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            image_caption = "Proxy Pattern operation virtualization and method interception.",
+            image_alt = "Proxy Pattern Operation Virtualization"
           }
         },
         {
@@ -414,7 +474,10 @@ chapters = [
             definition = "Implementing a proxy is a core architectural concept in **Creational & Structural Design Patterns in Node.js**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Implementing a proxy:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structural Proxy Pattern with Transparent Performance Metrics\nexport function createProfilingProxy(targetService, serviceName) {\n  return new Proxy(targetService, {\n    get(target, prop, receiver) {\n      const origMethod = Reflect.get(target, prop, receiver);\n      if (typeof origMethod !== \"function\") return origMethod;\n\n      return async function (...args) {\n        const start = performance.now();\n        try {\n          const result = await Reflect.apply(origMethod, target, args);\n          const duration = (performance.now() - start).toFixed(2);\n          console.log(`[METRIC] ${serviceName}.${String(prop)} took ${duration}ms`);\n          return result;\n        } catch (err) {\n          console.error(`[ERROR] ${serviceName}.${String(prop)} failed: ${err.message}`);\n          throw err;\n        }\n      };\n    }\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing a proxy execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing a proxy execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            image_caption = "Proxy Pattern operation virtualization and method interception.",
+            image_alt = "Proxy Pattern Operation Virtualization"
           }
         }
     ]

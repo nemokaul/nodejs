@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Chain of Responsibility & Command Patterns** in depth, establishing core architectural patterns and runtime mechanics. It covers The Composite pattern, Implementing composites, The Decorator pattern, Implementing decorators, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ EventEmitter / Event Publisher ]\n          |\n    emit('event', payload) (Synchronous Dispatch)\n          |\n    |----> [ Listener A (Metrics) ]\n    |----> [ Listener B (Audit Log) ]\n    |----> [ Listener C (Async Task) ]\n\nExecution Lifecycle for Chain of Responsibility & Command Patterns:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Chain of Responsibility & Command Patterns relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Chain of Responsibility & Command Patterns complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Chain of Responsibility & Command Patterns complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_03_02.png",
+      diagram_caption = "Figure 12.1: Observer Pattern and EventEmitter publish-subscribe dispatch (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Observer Pattern and EventEmitter Dispatch Architecture"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "The Composite pattern is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The Composite pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Composite pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Composite pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+            image_caption = "Middleware Pattern and behavioral interceptor chains.",
+            image_alt = "Middleware Pattern Interceptor Chains"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "Implementing composites is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Implementing composites:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing composites execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing composites execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+            image_caption = "Middleware Pattern and behavioral interceptor chains.",
+            image_alt = "Middleware Pattern Interceptor Chains"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "The Decorator pattern is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The Decorator pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Decorator pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Decorator pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            image_caption = "Proxy Pattern operation virtualization and method interception.",
+            image_alt = "Proxy Pattern Operation Virtualization"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "Implementing decorators is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Implementing decorators:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing decorators execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing decorators execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_08_1.png",
+            image_caption = "Proxy Pattern operation virtualization and method interception.",
+            image_alt = "Proxy Pattern Operation Virtualization"
           }
         }
     ]
@@ -119,7 +134,10 @@ chapters = [
       executive_summary = "This chapter explores **Iterator & Observer Patterns in Event Loops** in depth, establishing core architectural patterns and runtime mechanics. It covers Chain of responsibility, Implementing the storage class, The Command pattern, Implementing commands, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ EventEmitter / Event Publisher ]\n          |\n    emit('event', payload) (Synchronous Dispatch)\n          |\n    |----> [ Listener A (Metrics) ]\n    |----> [ Listener B (Audit Log) ]\n    |----> [ Listener C (Async Task) ]\n\nExecution Lifecycle for Iterator & Observer Patterns in Event Loops:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Iterator & Observer Patterns in Event Loops relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Iterator & Observer Patterns in Event Loops complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Iterator & Observer Patterns in Event Loops complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_09_1.png",
+      diagram_caption = "Figure 12.2: Strategy and State Pattern behavioral decision execution (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Strategy and State Behavioral Pattern Structure"
     },
     videos = [
         {
@@ -139,7 +157,10 @@ chapters = [
             definition = "Chain of responsibility is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Chain of responsibility:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Chain of responsibility execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Chain of responsibility execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+            image_caption = "Middleware Pattern and behavioral interceptor chains.",
+            image_alt = "Middleware Pattern Interceptor Chains"
           }
         },
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Implementing the storage class is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Implementing the storage class:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the storage class execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the storage class execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file5.svg",
+            image_caption = "Prototypal object delegation and dynamic execution context binding.",
+            image_alt = "Prototypal Object Delegation"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "The Command pattern is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The Command pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Command pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Command pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+            image_caption = "Middleware Pattern: Chain of Responsibility processing pipeline.",
+            image_alt = "Middleware Pattern Processing Pipeline"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Implementing commands is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Implementing commands:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing commands execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing commands execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+            image_caption = "Middleware Pattern: Chain of Responsibility processing pipeline.",
+            image_alt = "Middleware Pattern Processing Pipeline"
           }
         }
     ]
@@ -214,7 +244,10 @@ chapters = [
       executive_summary = "This chapter explores **Strategy Pattern & Pluggable Middleware Pipelines** in depth, establishing core architectural patterns and runtime mechanics. It covers Improving the conductor, The Iterator pattern, Implementing iterators, The Observer pattern, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ EventEmitter / Event Publisher ]\n          |\n    emit('event', payload) (Synchronous Dispatch)\n          |\n    |----> [ Listener A (Metrics) ]\n    |----> [ Listener B (Audit Log) ]\n    |----> [ Listener C (Async Task) ]\n\nExecution Lifecycle for Strategy Pattern & Pluggable Middleware Pipelines:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Strategy Pattern & Pluggable Middleware Pipelines relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Strategy Pattern & Pluggable Middleware Pipelines complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Strategy Pattern & Pluggable Middleware Pipelines complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+      diagram_caption = "Figure 12.3: Middleware Pattern and Interceptor Pipeline (Chain of Responsibility) (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Middleware Pattern Chain of Responsibility Pipeline"
     },
     videos = [
         {
@@ -234,7 +267,10 @@ chapters = [
             definition = "Improving the conductor is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Improving the conductor:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Improving the conductor execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Improving the conductor execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+            image_caption = "Middleware Pattern and behavioral interceptor chains.",
+            image_alt = "Middleware Pattern Interceptor Chains"
           }
         },
         {
@@ -254,7 +290,10 @@ chapters = [
             definition = "The Iterator pattern is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The Iterator pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Iterator pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Iterator pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+            image_caption = "Middleware Pattern and behavioral interceptor chains.",
+            image_alt = "Middleware Pattern Interceptor Chains"
           }
         },
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Implementing iterators is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for Implementing iterators:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing iterators execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing iterators execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+            image_caption = "Middleware Pattern and behavioral interceptor chains.",
+            image_alt = "Middleware Pattern Interceptor Chains"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "The Observer pattern is a core architectural concept in **Behavioral Patterns, EventEmitter & State Machines**. Learn how to use common design patterns in Node.js to write better JavaScript code.",
             mental_model = "Execution Flow for The Observer pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Resilient Event Emitter with Safe Async Dispatch\nimport { EventEmitter } from \"node:events\";\n\nexport class SafeEventEmitter extends EventEmitter {\n  constructor(options = {}) {\n    super(options);\n    // Always provide default error boundary\n    this.on(\"error\", (err) => {\n      console.error(\"[SafeEventEmitter Error Boundary]:\", err);\n    });\n  }\n\n  emitAsync(event, ...args) {\n    const listeners = this.rawListeners(event);\n    return Promise.allSettled(\n      listeners.map(fn => Promise.resolve().then(() => fn(...args)))\n    );\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Observer pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The Observer pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_03_02.png",
+            image_caption = "Observer Pattern: Event emitter dispatching events to registered listeners.",
+            image_alt = "Observer Pattern and EventEmitter Dispatch"
           }
         }
     ]

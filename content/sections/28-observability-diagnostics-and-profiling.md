@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Structured Logging, Tracing & Correlation IDs** in depth, establishing core architectural patterns and runtime mechanics. It covers Setting up horizontal partitioning, Scaling the y-axis, Decomposing services, Service orchestration, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Request Trace (TraceID / SpanID) ]\n        |\n  [ OpenTelemetry Tracer ] ---> Trace Collector (Jaeger / Datadog)\n        |\n  [ Structured JSON Logger ] -> Centralized Log Aggregator\n        |\n  [ Prometheus Metrics ] ------> Dashboard Alerts (Lag, RSS Memory, GC Pause)\n\nExecution Lifecycle for Structured Logging, Tracing & Correlation IDs:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Structured Logging, Tracing & Correlation IDs relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Structured Logging, Tracing & Correlation IDs complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Structured Logging, Tracing & Correlation IDs complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/distributed-systems/dsnj_0401.png",
+      diagram_caption = "Figure 28.1: Centralized structured logging architecture: Elasticsearch, Logstash, and Kibana (ELK Stack) (Distributed Systems with Node.js).",
+      diagram_alt = "Centralized Structured Logging ELK Architecture"
     },
     videos = [
         {
@@ -45,7 +48,10 @@ chapters = [
             definition = "Setting up horizontal partitioning is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Setting up horizontal partitioning:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up horizontal partitioning execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up horizontal partitioning execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00047.gif",
+            image_caption = "Database partitioning: Routing requests across partitioned data nodes.",
+            image_alt = "Database Partitioning and Request Routing"
           }
         },
         {
@@ -66,7 +72,10 @@ chapters = [
             definition = "Scaling the y-axis is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Scaling the y-axis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the y-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the y-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0404.png",
+            image_caption = "Full-stack observability: Metrics, structured logging, and tracing.",
+            image_alt = "Full-Stack Observability Pipeline"
           }
         },
         {
@@ -87,7 +96,10 @@ chapters = [
             definition = "Decomposing services is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Decomposing services:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Decomposing services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Decomposing services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0404.png",
+            image_caption = "Full-stack observability: Metrics, structured logging, and tracing.",
+            image_alt = "Full-Stack Observability Pipeline"
           }
         },
         {
@@ -108,7 +120,10 @@ chapters = [
             definition = "Service orchestration is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Service orchestration:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Service orchestration execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Service orchestration execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0404.png",
+            image_caption = "Full-stack observability: Metrics, structured logging, and tracing.",
+            image_alt = "Full-Stack Observability Pipeline"
           }
         }
     ]
@@ -123,7 +138,10 @@ chapters = [
       executive_summary = "This chapter explores **Event Loop Lag Monitoring & Heap Profiling** in depth, establishing core architectural patterns and runtime mechanics. It covers Create an orchestration, Test the orchestration layer, Next steps, Scaling applications with Node.js, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Request Trace (TraceID / SpanID) ]\n        |\n  [ OpenTelemetry Tracer ] ---> Trace Collector (Jaeger / Datadog)\n        |\n  [ Structured JSON Logger ] -> Centralized Log Aggregator\n        |\n  [ Prometheus Metrics ] ------> Dashboard Alerts (Lag, RSS Memory, GC Pause)\n\nExecution Lifecycle for Event Loop Lag Monitoring & Heap Profiling:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Event Loop Lag Monitoring & Heap Profiling relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Event Loop Lag Monitoring & Heap Profiling complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Event Loop Lag Monitoring & Heap Profiling complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/distributed-systems/dsnj_0404.png",
+      diagram_caption = "Figure 28.2: Real-time operational metrics pipeline: StatsD, Graphite, and Grafana (Distributed Systems with Node.js).",
+      diagram_alt = "Operational Metrics Pipeline with StatsD and Grafana"
     },
     videos = [
         {
@@ -144,7 +162,10 @@ chapters = [
             definition = "Create an orchestration is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Create an orchestration:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Create an orchestration execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Create an orchestration execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0404.png",
+            image_caption = "Full-stack observability: Metrics, structured logging, and tracing.",
+            image_alt = "Full-Stack Observability Pipeline"
           }
         },
         {
@@ -165,7 +186,10 @@ chapters = [
             definition = "Test the orchestration layer is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Test the orchestration layer:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Test the orchestration layer execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Test the orchestration layer execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0404.png",
+            image_caption = "Full-stack observability: Metrics, structured logging, and tracing.",
+            image_alt = "Full-Stack Observability Pipeline"
           }
         },
         {
@@ -186,7 +210,10 @@ chapters = [
             definition = "Next steps is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Next steps:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0404.png",
+            image_caption = "Full-stack observability: Metrics, structured logging, and tracing.",
+            image_alt = "Full-Stack Observability Pipeline"
           }
         },
         {
@@ -207,7 +234,10 @@ chapters = [
             definition = "Scaling applications with Node.js is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Scaling applications with Node.js:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling applications with Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling applications with Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0404.png",
+            image_caption = "Full-stack observability: Metrics, structured logging, and tracing.",
+            image_alt = "Full-Stack Observability Pipeline"
           }
         }
     ]
@@ -222,7 +252,10 @@ chapters = [
       executive_summary = "This chapter explores **Health Checks, Graceful Shutdown & Production Triage** in depth, establishing core architectural patterns and runtime mechanics. It covers What you should know, Using the exercise files, The scale cube, Scaling the x-axis, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Request Trace (TraceID / SpanID) ]\n        |\n  [ OpenTelemetry Tracer ] ---> Trace Collector (Jaeger / Datadog)\n        |\n  [ Structured JSON Logger ] -> Centralized Log Aggregator\n        |\n  [ Prometheus Metrics ] ------> Dashboard Alerts (Lag, RSS Memory, GC Pause)\n\nExecution Lifecycle for Health Checks, Graceful Shutdown & Production Triage:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Health Checks, Graceful Shutdown & Production Triage relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Health Checks, Graceful Shutdown & Production Triage complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Health Checks, Graceful Shutdown & Production Triage complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/distributed-systems/dsnj_0409.png",
+      diagram_caption = "Figure 28.3: Distributed request tracing and timeline span analysis with Zipkin & OpenTelemetry (Distributed Systems with Node.js).",
+      diagram_alt = "Distributed Request Tracing Timeline Analysis"
     },
     videos = [
         {
@@ -243,7 +276,10 @@ chapters = [
             definition = "What you should know is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0404.png",
+            image_caption = "Full-stack observability: Metrics, structured logging, and tracing.",
+            image_alt = "Full-Stack Observability Pipeline"
           }
         },
         {
@@ -264,7 +300,10 @@ chapters = [
             definition = "Using the exercise files is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Using the exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0404.png",
+            image_caption = "Full-stack observability: Metrics, structured logging, and tracing.",
+            image_alt = "Full-Stack Observability Pipeline"
           }
         },
         {
@@ -285,7 +324,10 @@ chapters = [
             definition = "The scale cube is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for The scale cube:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The scale cube execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The scale cube execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0404.png",
+            image_caption = "Full-stack observability: Metrics, structured logging, and tracing.",
+            image_alt = "Full-Stack Observability Pipeline"
           }
         },
         {
@@ -306,7 +348,10 @@ chapters = [
             definition = "Scaling the x-axis is a core architectural concept in **Observability, OpenTelemetry, Diagnostics & Profiling**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Scaling the x-axis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Structured JSON Logger with OpenTelemetry Correlation Context\nimport { AsyncLocalStorage } from \"node:async_hooks\";\n\nexport const traceStorage = new AsyncLocalStorage();\n\nexport function logInfo(message, meta = {}) {\n  const context = traceStorage.getStore() || {};\n  const entry = {\n    timestamp: new Date().toISOString(),\n    level: \"INFO\",\n    message,\n    traceId: context.traceId || \"untraced\",\n    spanId: context.spanId || \"untraced\",\n    ...meta\n  };\n  process.stdout.write(JSON.stringify(entry) + \"\\n\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the x-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the x-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0404.png",
+            image_caption = "Full-stack observability: Metrics, structured logging, and tracing.",
+            image_alt = "Full-Stack Observability Pipeline"
           }
         }
     ]

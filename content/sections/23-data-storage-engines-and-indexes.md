@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **B-Tree vs LSM-Tree Indexes & Query Execution Plans** in depth, establishing core architectural patterns and runtime mechanics. It covers Integrating the model into our application, Populating MongoDB with sample data, Querying items with Mongoose, Filtering items by tag, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Read Request:\n[ App ] ---> [ Check Redis Cache ]\n               |-- (Hit) ---> Return Cached Data (1ms)\n               |-- (Miss) --> [ Query DB B+Tree Index ] -> [ Populate Redis (TTL) ] -> Return Data\n\nExecution Lifecycle for B-Tree vs LSM-Tree Indexes & Query Execution Plans:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["B-Tree vs LSM-Tree Indexes & Query Execution Plans relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in B-Tree vs LSM-Tree Indexes & Query Execution Plans complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in B-Tree vs LSM-Tree Indexes & Query Execution Plans complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/ddia/Image00020.gif",
+      diagram_caption = "Figure 23.1: Log-Structured storage engine: Append-only write log and segment compaction (Designing Data-Intensive Applications).",
+      diagram_alt = "Log-Structured Storage Engine and Segment Compaction"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Integrating the model into our application is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Integrating the model into our application:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Integrating the model into our application execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Integrating the model into our application execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00025.gif",
+            image_caption = "Storage engines: B-Trees and LSM-Tree storage structures.",
+            image_alt = "Storage Engines Architecture"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "Populating MongoDB with sample data is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Populating MongoDB with sample data:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Populating MongoDB with sample data execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Populating MongoDB with sample data execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00025.gif",
+            image_caption = "Storage engines: B-Trees and LSM-Tree storage structures.",
+            image_alt = "Storage Engines Architecture"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Querying items with Mongoose is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Querying items with Mongoose:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Querying items with Mongoose execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Querying items with Mongoose execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "Filtering items by tag is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Filtering items by tag:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Filtering items by tag execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Filtering items by tag execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00025.gif",
+            image_caption = "Storage engines: B-Trees and LSM-Tree storage structures.",
+            image_alt = "Storage Engines Architecture"
           }
         }
     ]
@@ -119,7 +134,10 @@ chapters = [
       executive_summary = "This chapter explores **In-Memory Caching with Redis & ioredis Integration** in depth, establishing core architectural patterns and runtime mechanics. It covers Item administration: Listing and loading, Item administration: Create, update, and delete, Optimizing queries with indexes, Performing text search in MongoDB, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Read Request:\n[ App ] ---> [ Check Redis Cache ]\n               |-- (Hit) ---> Return Cached Data (1ms)\n               |-- (Miss) --> [ Query DB B+Tree Index ] -> [ Populate Redis (TTL) ] -> Return Data\n\nExecution Lifecycle for In-Memory Caching with Redis & ioredis Integration:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["In-Memory Caching with Redis & ioredis Integration relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in In-Memory Caching with Redis & ioredis Integration complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in In-Memory Caching with Redis & ioredis Integration complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/ddia/Image00023.gif",
+      diagram_caption = "Figure 23.2: Log-Structured Merge-Trees (LSM-Tree) and Sorted String Tables (SSTables) (Designing Data-Intensive Applications).",
+      diagram_alt = "LSM-Tree and SSTables Storage Engine Mechanics"
     },
     videos = [
         {
@@ -139,7 +157,10 @@ chapters = [
             definition = "Item administration: Listing and loading is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Item administration: Listing and loading:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Item administration: Listing and loading execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Item administration: Listing and loading execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+            image_alt = "AST Tokenization and Bytecode Generation"
           }
         },
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Item administration: Create, update, and delete is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Item administration: Create, update, and delete:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Item administration: Create, update, and delete execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Item administration: Create, update, and delete execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-scope-closures/file2.png",
+            image_caption = "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+            image_alt = "Temporal Dead Zone Scope Traversal"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Optimizing queries with indexes is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Optimizing queries with indexes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Optimizing queries with indexes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Optimizing queries with indexes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00025.gif",
+            image_caption = "B-Tree page structure: Tree traversal, page splits, and Write-Ahead Log (WAL).",
+            image_alt = "B-Tree Page Structure and Page Splits"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Performing text search in MongoDB is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Performing text search in MongoDB:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Performing text search in MongoDB execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Performing text search in MongoDB execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00025.gif",
+            image_caption = "Storage engines: B-Trees and LSM-Tree storage structures.",
+            image_alt = "Storage Engines Architecture"
           }
         }
     ]
@@ -214,7 +244,10 @@ chapters = [
       executive_summary = "This chapter explores **Cache Invalidation, TTL Expiry & Eviction Policies** in depth, establishing core architectural patterns and runtime mechanics. It covers Using MySQL for our users and orders, Setting up MySQL with Docker, Exploring MySQL with MySQL Workbench, Introducing Sequelize, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Read Request:\n[ App ] ---> [ Check Redis Cache ]\n               |-- (Hit) ---> Return Cached Data (1ms)\n               |-- (Miss) --> [ Query DB B+Tree Index ] -> [ Populate Redis (TTL) ] -> Return Data\n\nExecution Lifecycle for Cache Invalidation, TTL Expiry & Eviction Policies:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Cache Invalidation, TTL Expiry & Eviction Policies relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Cache Invalidation, TTL Expiry & Eviction Policies complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Cache Invalidation, TTL Expiry & Eviction Policies complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/ddia/Image00025.gif",
+      diagram_caption = "Figure 23.3: B-Tree index structure: Fixed-size page splits and Write-Ahead Log (WAL) durability (Designing Data-Intensive Applications).",
+      diagram_alt = "B-Tree Index Structure and Page Split Mechanics"
     },
     videos = [
         {
@@ -234,7 +267,10 @@ chapters = [
             definition = "Using MySQL for our users and orders is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Using MySQL for our users and orders:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using MySQL for our users and orders execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using MySQL for our users and orders execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         },
         {
@@ -254,7 +290,10 @@ chapters = [
             definition = "Setting up MySQL with Docker is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Setting up MySQL with Docker:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up MySQL with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up MySQL with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         },
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Exploring MySQL with MySQL Workbench is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Exploring MySQL with MySQL Workbench:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring MySQL with MySQL Workbench execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring MySQL with MySQL Workbench execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "Introducing Sequelize is a core architectural concept in **Storage Engines, B-Trees, LSM-Trees & Redis Caching**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Introducing Sequelize:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Cache-Aside Pattern with Redis & TTL Jitter\nexport async function getWithCacheAside(redisClient, key, fetchFromDbFn, baseTtlSec = 300) {\n  const cached = await redisClient.get(key);\n  if (cached) return JSON.parse(cached);\n\n  const data = await fetchFromDbFn();\n  if (data !== null && data !== undefined) {\n    // Add 10-20% jitter to prevent simultaneous key expiration\n    const jitter = Math.floor(Math.random() * (baseTtlSec * 0.2));\n    await redisClient.set(key, JSON.stringify(data), \"EX\", baseTtlSec + jitter);\n  }\n  return data;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introducing Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introducing Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00025.gif",
+            image_caption = "Storage engines: B-Trees and LSM-Tree storage structures.",
+            image_alt = "Storage Engines Architecture"
           }
         }
     ]

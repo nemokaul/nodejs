@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Child Process Execution: Exec, Spawn & Fork** in depth, establishing core architectural patterns and runtime mechanics. It covers Scaling applications with Node.js, What you should know, Using the exercise files, The scale cube, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Main Event Loop (I/O, HTTP Routing) ]\n           |                              |\n (Heavy CPU Tasks)               (Shared Memory)\n           v                              v\n[ Worker Thread 1 ]             [ SharedArrayBuffer ] <--- Atomics Sync\n[ Worker Thread 2 ]                      ^\n                                  [ Worker Thread 3 ]\n\nExecution Lifecycle for Child Process Execution: Exec, Spawn & Fork:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Child Process Execution: Exec, Spawn & Fork relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Child Process Execution: Exec, Spawn & Fork complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Child Process Execution: Exec, Spawn & Fork complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_12_002.png",
+      diagram_caption = "Figure 14.1: Node.js Cluster module and multi-core Worker Process distribution (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Cluster Module Multi-Core Worker Architecture"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Scaling applications with Node.js is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Scaling applications with Node.js:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling applications with Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling applications with Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+            image_caption = "Worker thread concurrency and asynchronous task queue distribution.",
+            image_alt = "Task Queue Distribution"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "What you should know is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+            image_caption = "Worker thread concurrency and asynchronous task queue distribution.",
+            image_alt = "Task Queue Distribution"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Using the exercise files is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Using the exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+            image_caption = "Worker thread concurrency and asynchronous task queue distribution.",
+            image_alt = "Task Queue Distribution"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "The scale cube is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for The scale cube:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The scale cube execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The scale cube execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+            image_caption = "Worker thread concurrency and asynchronous task queue distribution.",
+            image_alt = "Task Queue Distribution"
           }
         },
         {
@@ -124,7 +139,10 @@ chapters = [
             definition = "Scaling the x-axis is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Scaling the x-axis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the x-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the x-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+            image_caption = "Worker thread concurrency and asynchronous task queue distribution.",
+            image_alt = "Task Queue Distribution"
           }
         }
     ]
@@ -139,7 +157,10 @@ chapters = [
       executive_summary = "This chapter explores **Cluster Module & TCP Load Distribution** in depth, establishing core architectural patterns and runtime mechanics. It covers Forking processes, Using a cluster module, Architecting zero downtime, Working with clusters with PM2, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Main Event Loop (I/O, HTTP Routing) ]\n           |                              |\n (Heavy CPU Tasks)               (Shared Memory)\n           v                              v\n[ Worker Thread 1 ]             [ SharedArrayBuffer ] <--- Atomics Sync\n[ Worker Thread 2 ]                      ^\n                                  [ Worker Thread 3 ]\n\nExecution Lifecycle for Cluster Module & TCP Load Distribution:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Cluster Module & TCP Load Distribution relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Cluster Module & TCP Load Distribution complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Cluster Module & TCP Load Distribution complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+      diagram_caption = "Figure 14.2: Asynchronous message queue architecture and distributed work buffering (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Asynchronous Message Queue Architecture"
     },
     videos = [
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Forking processes is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Forking processes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Forking processes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Forking processes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/security-layers.png",
+            image_caption = "Defense-in-depth security layers across runtime, application, and network.",
+            image_alt = "Defense-in-Depth Security Layers"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Using a cluster module is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Using a cluster module:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using a cluster module execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using a cluster module execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_02_005.png",
+            image_caption = "ECMAScript Modules (ESM) instantiation and live bindings export resolution.",
+            image_alt = "ESM Instantiation and Live Bindings Resolution"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Architecting zero downtime is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Architecting zero downtime:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Architecting zero downtime execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Architecting zero downtime execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+            image_caption = "Worker thread concurrency and asynchronous task queue distribution.",
+            image_alt = "Task Queue Distribution"
           }
         },
         {
@@ -219,7 +249,10 @@ chapters = [
             definition = "Working with clusters with PM2 is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Working with clusters with PM2:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with clusters with PM2 execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with clusters with PM2 execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_12_002.png",
+            image_caption = "Cluster module master/worker multi-core process IPC distribution.",
+            image_alt = "Cluster Module IPC Distribution"
           }
         },
         {
@@ -239,7 +272,10 @@ chapters = [
             definition = "Working with databases is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Working with databases:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Working with databases execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         }
     ]
@@ -254,7 +290,10 @@ chapters = [
       executive_summary = "This chapter explores **Worker Threads & Shared Memory Architecture** in depth, establishing core architectural patterns and runtime mechanics. It covers Incorporating a database, Scaling the z-axis, Setting up horizontal partitioning, Scaling the y-axis, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Main Event Loop (I/O, HTTP Routing) ]\n           |                              |\n (Heavy CPU Tasks)               (Shared Memory)\n           v                              v\n[ Worker Thread 1 ]             [ SharedArrayBuffer ] <--- Atomics Sync\n[ Worker Thread 2 ]                      ^\n                                  [ Worker Thread 3 ]\n\nExecution Lifecycle for Worker Threads & Shared Memory Architecture:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Worker Threads & Shared Memory Architecture relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Worker Threads & Shared Memory Architecture complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Worker Threads & Shared Memory Architecture complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+      diagram_caption = "Figure 14.3: Publish/Subscribe messaging pattern with fan-out topic exchange (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Publish/Subscribe Messaging Architecture"
     },
     videos = [
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Incorporating a database is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Incorporating a database:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Incorporating a database execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Incorporating a database execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "Scaling the z-axis is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Scaling the z-axis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the z-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the z-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+            image_caption = "Worker thread concurrency and asynchronous task queue distribution.",
+            image_alt = "Task Queue Distribution"
           }
         },
         {
@@ -314,7 +359,10 @@ chapters = [
             definition = "Setting up horizontal partitioning is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Setting up horizontal partitioning:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up horizontal partitioning execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up horizontal partitioning execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00047.gif",
+            image_caption = "Database partitioning: Routing requests across partitioned data nodes.",
+            image_alt = "Database Partitioning and Request Routing"
           }
         },
         {
@@ -334,7 +382,10 @@ chapters = [
             definition = "Scaling the y-axis is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Scaling the y-axis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the y-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Scaling the y-axis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+            image_caption = "Worker thread concurrency and asynchronous task queue distribution.",
+            image_alt = "Task Queue Distribution"
           }
         },
         {
@@ -354,7 +405,10 @@ chapters = [
             definition = "Decomposing services is a core architectural concept in **Worker Threads, Clustering & Asynchronous Message Queues**. Explore sophisticated programming techniques that can help you scale your Node.js applications, including cloning, database scaling, and decomposing apps into microservices.",
             mental_model = "Execution Flow for Decomposing services:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Worker Thread Dispatcher with Zero-Copy Transferable Objects\nimport { Worker, isMainThread, parentPort } from \"worker_threads\";\n\nexport function executeWorkerTask(dataBuffer) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(`\n      const { parentPort } = require(\"worker_threads\");\n      parentPort.on(\"message\", ({ buffer }) => {\n        const u8 = new Uint8Array(buffer);\n        // Invert bytes for demonstration\n        for (let i = 0; i < u8.length; i++) u8[i] ^= 0xFF;\n        parentPort.postMessage({ buffer }, [buffer]);\n      });\n    `, { eval: true });\n\n    worker.postMessage({ buffer: dataBuffer }, [dataBuffer]); // Zero-copy transfer\n    worker.on(\"message\", resolve);\n    worker.on(\"error\", reject);\n  });\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Decomposing services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Decomposing services execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_004.png",
+            image_caption = "Worker thread concurrency and asynchronous task queue distribution.",
+            image_alt = "Task Queue Distribution"
           }
         }
     ]

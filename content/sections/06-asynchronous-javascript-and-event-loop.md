@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **The Callback Pattern & Event Loop Architecture** in depth, establishing core architectural patterns and runtime mechanics. It covers Welcome, What you should know, Using the exercise files, Callback pattern, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Call Stack Empty -> Flush Microtasks -> Run Next Libuv Macrotask Phase\n       |                     |                          |\n[ Current Frame ]   [ Promise Jobs / nextTick ]   [ Timers / Poll / Check ]\n       |                     |                          |\n (Executes Sync)     (Must Drain to Empty)       (I/O & Scheduled Tasks)\n\nExecution Lifecycle for The Callback Pattern & Event Loop Architecture:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["The Callback Pattern & Event Loop Architecture relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in The Callback Pattern & Event Loop Architecture complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in The Callback Pattern & Event Loop Architecture complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/distributed-systems/dsnj_0102.png",
+      diagram_caption = "Figure 6.1: Sequential vs Parallel asynchronous I/O scheduling in Node.js (Distributed Systems with Node.js).",
+      diagram_alt = "Sequential vs Parallel Asynchronous I/O Execution"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Welcome is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Welcome:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Welcome execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0102.png",
+            image_caption = "Sequential vs Parallel asynchronous execution flow in Node.js.",
+            image_alt = "Asynchronous Execution Flow"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "What you should know is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0102.png",
+            image_caption = "Sequential vs Parallel asynchronous execution flow in Node.js.",
+            image_alt = "Asynchronous Execution Flow"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Using the exercise files is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Using the exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using the exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0102.png",
+            image_caption = "Sequential vs Parallel asynchronous execution flow in Node.js.",
+            image_alt = "Asynchronous Execution Flow"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "Callback pattern is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Callback pattern:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Callback pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Callback pattern execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+            image_caption = "Sequential asynchronous execution flow and structured error propagation.",
+            image_alt = "Sequential Asynchronous Flow with Error Propagation"
           }
         }
     ]
@@ -119,7 +134,10 @@ chapters = [
       executive_summary = "This chapter explores **Promises: Resolving, Rejecting & Promisify** in depth, establishing core architectural patterns and runtime mechanics. It covers Resolving promises, Rejecting promises, The promisify function, Sequential execution, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Call Stack Empty -> Flush Microtasks -> Run Next Libuv Macrotask Phase\n       |                     |                          |\n[ Current Frame ]   [ Promise Jobs / nextTick ]   [ Timers / Poll / Check ]\n       |                     |                          |\n (Executes Sync)     (Must Drain to Empty)       (I/O & Scheduled Tasks)\n\nExecution Lifecycle for Promises: Resolving, Rejecting & Promisify:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Promises: Resolving, Rejecting & Promisify relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Promises: Resolving, Rejecting & Promisify complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Promises: Resolving, Rejecting & Promisify complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/distributed-systems/dsnj_0104.png",
+      diagram_caption = "Figure 6.2: The Five Phases of the Node.js Event Loop: Timers, Pending, Poll, Check, Close (Distributed Systems with Node.js).",
+      diagram_alt = "The Five Phases of the Node.js Event Loop"
     },
     videos = [
         {
@@ -139,7 +157,10 @@ chapters = [
             definition = "Resolving promises is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Resolving promises:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Resolving promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Resolving promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+            image_caption = "Sequential asynchronous execution flow and structured error propagation.",
+            image_alt = "Sequential Asynchronous Flow with Error Propagation"
           }
         },
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Rejecting promises is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Rejecting promises:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rejecting promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rejecting promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+            image_caption = "Sequential asynchronous execution flow and structured error propagation.",
+            image_alt = "Sequential Asynchronous Flow with Error Propagation"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "The promisify function is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for The promisify function:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The promisify function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The promisify function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0102.png",
+            image_caption = "Sequential vs Parallel asynchronous execution flow in Node.js.",
+            image_alt = "Asynchronous Execution Flow"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Sequential execution is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Sequential execution:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+            image_caption = "Sequential asynchronous execution flow and structured error propagation.",
+            image_alt = "Sequential Asynchronous Flow with Error Propagation"
           }
         }
     ]
@@ -214,7 +244,10 @@ chapters = [
       executive_summary = "This chapter explores **Async/Await & Sequential vs Parallel Flow** in depth, establishing core architectural patterns and runtime mechanics. It covers Sequential execution with async/await, Parallel execution, Concurrent tasks, Logging concurrent tasks, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Call Stack Empty -> Flush Microtasks -> Run Next Libuv Macrotask Phase\n       |                     |                          |\n[ Current Frame ]   [ Promise Jobs / nextTick ]   [ Timers / Poll / Check ]\n       |                     |                          |\n (Executes Sync)     (Must Drain to Empty)       (I/O & Scheduled Tasks)\n\nExecution Lifecycle for Async/Await & Sequential vs Parallel Flow:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Async/Await & Sequential vs Parallel Flow relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Async/Await & Sequential vs Parallel Flow complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Async/Await & Sequential vs Parallel Flow complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_03_01.png",
+      diagram_caption = "Figure 6.3: Asynchronous function invocation and callback queue dispatch (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Asynchronous Callback Dispatch and Execution Flow"
     },
     videos = [
         {
@@ -234,7 +267,10 @@ chapters = [
             definition = "Sequential execution with async/await is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Sequential execution with async/await:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution with async/await execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution with async/await execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+            image_caption = "Sequential asynchronous execution flow and structured error propagation.",
+            image_alt = "Sequential Asynchronous Flow with Error Propagation"
           }
         },
         {
@@ -254,7 +290,10 @@ chapters = [
             definition = "Parallel execution is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Parallel execution:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_05.png",
+            image_caption = "Concurrency-limited parallel task queue with bounded worker pool.",
+            image_alt = "Concurrency-Limited Parallel Task Queue"
           }
         },
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Concurrent tasks is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Concurrent tasks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0102.png",
+            image_caption = "Sequential vs Parallel asynchronous execution flow in Node.js.",
+            image_alt = "Asynchronous Execution Flow"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "Logging concurrent tasks is a core architectural concept in **Asynchronous JavaScript, Promises & Microtask Scheduling**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Logging concurrent tasks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Resilient Concurrent Task Execution with Controlled Concurrency\nexport async function mapConcurrent(items, limit, asyncFn) {\n  const results = new Array(items.length);\n  const executing = new Set();\n\n  for (let i = 0; i < items.length; i++) {\n    const p = Promise.resolve().then(() => asyncFn(items[i], i)).then(res => {\n      results[i] = res;\n      executing.delete(p);\n    });\n    executing.add(p);\n\n    if (executing.size >= limit) {\n      await Promise.race(executing);\n    }\n  }\n\n  await Promise.all(executing);\n  return results;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0401.png",
+            image_caption = "Centralized structured logging architecture with Elasticsearch, Logstash, and Kibana.",
+            image_alt = "ELK Centralized Logging Architecture"
           }
         }
     ]

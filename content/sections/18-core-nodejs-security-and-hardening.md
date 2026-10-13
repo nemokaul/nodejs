@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Security Threat Modeling & Core Defense Fundamentals** in depth, establishing core architectural patterns and runtime mechanics. It covers Securing your Node.js projects, What you should know, Introduction to OWASP and other sources, OWASP Top 10 in Node.js, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Edge Firewall / WAF ]\n         |\n[ Node.js Process Sandbox (Non-root, Capabilities Dropped) ]\n         |\n[ Runtime Flags: --permission --disallow-code-generation-from-strings ]\n         |\n[ App Layer: Helmet, Prototype Freezing, Rate Limiting ]\n\nExecution Lifecycle for Security Threat Modeling & Core Defense Fundamentals:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Security Threat Modeling & Core Defense Fundamentals relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Security Threat Modeling & Core Defense Fundamentals complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Security Threat Modeling & Core Defense Fundamentals complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/secure-nodejs/security-layers.png",
+      diagram_caption = "Figure 18.1: Defense-in-depth architectural security layers for Node.js servers (Secure Your Node.js Web Application).",
+      diagram_alt = "Defense-in-Depth Security Layers for Node.js"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Securing your Node.js projects is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Securing your Node.js projects:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing your Node.js projects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing your Node.js projects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/security-layers.png",
+            image_caption = "Multi-layered defense in depth security architecture for Node.js.",
+            image_alt = "Defense in Depth Security"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "What you should know is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/security-layers.png",
+            image_caption = "Multi-layered defense in depth security architecture for Node.js.",
+            image_alt = "Defense in Depth Security"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Introduction to OWASP and other sources is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Introduction to OWASP and other sources:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP and other sources execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP and other sources execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/security-layers.png",
+            image_caption = "Multi-layered defense in depth security architecture for Node.js.",
+            image_alt = "Defense in Depth Security"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "OWASP Top 10 in Node.js is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for OWASP Top 10 in Node.js:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during OWASP Top 10 in Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during OWASP Top 10 in Node.js execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/security-layers.png",
+            image_caption = "Multi-layered defense in depth security architecture for Node.js.",
+            image_alt = "Defense in Depth Security"
           }
         }
     ]
@@ -119,7 +134,10 @@ chapters = [
       executive_summary = "This chapter explores **Hardening HTTP Headers with Helmet & Secure Cookies** in depth, establishing core architectural patterns and runtime mechanics. It covers Overview of broken access control, Overview of cryptographic failures, Overview of injections, Hands-on base template overview, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Edge Firewall / WAF ]\n         |\n[ Node.js Process Sandbox (Non-root, Capabilities Dropped) ]\n         |\n[ Runtime Flags: --permission --disallow-code-generation-from-strings ]\n         |\n[ App Layer: Helmet, Prototype Freezing, Rate Limiting ]\n\nExecution Lifecycle for Hardening HTTP Headers with Helmet & Secure Cookies:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Hardening HTTP Headers with Helmet & Secure Cookies relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Hardening HTTP Headers with Helmet & Secure Cookies complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Hardening HTTP Headers with Helmet & Secure Cookies complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/secure-nodejs/node-process.png",
+      diagram_caption = "Figure 18.2: Node.js process privilege model and OS-level sandboxing (Secure Your Node.js Web Application).",
+      diagram_alt = "Node.js Process Sandboxing and Isolation Model"
     },
     videos = [
         {
@@ -139,7 +157,10 @@ chapters = [
             definition = "Overview of broken access control is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Overview of broken access control:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of broken access control execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of broken access control execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file0.svg",
+            image_caption = "Script interpretation and execution lifecycle in the JavaScript host environment.",
+            image_alt = "Script Interpretation Lifecycle"
           }
         },
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Overview of cryptographic failures is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Overview of cryptographic failures:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of cryptographic failures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of cryptographic failures execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file0.svg",
+            image_caption = "Script interpretation and execution lifecycle in the JavaScript host environment.",
+            image_alt = "Script Interpretation Lifecycle"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Overview of injections is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Overview of injections:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of injections execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Overview of injections execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file0.svg",
+            image_caption = "Script interpretation and execution lifecycle in the JavaScript host environment.",
+            image_alt = "Script Interpretation Lifecycle"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Hands-on base template overview is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Hands-on base template overview:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Hands-on base template overview execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Hands-on base template overview execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file0.svg",
+            image_caption = "Script interpretation and execution lifecycle in the JavaScript host environment.",
+            image_alt = "Script Interpretation Lifecycle"
           }
         }
     ]
@@ -214,7 +244,10 @@ chapters = [
       executive_summary = "This chapter explores **Dependency Vulnerability Audits & Least Privilege** in depth, establishing core architectural patterns and runtime mechanics. It covers Maintain package dependencies, Add 2-factor and read-only tokens with NPM, Data handling with type and validation, Use prepared statements for SQL and NoSQL, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Edge Firewall / WAF ]\n         |\n[ Node.js Process Sandbox (Non-root, Capabilities Dropped) ]\n         |\n[ Runtime Flags: --permission --disallow-code-generation-from-strings ]\n         |\n[ App Layer: Helmet, Prototype Freezing, Rate Limiting ]\n\nExecution Lifecycle for Dependency Vulnerability Audits & Least Privilege:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Dependency Vulnerability Audits & Least Privilege relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Dependency Vulnerability Audits & Least Privilege complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Dependency Vulnerability Audits & Least Privilege complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/secure-nodejs/hsts.png",
+      diagram_caption = "Figure 18.3: TLS termination and HTTP Strict Transport Security (HSTS) enforcement (Secure Your Node.js Web Application).",
+      diagram_alt = "HSTS and TLS Security Enforcement Flow"
     },
     videos = [
         {
@@ -234,7 +267,10 @@ chapters = [
             definition = "Maintain package dependencies is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Maintain package dependencies:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Maintain package dependencies execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Maintain package dependencies execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/security-layers.png",
+            image_caption = "Multi-layered defense in depth security architecture for Node.js.",
+            image_alt = "Defense in Depth Security"
           }
         },
         {
@@ -254,7 +290,10 @@ chapters = [
             definition = "Add 2-factor and read-only tokens with NPM is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Add 2-factor and read-only tokens with NPM:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Add 2-factor and read-only tokens with NPM execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Add 2-factor and read-only tokens with NPM execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/logging-in.png",
+            image_caption = "Secure authentication session exchange and credential verification.",
+            image_alt = "Secure Authentication Session Exchange"
           }
         },
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Data handling with type and validation is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Data handling with type and validation:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Data handling with type and validation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Data handling with type and validation execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file2.svg",
+            image_caption = "Type coercion, primitive wrappers, and abstract equality comparison mechanics.",
+            image_alt = "Type Coercion and Equality Comparison"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "Use prepared statements for SQL and NoSQL is a core architectural concept in **Core Node.js Security Hardening & Runtime Defenses**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Use prepared statements for SQL and NoSQL:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Defensive Object Merging Protecting Against Prototype Pollution\nexport function safeDeepMerge(target, source) {\n  const result = Array.isArray(target) ? [...target] : { ...target };\n  \n  for (const key of Object.keys(source)) {\n    // Prevent Prototype Pollution vectors\n    if (key === \"__proto__\" || key === \"constructor\" || key === \"prototype\") {\n      continue;\n    }\n    \n    if (source[key] && typeof source[key] === \"object\" && !Array.isArray(source[key])) {\n      result[key] = safeDeepMerge(result[key] || {}, source[key]);\n    } else {\n      result[key] = source[key];\n    }\n  }\n  return result;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use prepared statements for SQL and NoSQL execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use prepared statements for SQL and NoSQL execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+            image_caption = "Middleware Pattern: Chain of Responsibility processing pipeline.",
+            image_alt = "Middleware Pattern Processing Pipeline"
           }
         }
     ]

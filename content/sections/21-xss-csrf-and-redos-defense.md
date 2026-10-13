@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Cross-Site Scripting (XSS) & Content Security Policy** in depth, establishing core architectural patterns and runtime mechanics. It covers Use a library to prevent CSRF attacks, Use cookie attributes, Introduction to OWASP dependency check, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Inbound HTTP Request ]\n       |\n[ SameSite Cookie + CSRF Header Check ] -> (Blocks Cross-Site Forgery)\n       |\n[ Output Encoding + Strict CSP Headers ] -> (Blocks Script Injection)\n       |\n[ Linear Regex Matching (Safe Patterns) ] -> (Prevents Event Loop ReDoS Freeze)\n\nExecution Lifecycle for Cross-Site Scripting (XSS) & Content Security Policy:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Cross-Site Scripting (XSS) & Content Security Policy relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Cross-Site Scripting (XSS) & Content Security Policy complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Cross-Site Scripting (XSS) & Content Security Policy complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/secure-nodejs/reflectedxss.png",
+      diagram_caption = "Figure 21.1: Reflected Cross-Site Scripting (XSS) attack vector and sanitization boundary (Secure Your Node.js Web Application).",
+      diagram_alt = "Reflected Cross-Site Scripting XSS Attack Pathway"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Use a library to prevent CSRF attacks is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Use a library to prevent CSRF attacks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use a library to prevent CSRF attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use a library to prevent CSRF attacks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/csrf.png",
+            image_caption = "Cross-Site Request Forgery (CSRF) token validation and defense.",
+            image_alt = "CSRF Token Validation and Protection"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "Use cookie attributes is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Use cookie attributes:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use cookie attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Use cookie attributes execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/logging-in.png",
+            image_caption = "Secure authentication session exchange and credential verification.",
+            image_alt = "Secure Authentication Session Exchange"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Introduction to OWASP dependency check is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Introduction to OWASP dependency check:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP dependency check execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP dependency check execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/csrf.png",
+            image_caption = "XSS, CSRF, and ReDoS input sanitization and defense.",
+            image_alt = "XSS and CSRF Defense"
           }
         }
     ]
@@ -99,7 +111,10 @@ chapters = [
       executive_summary = "This chapter explores **Cross-Site Request Forgery (CSRF) & SameSite Defenses** in depth, establishing core architectural patterns and runtime mechanics. It covers Find vulnerabilities with Snyk, Penetration testing with Burp Suite, Next steps, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Inbound HTTP Request ]\n       |\n[ SameSite Cookie + CSRF Header Check ] -> (Blocks Cross-Site Forgery)\n       |\n[ Output Encoding + Strict CSP Headers ] -> (Blocks Script Injection)\n       |\n[ Linear Regex Matching (Safe Patterns) ] -> (Prevents Event Loop ReDoS Freeze)\n\nExecution Lifecycle for Cross-Site Request Forgery (CSRF) & SameSite Defenses:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Cross-Site Request Forgery (CSRF) & SameSite Defenses relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Cross-Site Request Forgery (CSRF) & SameSite Defenses complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Cross-Site Request Forgery (CSRF) & SameSite Defenses complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/secure-nodejs/csrf.png",
+      diagram_caption = "Figure 21.2: Cross-Site Request Forgery (CSRF) token validation and SameSite cookie defense (Secure Your Node.js Web Application).",
+      diagram_alt = "Cross-Site Request Forgery CSRF Token Defense Flow"
     },
     videos = [
         {
@@ -119,7 +134,10 @@ chapters = [
             definition = "Find vulnerabilities with Snyk is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Find vulnerabilities with Snyk:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Find vulnerabilities with Snyk execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Find vulnerabilities with Snyk execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/csrf.png",
+            image_caption = "XSS, CSRF, and ReDoS input sanitization and defense.",
+            image_alt = "XSS and CSRF Defense"
           }
         },
         {
@@ -139,7 +157,10 @@ chapters = [
             definition = "Penetration testing with Burp Suite is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Penetration testing with Burp Suite:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Penetration testing with Burp Suite execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Penetration testing with Burp Suite execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F03_DaCosta.png",
+            image_caption = "Unit test isolation: Testing functions independently of external I/O.",
+            image_alt = "Unit Test Isolation"
           }
         },
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Next steps is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Next steps:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Next steps execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/csrf.png",
+            image_caption = "XSS, CSRF, and ReDoS input sanitization and defense.",
+            image_alt = "XSS and CSRF Defense"
           }
         }
     ]
@@ -174,7 +198,10 @@ chapters = [
       executive_summary = "This chapter explores **Regular Expression Denial of Service (ReDoS) Defense** in depth, establishing core architectural patterns and runtime mechanics. It covers Securing your Node.js projects, What you should know, Introduction to OWASP and other sources, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Inbound HTTP Request ]\n       |\n[ SameSite Cookie + CSRF Header Check ] -> (Blocks Cross-Site Forgery)\n       |\n[ Output Encoding + Strict CSP Headers ] -> (Blocks Script Injection)\n       |\n[ Linear Regex Matching (Safe Patterns) ] -> (Prevents Event Loop ReDoS Freeze)\n\nExecution Lifecycle for Regular Expression Denial of Service (ReDoS) Defense:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Regular Expression Denial of Service (ReDoS) Defense relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Regular Expression Denial of Service (ReDoS) Defense complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Regular Expression Denial of Service (ReDoS) Defense complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/secure-nodejs/ddos-today.png",
+      diagram_caption = "Figure 21.3: Denial-of-Service and ReDoS catastrophic backtracking defense (Secure Your Node.js Web Application).",
+      diagram_alt = "Denial of Service and ReDoS Backtracking Defense"
     },
     videos = [
         {
@@ -194,7 +221,10 @@ chapters = [
             definition = "Securing your Node.js projects is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Securing your Node.js projects:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing your Node.js projects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing your Node.js projects execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/csrf.png",
+            image_caption = "XSS, CSRF, and ReDoS input sanitization and defense.",
+            image_alt = "XSS and CSRF Defense"
           }
         },
         {
@@ -214,7 +244,10 @@ chapters = [
             definition = "What you should know is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/csrf.png",
+            image_caption = "XSS, CSRF, and ReDoS input sanitization and defense.",
+            image_alt = "XSS and CSRF Defense"
           }
         },
         {
@@ -234,7 +267,10 @@ chapters = [
             definition = "Introduction to OWASP and other sources is a core architectural concept in **Cross-Site Scripting (XSS), CSRF & ReDoS Defense**. Learn to secure Node.js applications by understanding and implementing protections against the OWASP Top 10 vulnerabilities.",
             mental_model = "Execution Flow for Introduction to OWASP and other sources:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// HTML Entity Encoding Function for XSS Prevention\nexport function sanitizeHtml(unsafeStr) {\n  if (typeof unsafeStr !== \"string\") return \"\";\n  return unsafeStr\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&#039;\");\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP and other sources execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to OWASP and other sources execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/csrf.png",
+            image_caption = "XSS, CSRF, and ReDoS input sanitization and defense.",
+            image_alt = "XSS and CSRF Defense"
           }
         }
     ]

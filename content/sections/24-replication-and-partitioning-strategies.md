@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Primary-Replica Replication & Failover Handling** in depth, establishing core architectural patterns and runtime mechanics. It covers Setting up the database connection, Designing the database structure, Creating a user model for Sequelize, Creating the order models for Sequelize, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Client Writes ] ---> [ Primary DB Node ]\n                             | (WAL Replication Stream - Replication Lag)\n                             v\n[ Client Reads  ] <--- [ Read Replica 1 ] [ Read Replica 2 ]\n\nExecution Lifecycle for Primary-Replica Replication & Failover Handling:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Primary-Replica Replication & Failover Handling relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Primary-Replica Replication & Failover Handling complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Primary-Replica Replication & Failover Handling complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/ddia/Image00041.gif",
+      diagram_caption = "Figure 24.1: Single-Leader Replication: Synchronous vs asynchronous follower updates and replication lag (Designing Data-Intensive Applications).",
+      diagram_alt = "Single-Leader Replication Architecture and Replication Lag"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Setting up the database connection is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Setting up the database connection:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up the database connection execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up the database connection execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "Designing the database structure is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Designing the database structure:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Designing the database structure execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Designing the database structure execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Creating a user model for Sequelize is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Creating a user model for Sequelize:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a user model for Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating a user model for Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00041.gif",
+            image_caption = "Distributed replication and data partition rebalancing.",
+            image_alt = "Replication and Partition Rebalancing"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "Creating the order models for Sequelize is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Creating the order models for Sequelize:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating the order models for Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating the order models for Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00041.gif",
+            image_caption = "Distributed replication and data partition rebalancing.",
+            image_alt = "Replication and Partition Rebalancing"
           }
         }
     ]
@@ -119,7 +134,10 @@ chapters = [
       executive_summary = "This chapter explores **Replication Lag, Read Scaling & Eventual Consistency** in depth, establishing core architectural patterns and runtime mechanics. It covers Loading and syncing the models, Creating, updating and deleting users with Sequelize, Securing credentials with password hashing, Implementing the user login, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Client Writes ] ---> [ Primary DB Node ]\n                             | (WAL Replication Stream - Replication Lag)\n                             v\n[ Client Reads  ] <--- [ Read Replica 1 ] [ Read Replica 2 ]\n\nExecution Lifecycle for Replication Lag, Read Scaling & Eventual Consistency:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Replication Lag, Read Scaling & Eventual Consistency relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Replication Lag, Read Scaling & Eventual Consistency complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Replication Lag, Read Scaling & Eventual Consistency complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/ddia/Image00043.gif",
+      diagram_caption = "Figure 24.2: Multi-Leader Replication across geographically distributed data centers and conflict resolution (Designing Data-Intensive Applications).",
+      diagram_alt = "Multi-Leader Replication Across Data Centers"
     },
     videos = [
         {
@@ -139,7 +157,10 @@ chapters = [
             definition = "Loading and syncing the models is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Loading and syncing the models:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Loading and syncing the models execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Loading and syncing the models execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-get-started/file1.svg",
+            image_caption = "Source parsing, AST tokenization, and V8 bytecode generation steps.",
+            image_alt = "AST Tokenization and Bytecode Generation"
           }
         },
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Creating, updating and deleting users with Sequelize is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Creating, updating and deleting users with Sequelize:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating, updating and deleting users with Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating, updating and deleting users with Sequelize execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ydkjs-scope-closures/file2.png",
+            image_caption = "Temporal Dead Zone (TDZ) and elevator metaphor for identifier scope resolution.",
+            image_alt = "Temporal Dead Zone Scope Traversal"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Securing credentials with password hashing is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Securing credentials with password hashing:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing credentials with password hashing execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Securing credentials with password hashing execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/ddia/Image00041.gif",
+            image_caption = "Distributed replication and data partition rebalancing.",
+            image_alt = "Replication and Partition Rebalancing"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Implementing the user login is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Implementing the user login:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the user login execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Implementing the user login execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/logging-in.png",
+            image_caption = "Secure authentication session exchange and credential verification.",
+            image_alt = "Secure Authentication Session Exchange"
           }
         }
     ]
@@ -214,7 +244,10 @@ chapters = [
       executive_summary = "This chapter explores **Horizontal Partitioning, Sharding & Consistent Hashing** in depth, establishing core architectural patterns and runtime mechanics. It covers Fast and flexible basket and session management with Redis, Setting up Redis with Docker, Exploring Redis with Redis Insight, Connecting our application to Redis, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Client Writes ] ---> [ Primary DB Node ]\n                             | (WAL Replication Stream - Replication Lag)\n                             v\n[ Client Reads  ] <--- [ Read Replica 1 ] [ Read Replica 2 ]\n\nExecution Lifecycle for Horizontal Partitioning, Sharding & Consistent Hashing:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Horizontal Partitioning, Sharding & Consistent Hashing relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Horizontal Partitioning, Sharding & Consistent Hashing complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Horizontal Partitioning, Sharding & Consistent Hashing complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/ddia/Image00045.gif",
+      diagram_caption = "Figure 24.3: Leaderless Replication: Quorum reads and writes (W + R > N) for high availability (Designing Data-Intensive Applications).",
+      diagram_alt = "Leaderless Replication and Quorum Consistency"
     },
     videos = [
         {
@@ -234,7 +267,10 @@ chapters = [
             definition = "Fast and flexible basket and session management with Redis is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Fast and flexible basket and session management with Redis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Fast and flexible basket and session management with Redis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Fast and flexible basket and session management with Redis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+            image_caption = "Publish/Subscribe message exchange pattern with message broker.",
+            image_alt = "Publish/Subscribe Message Exchange Pattern"
           }
         },
         {
@@ -254,7 +290,10 @@ chapters = [
             definition = "Setting up Redis with Docker is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Setting up Redis with Docker:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up Redis with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Setting up Redis with Docker execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+            image_caption = "Publish/Subscribe message exchange pattern with message broker.",
+            image_alt = "Publish/Subscribe Message Exchange Pattern"
           }
         },
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Exploring Redis with Redis Insight is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Exploring Redis with Redis Insight:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring Redis with Redis Insight execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exploring Redis with Redis Insight execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+            image_caption = "Publish/Subscribe message exchange pattern with message broker.",
+            image_alt = "Publish/Subscribe Message Exchange Pattern"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "Connecting our application to Redis is a core architectural concept in **Distributed Replication, Partitioning & Sharding**. Get a brief introduction to databases, master the integration of different databases into your applications, and enhance your backend skill set.",
             mental_model = "Execution Flow for Connecting our application to Redis:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Read-Your-Own-Writes Database Router\nexport class DatabaseRouter {\n  constructor(primaryPool, replicaPool) {\n    this.primary = primaryPool;\n    this.replica = replicaPool;\n  }\n\n  getPool(context) {\n    // If the request mutated data within the last 2 seconds, read from primary\n    if (context.hasRecentMutation) {\n      return this.primary;\n    }\n    return this.replica;\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Connecting our application to Redis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Connecting our application to Redis execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_13_007.png",
+            image_caption = "Publish/Subscribe message exchange pattern with message broker.",
+            image_alt = "Publish/Subscribe Message Exchange Pattern"
           }
         }
     ]

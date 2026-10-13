@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **HTTP Routing, Endpoints & Tooling** in depth, establishing core architectural patterns and runtime mechanics. It covers RESTful APIs with Node and Express, What you should know, Introduction to APIs and the libraries, Introduction to Postman, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Incoming HTTP Request ]\n            |\n[ Fastify Radix Tree Router (find-my-way) ]\n            |\n[ Schema Validation (Ajv) ] -> (Rejects Invalid Requests Early)\n            |\n[ Encapsulated Plugin Middleware Pipeline ]\n            |\n[ Fast JSON Serialization (fast-json-stringify) ] -> [ HTTP Response ]\n\nExecution Lifecycle for HTTP Routing, Endpoints & Tooling:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["HTTP Routing, Endpoints & Tooling relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in HTTP Routing, Endpoints & Tooling complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in HTTP Routing, Endpoints & Tooling complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/mastering-nodejs/B21959_05_01.png",
+      diagram_caption = "Figure 13.1: Fastify & Express HTTP request parsing, routing tree, and response pipeline (Mastering Node.js Web Development).",
+      diagram_alt = "HTTP Server Request Parsing and Routing Pipeline"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "RESTful APIs with Node and Express is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for RESTful APIs with Node and Express:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during RESTful APIs with Node and Express execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during RESTful APIs with Node and Express execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify high-performance routing tree and JSON schema validation.",
+            image_alt = "Fastify Routing Tree and Schema Validation"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "What you should know is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify schema validation and high-throughput routing.",
+            image_alt = "Fastify Schema Validation Routing"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Introduction to APIs and the libraries is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for Introduction to APIs and the libraries:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to APIs and the libraries execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to APIs and the libraries execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify schema validation and high-throughput routing.",
+            image_alt = "Fastify Schema Validation Routing"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "Introduction to Postman is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for Introduction to Postman:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to Postman execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Introduction to Postman execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify schema validation and high-throughput routing.",
+            image_alt = "Fastify Schema Validation Routing"
           }
         },
         {
@@ -124,7 +139,10 @@ chapters = [
             definition = "Install Node and Express is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for Install Node and Express:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Install Node and Express execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Install Node and Express execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify high-performance routing tree and JSON schema validation.",
+            image_alt = "Fastify Routing Tree and Schema Validation"
           }
         }
     ]
@@ -139,7 +157,10 @@ chapters = [
       executive_summary = "This chapter explores **Middleware Pipeline & Schema Validation** in depth, establishing core architectural patterns and runtime mechanics. It covers Install Mongo, Basic Babel setup, RESTful APIs refresher, Initial server setup, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Incoming HTTP Request ]\n            |\n[ Fastify Radix Tree Router (find-my-way) ]\n            |\n[ Schema Validation (Ajv) ] -> (Rejects Invalid Requests Early)\n            |\n[ Encapsulated Plugin Middleware Pipeline ]\n            |\n[ Fast JSON Serialization (fast-json-stringify) ] -> [ HTTP Response ]\n\nExecution Lifecycle for Middleware Pipeline & Schema Validation:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Middleware Pipeline & Schema Validation relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Middleware Pipeline & Schema Validation complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Middleware Pipeline & Schema Validation complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/mastering-nodejs/B21959_07_01.png",
+      diagram_caption = "Figure 13.2: High-throughput JSON serialization and schema validation in Fastify (Mastering Node.js Web Development).",
+      diagram_alt = "Fastify Schema Validation and Serialization Pipeline"
     },
     videos = [
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Install Mongo is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for Install Mongo:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Install Mongo execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Install Mongo execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify schema validation and high-throughput routing.",
+            image_alt = "Fastify Schema Validation Routing"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Basic Babel setup is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for Basic Babel setup:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic Babel setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic Babel setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify schema validation and high-throughput routing.",
+            image_alt = "Fastify Schema Validation Routing"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "RESTful APIs refresher is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for RESTful APIs refresher:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during RESTful APIs refresher execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during RESTful APIs refresher execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0312.png",
+            image_caption = "High-throughput binary streaming RPC using gRPC and Protocol Buffers.",
+            image_alt = "gRPC and Protocol Buffers Streaming RPC"
           }
         },
         {
@@ -219,7 +249,10 @@ chapters = [
             definition = "Initial server setup is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for Initial server setup:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Initial server setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Initial server setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify schema validation and high-throughput routing.",
+            image_alt = "Fastify Schema Validation Routing"
           }
         },
         {
@@ -239,7 +272,10 @@ chapters = [
             definition = "Initial server files and folders is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for Initial server files and folders:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Initial server files and folders execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Initial server files and folders execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify schema validation and high-throughput routing.",
+            image_alt = "Fastify Schema Validation Routing"
           }
         }
     ]
@@ -254,7 +290,10 @@ chapters = [
       executive_summary = "This chapter explores **Database Integration & High-Performance Endpoints** in depth, establishing core architectural patterns and runtime mechanics. It covers Basic routing endpoints, Basics of middleware and uses, MongoDB basics refresher, Database setup, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Incoming HTTP Request ]\n            |\n[ Fastify Radix Tree Router (find-my-way) ]\n            |\n[ Schema Validation (Ajv) ] -> (Rejects Invalid Requests Early)\n            |\n[ Encapsulated Plugin Middleware Pipeline ]\n            |\n[ Fast JSON Serialization (fast-json-stringify) ] -> [ HTTP Response ]\n\nExecution Lifecycle for Database Integration & High-Performance Endpoints:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Database Integration & High-Performance Endpoints relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Database Integration & High-Performance Endpoints complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Database Integration & High-Performance Endpoints complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_12_006.png",
+      diagram_caption = "Figure 13.3: Production web service architecture: Reverse proxy, TLS termination, and Node.js service (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Production Web Service Architecture with Reverse Proxy"
     },
     videos = [
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Basic routing endpoints is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for Basic routing endpoints:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic routing endpoints execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basic routing endpoints execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify high-performance routing tree and JSON schema validation.",
+            image_alt = "Fastify Routing Tree and Schema Validation"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "Basics of middleware and uses is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for Basics of middleware and uses:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basics of middleware and uses execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Basics of middleware and uses execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_09_5.png",
+            image_caption = "Middleware Pattern: Chain of Responsibility processing pipeline.",
+            image_alt = "Middleware Pattern Processing Pipeline"
           }
         },
         {
@@ -314,7 +359,10 @@ chapters = [
             definition = "MongoDB basics refresher is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for MongoDB basics refresher:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during MongoDB basics refresher execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during MongoDB basics refresher execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify schema validation and high-throughput routing.",
+            image_alt = "Fastify Schema Validation Routing"
           }
         },
         {
@@ -334,7 +382,10 @@ chapters = [
             definition = "Database setup is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for Database setup:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Database setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Database setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/secure-nodejs/parametrized.png",
+            image_caption = "Parameterized query compilation preventing SQL injection attacks.",
+            image_alt = "Parameterized Queries Mitigating SQL Injection"
           }
         },
         {
@@ -354,7 +405,10 @@ chapters = [
             definition = "Schema setup is a core architectural concept in **High-Throughput Web Services, Fastify & Express Architecture**. Learn how to build a RESTful Web API in Node.js using Express.js.",
             mental_model = "Execution Flow for Schema setup:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// High-Performance Fastify Service with Schema Compilation & Graceful Shutdown\nimport Fastify from \"fastify\";\n\nexport async function buildServer() {\n  const app = Fastify({\n    logger: true,\n    connectionTimeout: 5000\n  });\n\n  const userSchema = {\n    schema: {\n      response: {\n        200: {\n          type: \"object\",\n          properties: {\n            id: { type: \"string\" },\n            username: { type: \"string\" },\n            timestamp: { type: \"number\" }\n          },\n          required: [\"id\", \"username\", \"timestamp\"]\n        }\n      }\n    }\n  };\n\n  app.get(\"/api/v1/user/:id\", userSchema, async (request, reply) => {\n    return {\n      id: request.params.id,\n      username: \"engineer-e2\",\n      timestamp: Date.now()\n    };\n  });\n\n  return app;\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Schema setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Schema setup execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/mastering-nodejs/B21959_07_01.png",
+            image_caption = "Fastify schema validation and high-throughput routing.",
+            image_alt = "Fastify Schema Validation Routing"
           }
         }
     ]

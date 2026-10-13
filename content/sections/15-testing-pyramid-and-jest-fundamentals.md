@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Testing Pyramid Fundamentals & Test Runners** in depth, establishing core architectural patterns and runtime mechanics. It covers Cleaning your codebase, What you should know, Preparing for Node.js development, Exercise files, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Testing Pyramid Distribution:\n      /\\  [ E2E / Smoke Tests (5-10%) - Slowest, Highest Confidence ]\n     /  \\ [ Integration Tests (20-30%) - DB, Queues, External APIs ]\n    /____\\ [ Unit Tests (60-70%) - Pure Functions, Business Logic, Instant ]\n\nExecution Lifecycle for Testing Pyramid Fundamentals & Test Runners:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Testing Pyramid Fundamentals & Test Runners relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Testing Pyramid Fundamentals & Test Runners complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Testing Pyramid Fundamentals & Test Runners complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+      diagram_caption = "Figure 15.1: The Testing Pyramid: Balancing Unit, Integration, and E2E test coverage (Testing JavaScript Applications).",
+      diagram_alt = "The Testing Pyramid Test Distribution Model"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Cleaning your codebase is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for Cleaning your codebase:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Cleaning your codebase execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Cleaning your codebase execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            image_caption = "The automated testing pyramid: Balancing confidence and cost.",
+            image_alt = "Automated Testing Pyramid"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "What you should know is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for What you should know:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What you should know execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            image_caption = "The automated testing pyramid: Balancing confidence and cost.",
+            image_alt = "Automated Testing Pyramid"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "Preparing for Node.js development is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for Preparing for Node.js development:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Preparing for Node.js development execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Preparing for Node.js development execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            image_caption = "The automated testing pyramid: Balancing confidence and cost.",
+            image_alt = "Automated Testing Pyramid"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "Exercise files is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for Exercise files:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Exercise files execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            image_caption = "The automated testing pyramid: Balancing confidence and cost.",
+            image_alt = "Automated Testing Pyramid"
           }
         },
         {
@@ -124,7 +139,10 @@ chapters = [
             definition = "Demo setup and tour is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for Demo setup and tour:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Demo setup and tour execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Demo setup and tour execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            image_caption = "The automated testing pyramid: Balancing confidence and cost.",
+            image_alt = "Automated Testing Pyramid"
           }
         }
     ]
@@ -139,7 +157,10 @@ chapters = [
       executive_summary = "This chapter explores **Assertions, Test Structure & Asynchronous Tests** in depth, establishing core architectural patterns and runtime mechanics. It covers What is code quality?, Coding conventions and standards, Creating and enforcing coding standards, Unit, integration, and functional testing, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Testing Pyramid Distribution:\n      /\\  [ E2E / Smoke Tests (5-10%) - Slowest, Highest Confidence ]\n     /  \\ [ Integration Tests (20-30%) - DB, Queues, External APIs ]\n    /____\\ [ Unit Tests (60-70%) - Pure Functions, Business Logic, Instant ]\n\nExecution Lifecycle for Assertions, Test Structure & Asynchronous Tests:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Assertions, Test Structure & Asynchronous Tests relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Assertions, Test Structure & Asynchronous Tests complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Assertions, Test Structure & Asynchronous Tests complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/testing-js/CH02_F03_DaCosta.png",
+      diagram_caption = "Figure 15.2: Unit test isolation boundaries and fast feedback execution (Testing JavaScript Applications).",
+      diagram_alt = "Unit Test Isolation Boundaries and Execution"
     },
     videos = [
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "What is code quality? is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for What is code quality?:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What is code quality? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during What is code quality? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            image_caption = "The automated testing pyramid: Balancing confidence and cost.",
+            image_alt = "Automated Testing Pyramid"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Coding conventions and standards is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for Coding conventions and standards:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Coding conventions and standards execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Coding conventions and standards execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            image_caption = "The automated testing pyramid: Balancing confidence and cost.",
+            image_alt = "Automated Testing Pyramid"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Creating and enforcing coding standards is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for Creating and enforcing coding standards:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating and enforcing coding standards execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Creating and enforcing coding standards execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            image_caption = "The automated testing pyramid: Balancing confidence and cost.",
+            image_alt = "Automated Testing Pyramid"
           }
         },
         {
@@ -219,7 +249,10 @@ chapters = [
             definition = "Unit, integration, and functional testing is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for Unit, integration, and functional testing:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Unit, integration, and functional testing execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Unit, integration, and functional testing execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F03_DaCosta.png",
+            image_caption = "Unit test isolation: Testing functions independently of external I/O.",
+            image_alt = "Unit Test Isolation"
           }
         },
         {
@@ -239,7 +272,10 @@ chapters = [
             definition = "Testing frameworks is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for Testing frameworks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing frameworks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Testing frameworks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            image_caption = "The automated testing pyramid: Balancing confidence and cost.",
+            image_alt = "Automated Testing Pyramid"
           }
         }
     ]
@@ -254,7 +290,10 @@ chapters = [
       executive_summary = "This chapter explores **Test Suites, Lifecycle Hooks & Configuration** in depth, establishing core architectural patterns and runtime mechanics. It covers TDD and BDD test specifications, Assertions for correctness, Challenge: Organize your tests, Solution: Organize your tests, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "Testing Pyramid Distribution:\n      /\\  [ E2E / Smoke Tests (5-10%) - Slowest, Highest Confidence ]\n     /  \\ [ Integration Tests (20-30%) - DB, Queues, External APIs ]\n    /____\\ [ Unit Tests (60-70%) - Pure Functions, Business Logic, Instant ]\n\nExecution Lifecycle for Test Suites, Lifecycle Hooks & Configuration:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Test Suites, Lifecycle Hooks & Configuration relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Test Suites, Lifecycle Hooks & Configuration complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Test Suites, Lifecycle Hooks & Configuration complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/testing-js/CH03_F01_DaCosta.png",
+      diagram_caption = "Figure 15.3: Jest test runner execution lifecycle, matchers, and assertion reporting (Testing JavaScript Applications).",
+      diagram_alt = "Jest Test Suite Runner Architecture"
     },
     videos = [
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "TDD and BDD test specifications is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for TDD and BDD test specifications:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during TDD and BDD test specifications execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during TDD and BDD test specifications execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH09_F01_DaCosta.png",
+            image_caption = "Test-Driven Development (TDD) cycle: Red -> Green -> Refactor.",
+            image_alt = "Test-Driven Development TDD Workflow"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "Assertions for correctness is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for Assertions for correctness:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Assertions for correctness execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Assertions for correctness execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F03_DaCosta.png",
+            image_caption = "Unit test isolation: Testing functions independently of external I/O.",
+            image_alt = "Unit Test Isolation"
           }
         },
         {
@@ -314,7 +359,10 @@ chapters = [
             definition = "Challenge: Organize your tests is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for Challenge: Organize your tests:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Organize your tests execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Challenge: Organize your tests execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            image_caption = "The automated testing pyramid: Balancing confidence and cost.",
+            image_alt = "Automated Testing Pyramid"
           }
         },
         {
@@ -334,7 +382,10 @@ chapters = [
             definition = "Solution: Organize your tests is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for Solution: Organize your tests:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Organize your tests execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Solution: Organize your tests execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            image_caption = "The automated testing pyramid: Balancing confidence and cost.",
+            image_alt = "Automated Testing Pyramid"
           }
         },
         {
@@ -354,7 +405,10 @@ chapters = [
             definition = "Standardizing with EditorConfig is a core architectural concept in **Testing Pyramid, Native Test Runner & Jest Assertions**. Learn how to measure quality, implement testing, and ensure code coverage in your node.js apps.",
             mental_model = "Execution Flow for Standardizing with EditorConfig:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Unit Testing with Node.js Native Test Runner and Strict Assertions\nimport test, { describe, it } from \"node:test\";\nimport assert from \"node:assert/strict\";\n\nfunction calculateTax(amount, rate) {\n  if (amount < 0 || rate < 0) throw new RangeError(\"Values cannot be negative\");\n  return Math.round(amount * rate * 100) / 100;\n}\n\ndescribe(\"Tax Calculation Engine\", () => {\n  it(\"calculates exact rounded tax for positive rates\", () => {\n    const result = calculateTax(100.5, 0.08);\n    assert.equal(result, 8.04);\n  });\n\n  it(\"throws RangeError on negative inputs\", () => {\n    assert.throws(() => calculateTax(-10, 0.05), {\n      name: \"RangeError\",\n      message: \"Values cannot be negative\"\n    });\n  });\n});",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Standardizing with EditorConfig execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Standardizing with EditorConfig execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/testing-js/CH02_F01_DaCosta.png",
+            image_caption = "The automated testing pyramid: Balancing confidence and cost.",
+            image_alt = "Automated Testing Pyramid"
           }
         }
     ]

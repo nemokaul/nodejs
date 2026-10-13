@@ -24,7 +24,10 @@ chapters = [
       executive_summary = "This chapter explores **Sequential Asynchronous Flow Control** in depth, establishing core architectural patterns and runtime mechanics. It covers Resolving promises, Rejecting promises, The promisify function, Sequential execution, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Inbound Task Stream ]\n           |\n[ Concurrency Gate (Limit: N) ] <--- AbortController (Timeout Signal)\n   |       |       |\n[ Task 1 ][ Task 2 ][ Task 3 ] ... [ Queue of Waiting Tasks ]\n   |\n[ Retry Policy (Exponential Backoff + Full Jitter) ]\n\nExecution Lifecycle for Sequential Asynchronous Flow Control:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Sequential Asynchronous Flow Control relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Sequential Asynchronous Flow Control complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Sequential Asynchronous Flow Control complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+      diagram_caption = "Figure 9.1: Sequential asynchronous execution pipeline with error propagation (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Sequential Asynchronous Control Flow Pipeline"
     },
     videos = [
         {
@@ -44,7 +47,10 @@ chapters = [
             definition = "Resolving promises is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Resolving promises:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Resolving promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Resolving promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+            image_caption = "Sequential asynchronous execution flow and structured error propagation.",
+            image_alt = "Sequential Asynchronous Flow with Error Propagation"
           }
         },
         {
@@ -64,7 +70,10 @@ chapters = [
             definition = "Rejecting promises is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Rejecting promises:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rejecting promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Rejecting promises execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+            image_caption = "Sequential asynchronous execution flow and structured error propagation.",
+            image_alt = "Sequential Asynchronous Flow with Error Propagation"
           }
         },
         {
@@ -84,7 +93,10 @@ chapters = [
             definition = "The promisify function is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for The promisify function:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The promisify function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during The promisify function execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_02.png",
+            image_caption = "Parallel asynchronous task control flow with bounded concurrency.",
+            image_alt = "Parallel Asynchronous Control Flow"
           }
         },
         {
@@ -104,7 +116,10 @@ chapters = [
             definition = "Sequential execution is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Sequential execution:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+            image_caption = "Sequential asynchronous execution flow and structured error propagation.",
+            image_alt = "Sequential Asynchronous Flow with Error Propagation"
           }
         }
     ]
@@ -119,7 +134,10 @@ chapters = [
       executive_summary = "This chapter explores **Parallel Execution & Resource Limiting** in depth, establishing core architectural patterns and runtime mechanics. It covers Sequential execution with async/await, Parallel execution, Concurrent tasks, Logging concurrent tasks, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Inbound Task Stream ]\n           |\n[ Concurrency Gate (Limit: N) ] <--- AbortController (Timeout Signal)\n   |       |       |\n[ Task 1 ][ Task 2 ][ Task 3 ] ... [ Queue of Waiting Tasks ]\n   |\n[ Retry Policy (Exponential Backoff + Full Jitter) ]\n\nExecution Lifecycle for Parallel Execution & Resource Limiting:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Parallel Execution & Resource Limiting relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Parallel Execution & Resource Limiting complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Parallel Execution & Resource Limiting complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_04_02.png",
+      diagram_caption = "Figure 9.2: Parallel asynchronous execution flow with concurrent task aggregation (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Parallel Asynchronous Task Aggregation"
     },
     videos = [
         {
@@ -139,7 +157,10 @@ chapters = [
             definition = "Sequential execution with async/await is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Sequential execution with async/await:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution with async/await execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Sequential execution with async/await execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_01.png",
+            image_caption = "Sequential asynchronous execution flow and structured error propagation.",
+            image_alt = "Sequential Asynchronous Flow with Error Propagation"
           }
         },
         {
@@ -159,7 +180,10 @@ chapters = [
             definition = "Parallel execution is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Parallel execution:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Parallel execution execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_05.png",
+            image_caption = "Concurrency-limited parallel task queue with bounded worker pool.",
+            image_alt = "Concurrency-Limited Parallel Task Queue"
           }
         },
         {
@@ -179,7 +203,10 @@ chapters = [
             definition = "Concurrent tasks is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Concurrent tasks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_04_02.png",
+            image_caption = "Parallel asynchronous task control flow with bounded concurrency.",
+            image_alt = "Parallel Asynchronous Control Flow"
           }
         },
         {
@@ -199,7 +226,10 @@ chapters = [
             definition = "Logging concurrent tasks is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Logging concurrent tasks:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Logging concurrent tasks execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/distributed-systems/dsnj_0401.png",
+            image_caption = "Centralized structured logging architecture with Elasticsearch, Logstash, and Kibana.",
+            image_alt = "ELK Centralized Logging Architecture"
           }
         }
     ]
@@ -214,7 +244,10 @@ chapters = [
       executive_summary = "This chapter explores **Concurrent Tasks & Failure Resilience** in depth, establishing core architectural patterns and runtime mechanics. It covers Why streams?, Readable streams, Using readable streams, Writable streams, illustrating how V8 and Node.js manage memory, execute asynchronous tasks, and prevent performance regressions. Engineers learn how to inspect underlying runtime structures, eliminate memory retention issues, and build resilient services capable of high throughput under production load.",
       mental_model = "[ Inbound Task Stream ]\n           |\n[ Concurrency Gate (Limit: N) ] <--- AbortController (Timeout Signal)\n   |       |       |\n[ Task 1 ][ Task 2 ][ Task 3 ] ... [ Queue of Waiting Tasks ]\n   |\n[ Retry Policy (Exponential Backoff + Full Jitter) ]\n\nExecution Lifecycle for Concurrent Tasks & Failure Resilience:\n1. Invocation & Context Bootstrapping: Initializes declarative execution environment and registers identifier bindings.\n2. Resource Management: Governs memory heap allocation and manages active handles.\n3. Event Loop Coordination: Coordinates non-blocking I/O phases with zero thread stalls.\n4. Clean Teardown: Drains microtasks and unhooks listeners to prevent memory retention cycles.",
       key_takeaways = ["Concurrent Tasks & Failure Resilience relies on predictable execution patterns to maintain deterministic throughput and low tail latency.","Identifiers, buffers, and closures must be managed defensively to prevent unintended memory retention in the V8 heap.","Asynchronous boundaries must always be bounded with explicit timeouts and structured error handling.","Monitoring event loop lag and heap allocations provides instant visibility into operational bottlenecks."],
-      interview_pitfalls = ["Assuming operations in Concurrent Tasks & Failure Resilience complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."]
+      interview_pitfalls = ["Assuming operations in Concurrent Tasks & Failure Resilience complete instantaneously without measuring event loop blocking and CPU consumption.","Failing to register error listeners or catch promise rejections, risking uncaughtException process termination.","Overlooking memory retention cycles when managing long-lived closures, event emitters, or stream buffers."],
+      diagram = "imgs/books/nodejs-design-patterns/B18437_04_05.png",
+      diagram_caption = "Figure 9.3: Concurrency-limited asynchronous execution queue with bounded task pool (Node.js Design Patterns 4th Ed).",
+      diagram_alt = "Concurrency-Limited Task Pool Execution"
     },
     videos = [
         {
@@ -234,7 +267,10 @@ chapters = [
             definition = "Why streams? is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Why streams?:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Why streams? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Why streams? execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+            image_caption = "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+            image_alt = "Duplex and Transform Stream Buffer Architecture"
           }
         },
         {
@@ -254,7 +290,10 @@ chapters = [
             definition = "Readable streams is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Readable streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+            image_caption = "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+            image_alt = "Duplex and Transform Stream Buffer Architecture"
           }
         },
         {
@@ -274,7 +313,10 @@ chapters = [
             definition = "Using readable streams is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Using readable streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Using readable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+            image_caption = "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+            image_alt = "Duplex and Transform Stream Buffer Architecture"
           }
         },
         {
@@ -294,7 +336,10 @@ chapters = [
             definition = "Writable streams is a core architectural concept in **Asynchronous Control Flow, Concurrency Limiting & Resilience**. Learn advanced techniques for asynchronous programming and data streaming in Node.js.",
             mental_model = "Execution Flow for Writable streams:\n[ Source Call ] ---> [ Engine Call Stack ] ---> [ Lexical Environment ] ---> [ Event Loop / OS I/O ]\nEnsures zero-leak memory allocation and predictable throughput across application lifecycle phases.",
             code_example = "// Production Retry with Exponential Backoff and Full Jitter\nexport async function retryWithBackoff(fn, maxRetries = 3, baseDelayMs = 100, maxDelayMs = 2000) {\n  let attempt = 0;\n  while (true) {\n    try {\n      return await fn();\n    } catch (err) {\n      attempt++;\n      if (attempt > maxRetries) throw err;\n      \n      // Full jitter backoff formula\n      const exponential = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt));\n      const jitteredDelay = Math.random() * exponential;\n      await new Promise(resolve => setTimeout(resolve, jitteredDelay));\n    }\n  }\n}",
-            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments."
+            pitfalls = "Failing to handle asynchronous boundary errors or unhandled promise rejections during Writable streams execution, which can result in unhandledRejection crashes or resource leaks in high-load production environments.",
+            image = "imgs/books/nodejs-design-patterns/B18437_06_004.png",
+            image_caption = "Duplex and Transform stream internal read/write buffers and pipeline mechanics.",
+            image_alt = "Duplex and Transform Stream Buffer Architecture"
           }
         }
     ]
